@@ -1,0 +1,205 @@
+---
+title: "Temporal and sequential analysis for learning analytics"
+output: html_notebook
+author: Quan Nguyen, Postdoctoral Fellow, School of Information, University of Michigan
+---
+
+
+# Day 1: Sequence analysis using TraMineR - EDA
+# Day 2: Sequence analysis using TraMineR - Matching, clustering
+# Day 3: Association rule mining using priori algorithm
+
+## Loading libaries
+
+```{r}
+library(ggplot2)
+library(data.table)
+library(TraMineR)
+library(dplyr)
+library(tidyr)
+```
+
+```{r}
+library(TraMineR)
+data(mvad)
+seqstatl(mvad[, 17:86])
+mvad.alphabet <- c("employment", "FE", "HE", "joblessness", "school", 
+    "training")
+mvad.labels <- c("employment", "further education", "higher education", 
+    "joblessness", "school", "training")
+mvad.scodes <- c("EM", "FE", "HE", "JL", "SC", "TR")
+mvad.seq <- seqdef(mvad, 17:86, alphabet = mvad.alphabet, states = mvad.scodes, 
+    labels = mvad.labels, xtstep = 6)
+
+```
+```{r}
+head(mvad)
+```
+
+```{r}
+seqiplot(mvad.seq, with.legend = FALSE, title= "Index plot (10 first sequences")
+```
+```{r}
+seqIplot(mvad.seq, sortv = "from.start", with.legend = FALSE)
+```
+```{r}
+seqfplot(mvad.seq, withlegend = F, title = "Sequence frequency plot bar width proportional to the frequencies")
+```
+```{r}
+ seqdplot(mvad.seq, withlegend = F,  title = "State distribution plot")
+```
+
+
+# Import log data
+
+```{r}
+lasi21_logdata <- read_csv("lasi21_logdata.csv")
+lasi21_logdata$site_type <- ifelse(grepl("ssignment", lasi21_logdata$instancename), "assignment",lasi21_logdata$site_type )
+lasi21_logdata$site_type <- ifelse(grepl("exam", lasi21_logdata$instancename), "assignment",lasi21_logdata$site_type )
+
+lasi21_logdata <- as.data.table(lasi21_logdata[,c("id","date_time","spent_time","site_type","instancename")])
+head(lasi21_logdata)
+```
+
+# Data pre-processing
+```{r}
+# convert ms to minutes
+lasi21_logdata$spent_time_m <- round(lasi21_logdata$spent_time/60000, digits=1)
+
+# create a flag for session break (aka where time spent > 30 minutes)
+lasi21_logdata$session_flag = 0
+lasi21_logdata$session_flag <- ifelse(lasi21_logdata$spent_time_m>30, 1, lasi21_logdata$session_flag)
+
+# filter out all spent_time < 6s
+lasi21_logdata2 <- lasi21_logdata[spent_time>=6000,]
+
+# create session number 
+lasi21_logdata2 <- lasi21_logdata2 %>% 
+                        arrange(id,date_time,spent_time) %>% 
+                        mutate(session_num = cumsum(session_flag))
+# remove session break
+lasi21_logdata2 <- lasi21_logdata2[session_flag==0,]
+
+
+# for each learning session, calculate the cummulative time spent
+lasi21_logdata2 <- lasi21_logdata2 %>% 
+                        arrange(id,date_time,spent_time) %>% 
+                        group_by(session_num) %>% 
+                        mutate(spent_time_m_cum = cumsum(spent_time_m))
+
+# create time unit as 1/10 of a minute (6s)
+lasi21_logdata2$time_unit <- round(lasi21_logdata2$spent_time_m_cum*10,digits=0)
+
+
+hist(lasi21_logdata2$spent_time_m_cum, main="Learning session length", xlab = "Minutes", breaks=200)
+```
+
+# Transform data into STS format
+```{r}
+# create a function to expand time unit for each learning session
+
+f1 <- function(x1){
+    x1 <- 1:max(x1)
+    m1 <- max(c(length(x1)))
+    length(x1) <- m1
+    list(time_unit = x1)
+}
+
+# create a subset
+lasi21_logdata3 <- lasi21_logdata2[,c("session_num","time_unit","site_type")]
+
+# create an expanded df
+test <- setDT(lasi21_logdata3)[, f1(time_unit), .(session_num)]
+
+# merge with log data
+test <- merge(test,lasi21_logdata3,by=c("session_num","time_unit"),all.x=TRUE)
+
+# fill missing upward
+test <- test %>% fill(site_type,.direction = "up")
+```
+
+
+
+```{r}
+# Sequence length distribution
+hist(lasi21_logdata3[,max(time_unit), by="session_num"]$V1, breaks=100, main="Length of learning session", xlab='Sequence length')
+```
+
+```{r}
+# cummulative plot of seq length
+plot(ecdf(lasi21_logdata3[,max(time_unit), by="session_num"]$V1), main ='Cummulative distribution of seq length')
+```
+# Define sequences
+
+```{r}
+# convert to STS format (wide format)
+log_sts <- spread(test, time_unit, site_type)
+
+# define sequences columns
+log_sts.seq <- seqdef(log_sts,2:1200)
+```
+
+# EDA
+
+```{r}
+# plot the first 10 sequences with length=100
+layout(matrix(c(1,1,2,1,1,2,3,4,4), nrow = 1, ncol = 3, byrow = TRUE))
+seqiplot(log_sts.seq[611:621,1:100], withlegend = F, title = "Index plot (10 first sequences)")
+seqlegend(log_sts.seq)
+```
+
+
+```{r}
+# State distribution plot
+layout(matrix(c(1,1,2,1,1,2,3,4,4), nrow = 1, ncol = 3, byrow = TRUE))
+seqdplot(log_sts.seq[,1:200], title = "State distribution plot", withlegend = FALSE)
+seqlegend(log_sts.seq)
+```
+
+```{r}
+# Sequence frequency plot
+
+layout(matrix(c(1,1,2,1,1,2,3,4,4), nrow = 1, ncol = 3, byrow = TRUE))
+seqfplot(log_sts.seq[,1:200], title = "Sequence frequency plot", withlegend = FALSE, pbarw = TRUE)
+seqlegend(log_sts.seq)
+```
+```{r}
+# Stability within sequences
+# Shannon's entropy as a measure of the diversity of states observed at the considered time point
+# It equals 0 when all cases are in the same state  (it is thus easy to predict in which state an individual is)
+# It is maximum when the cases are equally distributed between the states
+seqHtplot(log_sts.seq[,1:200], title = "Entropy index")
+```
+
+```{r}
+# Turbulence
+Turbulence <- seqST(log_sts.seq[,1:200])
+summary(Turbulence)
+hist(Turbulence, col = "cyan", main = "Sequence turbulence",breaks=50)
+
+```
+
+```{r}
+# Transitions of events
+
+# define seq transitions
+log_sts.seqe <- seqecreate(log_sts.seq[,1:200])
+
+# find frequent subsequences
+fsubseq <- seqefsub(log_sts.seqe, pMinSupport = 0.05)
+
+# plot 15 most frequent subsquences
+plot(fsubseq[1:15], col = "cyan", main="Top 15 frequent subsequences")
+
+```
+
+
+
+
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
