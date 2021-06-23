@@ -1,0 +1,312 @@
+---
+title: "Temporal and sequential analysis for learning analytics"
+author: "Quan Nguyen, Postdoctoral Fellow, School of Information, University of Michigan"
+output: html_notebook
+---
+
+
+# Day 1: Sequence analysis using TraMineR - EDA
+# Day 2: Sequence analysis using TraMineR - Matching, clustering
+# Day 3: Association rule mining using priori algorithm
+
+## Loading libaries
+
+```{r}
+library(readr)
+library(ggplot2)
+library(data.table)
+library(TraMineR)
+library(dplyr)
+library(tidyr)
+```
+
+```{r}
+library(TraMineR)
+data(mvad)
+seqstatl(mvad[, 17:86])
+mvad.alphabet <- c("employment", "FE", "HE", "joblessness", "school", 
+    "training")
+mvad.labels <- c("employment", "further education", "higher education", 
+    "joblessness", "school", "training")
+mvad.scodes <- c("EM", "FE", "HE", "JL", "SC", "TR")
+mvad.seq <- seqdef(mvad, 17:86, alphabet = mvad.alphabet, states = mvad.scodes, 
+    labels = mvad.labels, xtstep = 6)
+
+```
+```{r}
+head(mvad)
+```
+
+```{r}
+seqiplot(mvad.seq, with.legend = FALSE, title= "Index plot (10 first sequences")
+```
+```{r}
+seqIplot(mvad.seq, sortv = "from.start", with.legend = FALSE)
+```
+```{r}
+seqfplot(mvad.seq, withlegend = F, title = "Sequence frequency plot bar width proportional to the frequencies")
+```
+```{r}
+ seqdplot(mvad.seq, withlegend = F,  title = "State distribution plot")
+```
+
+
+# Import log data
+
+```{r}
+lasi21_logdata <- read_csv("lasi21_logdata.csv")
+lasi21_logdata$site_type <- ifelse(grepl("ssignment", lasi21_logdata$instancename), "assignment",lasi21_logdata$site_type )
+lasi21_logdata$site_type <- ifelse(grepl("exam", lasi21_logdata$instancename), "assignment",lasi21_logdata$site_type )
+
+lasi21_logdata <- as.data.table(lasi21_logdata[,c("id","date_time","spent_time","site_type","instancename","PassFlag","avg score")])
+head(lasi21_logdata)
+```
+
+# Data pre-processing
+```{r}
+# convert ms to minutes
+lasi21_logdata$spent_time_m <- round(lasi21_logdata$spent_time/60000, digits=1)
+
+# filter out all spent_time < 6s
+lasi21_logdata2 <- lasi21_logdata %>% filter(spent_time>6000)
+
+# create a flag for session break (the first click per student)
+lasi21_logdata2$session_flag = 0
+lasi21_logdata2 <- lasi21_logdata2 %>% arrange(id,date_time,spent_time) %>% 
+    group_by(id) %>%
+    mutate(session_flag  = +(row_number() %in% 1))
+
+# create a flag for session break (aka where time spent > 30 minutes)
+lasi21_logdata2$session_flag <- ifelse(lasi21_logdata2$spent_time_m>30, 1, lasi21_logdata2$session_flag)
+
+# create session number 
+lasi21_logdata2$session_num = cumsum(lasi21_logdata2$session_flag)
+
+# remove session break
+lasi21_logdata2 <- as.data.table(lasi21_logdata2)
+lasi21_logdata2 <- lasi21_logdata2[session_flag!=1,]
+
+
+# for each learning session, calculate the cummulative time spent
+lasi21_logdata2 <- lasi21_logdata2 %>% 
+                        arrange(id,date_time,spent_time) %>% 
+                        group_by(session_num) %>% 
+                        mutate(spent_time_m_cum = cumsum(spent_time_m))
+
+# create time unit as 1/10 of a minute (6s)
+lasi21_logdata2$time_unit <- round(lasi21_logdata2$spent_time_m_cum*10,digits=0)
+
+lasi21_logdata_session <- lasi21_logdata2 %>% group_by(session_num) %>% top_n(1, spent_time_m_cum)
+
+hist(lasi21_logdata_session$spent_time_m_cum, main="Learning session length", xlab = "Minutes", breaks=200)
+
+# Remove learning session < 5 mins
+lasi21_logdata2 <- merge(lasi21_logdata2,lasi21_logdata_session[lasi21_logdata_session$spent_time_m_cum>5 & lasi21_logdata_session$spent_time_m_cum<120, c("session_num")])
+
+```
+
+# Transform data into STS format
+```{r}
+# create a function to expand time unit for each learning session
+
+f1 <- function(x1){
+    x1 <- 1:max(x1)
+    m1 <- max(c(length(x1)))
+    length(x1) <- m1
+    list(time_unit = x1)
+}
+
+# create a subset
+lasi21_logdata3 <- lasi21_logdata2[,c("session_num","time_unit","site_type")]
+
+# create an expanded df
+test <- setDT(lasi21_logdata3)[, f1(time_unit), .(session_num)]
+
+# merge with log data
+test <- merge(test,lasi21_logdata3,by=c("session_num","time_unit"),all.x=TRUE)
+
+# fill missing upward
+test <- test %>% fill(site_type,.direction = "up")
+```
+
+
+
+```{r}
+# Sequence length distribution
+hist(lasi21_logdata3[,max(time_unit), by="session_num"]$V1, breaks=100, main="Length of learning session", xlab='Sequence length')
+```
+
+```{r}
+# cummulative plot of seq length
+plot(ecdf(lasi21_logdata3[,max(time_unit), by="session_num"]$V1), main ='Cummulative distribution of seq length')
+```
+# Define sequences
+
+```{r}
+# convert to STS format (wide format)
+log_sts <- spread(test, time_unit, site_type)
+
+# define sequences columns
+log_sts.seq <- seqdef(log_sts,2:1200)
+
+```
+
+# EDA
+
+```{r}
+# plot the first 10 sequences with length=100
+layout(matrix(c(1,1,1,2), nrow=1, byrow=TRUE))
+seqiplot(log_sts.seq[611:631,1:100], with.legend = F, main = "Index plot (10 first sequences)")
+seqlegend(log_sts.seq)
+```
+```{r}
+# Plot 200 sequences sorted by LCS (longest common subsequence) distance
+dist.mostfreq <- seqdist(log_sts.seq, method = "LCS", refseq = 0)
+seqIplot(log_sts.seq[1:200,1:200], border = NA, sortv = dist.mostfreq, with.legend=F)
+```
+
+
+```{r}
+# State distribution plot
+layout(matrix(c(1,1,1,2), nrow=1, byrow=TRUE))
+seqdplot(log_sts.seq[,1:200], main = "State distribution plot", with.legend = FALSE)
+seqlegend(log_sts.seq)
+```
+
+```{r}
+# Sequence frequency plot
+layout(matrix(c(1,1,1,2), nrow=1, byrow=TRUE))
+seqfplot(log_sts.seq[,1:200], main = "Sequence frequency plot", with.legend = FALSE, pbarw = TRUE)
+seqlegend(log_sts.seq)
+```
+```{r}
+# mean time by state
+layout(matrix(c(1,1,1,2), nrow=1, byrow=TRUE))
+seqmtplot(log_sts.seq[,1:200], main = "Mean time plot", with.legend = FALSE)
+seqlegend(log_sts.seq)
+```
+
+```{r}
+# Stability within sequences
+# Shannon's entropy as a measure of the diversity of states observed at the considered time point
+# It equals 0 when all cases are in the same state  (it is thus easy to predict in which state an individual is)
+# It is maximum when the cases are equally distributed between the states
+seqHtplot(log_sts.seq[,1:200], title = "Entropy index")
+```
+
+```{r}
+# Turbulence
+Turbulence <- seqST(log_sts.seq[,1:200])
+summary(Turbulence)
+hist(Turbulence, col = "cyan", main = "Sequence turbulence",breaks=50)
+
+```
+
+```{r}
+# Transitions of events
+
+# define seq transitions
+log_sts.seqe <- seqecreate(log_sts.seq[,1:200])
+
+# find frequent subsequences
+fsubseq <- seqefsub(log_sts.seqe, pMinSupport = 0.05)
+
+# plot 15 most frequent subsquences
+plot(fsubseq[1:15], col = "cyan", main="Top 15 frequent subsequences")
+
+```
+
+# Sequence similarities and clustering
+
+```{r}
+# Compute sequence distances using OM with transition rate as substitution cost
+log_sts.seq.om1 <- round(seqdist(log_sts.seq[1:1000,1:200], method = "OM", indel = 1, sm = "CONSTANT"),2)
+```
+```{r}
+# apply agglomerate hierarchical clustering
+library(cluster)
+clusterward <- agnes(log_sts.seq.om1, diss = TRUE, method = "ward")
+hcd <- as.dendrogram(clusterward)
+plot(hcd, which.plots = 2, main="Dendogram of sequences clustering", leaflab = "none")
+```
+```{r}
+library(factoextra)
+# Plot scree plot using wss
+fviz_nbclust(log_sts.seq.om1, FUN = hcut, method = "wss")
+```
+```{r}
+# Plot Silhouette 
+fviz_nbclust(log_sts.seq.om1, FUN = hcut, method = "silhouette")+
+labs(subtitle = "Silhouette method")
+```
+```{r}
+# Use k=3 as the number of cluster
+cluster3 <- cutree(clusterward, k = 3)
+cluster3 <- factor(HC3c, labels = paste("Type", 1:3))
+table(cluster3)
+```
+```{r}
+# frequency plot of sequences by cluster
+seqfplot(log_sts.seq[1:1000,1:200], group = cluster3, pbarw = T)
+```
+
+```{r}
+# mean time plot of states by cluster membership
+seqmtplot(log_sts.seq[1:1000,1:200], group = cluster3)
+```
+```{r}
+# layout(matrix(c(1,1,1,2), nrow=1, byrow=TRUE))
+seqdplot(log_sts.seq[1:1000,1:200], group = cluster3, border = NA, with.legend = T)
+# seqlegend(log_sts.seq)
+
+```
+
+```{r}
+# made up covariates for 1000 sequences (e.g., condition, grade, survey_metric1, survey_metric2)
+covar <- data.frame(matrix(ncol = 4, nrow = 1000))
+colnames(covar) <- c("condition", "grade", "surveymetric1", "surveymetric2")
+
+set.seed(123)
+covar$condition <- sample(x=c("Control","Treatment"),1000,prob=c(0.5,0.5),replace=T)
+
+set.seed(123)
+covar$grade <- round(rnorm(1000, mean=60, sd=10),0)
+
+set.seed(123)
+covar$surveymetric1 <- sample(x=1:5, prob = c(0.1,0.2,0.4,0.2,0.1), replace = T)
+
+set.seed(123)
+covar$surveymetric2 <- sample(x=1:5, prob = c(0.1,0.2,0.3,0.3,0.1), replace = T)
+```
+
+```{r}
+library(gtsummary)
+
+# run logistic regression for each cluster of sequences
+reglog <- list()
+for (i in 1:length(levels(cluster3))) {reglog[[i]] <- glm((cluster3 == levels(cluster3)[i]) ~ 
+                                                            condition + grade + surveymetric1 + surveymetric2, 
+                                                            family = "binomial", 
+                                                            data = covar)}
+# create nice summary output using gtsummary package 
+# http://www.danieldsjoberg.com/gtsummary/articles/tbl_regression.html
+tbls <- list()
+for (i in 1:length(levels(cluster3))) {tbls[[i]] <- tbl_regression(reglog[[i]], exponentiate = TRUE)}
+
+tbl_merge(
+    tbls = tbls,
+    tab_spanner = c("**Type 1**", "**Type 2**", "**Type 3**")
+  )
+```
+
+# Comparison of sequences
+
+```{r}
+# Plot sequences by group
+dist.refseq <- seqdist(log_sts.seq[1:1000,1:200], refseq = 0, method = "LCS")
+
+seqIplot(log_sts.seq[1:1000,1:200], group = covar$condition, sortv = dist.refseq, with.legend = "right")
+```
+
+
+
