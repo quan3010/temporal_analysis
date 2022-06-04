@@ -5,8 +5,8 @@
 **Instructor**: Quan Nguyen, Ph.D., Teaching Fellow, Master of Data Science  
 Department of Statistics, University of British Columbia
 
-- [GitHub Repository](https://google.com)
-- [Course Jupyter Book](https://google.com)
+- [GitHub Repository](https://github.com/quan3010/temporal_analysis)
+- [Course Jupyter Book](https://quan3010.github.io/temporal_analysis/README.html)
 - [Zoom link](https://google.com)
 
 **About the workshop**:
@@ -22,10 +22,35 @@ This workshop is designed for anyone interested in temporal/sequential analysis.
 ## Environment set up 
 The workshop will use R and draw on packages such as `tramineR`, `fpp3`, and `keras`. 
 
-You can install all the dependencies you need for the course using `conda`:
+You can install all the dependencies you need for the workshop using [renv](https://rstudio.github.io/renv/articles/renv.html):
+Using renv, you can create and manage the R library environment for your project, save the state of these libraries to a lockfile, and later restore libraries as required. Together, these tools can help make projects more isolated, portable, and reproducible.
 
+**Step 1: Clone the github repo and open the Rproject**
+
+In the Rstudio console, type
 ```sh
-conda env create -f mds574.yaml
+renv::restore()
+```
+* Open Terminal.
+* Change the current working directory to the location where you want the cloned directory.
+* Type in the terminal: 
+```sh
+git clone https://github.com/quan3010/temporal_analysis
+```
+* Navigate to the repo, open the `temporal.Rproj` to set up the Rproject for this workshop
+
+**Step 2: Load all dependencies & required packages**
+
+In the Rstudio console, type
+```sh
+renv::restore()
+```
+
+**Step 3: Deactivate the virtual environment when you are finished**
+
+In the Rstudio console, type
+```sh
+renv::deactivate()
 ```
 
 ## About instructor
