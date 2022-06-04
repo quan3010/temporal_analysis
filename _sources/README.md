@@ -1,20 +1,23 @@
 ![](img/solar_logo.png)
 
 # Workshop 5: Temporal and sequential analysis  
-
-**Instructor**: Quan Nguyen, Ph.D., Teaching Fellow, Master of Data Science  
-Department of Statistics, University of British Columbia
+Data in learning analytics research (e.g. SIS, clickstream, log-files) are often rich in temporal features that could allow us to explore the dynamic changes in learning behavior at different time granularities (e.g. seconds, days, weeks, semesters). This workshop will introduce participants to several common temporal/sequential analysis methods and techniques using R. During the workshop, we will discuss how temporal analysis can be applied to answer RQs in learning analytics and which learning constructs are relevant to temporal analysis. Next, we will go through techniques to explore and visualize temporal/sequential data. Participants will learn and apply two types of temporal models: a) explanatory models using statistical techniques, such as Sequence Analysis with application to identify common patterns of learning activities from log data and b) association rule mining (apriori) with application to detect courses that are frequently taken together and create association rules for course recommendations. 
 
 - [GitHub Repository](https://github.com/quan3010/temporal_analysis)
 - [Course Jupyter Book](https://quan3010.github.io/temporal_analysis/README.html)
 - [Zoom link](https://google.com)
 
-**About the workshop**:
+## Instructor
+Quan Nguyen, Ph.D., Department of Statistics, University of British Columbia
 
-Data in learning analytics research (e.g. SIS, clickstream, log-files) are often rich in temporal features that could allow us to explore the dynamic changes in learning behavior at different time granularities (e.g. seconds, days, weeks, semesters). This workshop will introduce participants to several common temporal/sequential analysis methods and techniques using R. During the workshop, we will discuss how temporal analysis can be applied to answer RQs in learning analytics and which learning constructs are relevant to temporal analysis. Next, we will go through techniques to explore and visualize temporal/sequential data. Participants will learn and apply two types of temporal models: a) explanatory models using statistical techniques, such as Sequence Analysis with application to identify common patterns of learning activities from log data and b) association rule mining (apriori) with application to detect courses that are frequently taken together and create association rules for course recommendations.   
+I am a Teaching Fellow at the UBC Master of Data Science where I develop and teach data science courses. Prior to UBC, I was a Postdoctoral Research Fellow in Learning Analytics at the School of Information, University of Michigan. My research focuses on analysing digital traces in educational settings to detect temporal discrepancies between course design and student engagement, and the subsequent effects on academic performance. My second research strand is to model peer interactions and peer influence on academic choices and performance. 
 
+## Learning objectives
+- LO1
+- L02
+- L03
 
-**Target Audience**:
+## Target Audience
 
 This workshop is designed for anyone interested in temporal/sequential analysis. No experience in temporal and sequential analysis is required. To get the best learning experience, participants should familiarize themselves with basic statistics and machine learning concepts (e.g. regression, variance, autocorrelation, classification, cross-validation, overfitting).  
 
@@ -50,9 +53,6 @@ In the Rstudio console, type
 ```sh
 renv::deactivate()
 ```
-
-## About instructor
-I am a Teaching Fellow at the UBC Master of Data Science where I develop and teach data science courses. Prior to UBC, I was a Postdoctoral Research Fellow in Learning Analytics at the School of Information, University of Michigan. My research focuses on analysing digital traces in educational settings to detect temporal discrepancies between course design and student engagement, and the subsequent effects on academic performance. My second research strand is to model peer interactions and peer influence on academic choices and performance. My work employed a wide range of statistical and computational techniques, such as multilevel modeling, network analysis, time-series/temporal analysis, and machine learning. My work has received multiple best paper awards at established conferences (e.g. LAK18 and HCI International 17). 
 
 ## Agenda
 
