@@ -1,0 +1,1057 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CHANGES IN xfun VERSION 0.31 &#8212; Temporal and sequential analysis - LASI 2022</title>
+    
+  <link href="../../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../_static/togglebutton.js"></script>
+    <script src="../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../../../_static/solar_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Temporal and sequential analysis - LASI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture1.html">
+   Lecture 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture2.html">
+   Lecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture3.html">
+   Lecture 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Labs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab1.html">
+   Lab 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab2.html">
+   Lab 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab3.html">
+   Lab 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Quan Nguyen<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../../_sources/temporal/renv/library/R-4.1/aarch64-apple-darwin20/xfun/NEWS.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/quan3010/temporal_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/quan3010/temporal_analysis/issues/new?title=Issue%20on%20page%20%2Ftemporal/renv/library/R-4.1/aarch64-apple-darwin20/xfun/NEWS.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   CHANGES IN xfun VERSION 0.31
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-30">
+   CHANGES IN xfun VERSION 0.30
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-29">
+   CHANGES IN xfun VERSION 0.29
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-28">
+   CHANGES IN xfun VERSION 0.28
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-27">
+   CHANGES IN xfun VERSION 0.27
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-26">
+   CHANGES IN xfun VERSION 0.26
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-25">
+   CHANGES IN xfun VERSION 0.25
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-24">
+   CHANGES IN xfun VERSION 0.24
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-23">
+   CHANGES IN xfun VERSION 0.23
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-features">
+     NEW FEATURES
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bug-fixes">
+     BUG FIXES
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minor-changes">
+     MINOR CHANGES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-22">
+   CHANGES IN xfun VERSION 0.22
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     NEW FEATURES
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#major-changes">
+     MAJOR CHANGES
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     MINOR CHANGES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-21">
+   CHANGES IN xfun VERSION 0.21
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     NEW FEATURES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-20">
+   CHANGES IN xfun VERSION 0.20
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     NEW FEATURES
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     BUG FIXES
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     MINOR CHANGES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-19">
+   CHANGES IN xfun VERSION 0.19
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     NEW FEATURES
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     MINOR CHANGES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-18">
+   CHANGES IN xfun VERSION 0.18
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     NEW FEATURES
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     MINOR CHANGES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-17">
+   CHANGES IN xfun VERSION 0.17
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     NEW FEATURES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-16">
+   CHANGES IN xfun VERSION 0.16
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-15">
+   CHANGES IN xfun VERSION 0.15
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     NEW FEATURES
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     BUG FIXES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-14">
+   CHANGES IN xfun VERSION 0.14
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
+     NEW FEATURES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-13">
+   CHANGES IN xfun VERSION 0.13
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id15">
+     NEW FEATURES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-12">
+   CHANGES IN xfun VERSION 0.12
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id16">
+     NEW FEATURES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-11">
+   CHANGES IN xfun VERSION 0.11
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id17">
+     BUG FIXES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-10">
+   CHANGES IN xfun VERSION 0.10
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id18">
+     NEW FEATURES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-9">
+   CHANGES IN xfun VERSION 0.9
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id19">
+     NEW FEATURES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-8">
+   CHANGES IN xfun VERSION 0.8
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id20">
+     MINOR CHANGES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-7">
+   CHANGES IN xfun VERSION 0.7
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id21">
+     MINOR CHANGES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-6">
+   CHANGES IN xfun VERSION 0.6
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id22">
+     NEW FEATURES
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id23">
+     BUG FIXES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-5">
+   CHANGES IN xfun VERSION 0.5
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id24">
+     NEW FEATURES
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id25">
+     BUG FIXES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-4">
+   CHANGES IN xfun VERSION 0.4
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id26">
+     NEW FEATURES
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id27">
+     MINOR CHANGES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-3">
+   CHANGES IN xfun VERSION 0.3
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id28">
+     NEW FEATURES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-2">
+   CHANGES IN xfun VERSION 0.2
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id29">
+     NEW FEATURES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-in-xfun-version-0-1">
+   CHANGES IN xfun VERSION 0.1
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id30">
+     NEW FEATURES
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-31">
+<h1>CHANGES IN xfun VERSION 0.31<a class="headerlink" href="#changes-in-xfun-version-0-31" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">github_releases(use_jsonlite</span> <span class="pre">=</span> <span class="pre">FALSE)</span></code> supports R versions below 4.1.0 now.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">session_info()</span></code> silently drops empty package names now (thanks, &#64;phargarten2, #65).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-30">
+<h1>CHANGES IN xfun VERSION 0.30<a class="headerlink" href="#changes-in-xfun-version-0-30" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added a new function <code class="docutils literal notranslate"><span class="pre">is_blank()</span></code> (previously existed in <strong>knitr</strong>) to test if all elements of a character vector are blank (white spaces or empty strings).</p></li>
+<li><p>Added a new argument <code class="docutils literal notranslate"><span class="pre">error</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> to <code class="docutils literal notranslate"><span class="pre">existing_files()</span></code>.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-29">
+<h1>CHANGES IN xfun VERSION 0.29<a class="headerlink" href="#changes-in-xfun-version-0-29" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">github_releases()</span></code> can fetch all releases (tags) of a Github repo now.</p></li>
+<li><p>Added an argument <code class="docutils literal notranslate"><span class="pre">.error</span></code> to <code class="docutils literal notranslate"><span class="pre">download_file()</span></code> so that users can customize the error message when the download fails.</p></li>
+<li><p>Added functions <code class="docutils literal notranslate"><span class="pre">rest_api_raw()</span></code> and <code class="docutils literal notranslate"><span class="pre">rest_api()</span></code> to get data from a REST API; also added the function <code class="docutils literal notranslate"><span class="pre">github_api()</span></code> to get data from the Github API based on <code class="docutils literal notranslate"><span class="pre">rest_api_raw()</span></code>.</p></li>
+<li><p>Added a wrapper function <code class="docutils literal notranslate"><span class="pre">system3()</span></code> based on <code class="docutils literal notranslate"><span class="pre">system2()</span></code> to mark the character output of <code class="docutils literal notranslate"><span class="pre">system2()</span></code> as UTF-8 if appropriate.</p></li>
+<li><p>Added a function <code class="docutils literal notranslate"><span class="pre">existing_files()</span></code> to return file paths that exist (a shorthand of <code class="docutils literal notranslate"><span class="pre">x[file.exists(x)]</span></code>).</p></li>
+<li><p>Added a function <code class="docutils literal notranslate"><span class="pre">read_all()</span></code> to read multiple files and concatenate the content into a character vector.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">url_accessible()</span></code> uses <code class="docutils literal notranslate"><span class="pre">curlGetHeaders()</span></code> by default (instead of <code class="docutils literal notranslate"><span class="pre">download_file()</span></code>) to test if a URL is accessible when the <strong>curl</strong> package is not available.</p></li>
+<li><p>When <code class="docutils literal notranslate"><span class="pre">options(xfun.rev_check.compare</span> <span class="pre">=</span> <span class="pre">FALSE)</span></code>, <code class="docutils literal notranslate"><span class="pre">rev_check()</span></code> will run <code class="docutils literal notranslate"><span class="pre">R</span> <span class="pre">CMD</span> <span class="pre">check</span></code> on reverse dependencies against a source package but not the CRAN version of this package. By default, this option is <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>, meaning that <code class="docutils literal notranslate"><span class="pre">R</span> <span class="pre">CMD</span> <span class="pre">check</span></code> will run against both versions of the package.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-28">
+<h1>CHANGES IN xfun VERSION 0.28<a class="headerlink" href="#changes-in-xfun-version-0-28" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added a new function <code class="docutils literal notranslate"><span class="pre">url_accessible()</span></code> to test if a URL can be downloaded.</p></li>
+<li><p>Added a new function <code class="docutils literal notranslate"><span class="pre">try_error()</span></code> to try an expression and see if it throws an error.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-27">
+<h1>CHANGES IN xfun VERSION 0.27<a class="headerlink" href="#changes-in-xfun-version-0-27" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Exported and documented the function <code class="docutils literal notranslate"><span class="pre">xfun::base_pkgs()</span></code> (to return base R package names).</p></li>
+<li><p>Changed the default value of the <code class="docutils literal notranslate"><span class="pre">status_only</span></code> argument of <code class="docutils literal notranslate"><span class="pre">compare_Rcheck()</span></code> from <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> to <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>.</p></li>
+<li><p>Added new functions <code class="docutils literal notranslate"><span class="pre">crandalf_check()</span></code> and <code class="docutils literal notranslate"><span class="pre">crandalf_results()</span></code> for checking (especially large numbers of) reverse dependencies of packages via <a class="reference external" href="https://github.com/yihui/crandalf"><strong>crandalf</strong></a>.</p></li>
+<li><p>Added new functions <code class="docutils literal notranslate"><span class="pre">append_utf8()</span></code> and <code class="docutils literal notranslate"><span class="pre">append_unique()</span></code> based on <code class="docutils literal notranslate"><span class="pre">read_utf8()</span></code> and <code class="docutils literal notranslate"><span class="pre">write_utf8()</span></code> to append content to files or connections.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-26">
+<h1>CHANGES IN xfun VERSION 0.26<a class="headerlink" href="#changes-in-xfun-version-0-26" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">windows_only</span></code> argument of <code class="docutils literal notranslate"><span class="pre">native_encode()</span></code> has been removed. Now <code class="docutils literal notranslate"><span class="pre">native_encode()</span></code> only tries the conversion to native encoding on platforms where <code class="docutils literal notranslate"><span class="pre">l10n_info()[['UTF-8']]</span></code> does not return <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>.</p></li>
+<li><p>Added a <code class="docutils literal notranslate"><span class="pre">solaris</span></code> argument to <code class="docutils literal notranslate"><span class="pre">upload_win_builder()</span></code>.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-25">
+<h1>CHANGES IN xfun VERSION 0.25<a class="headerlink" href="#changes-in-xfun-version-0-25" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed a bug in <code class="docutils literal notranslate"><span class="pre">broken_packages()</span></code> (thanks, &#64;PythonCoderUnicorn, rstudio/rmarkdown#1990).</p></li>
+<li><p>Added a <code class="docutils literal notranslate"><span class="pre">files</span></code> argument to <code class="docutils literal notranslate"><span class="pre">optipng()</span></code> so that users can specify the list of PNG files instead of running <code class="docutils literal notranslate"><span class="pre">optipng</span></code> on a whole directory.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-24">
+<h1>CHANGES IN xfun VERSION 0.24<a class="headerlink" href="#changes-in-xfun-version-0-24" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Exported the internal function <code class="docutils literal notranslate"><span class="pre">broken_packages()</span></code> to reinstall broken R packages.</p></li>
+<li><p>Fixed the bug in <code class="docutils literal notranslate"><span class="pre">proj_root()</span></code> #54 (thanks, &#64;clarkliming).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-23">
+<h1>CHANGES IN xfun VERSION 0.23<a class="headerlink" href="#changes-in-xfun-version-0-23" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="new-features">
+<h2>NEW FEATURES<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Added a <code class="docutils literal notranslate"><span class="pre">tinify()</span></code> function to compress PNG/JPEG images via <a class="reference external" href="https://tinypng.com/developers">the Tinify API</a>.</p></li>
+<li><p>Added a <code class="docutils literal notranslate"><span class="pre">news2md()</span></code> function to convert package news to the Markdown format. This is mainly for converting the plain-text <code class="docutils literal notranslate"><span class="pre">NEWS</span></code> file and the <code class="docutils literal notranslate"><span class="pre">NEWS.Rd</span></code> file to <code class="docutils literal notranslate"><span class="pre">NEWS.md</span></code>.</p></li>
+<li><p>Added a <code class="docutils literal notranslate"><span class="pre">format_bytes()</span></code> function to format numbers of bytes using a specified unit, e.g., <code class="docutils literal notranslate"><span class="pre">1024</span></code> can be formatted as <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">Kb</span></code>.</p></li>
+<li><p>When using <code class="docutils literal notranslate"><span class="pre">pkg_load2()</span></code> in an <strong>renv</strong> project, it will use <code class="docutils literal notranslate"><span class="pre">renv::install()</span></code> to install missing packages by default to take advantage of <strong>renv</strong>’s caching feature (thanks, &#64;chunyunma &#64;cderv, #52).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">upload_win_builder()</span></code> no longer requires the system command <code class="docutils literal notranslate"><span class="pre">curl</span></code> to be available; if <code class="docutils literal notranslate"><span class="pre">curl</span></code> is not available, the R package <strong>curl</strong> will be used instead, which means this R package must be installed. In addition to uploading to the <code class="docutils literal notranslate"><span class="pre">ftp</span></code> server of win-builder, it’s also possible to upload to <a class="reference external" href="https://win-builder.r-project.org/upload.aspx">https://win-builder.r-project.org/upload.aspx</a>: call <code class="docutils literal notranslate"><span class="pre">upload_win_builder(...,</span> <span class="pre">server</span> <span class="pre">=</span> <span class="pre">'https')</span></code>. This change was made so that it would be possible to continue to upload to win-builder in case it should stop supporting <code class="docutils literal notranslate"><span class="pre">ftp</span></code> (CRAN has discouraged package authors from using <code class="docutils literal notranslate"><span class="pre">ftp://</span></code>).</p></li>
+</ul>
+</div>
+<div class="section" id="bug-fixes">
+<h2>BUG FIXES<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Backticks are added to math environments by mistake when <code class="docutils literal notranslate"><span class="pre">\begin{}</span></code> and <code class="docutils literal notranslate"><span class="pre">\end{}</span></code> do not match (thanks, &#64;oliviergimenez, #51).</p></li>
+</ul>
+</div>
+<div class="section" id="minor-changes">
+<h2>MINOR CHANGES<a class="headerlink" href="#minor-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The argument <code class="docutils literal notranslate"><span class="pre">src</span></code> was renamed to <code class="docutils literal notranslate"><span class="pre">pkg</span></code> in <code class="docutils literal notranslate"><span class="pre">install_dir()</span></code>.</p></li>
+<li><p>The argument <code class="docutils literal notranslate"><span class="pre">file</span></code> of <code class="docutils literal notranslate"><span class="pre">upload_win_builder()</span></code> defaults to <code class="docutils literal notranslate"><span class="pre">pkg_build()</span></code> now, i.e., by default, it will build a source package and upload it, so you do not need to build the package separately.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-22">
+<h1>CHANGES IN xfun VERSION 0.22<a class="headerlink" href="#changes-in-xfun-version-0-22" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>NEW FEATURES<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">relative_path()</span></code> is vectorized now.</p></li>
+<li><p>Added a new function <code class="docutils literal notranslate"><span class="pre">retry()</span></code> to retry calling a function for a number of times in case of errors.</p></li>
+<li><p>Added a new function <code class="docutils literal notranslate"><span class="pre">sort_file()</span></code>, which is a shorthand for <code class="docutils literal notranslate"><span class="pre">process_file(fun</span> <span class="pre">=</span> <span class="pre">sort)</span></code> to sort the lines in a text file.</p></li>
+</ul>
+</div>
+<div class="section" id="major-changes">
+<h2>MAJOR CHANGES<a class="headerlink" href="#major-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The argument <code class="docutils literal notranslate"><span class="pre">FUN</span></code> was renamed to <code class="docutils literal notranslate"><span class="pre">fun</span></code> in <code class="docutils literal notranslate"><span class="pre">process_file()</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>MINOR CHANGES<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Inside <code class="docutils literal notranslate"><span class="pre">download_file()</span></code>, the <code class="docutils literal notranslate"><span class="pre">timeout</span></code> option in <code class="docutils literal notranslate"><span class="pre">options()</span></code> is set to 3600 seconds when it takes the default value of 60 seconds, which may not be enough for downloading large files (thanks, &#64;matthewgson, yihui/tinytex#286).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-21">
+<h1>CHANGES IN xfun VERSION 0.21<a class="headerlink" href="#changes-in-xfun-version-0-21" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id3">
+<h2>NEW FEATURES<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Added a new function <code class="docutils literal notranslate"><span class="pre">pkg_available()</span></code> to test if a package with a minimal version is available (thanks, &#64;cderv, #45).</p></li>
+<li><p>Added a new function <code class="docutils literal notranslate"><span class="pre">set_envvar()</span></code> to set environment variables and return their old values, so they could be restored later.</p></li>
+<li><p>Added a new function <code class="docutils literal notranslate"><span class="pre">exit_call()</span></code> to call a function when a parent function exits.</p></li>
+<li><p>Exported the internal function <code class="docutils literal notranslate"><span class="pre">read_bin()</span></code>.</p></li>
+<li><p>Added an argument <code class="docutils literal notranslate"><span class="pre">verbose</span></code> to <code class="docutils literal notranslate"><span class="pre">bg_process()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Rscript_call()</span></code> gains an <code class="docutils literal notranslate"><span class="pre">options</span></code> argument to pass command-line options to <code class="docutils literal notranslate"><span class="pre">Rscript</span></code> (thanks, &#64;cderv, #48).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-20">
+<h1>CHANGES IN xfun VERSION 0.20<a class="headerlink" href="#changes-in-xfun-version-0-20" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id4">
+<h2>NEW FEATURES<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Added a function <code class="docutils literal notranslate"><span class="pre">msg_cat()</span></code> to generate a message with <code class="docutils literal notranslate"><span class="pre">cat()</span></code>. See the help page <code class="docutils literal notranslate"><span class="pre">?xfun::msg_cat</span></code> for more information.</p></li>
+<li><p>Added a function <code class="docutils literal notranslate"><span class="pre">mark_dirs()</span></code> to mark directories with a trailing slash in a vector of paths to differentiate them from normal filenames (#44).</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>BUG FIXES<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">xfun::proc_kill()</span></code> failed to work on *nix.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xfun::del_empty_dir()</span></code> failed to delete empty dirs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xfun::file_string()</span></code> preserves emptiness (thanks, &#64;MichaelChirico, #38).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xfun::raw_string()</span></code> preserves the class(es) of the input now (thanks, &#64;MichaelChirico, #40).</p></li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>MINOR CHANGES<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Exported the function <code class="docutils literal notranslate"><span class="pre">dir_create()</span></code>.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-19">
+<h1>CHANGES IN xfun VERSION 0.19<a class="headerlink" href="#changes-in-xfun-version-0-19" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id7">
+<h2>NEW FEATURES<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Added functions <code class="docutils literal notranslate"><span class="pre">bg_process()</span></code> to run a command in a background process, and <code class="docutils literal notranslate"><span class="pre">proc_kill()</span></code> to kill a process.</p></li>
+<li><p>Added a function <code class="docutils literal notranslate"><span class="pre">del_empty_dir()</span></code> to delete a directory if it is empty.</p></li>
+<li><p>Added functions <code class="docutils literal notranslate"><span class="pre">is_abs_path()</span></code> and <code class="docutils literal notranslate"><span class="pre">is_rel_path()</span></code> to check if paths are absolute or relative.</p></li>
+<li><p>Added a function <code class="docutils literal notranslate"><span class="pre">is_sub_path()</span></code> to test if a path is under a directory.</p></li>
+<li><p>Added a function <code class="docutils literal notranslate"><span class="pre">is_web_path()</span></code> to test if a path is a web path that starts with <code class="docutils literal notranslate"><span class="pre">http://</span></code> or <code class="docutils literal notranslate"><span class="pre">https://</span></code> or <code class="docutils literal notranslate"><span class="pre">ftp://</span></code> or <code class="docutils literal notranslate"><span class="pre">ftps://</span></code>.</p></li>
+<li><p>Documented and exported the previously internal functions <code class="docutils literal notranslate"><span class="pre">dir_exists()</span></code> and <code class="docutils literal notranslate"><span class="pre">file_exists()</span></code> (thanks, &#64;cderv, #36).</p></li>
+<li><p>Added a function <code class="docutils literal notranslate"><span class="pre">dir_create()</span></code> to create a directory recursively by default when it does not exist.</p></li>
+<li><p>Added an argument <code class="docutils literal notranslate"><span class="pre">fail</span></code> to <code class="docutils literal notranslate"><span class="pre">Rscript_call()</span></code> to allow users to customize the error message when an error occurred in calling the function in a new R session.</p></li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h2>MINOR CHANGES<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">file_ext()</span></code>, <code class="docutils literal notranslate"><span class="pre">sans_ext()</span></code>, and <code class="docutils literal notranslate"><span class="pre">with_ext()</span></code> no longer use <code class="docutils literal notranslate"><span class="pre">tools::file_ext()</span></code> or <code class="docutils literal notranslate"><span class="pre">tools::file_path_sans_ext()</span></code>, but provide a slightly different implementation. They treat <code class="docutils literal notranslate"><span class="pre">tar.(gz|bz2|xz)</span></code> and <code class="docutils literal notranslate"><span class="pre">nb.html</span></code> as file extensions, and also allow extensions to contain a trailing <code class="docutils literal notranslate"><span class="pre">~</span></code> or <code class="docutils literal notranslate"><span class="pre">#</span></code>.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-18">
+<h1>CHANGES IN xfun VERSION 0.18<a class="headerlink" href="#changes-in-xfun-version-0-18" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id9">
+<h2>NEW FEATURES<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Added a function <code class="docutils literal notranslate"><span class="pre">grep_sub()</span></code> to perform replacement with <code class="docutils literal notranslate"><span class="pre">gsub()</span></code> on elements matched from <code class="docutils literal notranslate"><span class="pre">grep()</span></code>.</p></li>
+<li><p>Added a function <code class="docutils literal notranslate"><span class="pre">github_releases()</span></code> to obtain the tags from the Github releases of a repo.</p></li>
+<li><p>Added a function <code class="docutils literal notranslate"><span class="pre">bump_version()</span></code> to increase the last digit of version numbers by one.</p></li>
+<li><p>Moved a function <code class="docutils literal notranslate"><span class="pre">process_file()</span></code> from the <strong>blogdown</strong> package to this package, and documented it.</p></li>
+<li><p>Added a function <code class="docutils literal notranslate"><span class="pre">valid_syntax()</span></code> to check if an R code fragment is syntactically valid. This function was moved from the <strong>highr</strong> package.</p></li>
+<li><p>Added a function <code class="docutils literal notranslate"><span class="pre">url_filename()</span></code> to extract filenames from URLs. This function is used by <code class="docutils literal notranslate"><span class="pre">download_file()</span></code> to determine the default output filename.</p></li>
+<li><p>Added a function <code class="docutils literal notranslate"><span class="pre">do_once()</span></code> to perform a task once in an R session.</p></li>
+<li><p>Added a function <code class="docutils literal notranslate"><span class="pre">proj_root()</span></code> to find the root directory of a project. Currently it only supports R package projects and RStudio projects by default.</p></li>
+<li><p>Added a function <code class="docutils literal notranslate"><span class="pre">relative_path()</span></code> to calculate the relative path of a path relative to a directory.</p></li>
+<li><p>Added a function <code class="docutils literal notranslate"><span class="pre">from_root()</span></code>, which is similar to <code class="docutils literal notranslate"><span class="pre">here::here()</span></code> but returns a relative path instead of an absolute path.</p></li>
+<li><p>Added a function <code class="docutils literal notranslate"><span class="pre">magic_path()</span></code> that, given an incomplete input path, tries to find the actual path recursively under subdirectories of a root directory. For example, users may only provide a base filename, and <code class="docutils literal notranslate"><span class="pre">magic_path()</span></code> will look for this file under subdirectories and return the actual path if it is found.</p></li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h2>MINOR CHANGES<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Now <code class="docutils literal notranslate"><span class="pre">download_file()</span></code> tries the download method <code class="docutils literal notranslate"><span class="pre">winnet</span></code> first (previously it was <code class="docutils literal notranslate"><span class="pre">libcurl</span></code>) on Windows (thanks, &#64;cderv, #33).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-17">
+<h1>CHANGES IN xfun VERSION 0.17<a class="headerlink" href="#changes-in-xfun-version-0-17" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id11">
+<h2>NEW FEATURES<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Supports <code class="docutils literal notranslate"><span class="pre">xfun::pkg_attach(packages,</span> <span class="pre">install</span> <span class="pre">=</span> <span class="pre">&quot;pak&quot;)</span></code>, i.e., use <code class="docutils literal notranslate"><span class="pre">pak::pkg_install()</span></code> to install a package when it is not installed (thanks, &#64;GitHunter0, #32).</p></li>
+<li><p>Added a new function <code class="docutils literal notranslate"><span class="pre">xfun::split_source()</span></code> to split lines of R source code into minimal complete expressions. This function was moved from the <strong>highr</strong> package.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-16">
+<h1>CHANGES IN xfun VERSION 0.16<a class="headerlink" href="#changes-in-xfun-version-0-16" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added a new function <code class="docutils literal notranslate"><span class="pre">base64_decode()</span></code> to decode data from the base64 encoding (thanks, &#64;wush978, #31).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-15">
+<h1>CHANGES IN xfun VERSION 0.15<a class="headerlink" href="#changes-in-xfun-version-0-15" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id12">
+<h2>NEW FEATURES<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Added a new function <code class="docutils literal notranslate"><span class="pre">tree()</span></code>, which is based on <code class="docutils literal notranslate"><span class="pre">str()</span></code> in base R, but changes the output of <code class="docutils literal notranslate"><span class="pre">str()</span></code> into a tree diagram to make it easier to understand nested data structures.</p></li>
+<li><p>Added a new function <code class="docutils literal notranslate"><span class="pre">base64_encode()</span></code> to encode data into the base64 encoding (thanks, &#64;wush978, #27).</p></li>
+<li><p>Added a new function <code class="docutils literal notranslate"><span class="pre">base64_uri()</span></code> to generate the Data URI (or Data URL) for a file.</p></li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h2>BUG FIXES<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fenced code blocks commented out in <code class="docutils literal notranslate"><span class="pre">&lt;!--</span> <span class="pre">--&gt;</span></code> are not longer recognized as code blocks but prose (thanks, &#64;jarauh, #25).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-14">
+<h1>CHANGES IN xfun VERSION 0.14<a class="headerlink" href="#changes-in-xfun-version-0-14" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id14">
+<h2>NEW FEATURES<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">cache_rds()</span></code> function can invalidate the cache automatically when the code passed to its <code class="docutils literal notranslate"><span class="pre">expr</span></code> argument has changed. Two new arguments, <code class="docutils literal notranslate"><span class="pre">hash</span></code> and <code class="docutils literal notranslate"><span class="pre">clean</span></code> were added to this function to make it more useful and powerful. See the help page <code class="docutils literal notranslate"><span class="pre">?xfun::cache_rds()</span></code> for more information.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-13">
+<h1>CHANGES IN xfun VERSION 0.13<a class="headerlink" href="#changes-in-xfun-version-0-13" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id15">
+<h2>NEW FEATURES<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Added a new function <code class="docutils literal notranslate"><span class="pre">cache_rds()</span></code> to cache an R expression to a <code class="docutils literal notranslate"><span class="pre">*.rds</span></code> file.</p></li>
+<li><p>Added a new function <code class="docutils literal notranslate"><span class="pre">Rscript_call()</span></code> to call a function (with arguments) in a new R session via the command <code class="docutils literal notranslate"><span class="pre">Rscript</span></code>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">recheck</span></code> argument of <code class="docutils literal notranslate"><span class="pre">rev_check()</span></code> can take a vector of package names, and only these packages will be checked. See <code class="docutils literal notranslate"><span class="pre">?xfun::rev_check</span></code> for more details.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-12">
+<h1>CHANGES IN xfun VERSION 0.12<a class="headerlink" href="#changes-in-xfun-version-0-12" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id16">
+<h2>NEW FEATURES<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Added a new function <code class="docutils literal notranslate"><span class="pre">split_lines()</span></code>.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-11">
+<h1>CHANGES IN xfun VERSION 0.11<a class="headerlink" href="#changes-in-xfun-version-0-11" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id17">
+<h2>BUG FIXES<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">read_utf8()</span></code> will read the file with <code class="docutils literal notranslate"><span class="pre">options(encoding</span> <span class="pre">=</span> <span class="pre">'native.enc')</span></code> and ignore user’s setting such as <code class="docutils literal notranslate"><span class="pre">options(encoding</span> <span class="pre">=</span> <span class="pre">'UTF-8')</span></code> (#21).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-10">
+<h1>CHANGES IN xfun VERSION 0.10<a class="headerlink" href="#changes-in-xfun-version-0-10" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id18">
+<h2>NEW FEATURES<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Added the function <code class="docutils literal notranslate"><span class="pre">as_strict_list()</span></code> to convert an existing object to a strict list without wrapping it in another list if the object already is of type list (in contrast to how <code class="docutils literal notranslate"><span class="pre">strict_list()</span></code> behaves) (thanks, &#64;salim-b, #20).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-9">
+<h1>CHANGES IN xfun VERSION 0.9<a class="headerlink" href="#changes-in-xfun-version-0-9" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id19">
+<h2>NEW FEATURES<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Added a function <code class="docutils literal notranslate"><span class="pre">rename_seq()</span></code> to rename files to add an incremental numeric prefix to the filenames, e.g., rename <code class="docutils literal notranslate"><span class="pre">a.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">b.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">c.txt</span></code> to <code class="docutils literal notranslate"><span class="pre">1-a.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">2-b.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">3-c.txt</span></code>.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-8">
+<h1>CHANGES IN xfun VERSION 0.8<a class="headerlink" href="#changes-in-xfun-version-0-8" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id20">
+<h2>MINOR CHANGES<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">xfun::write_utf8(NULL)</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">xfun::write_utf8(character(0))</span></code> now (thanks, &#64;schloerke, yihui/knitr#1714).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-7">
+<h1>CHANGES IN xfun VERSION 0.7<a class="headerlink" href="#changes-in-xfun-version-0-7" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id21">
+<h2>MINOR CHANGES<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">loadable()</span></code> is quiet with R 3.6.0 (<a class="reference external" href="https://stat.ethz.ch/pipermail/r-devel/2019-May/077774.html">https://stat.ethz.ch/pipermail/r-devel/2019-May/077774.html</a>).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-6">
+<h1>CHANGES IN xfun VERSION 0.6<a class="headerlink" href="#changes-in-xfun-version-0-6" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id22">
+<h2>NEW FEATURES<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">...</span></code> argument to <code class="docutils literal notranslate"><span class="pre">same_path()</span></code> to pass additional arguments to <code class="docutils literal notranslate"><span class="pre">normalize_path()</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="id23">
+<h2>BUG FIXES<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">warn</span></code> argument in <code class="docutils literal notranslate"><span class="pre">prose_index()</span></code> failed to suppress warnings.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-5">
+<h1>CHANGES IN xfun VERSION 0.5<a class="headerlink" href="#changes-in-xfun-version-0-5" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id24">
+<h2>NEW FEATURES<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Added functions <code class="docutils literal notranslate"><span class="pre">upload_ftp()</span></code> and <code class="docutils literal notranslate"><span class="pre">upload_win_builder()</span></code> to upload files to FTP servers.</p></li>
+<li><p>Added a function <code class="docutils literal notranslate"><span class="pre">stringsAsStrings()</span></code> (see its help page for details).</p></li>
+<li><p>Added an argument <code class="docutils literal notranslate"><span class="pre">warn</span></code> to <code class="docutils literal notranslate"><span class="pre">prose_index()</span></code> to suppress the warning when code fences are not balanced.</p></li>
+</ul>
+</div>
+<div class="section" id="id25">
+<h2>BUG FIXES<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fixed the bug that <code class="docutils literal notranslate"><span class="pre">prose_index()</span></code> recognizes double backticks as code fences (thanks, &#64;shrektan, #14 #15).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-4">
+<h1>CHANGES IN xfun VERSION 0.4<a class="headerlink" href="#changes-in-xfun-version-0-4" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id26">
+<h2>NEW FEATURES<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Added functions <code class="docutils literal notranslate"><span class="pre">embed_file()</span></code>, <code class="docutils literal notranslate"><span class="pre">embed_dir()</span></code>, and <code class="docutils literal notranslate"><span class="pre">embed_files()</span></code> to embed files in an HTML output file (e.g., from R Markdown), so that the files can be directly downloaded from the web browser. One use case is to call one of these functions in an R code chunk of an Rmd document to embed the Rmd source document or data files in the HTML output, so readers can download them.</p></li>
+<li><p>Added a new argument <code class="docutils literal notranslate"><span class="pre">message</span></code> to <code class="docutils literal notranslate"><span class="pre">pkg_attach()</span></code>, so you can suppress package startup messages via <code class="docutils literal notranslate"><span class="pre">xfun::pkg_attach(...,</span> <span class="pre">message</span> <span class="pre">=</span> <span class="pre">FALSE)</span></code> or set the global option <code class="docutils literal notranslate"><span class="pre">options(xfun.pkg_attach.message</span> <span class="pre">=</span> <span class="pre">FALSE)</span></code> (thanks, &#64;wch, yihui/knitr#1583).</p></li>
+</ul>
+</div>
+<div class="section" id="id27">
+<h2>MINOR CHANGES<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The argument <code class="docutils literal notranslate"><span class="pre">rw_error</span></code> was moved from <code class="docutils literal notranslate"><span class="pre">gsub_dir()</span></code> to <code class="docutils literal notranslate"><span class="pre">gsub_file()</span></code> (<code class="docutils literal notranslate"><span class="pre">gsub_dir(rw_error</span> <span class="pre">=</span> <span class="pre">...)</span></code> will still work).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is_ascii()</span></code> now returns <code class="docutils literal notranslate"><span class="pre">NA</span></code> for <code class="docutils literal notranslate"><span class="pre">NA_character_</span></code> (thanks, &#64;shrektan, #8 #9).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-3">
+<h1>CHANGES IN xfun VERSION 0.3<a class="headerlink" href="#changes-in-xfun-version-0-3" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id28">
+<h2>NEW FEATURES<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Added a new functions <code class="docutils literal notranslate"><span class="pre">download_file()</span></code> to try various methods to download a file.</p></li>
+<li><p>Added a new function <code class="docutils literal notranslate"><span class="pre">is_ascii()</span></code> to test if a character vector only consists of ASCII characters.</p></li>
+<li><p>Added a new function <code class="docutils literal notranslate"><span class="pre">numbers_to_words()</span></code> to convert numbers to English words (thanks, &#64;daijiang, #3).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-2">
+<h1>CHANGES IN xfun VERSION 0.2<a class="headerlink" href="#changes-in-xfun-version-0-2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id29">
+<h2>NEW FEATURES<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Added a <code class="docutils literal notranslate"><span class="pre">new_session</span></code> argument to <code class="docutils literal notranslate"><span class="pre">loadable()</span></code>.</p></li>
+<li><p>Added new functions <code class="docutils literal notranslate"><span class="pre">gsub_file()</span></code>, <code class="docutils literal notranslate"><span class="pre">gsub_files()</span></code>, <code class="docutils literal notranslate"><span class="pre">gsub_dir()</span></code>, and <code class="docutils literal notranslate"><span class="pre">gsub_ext()</span></code> to replace strings in files.</p></li>
+<li><p>Added new functions <code class="docutils literal notranslate"><span class="pre">Rscript</span></code> and <code class="docutils literal notranslate"><span class="pre">Rcmd</span></code> as wrappers of <code class="docutils literal notranslate"><span class="pre">system2('Rscript')</span></code> and <code class="docutils literal notranslate"><span class="pre">system2('R',</span> <span class="pre">'CMD')</span></code>, respectively.</p></li>
+<li><p>Added a new function <code class="docutils literal notranslate"><span class="pre">install_dir()</span></code> to install a source package from a directory.</p></li>
+<li><p>Added a new function <code class="docutils literal notranslate"><span class="pre">file_string()</span></code> to read a text file (encoded in UTF-8) and return its content a single character string (lines concatenated by <code class="docutils literal notranslate"><span class="pre">\n</span></code>).</p></li>
+<li><p>Added a new function <code class="docutils literal notranslate"><span class="pre">raw_string()</span></code> to print a character vector in its “raw” form using <code class="docutils literal notranslate"><span class="pre">cat(...,</span> <span class="pre">sep</span> <span class="pre">=</span> <span class="pre">'\n')</span></code> instead of <code class="docutils literal notranslate"><span class="pre">print()</span></code>, because the latter may introduce <code class="docutils literal notranslate"><span class="pre">[1]</span></code>, “extra” double quotes, and escape sequences, which are not very human-readable.</p></li>
+<li><p>Added a new function <code class="docutils literal notranslate"><span class="pre">session_info()</span></code> as an alternative to <code class="docutils literal notranslate"><span class="pre">sessionInfo()</span></code>.</p></li>
+<li><p>Added a new function <code class="docutils literal notranslate"><span class="pre">rev_check()</span></code> to run <code class="docutils literal notranslate"><span class="pre">R</span> <span class="pre">CMD</span> <span class="pre">check</span></code> on the reverse dependencies of a package, and a corresponding helper function <code class="docutils literal notranslate"><span class="pre">compare_Rcheck()</span></code> for showing the differences in logs with the CRAN version and the current version of the package, respectively.</p></li>
+<li><p>Added new functions for dealing with Markdown text: <code class="docutils literal notranslate"><span class="pre">prose_index()</span></code> returns the line indices of text that is prose (not code blocks), and <code class="docutils literal notranslate"><span class="pre">protect_math()</span></code> protects math expressions in Markdown in backticks.</p></li>
+<li><p>Added an <code class="docutils literal notranslate"><span class="pre">error</span></code> argument to <code class="docutils literal notranslate"><span class="pre">read_utf8()</span></code> to signal an error if the file is not encoded in UTF-8.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="changes-in-xfun-version-0-1">
+<h1>CHANGES IN xfun VERSION 0.1<a class="headerlink" href="#changes-in-xfun-version-0-1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id30">
+<h2>NEW FEATURES<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">attr()</span></code> as an abbreviation of <code class="docutils literal notranslate"><span class="pre">base::attr(exact</span> <span class="pre">=</span> <span class="pre">TRUE)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">file_ext()</span></code>, <code class="docutils literal notranslate"><span class="pre">sans_ext()</span></code>, and <code class="docutils literal notranslate"><span class="pre">with_ext()</span></code> to manipulate extensions in filenames.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">in_dir()</span></code> to evaluate an R expression in a directory.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">isFALSE()</span></code> as an abbreviation of <code class="docutils literal notranslate"><span class="pre">identical(x,</span> <span class="pre">FALSE)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is_windows()</span></code>, <code class="docutils literal notranslate"><span class="pre">is_macos()</span></code>, <code class="docutils literal notranslate"><span class="pre">is_linux()</span></code>, and <code class="docutils literal notranslate"><span class="pre">is_unix()</span></code> to test operating systems.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">native_encode()</span></code> to try to encode a character vector in the native encoding.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">normalize_path()</span></code> as an abbreviation of <code class="docutils literal notranslate"><span class="pre">normalizePath(winslash</span> <span class="pre">=</span> <span class="pre">'/',</span> <span class="pre">mustWork</span> <span class="pre">=</span> <span class="pre">FALSE)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">optipng()</span></code> to run the command <code class="docutils literal notranslate"><span class="pre">optipng</span></code> to optimize all PNG files under a directory.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parse_only()</span></code> parses R code without keeping the source references.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pkg_attach()</span></code> and <code class="docutils literal notranslate"><span class="pre">pkg_load()</span></code> to attach and load a vector of packages, respectively (and optionally, install the missing packages).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_utf8()</span></code> and <code class="docutils literal notranslate"><span class="pre">write_utf8()</span></code> to read and write UTF-8 files, respectively.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">same_path()</span></code> to test if two paths are the same.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">strict_list()</span></code> is a version of <code class="docutils literal notranslate"><span class="pre">list()</span></code> that disables partial matching of the <code class="docutils literal notranslate"><span class="pre">$</span></code> operator.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tojson()</span></code> is a simple JSON serializer.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">try_silent()</span></code> is an abbreviation of <code class="docutils literal notranslate"><span class="pre">try(silent</span> <span class="pre">=</span> <span class="pre">TRUE)</span></code>.</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./temporal/renv/library/R-4.1/aarch64-apple-darwin20/xfun"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Quan Nguyen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

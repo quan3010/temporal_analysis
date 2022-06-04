@@ -1,0 +1,590 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>magrittr 2.0.3 &#8212; Temporal and sequential analysis - LASI 2022</title>
+    
+  <link href="../../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../_static/togglebutton.js"></script>
+    <script src="../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../../../_static/solar_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Temporal and sequential analysis - LASI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture1.html">
+   Lecture 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture2.html">
+   Lecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture3.html">
+   Lecture 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Labs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab1.html">
+   Lab 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab2.html">
+   Lab 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab3.html">
+   Lab 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Quan Nguyen<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../../_sources/temporal/renv/library/R-4.1/aarch64-apple-darwin20/magrittr/NEWS.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/quan3010/temporal_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/quan3010/temporal_analysis/issues/new?title=Issue%20on%20page%20%2Ftemporal/renv/library/R-4.1/aarch64-apple-darwin20/magrittr/NEWS.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   magrittr 2.0.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#magrittr-2-0-2">
+   magrittr 2.0.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#magrittr-2-0-1">
+   magrittr 2.0.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#magrittr-2-0-0">
+   magrittr 2.0.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fast-and-lean-implementation-of-the-pipe">
+     Fast and lean implementation of the pipe
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#breaking-changes">
+     Breaking changes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#behaviour-of-return-in-a-pipeline">
+       Behaviour of
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         return()
+        </span>
+       </code>
+       in a pipeline
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#failures-caused-by-laziness">
+       Failures caused by laziness
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#incorrect-call-stack-introspection">
+       Incorrect call stack introspection
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#incorrect-assumptions-about-magrittr-internals">
+       Incorrect assumptions about magrittr internals
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bug-fixes">
+     Bug fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#magrittr-1-5">
+   magrittr 1.5
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-features">
+     New features
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#functional-sequences">
+       Functional sequences.
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#new-operators">
+       New operators
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#lambdas">
+       Lambdas
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="magrittr-2-0-3">
+<h1>magrittr 2.0.3<a class="headerlink" href="#magrittr-2-0-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed a C level protection issue in <code class="docutils literal notranslate"><span class="pre">%&gt;%</span></code> (#256).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="magrittr-2-0-2">
+<h1>magrittr 2.0.2<a class="headerlink" href="#magrittr-2-0-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>New eager pipe <code class="docutils literal notranslate"><span class="pre">%!&gt;%</span></code> for sequential evaluation (#247). Consider
+using <code class="docutils literal notranslate"><span class="pre">force()</span></code> in your functions instead to make them strict, if
+sequentiality is required. See the examples in <code class="docutils literal notranslate"><span class="pre">?&quot;pipe-eager&quot;</span></code>.</p></li>
+<li><p>Fixed an issue that could cause pipe invocations to fail in versions of
+R built with <code class="docutils literal notranslate"><span class="pre">--enable-strict-barrier</span></code>. (#239, &#64;kevinushey)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="magrittr-2-0-1">
+<h1>magrittr 2.0.1<a class="headerlink" href="#magrittr-2-0-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed issue caused by objects with certain names being present in
+the calling environment (#233).</p></li>
+<li><p>Fixed regression in <code class="docutils literal notranslate"><span class="pre">freduce()</span></code> with long lists (kcf-jackson/sketch#5).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="magrittr-2-0-0">
+<h1>magrittr 2.0.0<a class="headerlink" href="#magrittr-2-0-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="fast-and-lean-implementation-of-the-pipe">
+<h2>Fast and lean implementation of the pipe<a class="headerlink" href="#fast-and-lean-implementation-of-the-pipe" title="Permalink to this headline">¶</a></h2>
+<p>The pipe has been rewritten in C with the following goals in mind:</p>
+<ul class="simple">
+<li><p>Minimal performance cost.</p></li>
+<li><p>Minimal impact on backtraces.</p></li>
+<li><p>No impact on reference counts.</p></li>
+</ul>
+<p>As part of this rewrite we have changed the behaviour of the pipe to
+make it closer to the implementation that will likely be included in a
+future version of R. The pipe now evaluates piped expressions lazily (#120).
+The main consequence of this change is that warnings and errors can
+now be handled by trailing pipe calls:</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">stop</span><span class="p">(</span><span class="s">&quot;foo&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">try</span><span class="p">()</span>
+<span class="nf">warning</span><span class="p">(</span><span class="s">&quot;bar&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">suppressWarnings</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="breaking-changes">
+<h2>Breaking changes<a class="headerlink" href="#breaking-changes" title="Permalink to this headline">¶</a></h2>
+<p>The pipe rewrite should generally not affect your code. We have
+checked magrittr on 2800 CRAN packages and found only a dozen of
+failures. The development version of magrittr has been advertised on
+social media for a 3 months trial period, and no major issues were
+reported. However, there are some corner cases that might require
+updating your code. Below is a report of the backward
+incompatibilities we found in real code to help you transition, should
+you find an issue in your code.</p>
+<div class="section" id="behaviour-of-return-in-a-pipeline">
+<h3>Behaviour of <code class="docutils literal notranslate"><span class="pre">return()</span></code> in a pipeline<a class="headerlink" href="#behaviour-of-return-in-a-pipeline" title="Permalink to this headline">¶</a></h3>
+<p>In previous versions of magrittr, the behaviour of <code class="docutils literal notranslate"><span class="pre">return()</span></code> within
+pipe expressions was undefined. Should it return from the current pipe
+expression, from the whole pipeline, or from the enclosing function?
+The behaviour that makes the most sense is to return from the
+enclosing function. However, we can’t make this work easily with the
+new implementation, and so calling <code class="docutils literal notranslate"><span class="pre">return()</span></code> is now an error.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my_function</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">x</span> <span class="o">%&gt;%</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="n">.</span><span class="p">)</span> <span class="nf">return</span><span class="p">(</span><span class="s">&quot;true&quot;</span><span class="p">)</span>
+    <span class="s">&quot;false&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nf">my_function</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="c1">#&gt; Error: no function to return from, jumping to top level</span>
+</pre></div>
+</div>
+<p>In magrittr 1.5, <code class="docutils literal notranslate"><span class="pre">return()</span></code> used to return from the current pipe
+expression. You can rewrite this to the equivalent:</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my_function</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">x</span> <span class="o">%&gt;%</span> <span class="p">{</span>
+    <span class="nf">if </span><span class="p">(</span><span class="n">.</span><span class="p">)</span> <span class="p">{</span>
+      <span class="s">&quot;true&quot;</span>
+    <span class="p">}</span> <span class="n">else</span> <span class="p">{</span>
+      <span class="s">&quot;false&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nf">my_function</span><span class="p">(</span><span class="kc">TRUE</span><span class="p">)</span>
+<span class="c1">#&gt; [1] &quot;true&quot;</span>
+</pre></div>
+</div>
+<p>For backward-compatibility we have special-cased trailing <code class="docutils literal notranslate"><span class="pre">return()</span></code>
+calls as this is a common occurrence in packages:</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="m">1</span> <span class="o">%&gt;%</span> <span class="nf">identity</span><span class="p">()</span> <span class="o">%&gt;%</span> <span class="nf">return</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Note however that this only returns from the pipeline, not the
+enclosing function (which is the historical behaviour):</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my_function</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="s">&quot;value&quot;</span> <span class="o">%&gt;%</span> <span class="nf">identity</span><span class="p">()</span> <span class="o">%&gt;%</span> <span class="nf">return</span><span class="p">()</span>
+  <span class="s">&quot;wrong value&quot;</span>
+<span class="p">}</span>
+
+<span class="nf">my_function</span><span class="p">()</span>
+<span class="c1">#&gt; [1] &quot;wrong value&quot;</span>
+</pre></div>
+</div>
+<p>It is generally best to avoid using <code class="docutils literal notranslate"><span class="pre">return()</span></code> in a pipeline, even if
+trailing.</p>
+</div>
+<div class="section" id="failures-caused-by-laziness">
+<h3>Failures caused by laziness<a class="headerlink" href="#failures-caused-by-laziness" title="Permalink to this headline">¶</a></h3>
+<p>With the new lazy model for the evaluation of pipe expressions,
+earlier parts of a pipeline are not yet evaluated when the last pipe
+expression is called. They only get evaluated when the last function
+actually uses the piped arguments:</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">ignore</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="s">&quot;return value&quot;</span>
+<span class="nf">stop</span><span class="p">(</span><span class="s">&quot;never called&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">ignore</span><span class="p">()</span>
+<span class="c1">#&gt; [1] &quot;return value&quot;</span>
+</pre></div>
+</div>
+<p>This should generally not cause problems. However we found some
+functions with special behaviour, written under the assumption that
+earlier parts of the pipeline were already evaluated and had already
+produced side effects. This is generally incorrect behaviour because
+that means that these functions do not work properly when called
+with the nested form, e.g. <code class="docutils literal notranslate"><span class="pre">f(g(1))</span></code> instead of <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">%&gt;%</span> <span class="pre">g()</span> <span class="pre">%&gt;%</span> <span class="pre">f()</span></code>.</p>
+<p>The solution to fix this is to call <code class="docutils literal notranslate"><span class="pre">force()</span></code> on the inputs to force
+evaluation, and only then check for side effects:</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my_function</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nf">force</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+  <span class="nf">peek_side_effect</span><span class="p">()</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Another issue caused by laziness is that if any function in a pipeline
+returns invisibly, than the whole pipeline returns invisibly as well.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="m">1</span> <span class="o">%&gt;%</span> <span class="nf">identity</span><span class="p">()</span> <span class="o">%&gt;%</span> <span class="nf">invisible</span><span class="p">()</span>
+<span class="m">1</span> <span class="o">%&gt;%</span> <span class="nf">invisible</span><span class="p">()</span> <span class="o">%&gt;%</span> <span class="nf">identity</span><span class="p">()</span>
+<span class="m">1</span> <span class="o">%&gt;%</span> <span class="nf">identity</span><span class="p">()</span> <span class="o">%&gt;%</span> <span class="nf">invisible</span><span class="p">()</span> <span class="o">%&gt;%</span> <span class="nf">identity</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This is consistent with the equivalent nested code. This behaviour can
+be worked around in two ways. You can force visibility by wrapping the
+pipeline in parentheses:</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my_function</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">(</span><span class="n">x</span> <span class="o">%&gt;%</span> <span class="nf">invisible</span><span class="p">()</span> <span class="o">%&gt;%</span> <span class="nf">identity</span><span class="p">())</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Or by assigning the result to a variable and return it:</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">my_function</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">out</span> <span class="o">&lt;-</span> <span class="n">x</span> <span class="o">%&gt;%</span> <span class="nf">invisible</span><span class="p">()</span> <span class="o">%&gt;%</span> <span class="nf">identity</span><span class="p">()</span>
+  <span class="n">out</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="incorrect-call-stack-introspection">
+<h3>Incorrect call stack introspection<a class="headerlink" href="#incorrect-call-stack-introspection" title="Permalink to this headline">¶</a></h3>
+<p>The magrittr expressions are no longer evaluated in frames that can be
+inspected by <code class="docutils literal notranslate"><span class="pre">sys.frames()</span></code> or <code class="docutils literal notranslate"><span class="pre">sys.parent()</span></code>. Using these functions
+for implementing actual functionality (as opposed as debugging tools)
+is likely to produce bugs. Instead, you should generally use
+<code class="docutils literal notranslate"><span class="pre">parent.frame()</span></code> which works even when R code is called from
+non-inspectable frames. This happens with e.g. <code class="docutils literal notranslate"><span class="pre">do.call()</span></code> and the new
+C implementation of magrittr.</p>
+</div>
+<div class="section" id="incorrect-assumptions-about-magrittr-internals">
+<h3>Incorrect assumptions about magrittr internals<a class="headerlink" href="#incorrect-assumptions-about-magrittr-internals" title="Permalink to this headline">¶</a></h3>
+<p>Some packages were depending on how magrittr was internally
+structured. Robust code should only use the documented and exported
+API of other packages.</p>
+</div>
+</div>
+<div class="section" id="bug-fixes">
+<h2>Bug fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Can now use the placeholder <code class="docutils literal notranslate"><span class="pre">.</span></code> with the splicing operator <code class="docutils literal notranslate"><span class="pre">!!!</span></code>
+from rlang (#191).</p></li>
+<li><p>Piped arguments are now persistent. They can be evaluated after the
+pipeline has returned, which fixes subtle issues with function
+factories (#159, #195).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="magrittr-1-5">
+<h1>magrittr 1.5<a class="headerlink" href="#magrittr-1-5" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="new-features">
+<h2>New features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="functional-sequences">
+<h3>Functional sequences.<a class="headerlink" href="#functional-sequences" title="Permalink to this headline">¶</a></h3>
+<p>A pipeline, or a “functional sequence”, need not be applied
+to a left-hand side value instantly. Instead it can serve as
+a function definition. A pipeline where the left-most left-hand
+side is the magrittr placeholder (the dot <code class="docutils literal notranslate"><span class="pre">.</span></code>) will thus create a
+function, which applies each right-hand side in sequence to its
+argument, e.g. <code class="docutils literal notranslate"><span class="pre">f</span> <span class="pre">&lt;-</span> <span class="pre">.</span> <span class="pre">%&gt;%</span> <span class="pre">abs</span> <span class="pre">%&gt;%</span> <span class="pre">mean(na.rm</span> <span class="pre">=</span> <span class="pre">TRUE)</span></code>.</p>
+</div>
+<div class="section" id="new-operators">
+<h3>New operators<a class="headerlink" href="#new-operators" title="Permalink to this headline">¶</a></h3>
+<p>Three new operators are introduced for some special cases</p>
+<ul class="simple">
+<li><p>Assignment pipe: <code class="docutils literal notranslate"><span class="pre">%&lt;&gt;%</span></code></p></li>
+<li><p>Tee pipe: <code class="docutils literal notranslate"><span class="pre">%T&gt;%</span></code></p></li>
+<li><p>Exposition pipe: <code class="docutils literal notranslate"><span class="pre">%$%</span></code></p></li>
+</ul>
+<p>For more information see the documentation, e.g. <code class="docutils literal notranslate"><span class="pre">?%T&gt;%</span></code>.</p>
+</div>
+<div class="section" id="lambdas">
+<h3>Lambdas<a class="headerlink" href="#lambdas" title="Permalink to this headline">¶</a></h3>
+<p>Lambdas can now be made by enclosing several statements in curly braces,
+and is a unary function of the dot argument.</p>
+<p>For more information and examples, see the updated vignette, and help files.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./temporal/renv/library/R-4.1/aarch64-apple-darwin20/magrittr"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Quan Nguyen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

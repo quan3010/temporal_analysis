@@ -1,0 +1,1048 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DBI 1.1.2 (2021-12-19) &#8212; Temporal and sequential analysis - LASI 2022</title>
+    
+  <link href="../../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../_static/togglebutton.js"></script>
+    <script src="../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../../../_static/solar_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Temporal and sequential analysis - LASI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture1.html">
+   Lecture 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture2.html">
+   Lecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture3.html">
+   Lecture 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Labs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab1.html">
+   Lab 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab2.html">
+   Lab 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab3.html">
+   Lab 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Quan Nguyen<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../../_sources/temporal/renv/library/R-4.1/aarch64-apple-darwin20/DBI/NEWS.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/quan3010/temporal_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/quan3010/temporal_analysis/issues/new?title=Issue%20on%20page%20%2Ftemporal/renv/library/R-4.1/aarch64-apple-darwin20/DBI/NEWS.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   DBI 1.1.2 (2021-12-19)
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#features">
+     Features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#documentation">
+     Documentation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dbi-1-1-1-2021-01-04">
+   DBI 1.1.1 (2021-01-04)
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Documentation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bug-fixes">
+     Bug fixes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#internal">
+     Internal
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dbi-1-1-0-2019-12-15">
+   DBI 1.1.0 (2019-12-15)
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-features">
+     New features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Documentation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Internal
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dbi-1-0-0-2018-05-02">
+   DBI 1.0.0 (2018-05-02)
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-generics">
+     New generics
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#changes">
+     Changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#documentation-updates">
+     Documentation updates
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Bug fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dbi-0-8-2018-02-24">
+   DBI 0.8 (2018-02-24)
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#breaking-changes">
+     Breaking changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     New generics
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#default-implementations">
+     Default implementations
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#api-changes">
+     API changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deprecated-generics">
+     Deprecated generics
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Bug fixes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Documentation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Internal
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dbi-0-7-2017-06-17">
+   DBI 0.7 (2017-06-17)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dbi-0-6-1-2017-04-01">
+   DBI 0.6-1 (2017-04-01)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dbi-0-6-2017-03-08">
+   DBI 0.6 (2017-03-08)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dbi-0-5-1-2016-09-09">
+   DBI 0.5-1 (2016-09-09)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dbi-0-5-2016-08-11-cran-release">
+   DBI 0.5 (2016-08-11, CRAN release)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dbi-0-4-1-2016-05-07-cran-release">
+   DBI 0.4-1 (2016-05-07, CRAN release)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dbi-0-4-2016-04-30">
+   DBI 0.4 (2016-04-30)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-3-1">
+   Version 0.3.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-3-0">
+   Version 0.3.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-and-enhanced-generics">
+     New and enhanced generics
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-default-methods">
+     New default methods
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deprecated-features">
+     Deprecated features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-improvements">
+     Other improvements
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-2-7">
+   Version 0.2-7
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-2-6">
+   Version 0.2-6
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-2-5">
+   Version 0.2-5
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-2-4">
+   Version 0.2-4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-1-10">
+   Version 0.1-10
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-1-9">
+   Version 0.1-9
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-1-8">
+   Version 0.1-8
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-1-7">
+   Version 0.1-7
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-1-6">
+   Version 0.1-6
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-1-5">
+   Version 0.1-5
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-1-4">
+   Version 0.1-4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-1-3">
+   Version 0.1-3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-1-2">
+   Version 0.1-2
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
+<div class="tex2jax_ignore mathjax_ignore section" id="dbi-1-1-2-2021-12-19">
+<h1>DBI 1.1.2 (2021-12-19)<a class="headerlink" href="#dbi-1-1-2-2021-12-19" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">dbQuoteLiteral()</span></code> in default method for <code class="docutils literal notranslate"><span class="pre">sqlData()</span></code> (#362, #371).</p></li>
+<li><p>Update specification with changes from DBItest 1.7.2 (#367).</p></li>
+</ul>
+</div>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Method documentation on pkgdown is clickable and contains methods from all known DBI backends except ROracle (#360).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">?Id</span></code> gains better examples (#295, #370).</p></li>
+<li><p>Elaborate on status of <code class="docutils literal notranslate"><span class="pre">dbWriteTable()</span></code> in the documentation (#352, #372).</p></li>
+<li><p>Make method definition more similar to S3. All <code class="docutils literal notranslate"><span class="pre">setMethod()</span></code> calls refer to top-level functions (#368).</p></li>
+<li><p>The pkgdown documentation for DBI generics (e.g. <code class="docutils literal notranslate"><span class="pre">?dbConnect</span></code>) contains clickable links to many known backends, and an explanatory sentence (#360).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">?dbReadTable</span></code> and other pages gain pointers to <code class="docutils literal notranslate"><span class="pre">Id()</span></code> and <code class="docutils literal notranslate"><span class="pre">SQL()</span></code> (#359).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="dbi-1-1-1-2021-01-04">
+<h1>DBI 1.1.1 (2021-01-04)<a class="headerlink" href="#dbi-1-1-1-2021-01-04" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>Documentation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Expand “Get started” vignette to two tutorials, basic and advanced (#332, &#64;jawond).</p></li>
+</ul>
+</div>
+<div class="section" id="bug-fixes">
+<h2>Bug fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dbAppendTable()</span></code> now allows columns named <code class="docutils literal notranslate"><span class="pre">sep</span></code> (#336).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dbAppendTable()</span></code> shows a better error message if the input has zero columns (#313).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sqlInterpolate()</span></code> now correctly interprets consecutive comments (#329, &#64;rnorberg).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dbQuoteLiteral()</span></code> works for difftime objects (#325).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dbQuoteLiteral()</span></code> quotes dates as <code class="docutils literal notranslate"><span class="pre">YYYY-MM-DD</span></code> without time zone (#331).</p></li>
+</ul>
+</div>
+<div class="section" id="internal">
+<h2>Internal<a class="headerlink" href="#internal" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Switch to GitHub Actions (#326).</p></li>
+<li><p>Update URL in <code class="docutils literal notranslate"><span class="pre">DESCRIPTION</span></code>.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="dbi-1-1-0-2019-12-15">
+<h1>DBI 1.1.0 (2019-12-15)<a class="headerlink" href="#dbi-1-1-0-2019-12-15" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="new-features">
+<h2>New features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>New <code class="docutils literal notranslate"><span class="pre">DBIConnector</span></code> class (#280).</p></li>
+<li><p>Specify <code class="docutils literal notranslate"><span class="pre">immediate</span></code> argument to <code class="docutils literal notranslate"><span class="pre">dbSendQuery()</span></code>, <code class="docutils literal notranslate"><span class="pre">dbGetQuery()</span></code>, <code class="docutils literal notranslate"><span class="pre">dbSendStatement()</span></code> and <code class="docutils literal notranslate"><span class="pre">dbExecute()</span></code> (#268).</p></li>
+<li><p>Use specification for <code class="docutils literal notranslate"><span class="pre">dbGetInfo()</span></code> (#271).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dbUnquoteIdentifier()</span></code> now supports <code class="docutils literal notranslate"><span class="pre">Id()</span></code> objects with <code class="docutils literal notranslate"><span class="pre">catalog</span></code> members (#266, &#64;raffscallion). It also handles unquoted identifiers of the form <code class="docutils literal notranslate"><span class="pre">table</span></code>, <code class="docutils literal notranslate"><span class="pre">schema.table</span></code> or <code class="docutils literal notranslate"><span class="pre">catalog.schema.table</span></code>, for compatibility with dbplyr.</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>Documentation<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>New DBI intro article (#286, &#64;cutterkom).</p></li>
+<li><p>Add pkgdown reference index (#288).</p></li>
+<li><p>DBI specification on <a class="reference external" href="https://dbi.r-dbi.org/dev/articles/spec">https://dbi.r-dbi.org/dev/articles/spec</a> now comes with a table of contents and code formatting.</p></li>
+<li><p>Update examples to refer to <code class="docutils literal notranslate"><span class="pre">params</span></code> instead of <code class="docutils literal notranslate"><span class="pre">param</span></code> (#235).</p></li>
+<li><p>Improved documentation for <code class="docutils literal notranslate"><span class="pre">sqlInterpolate()</span></code> (#100). Add usage of <code class="docutils literal notranslate"><span class="pre">SQL()</span></code> to <code class="docutils literal notranslate"><span class="pre">sqlInterpolate()</span></code> examples (#259, &#64;renkun-ken).</p></li>
+<li><p>Improve documentation for <code class="docutils literal notranslate"><span class="pre">Id</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>Internal<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Add tests for <code class="docutils literal notranslate"><span class="pre">dbUnquoteIdentifier()</span></code> (#279, &#64;baileych).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sqlInterpolate()</span></code> uses <code class="docutils literal notranslate"><span class="pre">dbQuoteLiteral()</span></code> instead of checking the type of the input.</p></li>
+<li><p>Avoid partial argument match in <code class="docutils literal notranslate"><span class="pre">dbWriteTable()</span></code> (#246, &#64;richfitz).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="dbi-1-0-0-2018-05-02">
+<h1>DBI 1.0.0 (2018-05-02)<a class="headerlink" href="#dbi-1-0-0-2018-05-02" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="new-generics">
+<h2>New generics<a class="headerlink" href="#new-generics" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>New <code class="docutils literal notranslate"><span class="pre">dbAppendTable()</span></code> that by default calls <code class="docutils literal notranslate"><span class="pre">sqlAppendTableTemplate()</span></code> and then <code class="docutils literal notranslate"><span class="pre">dbExecute()</span></code> with a <code class="docutils literal notranslate"><span class="pre">param</span></code> argument, without support for <code class="docutils literal notranslate"><span class="pre">row.names</span></code> argument (#74).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">dbCreateTable()</span></code> that by default calls <code class="docutils literal notranslate"><span class="pre">sqlCreateTable()</span></code> and then <code class="docutils literal notranslate"><span class="pre">dbExecute()</span></code>, without support for <code class="docutils literal notranslate"><span class="pre">row.names</span></code> argument (#74).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">dbCanConnect()</span></code> generic with default implementation (#87).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">dbIsReadOnly()</span></code> generic with default implementation (#190, &#64;anhqle).</p></li>
+</ul>
+</div>
+<div class="section" id="changes">
+<h2>Changes<a class="headerlink" href="#changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sqlAppendTable()</span></code> now accepts lists for the <code class="docutils literal notranslate"><span class="pre">values</span></code> argument, to support lists of <code class="docutils literal notranslate"><span class="pre">SQL</span></code> objects in R 3.1.</p></li>
+<li><p>Add default implementation for <code class="docutils literal notranslate"><span class="pre">dbListFields(DBIConnection,</span> <span class="pre">Id)</span></code>, this relies on <code class="docutils literal notranslate"><span class="pre">dbQuoteIdentifier(DBIConnection,</span> <span class="pre">Id)</span></code> (#75).</p></li>
+</ul>
+</div>
+<div class="section" id="documentation-updates">
+<h2>Documentation updates<a class="headerlink" href="#documentation-updates" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The DBI specification vignette is rendered correctly from the installed package (#234).</p></li>
+<li><p>Update docs on how to cope with stored procedures (#242, &#64;aryoda).</p></li>
+<li><p>Add “Additional arguments” sections and more examples for <code class="docutils literal notranslate"><span class="pre">dbGetQuery()</span></code>, <code class="docutils literal notranslate"><span class="pre">dbSendQuery()</span></code>, <code class="docutils literal notranslate"><span class="pre">dbExecute()</span></code> and <code class="docutils literal notranslate"><span class="pre">dbSendStatement()</span></code>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">dbColumnInfo()</span></code> method is now fully specified (#75).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">dbListFields()</span></code> method is now fully specified (#75).</p></li>
+<li><p>The dynamic list of methods in help pages doesn’t contain methods in DBI anymore.</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>Bug fixes<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Pass missing <code class="docutils literal notranslate"><span class="pre">value</span></code> argument to secondary <code class="docutils literal notranslate"><span class="pre">dbWriteTable()</span></code> call (#737, &#64;jimhester).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Id</span></code> class now uses <code class="docutils literal notranslate"><span class="pre">&lt;Id&gt;</span></code> and not <code class="docutils literal notranslate"><span class="pre">&lt;Table&gt;</span></code> when printing.</p></li>
+<li><p>The default <code class="docutils literal notranslate"><span class="pre">dbUnquoteIdentifier()</span></code> implementation now complies to the spec.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="dbi-0-8-2018-02-24">
+<h1>DBI 0.8 (2018-02-24)<a class="headerlink" href="#dbi-0-8-2018-02-24" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="breaking-changes">
+<h2>Breaking changes<a class="headerlink" href="#breaking-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SQL()</span></code> now strips the names from the output if the <code class="docutils literal notranslate"><span class="pre">names</span></code> argument is unset.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">dbReadTable()</span></code>, <code class="docutils literal notranslate"><span class="pre">dbWriteTable()</span></code>, <code class="docutils literal notranslate"><span class="pre">dbExistsTable()</span></code>, <code class="docutils literal notranslate"><span class="pre">dbRemoveTable()</span></code>, and <code class="docutils literal notranslate"><span class="pre">dbListFields()</span></code> generics now specialize over the first two arguments to support implementations with the <code class="docutils literal notranslate"><span class="pre">Id</span></code> S4 class as type for the second argument. Some packages may need to update their documentation to satisfy R CMD check again.</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>New generics<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Schema support: Export <code class="docutils literal notranslate"><span class="pre">Id()</span></code>, new generics <code class="docutils literal notranslate"><span class="pre">dbListObjects()</span></code> and <code class="docutils literal notranslate"><span class="pre">dbUnquoteIdentifier()</span></code>, methods for <code class="docutils literal notranslate"><span class="pre">Id</span></code> that call <code class="docutils literal notranslate"><span class="pre">dbQuoteIdentifier()</span></code> and then forward (#220).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">dbQuoteLiteral()</span></code> generic. The default implementation uses switchpatch to avoid dispatch ambiguities, and forwards to <code class="docutils literal notranslate"><span class="pre">dbQuoteString()</span></code> for character vectors. Backends may override methods that also dispatch on the second argument, but in this case also an override for the <code class="docutils literal notranslate"><span class="pre">&quot;SQL&quot;</span></code> class is necessary (#172).</p></li>
+</ul>
+</div>
+<div class="section" id="default-implementations">
+<h2>Default implementations<a class="headerlink" href="#default-implementations" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Default implementations of <code class="docutils literal notranslate"><span class="pre">dbQuoteIdentifier()</span></code> and <code class="docutils literal notranslate"><span class="pre">dbQuoteLiteral()</span></code> preserve names, default implementation of <code class="docutils literal notranslate"><span class="pre">dbQuoteString()</span></code> strips names (#173).</p></li>
+<li><p>Specialized methods for <code class="docutils literal notranslate"><span class="pre">dbQuoteString()</span></code> and <code class="docutils literal notranslate"><span class="pre">dbQuoteIdentifier()</span></code> are available again, for compatibility with clients that use <code class="docutils literal notranslate"><span class="pre">getMethod()</span></code> to access them (#218).</p></li>
+<li><p>Add default implementation of <code class="docutils literal notranslate"><span class="pre">dbListFields()</span></code>.</p></li>
+<li><p>The default implementation of <code class="docutils literal notranslate"><span class="pre">dbReadTable()</span></code> now has <code class="docutils literal notranslate"><span class="pre">row.names</span> <span class="pre">=</span> <span class="pre">FALSE</span></code> as default and also supports <code class="docutils literal notranslate"><span class="pre">row.names</span> <span class="pre">=</span> <span class="pre">NULL</span></code> (#186).</p></li>
+</ul>
+</div>
+<div class="section" id="api-changes">
+<h2>API changes<a class="headerlink" href="#api-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">SQL()</span></code> function gains an optional <code class="docutils literal notranslate"><span class="pre">names</span></code> argument which can be used to assign names to SQL strings.</p></li>
+</ul>
+</div>
+<div class="section" id="deprecated-generics">
+<h2>Deprecated generics<a class="headerlink" href="#deprecated-generics" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dbListConnections()</span></code> is soft-deprecated by documentation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dbListResults()</span></code> is deprecated by documentation (#58).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dbGetException()</span></code> is soft-deprecated by documentation (#51).</p></li>
+<li><p>The deprecated <code class="docutils literal notranslate"><span class="pre">print.list.pairs()</span></code> has been removed.</p></li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>Bug fixes<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">dbDataType()</span></code> for <code class="docutils literal notranslate"><span class="pre">AsIs</span></code> object (#198, &#64;yutannihilation).</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">dbQuoteString()</span></code> and <code class="docutils literal notranslate"><span class="pre">dbQuoteIdentifier()</span></code> to ignore invalid UTF-8 strings (r-dbi/DBItest#156).</p></li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>Documentation<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Help pages for generics now contain a dynamic list of methods implemented by DBI backends (#162).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sqlInterpolate()</span></code> now supports both named and positional variables (#216, &#64;hannesmuehleisen).</p></li>
+<li><p>Point to <a class="reference external" href="http://db.rstudio.com">db.rstudio.com</a> (&#64;wibeasley, #209).</p></li>
+<li><p>Reflect new ‘r-dbi’ organization in <code class="docutils literal notranslate"><span class="pre">DESCRIPTION</span></code> (&#64;wibeasley, #207).</p></li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h2>Internal<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Using switchpatch on the second argument for default implementations of <code class="docutils literal notranslate"><span class="pre">dbQuoteString()</span></code> and <code class="docutils literal notranslate"><span class="pre">dbQuoteIdentifier()</span></code>.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="dbi-0-7-2017-06-17">
+<h1>DBI 0.7 (2017-06-17)<a class="headerlink" href="#dbi-0-7-2017-06-17" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Import updated specs from <code class="docutils literal notranslate"><span class="pre">DBItest</span></code>.</p></li>
+<li><p>The default implementation of <code class="docutils literal notranslate"><span class="pre">dbGetQuery()</span></code> now accepts an <code class="docutils literal notranslate"><span class="pre">n</span></code> argument and forwards it to <code class="docutils literal notranslate"><span class="pre">dbFetch()</span></code>. No warning about pending rows is issued anymore (#76).</p></li>
+<li><p>Require R &gt;= 3.0.0 (for <code class="docutils literal notranslate"><span class="pre">slots</span></code> argument of <code class="docutils literal notranslate"><span class="pre">setClass()</span></code>) (#169, &#64;mvkorpel).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="dbi-0-6-1-2017-04-01">
+<h1>DBI 0.6-1 (2017-04-01)<a class="headerlink" href="#dbi-0-6-1-2017-04-01" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">dbReadTable()</span></code> for backends that do not provide their own implementation (#171).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="dbi-0-6-2017-03-08">
+<h1>DBI 0.6 (2017-03-08)<a class="headerlink" href="#dbi-0-6-2017-03-08" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Interface changes</p>
+<ul>
+<li><p>Deprecated <code class="docutils literal notranslate"><span class="pre">dbDriver()</span></code> and <code class="docutils literal notranslate"><span class="pre">dbUnloadDriver()</span></code> by documentation (#21).</p></li>
+<li><p>Renamed arguments to  <code class="docutils literal notranslate"><span class="pre">sqlInterpolate()</span></code> and <code class="docutils literal notranslate"><span class="pre">sqlParseVariables()</span></code> to be more consistent with the rest of the interface, and added <code class="docutils literal notranslate"><span class="pre">.dots</span></code> argument to <code class="docutils literal notranslate"><span class="pre">sqlParseVariables</span></code>. DBI drivers are now expected to implement <code class="docutils literal notranslate"><span class="pre">sqlParseVariables(conn,</span> <span class="pre">sql,</span> <span class="pre">...,</span> <span class="pre">.dots)</span></code> and <code class="docutils literal notranslate"><span class="pre">sqlInterpolate(conn,</span> <span class="pre">sql,</span> <span class="pre">...)</span></code> (#147).</p></li>
+</ul>
+</li>
+<li><p>Interface enhancements</p>
+<ul>
+<li><p>Removed <code class="docutils literal notranslate"><span class="pre">valueClass</span> <span class="pre">=</span> <span class="pre">&quot;logical&quot;</span></code> for those generics where the return value is meaningless, to allow backends to return invisibly (#135).</p></li>
+<li><p>Avoiding using braces in the definitions of generics if possible, so that standard generics can be detected (#146).</p></li>
+<li><p>Added default implementation for <code class="docutils literal notranslate"><span class="pre">dbReadTable()</span></code>.</p></li>
+<li><p>All standard generics are required to have an ellipsis (with test), for future extensibility.</p></li>
+<li><p>Improved default implementation of <code class="docutils literal notranslate"><span class="pre">dbQuoteString()</span></code> and <code class="docutils literal notranslate"><span class="pre">dbQuoteIdentifier()</span></code> (#77).</p></li>
+<li><p>Removed <code class="docutils literal notranslate"><span class="pre">tryCatch()</span></code> call in <code class="docutils literal notranslate"><span class="pre">dbGetQuery()</span></code> (#113).</p></li>
+</ul>
+</li>
+<li><p>Documentation improvements</p>
+<ul>
+<li><p>Finalized first draft of DBI specification, now in a vignette.</p></li>
+<li><p>Most methods now draw documentation from <code class="docutils literal notranslate"><span class="pre">DBItest</span></code>, only those where the behavior is not finally decided don’t do this yet yet.</p></li>
+<li><p>Removed <code class="docutils literal notranslate"><span class="pre">max.connections</span></code> requirement from documentation (#56).</p></li>
+<li><p>Improved <code class="docutils literal notranslate"><span class="pre">dbBind()</span></code> documentation and example (#136).</p></li>
+<li><p>Change <code class="docutils literal notranslate"><span class="pre">omegahat.org</span></code> URL to <code class="docutils literal notranslate"><span class="pre">omegahat.net</span></code>, the particular document still doesn’t exist below the new domain.</p></li>
+</ul>
+</li>
+<li><p>Internal</p>
+<ul>
+<li><p>Use roxygen2 inheritance to copy DBI specification to this package.</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">tic</span></code> package for building documentation.</p></li>
+<li><p>Use markdown in documentation.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="dbi-0-5-1-2016-09-09">
+<h1>DBI 0.5-1 (2016-09-09)<a class="headerlink" href="#dbi-0-5-1-2016-09-09" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Documentation and example updates.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="dbi-0-5-2016-08-11-cran-release">
+<h1>DBI 0.5 (2016-08-11, CRAN release)<a class="headerlink" href="#dbi-0-5-2016-08-11-cran-release" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Interface changes</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">dbDataType()</span></code> maps <code class="docutils literal notranslate"><span class="pre">character</span></code> values to <code class="docutils literal notranslate"><span class="pre">&quot;TEXT&quot;</span></code> by default (#102).</p></li>
+<li><p>The default implementation of <code class="docutils literal notranslate"><span class="pre">dbQuoteString()</span></code> doesn’t call <code class="docutils literal notranslate"><span class="pre">encodeString()</span></code> anymore: Neither SQLite nor Postgres understand e.g. <code class="docutils literal notranslate"><span class="pre">\n</span></code> in a string literal, and all of SQLite, Postgres, and MySQL accept an embedded newline (#121).</p></li>
+</ul>
+</li>
+<li><p>Interface enhancements</p>
+<ul>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">dbSendStatement()</span></code> generic, forwards to <code class="docutils literal notranslate"><span class="pre">dbSendQuery()</span></code> by default (#20, #132).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">dbExecute()</span></code>, calls <code class="docutils literal notranslate"><span class="pre">dbSendStatement()</span></code> by default (#109, &#64;bborgesr).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">dbWithTransaction()</span></code> that calls <code class="docutils literal notranslate"><span class="pre">dbBegin()</span></code> and <code class="docutils literal notranslate"><span class="pre">dbCommit()</span></code>, and <code class="docutils literal notranslate"><span class="pre">dbRollback()</span></code> on failure (#110, &#64;bborgesr).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">dbBreak()</span></code> function which allows aborting from within <code class="docutils literal notranslate"><span class="pre">dbWithTransaction()</span></code> (#115, #133).</p></li>
+<li><p>Export <code class="docutils literal notranslate"><span class="pre">dbFetch()</span></code> and <code class="docutils literal notranslate"><span class="pre">dbQuoteString()</span></code> methods.</p></li>
+</ul>
+</li>
+<li><p>Documentation improvements:</p>
+<ul>
+<li><p>One example per function (except functions scheduled for deprecation) (#67).</p></li>
+<li><p>Consistent layout and identifier naming.</p></li>
+<li><p>Better documentation of generics by adding links to the class and related generics in the “See also” section under “Other DBI… generics” (#130). S4 documentation is directed to a hidden page to unclutter documentation index (#59).</p></li>
+<li><p>Fix two minor vignette typos (#124, &#64;mdsumner).</p></li>
+<li><p>Add package documentation.</p></li>
+<li><p>Remove misleading parts in <code class="docutils literal notranslate"><span class="pre">dbConnect()</span></code> documentation (#118).</p></li>
+<li><p>Remove misleading link in <code class="docutils literal notranslate"><span class="pre">dbDataType()</span></code> documentation.</p></li>
+<li><p>Remove full stop from documentation titles.</p></li>
+<li><p>New help topic “DBIspec” that contains the full DBI specification (currently work in progress) (#129).</p></li>
+<li><p>HTML documentation generated by <code class="docutils literal notranslate"><span class="pre">staticdocs</span></code> is now uploaded to <a class="reference external" href="https://rstats-db.github.io/DBI">https://rstats-db.github.io/DBI</a> for each build of the “production” branch (#131).</p></li>
+<li><p>Further minor changes and fixes.</p></li>
+</ul>
+</li>
+<li><p>Internal</p>
+<ul>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">contains</span></code> argument instead of <code class="docutils literal notranslate"><span class="pre">representation()</span></code> to denote base classes (#93).</p></li>
+<li><p>Remove redundant declaration of transaction methods (#110, &#64;bborgesr).</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="dbi-0-4-1-2016-05-07-cran-release">
+<h1>DBI 0.4-1 (2016-05-07, CRAN release)<a class="headerlink" href="#dbi-0-4-1-2016-05-07-cran-release" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>The default <code class="docutils literal notranslate"><span class="pre">show()</span></code> implementations silently ignore all errors.  Some DBI drivers (e.g., RPostgreSQL) might fail to implement <code class="docutils literal notranslate"><span class="pre">dbIsValid()</span></code> or the other methods used.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="dbi-0-4-2016-04-30">
+<h1>DBI 0.4 (2016-04-30)<a class="headerlink" href="#dbi-0-4-2016-04-30" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>New package maintainer: Kirill Müller.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dbGetInfo()</span></code> gains a default method that extracts the information from
+<code class="docutils literal notranslate"><span class="pre">dbGetStatement()</span></code>, <code class="docutils literal notranslate"><span class="pre">dbGetRowsAffected()</span></code>, <code class="docutils literal notranslate"><span class="pre">dbHasCompleted()</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">dbGetRowCount()</span></code>. This means that most drivers should no longer need to
+implement <code class="docutils literal notranslate"><span class="pre">dbGetInfo()</span></code> (which may be deprecated anyway at some point) (#55).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dbDataType()</span></code> and <code class="docutils literal notranslate"><span class="pre">dbQuoteString()</span></code> are now properly exported.</p></li>
+<li><p>The default implementation for <code class="docutils literal notranslate"><span class="pre">dbDataType()</span></code> (powered by <code class="docutils literal notranslate"><span class="pre">dbiDataType()</span></code>) now
+also supports <code class="docutils literal notranslate"><span class="pre">difftime</span></code> and <code class="docutils literal notranslate"><span class="pre">AsIs</span></code> objects and lists of <code class="docutils literal notranslate"><span class="pre">raw</span></code> (#70).</p></li>
+<li><p>Default <code class="docutils literal notranslate"><span class="pre">dbGetQuery()</span></code> method now always calls <code class="docutils literal notranslate"><span class="pre">dbFetch()</span></code>, in a <code class="docutils literal notranslate"><span class="pre">tryCatch()</span></code>
+block.</p></li>
+<li><p>New generic <code class="docutils literal notranslate"><span class="pre">dbBind()</span></code> for binding values to a parameterised query.</p></li>
+<li><p>DBI gains a number of SQL generation functions. These make it easier to
+write backends by implementing common operations that are slightly
+tricky to do absolutely correctly.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">sqlCreateTable()</span></code> and <code class="docutils literal notranslate"><span class="pre">sqlAppendTable()</span></code> create tables from a data
+frame and insert rows into an existing table. These will power most
+implementations of <code class="docutils literal notranslate"><span class="pre">dbWriteTable()</span></code>. <code class="docutils literal notranslate"><span class="pre">sqlAppendTable()</span></code> is useful
+for databases that support parameterised queries.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sqlRownamesToColumn()</span></code> and <code class="docutils literal notranslate"><span class="pre">sqlColumnToRownames()</span></code> provide a standard
+way of translating row names to and from the database.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sqlInterpolate()</span></code> and <code class="docutils literal notranslate"><span class="pre">sqlParseVariables()</span></code> allows databases without
+native parameterised queries to use parameterised queries to avoid
+SQL injection attacks.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sqlData()</span></code> is a new generic that converts a data frame into a data
+frame suitable for sending to the database. This is used to (e.g.)
+ensure all character vectors are encoded as UTF-8, or to convert
+R varible types (like factor) to types supported by the database.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">sqlParseVariablesImpl()</span></code> is now implemented purely in R, with full
+test coverage (#83, &#64;hannesmuehleisen).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dbiCheckCompliance()</span></code> has been removed, the functionality is now available
+in the <code class="docutils literal notranslate"><span class="pre">DBItest</span></code> package (#80).</p></li>
+<li><p>Added default <code class="docutils literal notranslate"><span class="pre">show()</span></code> methods for driver, connection and results.</p></li>
+<li><p>New concrete <code class="docutils literal notranslate"><span class="pre">ANSIConnection</span></code> class and <code class="docutils literal notranslate"><span class="pre">ANSI()</span></code> function to generate a dummy
+ANSI compliant connection useful for testing.</p></li>
+<li><p>Default <code class="docutils literal notranslate"><span class="pre">dbQuoteString()</span></code> and <code class="docutils literal notranslate"><span class="pre">dbQuoteIdentifer()</span></code> methods now use
+<code class="docutils literal notranslate"><span class="pre">encodeString()</span></code> so that special characters like <code class="docutils literal notranslate"><span class="pre">\n</span></code> are correctly escaped.
+<code class="docutils literal notranslate"><span class="pre">dbQuoteString()</span></code> converts <code class="docutils literal notranslate"><span class="pre">NA</span></code> to (unquoted) NULL.</p></li>
+<li><p>The initial DBI proposal and DBI version 1 specification are now included as
+a vignette. These are there mostly for historical interest.</p></li>
+<li><p>The new <code class="docutils literal notranslate"><span class="pre">DBItest</span></code> package is described in the vignette.</p></li>
+<li><p>Deprecated <code class="docutils literal notranslate"><span class="pre">print.list.pairs()</span></code>.</p></li>
+<li><p>Removed unused <code class="docutils literal notranslate"><span class="pre">dbi_dep()</span></code>.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-3-1">
+<h1>Version 0.3.1<a class="headerlink" href="#version-0-3-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Actually export <code class="docutils literal notranslate"><span class="pre">dbIsValid()</span></code> :/</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dbGetQuery()</span></code> uses <code class="docutils literal notranslate"><span class="pre">dbFetch()</span></code> in the default implementation.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-3-0">
+<h1>Version 0.3.0<a class="headerlink" href="#version-0-3-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="new-and-enhanced-generics">
+<h2>New and enhanced generics<a class="headerlink" href="#new-and-enhanced-generics" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dbIsValid()</span></code> returns a logical value describing whether a connection or
+result set (or other object) is still valid. (#12).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dbQuoteString()</span></code> and <code class="docutils literal notranslate"><span class="pre">dbQuoteIdentifier()</span></code> to implement database specific
+quoting mechanisms.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dbFetch()</span></code> added as alias to <code class="docutils literal notranslate"><span class="pre">fetch()</span></code> to provide consistent name.
+Implementers should define methods for both <code class="docutils literal notranslate"><span class="pre">fetch()</span></code> and <code class="docutils literal notranslate"><span class="pre">dbFetch()</span></code> until
+<code class="docutils literal notranslate"><span class="pre">fetch()</span></code> is deprecated in 2015. For now, the default method for <code class="docutils literal notranslate"><span class="pre">dbFetch()</span></code>
+calls <code class="docutils literal notranslate"><span class="pre">fetch()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dbBegin()</span></code> begins a transaction (#17). If not supported, DB specific
+methods should throw an error (as should <code class="docutils literal notranslate"><span class="pre">dbCommit()</span></code> and <code class="docutils literal notranslate"><span class="pre">dbRollback()</span></code>).</p></li>
+</ul>
+</div>
+<div class="section" id="new-default-methods">
+<h2>New default methods<a class="headerlink" href="#new-default-methods" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dbGetStatement()</span></code>, <code class="docutils literal notranslate"><span class="pre">dbGetRowsAffected()</span></code>, <code class="docutils literal notranslate"><span class="pre">dbHasCompleted()</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">dbGetRowCount()</span></code> gain default methods that extract the appropriate elements
+from <code class="docutils literal notranslate"><span class="pre">dbGetInfo()</span></code>. This means that most drivers should no longer need to
+implement these methods (#13).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dbGetQuery()</span></code> gains a default method for <code class="docutils literal notranslate"><span class="pre">DBIConnection</span></code> which uses
+<code class="docutils literal notranslate"><span class="pre">dbSendQuery()</span></code>, <code class="docutils literal notranslate"><span class="pre">fetch()</span></code> and <code class="docutils literal notranslate"><span class="pre">dbClearResult()</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="deprecated-features">
+<h2>Deprecated features<a class="headerlink" href="#deprecated-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The following functions are soft-deprecated. They are going away,
+and developers who use the DBI should begin preparing. The formal deprecation
+process will begin in July 2015, where these function will emit warnings
+on use.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">fetch()</span></code> is replaced by <code class="docutils literal notranslate"><span class="pre">dbFetch()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make.db.names()</span></code>, <code class="docutils literal notranslate"><span class="pre">isSQLKeyword()</span></code> and <code class="docutils literal notranslate"><span class="pre">SQLKeywords()</span></code>: a black list
+based approach is fundamentally flawed; instead quote strings and
+identifiers with <code class="docutils literal notranslate"><span class="pre">dbQuoteIdentifier()</span></code> and <code class="docutils literal notranslate"><span class="pre">dbQuoteString()</span></code>.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dbGetDBIVersion()</span></code> is deprecated since it’s now just a thin wrapper
+around <code class="docutils literal notranslate"><span class="pre">packageVersion(&quot;DBI&quot;)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dbSetDataMappings()</span></code> (#9) and <code class="docutils literal notranslate"><span class="pre">dbCallProc()</span></code> (#7) are deprecated as no
+implementations were ever provided.</p></li>
+</ul>
+</div>
+<div class="section" id="other-improvements">
+<h2>Other improvements<a class="headerlink" href="#other-improvements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dbiCheckCompliance()</span></code> makes it easier for implementors to check that their
+package is in compliance with the DBI specification.</p></li>
+<li><p>All examples now use the RSQLite package so that you can easily try out
+the code samples (#4).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dbDriver()</span></code> gains a more effective search mechanism that doesn’t rely on
+packages being loaded (#1).</p></li>
+<li><p>DBI has been converted to use roxygen2 for documentation, and now most
+functions have their own documentation files. I would love your feedback
+on how we could make the documentation better!</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-2-7">
+<h1>Version 0.2-7<a class="headerlink" href="#version-0-2-7" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Trivial changes (updated package fields, daj)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-2-6">
+<h1>Version 0.2-6<a class="headerlink" href="#version-0-2-6" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Removed deprecated \synopsis in some Rd files (thanks to Prof. Ripley)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-2-5">
+<h1>Version 0.2-5<a class="headerlink" href="#version-0-2-5" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Code cleanups contributed by Matthias Burger: avoid partial argument
+name matching and use TRUE/FALSE, not T/F.</p></li>
+<li><p>Change behavior of make.db.names.default to quote SQL keywords if
+allow.keywords is FALSE.  Previously, SQL keywords would be name
+mangled with underscores and a digit.  Now they are quoted using
+‘”’.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-2-4">
+<h1>Version 0.2-4<a class="headerlink" href="#version-0-2-4" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Changed license from GPL to LPGL</p></li>
+<li><p>Fixed a trivial typo in documentation</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-1-10">
+<h1>Version 0.1-10<a class="headerlink" href="#version-0-1-10" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed documentation typos.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-1-9">
+<h1>Version 0.1-9<a class="headerlink" href="#version-0-1-9" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Trivial changes.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-1-8">
+<h1>Version 0.1-8<a class="headerlink" href="#version-0-1-8" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>A trivial change due to package.description() being deprecated in 1.9.0.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-1-7">
+<h1>Version 0.1-7<a class="headerlink" href="#version-0-1-7" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Had to do a substantial re-formatting of the documentation
+due to incompatibilities introduced in 1.8.0 S4 method
+documentation. The contents were not changed (modulo fixing
+a few typos).  Thanks to Kurt Hornik and John Chambers for
+their help.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-1-6">
+<h1>Version 0.1-6<a class="headerlink" href="#version-0-1-6" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Trivial documentation changes (for R CMD check’s sake)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-1-5">
+<h1>Version 0.1-5<a class="headerlink" href="#version-0-1-5" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Removed duplicated setGeneric(“dbSetDataMappings”)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-1-4">
+<h1>Version 0.1-4<a class="headerlink" href="#version-0-1-4" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Removed the “valueClass” from some generic functions, namely,
+dbListConnections, dbListResults, dbGetException, dbGetQuery,
+and dbGetInfo.  The reason is that methods for these generics
+could potentially return different classes of objects (e.g.,
+the call dbGetInfo(res) could return a list of name-value pairs,
+while dbGetInfo(res, “statement”) could be a character vector).</p></li>
+<li><p>Added 00Index to inst/doc</p></li>
+<li><p>Added dbGetDBIVersion() (simple wrapper to package.description).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-1-3">
+<h1>Version 0.1-3<a class="headerlink" href="#version-0-1-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>??? Minor changes?</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-0-1-2">
+<h1>Version 0.1-2<a class="headerlink" href="#version-0-1-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>An implementation based on version 4 classes and methods.</p></li>
+<li><p>Incorporated (mostly Tim Keitt’s) comments.</p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./temporal/renv/library/R-4.1/aarch64-apple-darwin20/DBI"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Quan Nguyen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

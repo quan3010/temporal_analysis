@@ -1,0 +1,2089 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>testthat 3.1.4 &#8212; Temporal and sequential analysis - LASI 2022</title>
+    
+  <link href="../../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../_static/togglebutton.js"></script>
+    <script src="../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../../../_static/solar_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Temporal and sequential analysis - LASI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture1.html">
+   Lecture 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture2.html">
+   Lecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture3.html">
+   Lecture 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Labs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab1.html">
+   Lab 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab2.html">
+   Lab 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab3.html">
+   Lab 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Quan Nguyen<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../../_sources/temporal/renv/library/R-4.1/aarch64-apple-darwin20/testthat/NEWS.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/quan3010/temporal_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/quan3010/temporal_analysis/issues/new?title=Issue%20on%20page%20%2Ftemporal/renv/library/R-4.1/aarch64-apple-darwin20/testthat/NEWS.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   testthat 3.1.4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-3-1-3">
+   testthat 3.1.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-3-1-2">
+   testthat 3.1.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-3-1-1">
+   testthat 3.1.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-3-1-0">
+   testthat 3.1.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#snapshot-tests">
+     Snapshot tests
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#breaking-changes">
+     Breaking changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minor-improvements-and-bug-fixes">
+     Minor improvements and bug fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-3-0-4">
+   testthat 3.0.4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-3-0-3">
+   testthat 3.0.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-3-0-2">
+   testthat 3.0.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-3-0-1">
+   testthat 3.0.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-3-0-0">
+   testthat 3.0.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rd-edition">
+     3rd edition
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#snapshot-testing">
+     Snapshot testing
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#reporters">
+     Reporters
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fixures">
+     Fixures
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#skips">
+     Skips
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#test-running">
+     Test running
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Minor improvements and bug fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-2-3-2">
+   testthat 2.3.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-2-3-1">
+   testthat 2.3.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-2-3-0">
+   testthat 2.3.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conditions">
+     Conditions
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#expectations">
+     Expectations
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-minor-improvements-and-bug-fixes">
+     Other minor improvements and bug fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-2-2-1">
+   testthat 2.2.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-2-2-0">
+   testthat 2.2.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-features">
+     New features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Minor improvements and bug fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-2-1-1">
+   testthat 2.1.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-2-1-0">
+   testthat 2.1.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-expectations">
+     New expectations
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#improvements-to-existing-expectations">
+     Improvements to existing expectations
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Reporters
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Skips
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-new-features">
+     Other new features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Other minor improvements and bug fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-2-0-1">
+   testthat 2.0.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-2-0-0">
+   testthat 2.0.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#breaking-api-changes">
+     Breaking API changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Expectations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#new-and-improved-expectations">
+       New and improved expectations
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#new-and-improved-skips">
+       New and improved skips
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#known-good-values">
+       Known good values
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#quasiquotation-support">
+       Quasiquotation support
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     New features
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#setup-and-teardown">
+       Setup and teardown
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id8">
+       Other new features
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#new-default-reporter">
+       New default reporter
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id9">
+       Reporters
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deprecated-functions">
+     Deprecated functions
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     Minor improvements and bug fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-1-0-2">
+   testthat 1.0.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-1-0-1">
+   testthat 1.0.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-1-0-0">
+   testthat 1.0.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     Breaking changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     New expectations
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#expectations-are-conditions">
+     Expectations are conditions
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id13">
+     Reporters
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other">
+     Other
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-0-11-0">
+   testthat 0.11.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-0-10-0">
+   testthat 0.10.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-0-9-1">
+   testthat 0.9.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-0-9">
+   testthat 0.9
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id14">
+     New features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id15">
+     Minor improvements and bug fixes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id16">
+     Deprecated functions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-0-8-1">
+   testthat 0.8.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-0-8">
+   testthat 0.8
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-reporters">
+     New reporters
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id17">
+     New expectations
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id18">
+     Minor improvements and bug fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-0-7-1">
+   testthat 0.7.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-0-7">
+   testthat 0.7
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-0-6">
+   testthat 0.6
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-0-5">
+   testthat 0.5
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-0-4">
+   testthat 0.4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-0-3">
+   testthat 0.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#testthat-0-2">
+   testthat 0.2
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="testthat-3-1-4">
+<h1>testthat 3.1.4<a class="headerlink" href="#testthat-3-1-4" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Minor tweaks to output for latest cli (#1606).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-3-1-3">
+<h1>testthat 3.1.3<a class="headerlink" href="#testthat-3-1-3" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Package that explicitly depend on rlang in their description file
+are now opting into a new snapshot display for errors, warnings, and
+messages. Previously this only concerned packages that explicitly
+depended on rlang &gt;= 1.0.0. This display will eventually become the
+default for all packages.</p>
+<p>Changes include:</p>
+<ul>
+<li><p>Condition classes are no longer included in the snapshot by
+default. This is to avoid snapshot noise when upstream code adds
+or changes a class. For instance, r-devel has added classes to
+base errors.</p></li>
+<li><p>Warnings and errors are now printed with rlang, including the
+<code class="docutils literal notranslate"><span class="pre">call</span></code> field. This makes it easy to monitor the full appearance of
+warning and error messages as they are displayed to users.</p>
+<p>This change is part of a push towards mentioning the useful
+context of an error as part of messages, see the release notes of
+rlang 1.0.0 for more about this.</p>
+</li>
+</ul>
+</li>
+<li><p>Test results show hyperlinks to failed expectation when supported (#1544).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-3-1-2">
+<h1>testthat 3.1.2<a class="headerlink" href="#testthat-3-1-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>testthat now uses brio for all reading and writing (#1120). This
+ensures that snapshots always use “\n” to separate lines (#1516).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_snapshot()</span></code> no longer inadvertently trims trailing new lines off
+of errors and messages (#1509).</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">expect_snapshot()</span></code> generates a snapshot with different value but
+still compares as equal (e.g. because you’ve set a numeric tolerance), the
+saved values no longer update if another snapshot in the same file changes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_snapshot()</span></code> now only adds a <code class="docutils literal notranslate"><span class="pre">.new</span></code> file for the variants that
+actually changed, not all variants, while <code class="docutils literal notranslate"><span class="pre">expect_snapshot_file()</span></code> with
+variant with no longer immediately deletes <code class="docutils literal notranslate"><span class="pre">.new</span></code> files (#1468).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_snapshot_file()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">transform</span></code> argument to match
+<code class="docutils literal notranslate"><span class="pre">expect_snapshot()</span></code> (#1474). <code class="docutils literal notranslate"><span class="pre">compare</span></code> now defaults to <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, automatically
+guessing the comparison type based on the extension.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_snapshot_file()</span></code> now errors if the file being snapshot does not exist;
+<code class="docutils literal notranslate"><span class="pre">SnapshotReporter</span></code> also now treats the file directory as an absolute path
+(#1476, &#64;malcolmbarrett)</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">expect_snapshot_warning()</span></code> to match <code class="docutils literal notranslate"><span class="pre">expect_snapshot_error()</span></code> (#1532).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">JUnitReporter</span></code> now includes skip messages/reasons (&#64;rfineman, #1507)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">local_reproducible_output()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">lang</span></code> argument so that you can
+optionally override the language used to translate error messages (#1483).
+It also sets the global option <code class="docutils literal notranslate"><span class="pre">cli.num_colors</span></code> in addition to
+<code class="docutils literal notranslate"><span class="pre">crayon.enabled</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_that()</span></code> no longer inappropriately skips when calling <code class="docutils literal notranslate"><span class="pre">expect_equal()</span></code>
+when you’ve temporarily set the locale to non-UTF-8 (#1285).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">skip_if_offline()</span></code> now automatically calls <code class="docutils literal notranslate"><span class="pre">skip_on_cran()</span></code> (#1479).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">snapshot_accept()</span></code> and <code class="docutils literal notranslate"><span class="pre">snapshot_review()</span></code> now work with exactly the same
+file specification which can be a snapshot name, a file name, or a directory
+(#1546). They both work better with variants (#1508). Snapshot cleanup also
+removes all empty directories (#1457).</p></li>
+<li><p>When a snapshot changes the hint also mentions that you can use
+<code class="docutils literal notranslate"><span class="pre">snapshot_review()</span></code> (#1500, &#64;DanChaltiel) and the message tells you what
+variant is active (#1540).</p></li>
+<li><p>JUnit reporter now includes skip messages/reasons (&#64;rfineman, #1507).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-3-1-1">
+<h1>testthat 3.1.1<a class="headerlink" href="#testthat-3-1-1" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Condition expectations like <code class="docutils literal notranslate"><span class="pre">expect_error()</span></code> now match across the
+ancestry of chained errors (#1493). You can disable this by setting
+the new <code class="docutils literal notranslate"><span class="pre">inherit</span></code> argument to <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>.</p></li>
+<li><p>Added preliminary support for rlang 1.0 errors. It is disabled by
+default for the time being. To activate it, specify <code class="docutils literal notranslate"><span class="pre">rlang</span> <span class="pre">(&gt;=</span> <span class="pre">1.0.0)</span></code> in your <code class="docutils literal notranslate"><span class="pre">DESCRIPTION</span></code> file (or <code class="docutils literal notranslate"><span class="pre">&gt;=</span> <span class="pre">0.99.0.9001</span></code> if you’re
+using the dev version).</p>
+<p>Once activated, snapshots will now use rlang to print error and
+warning messages, including the <code class="docutils literal notranslate"><span class="pre">Error:</span></code> and <code class="docutils literal notranslate"><span class="pre">Warning:</span></code>
+prefixes. This means the <code class="docutils literal notranslate"><span class="pre">call</span></code> field of conditions is now displayed
+in snapshots if present. Parent error messages are also displayed.
+Following this change, all snapshots including error and warning
+messages need to be revalidated.</p>
+<p>We will enable the new rlang 1.0 output unconditionally in a future
+release.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_snapshot()</span></code> gains a new argument <code class="docutils literal notranslate"><span class="pre">cnd_class</span></code> to control
+whether to show the class of errors, warnings, and messages.</p>
+<p>The default is currently unchanged so that condition classes keep
+being included in snapshots. However, we plan to change the default
+to <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> in an upcoming release to prevent distracting snapshot
+diffing as upstream packages add error classes. For instance, the
+development version of R is currently adding classes to basic
+errors, which causes spurious snapshot changes when testing against
+R-devel on CI.</p>
+<p>If you depend on rlang 1.0 (see above), the default is already set
+to <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_snapshot()</span></code> no longer processes rlang injection operators
+like <code class="docutils literal notranslate"><span class="pre">!!</span></code>.</p></li>
+<li><p>Fixed bug in expectations with long inputs that use <code class="docutils literal notranslate"><span class="pre">::</span></code> (#1472).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-3-1-0">
+<h1>testthat 3.1.0<a class="headerlink" href="#testthat-3-1-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="snapshot-tests">
+<h2>Snapshot tests<a class="headerlink" href="#snapshot-tests" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_snapshot()</span></code> is no longer experimental.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_snapshot()</span></code> and friends gets an experimental new <code class="docutils literal notranslate"><span class="pre">variant</span></code> argument
+which causes the snapshot to be saved in <code class="docutils literal notranslate"><span class="pre">_snaps/{variant}/{test}.md</span></code> instead
+of <code class="docutils literal notranslate"><span class="pre">_snaps/{test}.md</span></code>. This allows you to generate (and compare) unique
+snapshots for different scenarios like operating system or R version (#1143).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_snapshot()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">transform</span></code> argument, which should be a function that
+takes a character vector of lines and returns a modified character vector
+of lines. This makes it easy to remove sensitive (e.g. API keys) or
+stochastic (e.g. random temporary directory names) from snapshot output
+(#1345).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_snapshot_file()</span></code> now replaces previous <code class="docutils literal notranslate"><span class="pre">.new</span></code> snapshot if code
+fails again with a different value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_snapshot_value()</span></code> now has an explicit <code class="docutils literal notranslate"><span class="pre">tolerance</span></code> argument which
+uses the testthat default, thus making it more like <code class="docutils literal notranslate"><span class="pre">expect_equal()</span></code> rather
+than <code class="docutils literal notranslate"><span class="pre">expect_identical()</span></code>. Set it to <code class="docutils literal notranslate"><span class="pre">NULL</span></code> if you want precise comparisons
+(#1309). <code class="docutils literal notranslate"><span class="pre">expect_snapshot_value(style</span> <span class="pre">=</span> <span class="pre">&quot;deparse&quot;)</span></code> now works with negative
+values (#1342).</p></li>
+<li><p>If a test containing multiple snapshots fails (or skips) in between snapshots,
+the later snapshots are now silently restored. (Previously this warned and
+reset all snapshots, not just later snapshots).</p></li>
+<li><p>If you have multiple tests with the same name that use snapshots (not a good
+idea), you will no longer get a warning. Instead the snapshots will be
+aggregated across the tests.</p></li>
+</ul>
+</div>
+<div class="section" id="breaking-changes">
+<h2>Breaking changes<a class="headerlink" href="#breaking-changes" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Condition expectations now consistently return the expected
+condition instead of the return value (#1371). Previously, they
+would only return the condition if the return value was <code class="docutils literal notranslate"><span class="pre">NULL</span></code>,
+leading to inconsistent behaviour.</p>
+<p>This is a breaking change to the 3rd edition. Where you
+could previously do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">expect_equal</span><span class="p">(</span><span class="n">expect_warning</span><span class="p">(</span><span class="n">f</span><span class="p">(),</span> <span class="s2">&quot;warning&quot;</span><span class="p">),</span> <span class="s2">&quot;value&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You must now use condition expectations on the outside:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">expect_warning</span><span class="p">(</span><span class="n">expect_equal</span><span class="p">(</span><span class="n">f</span><span class="p">(),</span> <span class="s2">&quot;value&quot;</span><span class="p">),</span> <span class="s2">&quot;warning&quot;</span><span class="p">)</span>
+
+<span class="c1"># Equivalently, save the value before inspection</span>
+<span class="n">expect_warning</span><span class="p">(</span><span class="n">value</span> <span class="o">&lt;-</span> <span class="n">f</span><span class="p">(),</span> <span class="s2">&quot;warning&quot;</span><span class="p">)</span>
+<span class="n">expect_equal</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This breaking change makes testthat more consistent. It also makes
+it possible to inspect both the value and the warning, which would
+otherwise require additional tools.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="minor-improvements-and-bug-fixes">
+<h2>Minor improvements and bug fixes<a class="headerlink" href="#minor-improvements-and-bug-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Errors in test blocks now display the call if stored in the condition object
+(#1418). Uncaught errors now show their class (#1426).</p></li>
+<li><p>Multi-line skips only show the first line in the skip summary.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expr_label()</span></code>, which is used to concisely describe expressions used in
+expectations, now does a better job of summarising infix function (#1442).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">local_reproducible_output()</span></code> now sets the <code class="docutils literal notranslate"><span class="pre">max.print</span></code> option to 99999
+(the default), so your tests are unaffected by any changes you might’ve
+made in your <code class="docutils literal notranslate"><span class="pre">.Rprofile</span></code> (1367).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ProgressReporter</span></code> (the default only) now stops at the end of a file; this
+ensures that you see the results of all related tests, and ensures that
+snapshots are handled consistently (#1402).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ProgressReporter</span></code> now uses an env var to adjust the maximum number of
+failures. This makes it easier to adjust when the tests are run in a
+subprocess, as is common when using RStudio (#1450).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">skip_on_os()</span></code> gains an <code class="docutils literal notranslate"><span class="pre">arch</span></code> argument so you can also choose to skip
+selected architectures (#1421).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_that()</span></code> now correctly errors when an expectation fails when run
+interactively (#1430).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_that()</span></code> now automatically and correctly generate an “empty test”
+skip if it only generates warnings or messages (and doesn’t contain any
+expectations).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">testthat_tolerance()</span></code> no longer has an unused argument.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-3-0-4">
+<h1>testthat 3.0.4<a class="headerlink" href="#testthat-3-0-4" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>The vendored Catch code used for <code class="docutils literal notranslate"><span class="pre">use_catch()</span></code> now uses a constant
+value for the stack size rather than relying on SIGSTKSZ. This
+fixes compatibility for recent glibc versions where SIGSTKSZ is no
+longer a constant.</p></li>
+<li><p>Fixed an issue that caused errors and early termination of tests on
+R &lt;= 3.6 when a failing condition expectation was signalled inside a
+snapshot.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-3-0-3">
+<h1>testthat 3.0.3<a class="headerlink" href="#testthat-3-0-3" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_snapshot_file()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">compare</span></code> argument (#1378,
+&#64;nbenn). This is a customisation point for how to compare old and
+new snapshot files.</p>
+<p>The functions <code class="docutils literal notranslate"><span class="pre">compare_file_binary()</span></code> and <code class="docutils literal notranslate"><span class="pre">compare_file_text()</span></code> are
+now exported from testthat to be supplied as <code class="docutils literal notranslate"><span class="pre">compare</span></code>
+argument. These implement the same behaviour as the old <code class="docutils literal notranslate"><span class="pre">binary</span></code>
+argument which is now deprecated.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_snapshot()</span></code> no longer deletes snapshots when an unexpected
+error occurs.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">announce_snapshot_file()</span></code> function for developers of testthat
+extensions. Announcing a snapshot file allows testthat to preserve
+files that were not generated because of an unexpected error or a
+<code class="docutils literal notranslate"><span class="pre">skip()</span></code> (#1393). Unannounced files are automatically deleted during
+cleanup if the generating code isn’t called.</p></li>
+<li><p>New expectation: <code class="docutils literal notranslate"><span class="pre">expect_no_match()</span></code>. It complements <code class="docutils literal notranslate"><span class="pre">expect_match()</span></code> by
+checking if a string <strong>doesn’t match</strong> a regular expression
+(&#64;michaelquinn32, #1381).</p></li>
+<li><p>Support setting the testthat edition via an environment variable
+(<code class="docutils literal notranslate"><span class="pre">TESTTHAT_EDITION</span></code>) as well (&#64;michaelquinn32, #1386).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-3-0-2">
+<h1>testthat 3.0.2<a class="headerlink" href="#testthat-3-0-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Failing expectations now include a backtrace when they’re not called directly
+from within <code class="docutils literal notranslate"><span class="pre">test_that()</span></code> but are instead wrapped in some helper function
+(#1307).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CheckReporter</span></code> now only records warnings when not on CRAN. Otherwise
+failed CRAN revdep checks tend to be cluttered up with warnings (#1300).
+It automatically cleans up <code class="docutils literal notranslate"><span class="pre">testthat-problems.rds</span></code> left over from previous
+runs if the latest run is succesful (#1314).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_s3_class()</span></code> and <code class="docutils literal notranslate"><span class="pre">expect_s4_class()</span></code> can now check that an object
+<em>isn’t</em> an S3 or S4 object by supplying <code class="docutils literal notranslate"><span class="pre">NA</span></code> to the second argument (#1321).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_s3_class()</span></code> and <code class="docutils literal notranslate"><span class="pre">expect_s4_class()</span></code> format class names in a less
+confusing way (#1322).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_snapshot()</span></code> collapses multiple adjacent headings of the same, so
+that, e.g., if you have multiple lines of code in a row, you’ll only see
+one “Code:” heading (#1311).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-3-0-1">
+<h1>testthat 3.0.1<a class="headerlink" href="#testthat-3-0-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>New <code class="docutils literal notranslate"><span class="pre">testthat.progress.verbose_skips</span></code> option. Set to <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> to stop
+reporting skips as they occur; they will still appear in the summary
+(#1209, &#64;krlmlr).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CheckReporter</span></code> results have been tweaked based on experiences from running
+R CMD check on many packages. Hopefully it should now be easier to see
+the biggest problems (i.e. failures and errors) while still having
+skips and warnings available to check if needed (#1274). And now the full
+test name is always shown, no matter how long (#1268).</p></li>
+<li><p>Catch C++ tests are no longer reported multiple times (#1237) and
+are automatically skipped on Solaris since Catch is not supported (#1257).
+<code class="docutils literal notranslate"><span class="pre">use_catch()</span></code> makes it more clear that your package needs to suggest
+xml2 (#1235).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">auto_test_package()</span></code> works once again (&#64;mbojan, #1211, #1214).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_snapshot()</span></code> gains new <code class="docutils literal notranslate"><span class="pre">error</span></code> argument which controls whether or not
+an error is expected. If an unexpected error is thrown, or an expected error
+is not thrown, <code class="docutils literal notranslate"><span class="pre">expect_snapshot()</span></code> will fail (even on CRAN) (#1200).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_snapshot_value(style</span> <span class="pre">=</span> <span class="pre">&quot;deparse&quot;)</span></code> handles more common R data
+structures.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_snapshot_value()</span></code> now passes <code class="docutils literal notranslate"><span class="pre">...</span></code> on to <code class="docutils literal notranslate"><span class="pre">waldo::compare()</span></code> (#1222).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_snapshot_file()</span></code> gives a hint as to next steps when a failure
+occurs in non-interactive environments (with help from &#64;maelle, #1179).
+<code class="docutils literal notranslate"><span class="pre">expect_snapshot_*()</span></code> gives a more informative hint when you’re running
+tests interactively (#1226).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_snapshot_*()</span></code> automatically removes the <code class="docutils literal notranslate"><span class="pre">_snaps</span></code> directory if
+it’s empty (#1180). It also warns if snapshots are discarded because tests
+have duplicated names (#1278, &#64;krlmlr).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">local_reproducible_output()</span></code> now sets the LANGUAGE env var to “en”. This
+matches the behaviour of R CMD check in interactive settings (#1213).
+It also now unsets RSTUDIO envvar, instead of setting it to 0 (#1225).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RstudioReporter</span></code> has been renamed to <code class="docutils literal notranslate"><span class="pre">RStudioReporter</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">skip_if_not()</span></code> no longer appends “is not TRUE” to custom messages
+(&#64;dpprdan, #1247).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_that()</span></code> now warns (3e only) if code doesn’t have braces, since
+that makes it hard to track the source of an error (#1280, &#64;krlmlr).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-3-0-0">
+<h1>testthat 3.0.0<a class="headerlink" href="#testthat-3-0-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="rd-edition">
+<h2>3rd edition<a class="headerlink" href="#rd-edition" title="Permalink to this headline">¶</a></h2>
+<p>testhat 3.0.0 brings with it a 3rd edition that makes a number of breaking
+changes in order to clean up the interface and help you use our latest
+recommendations. To opt-in to the 3rd edition for your package, set
+<code class="docutils literal notranslate"><span class="pre">Config/testthat/edition:</span> <span class="pre">3</span></code> in your <code class="docutils literal notranslate"><span class="pre">DESCRIPTION</span></code> or use <code class="docutils literal notranslate"><span class="pre">local_edition(3)</span></code> in
+individual tests. You can retrieve the active edition with <code class="docutils literal notranslate"><span class="pre">edition_get()</span></code>.
+Learn more in <code class="docutils literal notranslate"><span class="pre">vignette(&quot;third-edition&quot;)</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">context()</span></code> is deprecated.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_identical()</span></code> and <code class="docutils literal notranslate"><span class="pre">expect_equal()</span></code> use <code class="docutils literal notranslate"><span class="pre">waldo::compare()</span></code> to
+compare actual and expected results. This mostly yields much more
+informative output when the actual and expected values are different,
+but while writing it uncovered some bugs in the existing comparison
+code.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_error()</span></code>, <code class="docutils literal notranslate"><span class="pre">expect_warning()</span></code>, <code class="docutils literal notranslate"><span class="pre">expect_message()</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">expect_condition()</span></code> now all use the same underlying logic: they
+capture the first condition that matches <code class="docutils literal notranslate"><span class="pre">class</span></code>/<code class="docutils literal notranslate"><span class="pre">regexp</span></code> and
+allow anything else to bubble up (#998/#1052). They also warn if
+there are unexpected arguments that are never used.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">all</span></code> argument to <code class="docutils literal notranslate"><span class="pre">expect_message()</span></code> and <code class="docutils literal notranslate"><span class="pre">expect_warning()</span></code> is now
+deprecated. It was never a particularly good idea or well documented,
+and is now superseded by the new condition capturing behaviour.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_equivalent()</span></code>, <code class="docutils literal notranslate"><span class="pre">expect_reference()</span></code>, <code class="docutils literal notranslate"><span class="pre">expect_is()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">expect_that()</span></code> are deprecated.</p></li>
+<li><p>Messages are no longer automatically silenced. Either use
+<code class="docutils literal notranslate"><span class="pre">suppressMessages()</span></code> to hide unimportant messages, or
+<code class="docutils literal notranslate"><span class="pre">expect_messsage()</span></code> to catch important messages (#1095).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setup()</span></code> and <code class="docutils literal notranslate"><span class="pre">teardown()</span></code> are deprecated in favour of test fixtures.
+See <code class="docutils literal notranslate"><span class="pre">vignette(&quot;test-fixtures&quot;)</span></code> for more details.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_known_output()</span></code>, <code class="docutils literal notranslate"><span class="pre">expect_known_value()</span></code>, <code class="docutils literal notranslate"><span class="pre">expect_known_hash()</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">expect_equal_to_reference()</span></code> are all deprecated in favour of
+<code class="docutils literal notranslate"><span class="pre">expect_snapshot_output()</span></code> and <code class="docutils literal notranslate"><span class="pre">expect_snapshot_value()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_that()</span></code> now sets a number of options and env vars to make output as
+reproducible as possible (#1044). Many of these options were previously
+set in various places (in <code class="docutils literal notranslate"><span class="pre">devtools::test()</span></code>, <code class="docutils literal notranslate"><span class="pre">test_dir()</span></code>, <code class="docutils literal notranslate"><span class="pre">test_file()</span></code>,
+or <code class="docutils literal notranslate"><span class="pre">verify_output()</span></code>) but they have now been centralised. You can use in
+your own code, or when debugging tests interactively with
+<code class="docutils literal notranslate"><span class="pre">local_test_context()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">with_mock()</span></code> and <code class="docutils literal notranslate"><span class="pre">local_mock()</span></code> are deprecated; please use the mockr
+or mockery packages instead (#1099).</p></li>
+</ul>
+</div>
+<div class="section" id="snapshot-testing">
+<h2>Snapshot testing<a class="headerlink" href="#snapshot-testing" title="Permalink to this headline">¶</a></h2>
+<p>New family of snapshot expectations (<code class="docutils literal notranslate"><span class="pre">expect_snapshot()</span></code>, <code class="docutils literal notranslate"><span class="pre">expect_snapshot_output()</span></code>, <code class="docutils literal notranslate"><span class="pre">expect_snapshot_error()</span></code>, and <code class="docutils literal notranslate"><span class="pre">expect_snapshot_value()</span></code>) provide “snapshot” tests, where the expected results are stored in separate files in <code class="docutils literal notranslate"><span class="pre">test/testthat/_snaps</span></code>. They’re useful whenever it’s painful to store expected results directly in the test files.</p>
+<p><code class="docutils literal notranslate"><span class="pre">expect_snapshot_file()</span></code> along with <code class="docutils literal notranslate"><span class="pre">snapshot_review()</span></code> help snapshot
+more complex data, with initial support for text files, images, and data frames (#1050).</p>
+<p>See <code class="docutils literal notranslate"><span class="pre">vignette(&quot;snapshotting&quot;)</span></code> for more details.</p>
+</div>
+<div class="section" id="reporters">
+<h2>Reporters<a class="headerlink" href="#reporters" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CheckReporter</span></code> (used inside R CMD check) now prints out all problems
+(i.e. errors, failures, warnings and skips; and not just the first 10),
+lists skips types, and records problems in machine readable format in
+<code class="docutils literal notranslate"><span class="pre">tests/testthat-problems.rds</span></code> (#1075).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">CompactProgressReporter</span></code> tweaks the output of <code class="docutils literal notranslate"><span class="pre">ProgressReporter</span></code> for
+use with a single file, as in <code class="docutils literal notranslate"><span class="pre">devtools::test_file()</span></code>. You can pick a
+different default by setting <code class="docutils literal notranslate"><span class="pre">testthat.default_compact_reporter</span></code> to
+the name of a reporter.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ProgressReporter</span></code> (the default reporter) now keeps the stack traces of
+an errors that happen before the before test, making problems substantially
+easier to track down (#1004). It checks if you’ve exceeded the maximum number
+of failures (from option <code class="docutils literal notranslate"><span class="pre">testthat.progress.max_fails</span></code>) after each
+expectation, rather than at the end of each file (#967). It also gains
+new random praise options that use emoji, and lists skipped tests by type
+(#1028).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">StopReporter</span></code> adds random praise emoji when a single test passes (#1094).
+It has more refined display of failures, now using the same style
+as <code class="docutils literal notranslate"><span class="pre">CompactProgressReporter</span></code> and <code class="docutils literal notranslate"><span class="pre">ProgressReporter</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SummaryReporter</span></code> now records file start, not just context start. This
+makes it more compatible with modern style which does not use <code class="docutils literal notranslate"><span class="pre">context()</span></code>
+(#1089).</p></li>
+<li><p>All reporters now use exactly the same format when reporting the location
+of an expectation.</p></li>
+<li><p>Warnings now include a backtrace, making it easier to figure
+out where they came from.</p></li>
+<li><p>Catch C++ tests now provide detailed results for each test.
+To upgrade existing code, re-run <code class="docutils literal notranslate"><span class="pre">testthat::use_catch()</span></code> (#1008).</p></li>
+<li><p>Many reporters (e.g. the check reporter) no longer raise an error when any tests fail. Use the <code class="docutils literal notranslate"><span class="pre">stop_on_failure</span></code> argument to <code class="docutils literal notranslate"><span class="pre">devtools::test()</span></code> and <code class="docutils literal notranslate"><span class="pre">testthat::test_dir()</span></code> if your code relies on this. Alternatively, use <code class="docutils literal notranslate"><span class="pre">reporter</span> <span class="pre">=</span> <span class="pre">c(&quot;check&quot;,</span> <span class="pre">&quot;fail&quot;)</span></code> to e.g. create a failing check reporter.</p></li>
+</ul>
+</div>
+<div class="section" id="fixures">
+<h2>Fixures<a class="headerlink" href="#fixures" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>New <code class="docutils literal notranslate"><span class="pre">vignette(&quot;test-fixtures&quot;)</span></code> describes test fixtures; i.e. how to
+temporarily and cleanly change global state in order to test parts of
+your code that otherwise would be hard to run (#1042). <code class="docutils literal notranslate"><span class="pre">setup()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">teardown()</span></code> are superseded in favour of test fixtures.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">teardown_env()</span></code> for use with <code class="docutils literal notranslate"><span class="pre">withr::defer()</span></code>. This allows you to
+run code after all other tests have been run.</p></li>
+</ul>
+</div>
+<div class="section" id="skips">
+<h2>Skips<a class="headerlink" href="#skips" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>New <code class="docutils literal notranslate"><span class="pre">vignette(&quot;skipping&quot;)</span></code> gives more general information on skipping
+tests, include some basics on testing skipping helpers (#1060).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ProgressReporter()</span></code> and <code class="docutils literal notranslate"><span class="pre">CheckReporter()</span></code> list the number of skipped tests
+by reason at the end of the reporter. This makes it easier to check that
+you’re not skipping the wrong tests, particularly on CI services (#1028).</p></li>
+</ul>
+</div>
+<div class="section" id="test-running">
+<h2>Test running<a class="headerlink" href="#test-running" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">test_that()</span></code> no longer triggers an error when run outside of tests;
+instead it produces a more informative summary of all failures, errors,
+warnings, and skips that occurred inside the test.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_that()</span></code> now errors if <code class="docutils literal notranslate"><span class="pre">desc</span></code> is not a string (#1161).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_file()</span></code> now runs helper, setup, and teardown code, and has the
+same arguments as <code class="docutils literal notranslate"><span class="pre">test_dir()</span></code> (#968). Long deprecated <code class="docutils literal notranslate"><span class="pre">encoding</span></code> argument
+has been removed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_dir()</span></code> now defaults <code class="docutils literal notranslate"><span class="pre">stop_on_failure</span></code> to <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> for consistency with
+other <code class="docutils literal notranslate"><span class="pre">test_</span></code> functions. The <code class="docutils literal notranslate"><span class="pre">wrap</span></code> argument has been deprecated; it’s not
+clear that it should ever have been exposed.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">test_local()</span></code> tests a local source package directory. It’s equivalent
+to <code class="docutils literal notranslate"><span class="pre">devtools::test()</span></code> but doesn’t require devtools and all its dependencies
+to be installed (#1030).</p></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2>Minor improvements and bug fixes<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>testthat no longer supports tests stored in <code class="docutils literal notranslate"><span class="pre">inst/tests</span></code>. This has been
+deprecated since testthat 0.11.0 (released in 2015). <code class="docutils literal notranslate"><span class="pre">test_package()</span></code>
+(previously used for running tests in R CMD check) will fail silently
+if no tests are found to avoid breaking old packages on CRAN (#1149).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">capture_output()</span></code> and <code class="docutils literal notranslate"><span class="pre">verify_output()</span></code> use a new <code class="docutils literal notranslate"><span class="pre">testthat_print()</span></code>
+generic. This allows you to control the printed representation of your
+object specifically for tests (i.e. if your usual print method shows
+data that varies in a way that you don’t care about for tests) (#1056).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">context_start_file()</span></code> is now exported for external reporters (#983, #1082).
+It now only strips first instance of prefix/suffix (#1041, &#64;stufield).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_error()</span></code> no longer encourages you to use <code class="docutils literal notranslate"><span class="pre">class</span></code>. This advice removes
+one type of fragility at the expense of creating a different type (#1013).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_known_failure()</span></code> has been removed. As far as I can tell it was
+only ever used by testthat, and is rather fragile.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_true()</span></code>, <code class="docutils literal notranslate"><span class="pre">expect_false()</span></code>, and <code class="docutils literal notranslate"><span class="pre">expect_null()</span></code> now use waldo to
+produce more informative failures.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">verify_output()</span></code> no longer always fails if output contains a carriage
+return character (“\r”) (#1048). It uses the <code class="docutils literal notranslate"><span class="pre">pdf()</span></code> device instead of
+<code class="docutils literal notranslate"><span class="pre">png()</span></code> so it works on systems without X11 (#1011). And it uses
+<code class="docutils literal notranslate"><span class="pre">waldo::compare()</span></code> to give more informative failures.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-2-3-2">
+<h1>testthat 2.3.2<a class="headerlink" href="#testthat-2-3-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix R CMD check issues</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-2-3-1">
+<h1>testthat 2.3.1<a class="headerlink" href="#testthat-2-3-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>The last version of testthat introduced a performance regression in
+error assertions (#963). To fix it, you need to install rlang 0.4.2.</p></li>
+<li><p>Fixed error assertions with rJava errors (#964).</p></li>
+<li><p>Fixed issue where error and warning messages were not retrieved with
+<code class="docutils literal notranslate"><span class="pre">conditionMessage()</span></code> under certain circumstances.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-2-3-0">
+<h1>testthat 2.3.0<a class="headerlink" href="#testthat-2-3-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="conditions">
+<h2>Conditions<a class="headerlink" href="#conditions" title="Permalink to this headline">¶</a></h2>
+<p>This release mostly focusses on an overhaul of how testthat works with conditions (i.e. errors, warnings and messages). There are relatively few user-facing changes, although you should now see more informative backtraces from errors and failures.</p>
+<ul class="simple">
+<li><p>Unexpected errors are now printed with a simplified backtrace.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_error()</span></code> and <code class="docutils literal notranslate"><span class="pre">expect_condition()</span></code> now display a backtrace
+when the error doesn’t conform to expectations (#729).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_error()</span></code>, <code class="docutils literal notranslate"><span class="pre">expect_warning()</span></code> and <code class="docutils literal notranslate"><span class="pre">expect_message()</span></code> now call
+<code class="docutils literal notranslate"><span class="pre">conditionMessage()</span></code> to get the condition message. This generic
+makes it possible to generate messages at print-time rather than
+signal-time.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_error()</span></code> gets a better warning message when you test for a custom
+error class with <code class="docutils literal notranslate"><span class="pre">regexp</span></code>.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">exp_signal()</span></code> function is a condition signaller that
+implements the testthat protocol (signal with <code class="docutils literal notranslate"><span class="pre">stop()</span></code> if the
+expectation is broken, with a <code class="docutils literal notranslate"><span class="pre">continue_test</span></code> restart).</p></li>
+<li><p>Existence of restarts is first checked before invokation. This makes
+it possible to signal warnings or messages with a different
+condition signaller (#874).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ListReporter</span></code> now tracks expectations and errors, even when they occur
+outside of tests. This ensures that <code class="docutils literal notranslate"><span class="pre">stop_on_failure</span></code> matches the results
+displayed by the reporter (#936).</p></li>
+<li><p>You can silence warnings about untested error classes by
+implementing a method for <code class="docutils literal notranslate"><span class="pre">is_uninformative_warning()</span></code>. This method
+should be lazily registered, e.g. with <code class="docutils literal notranslate"><span class="pre">vctrs::s3_register()</span></code>. This
+is useful for introducing an experimental error class without
+encouraging users to depend on the class in their tests.</p></li>
+<li><p>Respect options(warn = -1) to ignore all warnings (&#64;jeroen #958).</p></li>
+</ul>
+</div>
+<div class="section" id="expectations">
+<h2>Expectations<a class="headerlink" href="#expectations" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Expectations can now be explicitly subclassed with
+<code class="docutils literal notranslate"><span class="pre">new_expectation()</span></code>. This constructor follows our new conventions
+for S3 classes and takes an optional subclass and optional
+attributes.</p></li>
+<li><p>Unquoted inputs no longer potentially generate multiple test messages (#929).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">verify_output()</span></code> no longer uses quasiquotation, which fixes issues
+when verifying the output of tidy eval functions (#945).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">verify_output()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">unicode</span></code> parameter to turn on or off the
+use of Unicode characters by the cli package. It is disabled by
+default to prevent the tests from failing on platforms like Windows
+that don’t support UTF-8 (which could be your contributors’ or your
+CI machines).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">verify_output()</span></code> now correctly handles multi-line condition
+messages.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">verify_output()</span></code> now adds spacing after condition messages,
+consistent with the spacing added after normal output.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">verify_output()</span></code> has a new syntax for inserting headers in output
+files: insert a <code class="docutils literal notranslate"><span class="pre">&quot;#</span> <span class="pre">Header&quot;</span></code> string (starting with <code class="docutils literal notranslate"><span class="pre">#</span></code> as in
+Markdown) to add a header to a set of outputs.</p></li>
+</ul>
+</div>
+<div class="section" id="other-minor-improvements-and-bug-fixes">
+<h2>Other minor improvements and bug fixes<a class="headerlink" href="#other-minor-improvements-and-bug-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">compare.numeric()</span></code> uses a more sophisticated default tolerance that will
+automatically skip tests that rely on numeric tolerance if long doubles are
+not available (#940).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">JunitReporter</span></code> now reports tests in ISO 8601 in the UTC timezone and
+uses the maximum precision of 3 decimal places (#923).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-2-2-1">
+<h1>testthat 2.2.1<a class="headerlink" href="#testthat-2-2-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Repair regression in <code class="docutils literal notranslate"><span class="pre">test_rd()</span></code> and add a couple of tests to hopefully
+detect the problem earlier in the future.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-2-2-0">
+<h1>testthat 2.2.0<a class="headerlink" href="#testthat-2-2-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="new-features">
+<h2>New features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>New <code class="docutils literal notranslate"><span class="pre">verify_output()</span></code> is designed for testing output aimed at humans
+(most commonly print methods and error messages). It is a regression
+test that saves output in a way that makes it easy to review. It is
+automatically skipped on CRAN (#782, #834).</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>Minor improvements and bug fixes<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">as.data.frame.testthat_results()</span></code> now always returns a data frame with 13
+columns (&#64;jozefhajnala, #887).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">auto_test_package()</span></code> now correctly handles helper files
+(<code class="docutils literal notranslate"><span class="pre">tests/testthat/helper-*.R</span></code>), automatically reloading all code and
+rerunning all tests (&#64;CorradoLanera, #376, #896).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_match()</span></code> now displays <code class="docutils literal notranslate"><span class="pre">info</span></code> even when match length is 0 (#867).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_s3_class()</span></code> gains new <code class="docutils literal notranslate"><span class="pre">exact</span></code> argument that allows you to check
+for an exact class match, not just inheritance (#885).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fail()</span></code> and <code class="docutils literal notranslate"><span class="pre">succeed()</span></code> gain <code class="docutils literal notranslate"><span class="pre">info</span></code> argument, which is passed along to
+<code class="docutils literal notranslate"><span class="pre">expect()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_examples()</span></code> gets some minor fixes: it now returns the results
+invisibly, doesn’t assume that examples should contain tests, and
+documents that you shouldn’t be using it routinely (#841).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_file()</span></code> only calls <code class="docutils literal notranslate"><span class="pre">Reporter$end_context()</span></code> if a context was started,
+fixing an error in <code class="docutils literal notranslate"><span class="pre">TeamcityReporter</span></code> (&#64;atheriel, #883).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">skip()</span></code> now reports reason for skipping as: <code class="docutils literal notranslate"><span class="pre">Reason:</span> <span class="pre">{skip</span> <span class="pre">condition}</span></code>
+(&#64;patr1ckm, #868).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">skip_if()</span></code> and <code class="docutils literal notranslate"><span class="pre">skip_if_not()</span></code> now report <code class="docutils literal notranslate"><span class="pre">Reason:</span> <span class="pre">{skip</span> <span class="pre">condition}</span> <span class="pre">is</span> <span class="pre">TRUE</span></code>
+and <code class="docutils literal notranslate"><span class="pre">Reason:</span> <span class="pre">{skip</span> <span class="pre">condition}</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">TRUE</span></code> respectively (&#64;	patr1ckm, #868).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">skip_if_translated()</span></code> now tests for translation of a specific message.
+This is more robust than the previous approach because translation
+happens message-by-message, not necessarily for the entire session (#879)
+(and in general, it’s impossible to determine what language R is currently
+using).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">skip_on_covr()</span></code> allows you to skip tests when covr is running.
+(&#64;ianmcook, #895)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_known_value()</span></code> gains a new serialisation <code class="docutils literal notranslate"><span class="pre">version</span></code> argument,
+defaulting to 2. Prevents the <code class="docutils literal notranslate"><span class="pre">.rds</span></code> files created to hold reference objects
+from making a package appear to require R &gt;= 3.5 (#888 &#64;jennybc).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-2-1-1">
+<h1>testthat 2.1.1<a class="headerlink" href="#testthat-2-1-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix test failures in strict latin1 locale</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-2-1-0">
+<h1>testthat 2.1.0<a class="headerlink" href="#testthat-2-1-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="new-expectations">
+<h2>New expectations<a class="headerlink" href="#new-expectations" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>New <code class="docutils literal notranslate"><span class="pre">expect_visible()</span></code> and <code class="docutils literal notranslate"><span class="pre">expect_invisible()</span></code> make it easier to check if
+a function call returns its result visibly or invisibly (#719).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">expect_mapequal(x,</span> <span class="pre">y)</span></code> checks that <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> have the same names,
+and the same value associated with each name (i.e. they compare the values
+of the vector standardising the order of the names) (#863).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">expect_vector()</span></code> is a wrapper around <code class="docutils literal notranslate"><span class="pre">vctrs::vec_assert()</span></code> making it
+easy to test against the vctrs definitions of prototype and size (#846).
+(Currently requires development version of vctrs.)</p></li>
+</ul>
+</div>
+<div class="section" id="improvements-to-existing-expectations">
+<h2>Improvements to existing expectations<a class="headerlink" href="#improvements-to-existing-expectations" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>All expectations give clearer error messages if you forget the <code class="docutils literal notranslate"><span class="pre">object</span></code>
+or <code class="docutils literal notranslate"><span class="pre">expected</span></code> arguments (#743).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_equal()</span></code> now correctly compares infinite values (#789).</p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">expect_equal_to_reference()</span></code>, the default value for <code class="docutils literal notranslate"><span class="pre">update</span></code> is
+now <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> (&#64;BrodieG, #683).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_error()</span></code> now returns the error object as documentated (#724).
+It also now warns if you’re using a classed expectation and you’re
+not using the <code class="docutils literal notranslate"><span class="pre">class</span></code> argument. This is good practice as it decouples the
+error object (which tends to be stable) from its rendering to the user
+(which tends to be fragile) (#816).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_identical()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">...</span></code> argument to pass additional arguments
+down to <code class="docutils literal notranslate"><span class="pre">identical()</span></code> (#714).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_lt()</span></code>, <code class="docutils literal notranslate"><span class="pre">expect_lte()</span></code>, <code class="docutils literal notranslate"><span class="pre">expect_gt()</span></code> <code class="docutils literal notranslate"><span class="pre">expect_gte()</span></code> now handle <code class="docutils literal notranslate"><span class="pre">Inf</span></code>
+and <code class="docutils literal notranslate"><span class="pre">NA</span></code> arguments appropriately (#732), and no longer require the inputs
+to be numeric.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_output()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">width</span></code> argument, allowing you to control the
+output width. This does not inherit from <code class="docutils literal notranslate"><span class="pre">getOption(&quot;width&quot;)</span></code>, ensuring
+that tests return the same results regardless of environment (#805).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_setequal()</span></code> now works with more vector types (including lists),
+because it uses <code class="docutils literal notranslate"><span class="pre">%in%</span></code>, rather than <code class="docutils literal notranslate"><span class="pre">sort()</span></code>. It also warns if the inputs
+are named, as this suggests that your mental model of how <code class="docutils literal notranslate"><span class="pre">expect_setequal()</span></code>
+works is wrong (#750).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is_true()</span></code> and <code class="docutils literal notranslate"><span class="pre">is_false()</span></code> have been deprecated because they conflict
+with other functions in the tidyverse.</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>Reporters<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Reporter documentation has been considerably improved (#657).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CheckReporter</span></code>, used by R CMD check, now includes a count of warnings.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">JUnitReporter</span></code> no longer replaces <code class="docutils literal notranslate"><span class="pre">.</span></code> in class names (#753), and
+creates ouput that should be more compatible with Jenkins (#806, &#64;comicfans).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ListReporter</span></code> now records number of passed tests and original results in
+new columns (#675).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ProgressReporter</span></code>, the default reporter, now:</p>
+<ul>
+<li><p>Automatically generates a context from the file name. We no longer
+recommend the use of <code class="docutils literal notranslate"><span class="pre">context()</span></code> and instead encourage you to delete it,
+allowing the context to be autogenerated from the file name.</p>
+<p>This also eliminates the error that occured if tests can before the
+first <code class="docutils literal notranslate"><span class="pre">context()</span></code> (#700, #705).</p>
+</li>
+<li><p>Gains a <code class="docutils literal notranslate"><span class="pre">update_interval</span></code> parameter to control how often updates are
+printed (default 0.1 s). This prevents large printing overhead
+for very fast tests. (#701, &#64;jimhester)</p></li>
+<li><p>Uses a 3 character wide column to display test successes, so up to
+999 successful tests can be displayed without changing the alignment
+(#712).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reporter$end_reporter()</span></code> is now only called when testing completes
+successfully. This ensures that you don’t get unnecessary output when the
+test fails partway through (#727).</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>Skips<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">skip_if_offline()</span></code> skips tests if an internet connection is not available
+(#685).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">skip_on_ci()</span></code> skips tests on continuous integration systems
+(&#64;mbjoseph, #825) by looking for a <code class="docutils literal notranslate"><span class="pre">CI</span></code> env var..</p></li>
+</ul>
+</div>
+<div class="section" id="other-new-features">
+<h2>Other new features<a class="headerlink" href="#other-new-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>New <code class="docutils literal notranslate"><span class="pre">testthat_examples()</span></code> and <code class="docutils literal notranslate"><span class="pre">testthat_example()</span></code> make it easy to access
+new test files bundled with the package. These are used in various examples
+to make it easier to understand how to use the package.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">local_mock()</span></code> which allows you to mock a function without having to
+add an additional layer of indentation as with <code class="docutils literal notranslate"><span class="pre">with_mock()</span></code> (#856).</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>Other minor improvements and bug fixes<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">auto_test_package()</span></code> works better with recent devtools and also watches
+<code class="docutils literal notranslate"><span class="pre">src/</span></code> for changes (#809).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_s3_class()</span></code> now works with unquoting (&#64;jalsalam, #771).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expectation</span></code> objects now contain the failure message, even when successful
+(#836)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">devtools::test()</span></code> no longer fails if run multiple times within the same R
+session for a package containing Catch tests.
+(<a class="reference external" href="https://github.com/r-lib/devtools/issues/1832">devtools #1832</a>)</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">testing_package()</span></code> retrieves the name of the package currently being
+tested (#699).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">run_testthat_tests</span></code> C entrypoint is registered more robustly.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">skip()</span></code> now always produces a <code class="docutils literal notranslate"><span class="pre">message</span></code> of length 1, as expected elsewhere
+in testthat (#791).</p></li>
+<li><p>Warnings are passed through even when <code class="docutils literal notranslate"><span class="pre">options(warn</span> <span class="pre">=</span> <span class="pre">2)</span></code> is set
+(&#64;yutannihilation, #721).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-2-0-1">
+<h1>testthat 2.0.1<a class="headerlink" href="#testthat-2-0-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix failing tests with devtools 2.0.0</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-2-0-0">
+<h1>testthat 2.0.0<a class="headerlink" href="#testthat-2-0-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="breaking-api-changes">
+<h2>Breaking API changes<a class="headerlink" href="#breaking-api-changes" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>“Can’t mock functions in base packages”: You can no longer use <code class="docutils literal notranslate"><span class="pre">with_mock()</span></code>
+to mock functions in base packages, because this no longer works in
+R-devel due to changes with the byte code compiler. I recommend using
+<a class="reference external" href="https://github.com/r-lib/mockery">mockery</a> or
+<a class="reference external" href="https://github.com/krlmlr/mockr">mockr</a> instead.</p></li>
+<li><p>The order of arguments to <code class="docutils literal notranslate"><span class="pre">expect_equivalent()</span></code> and <code class="docutils literal notranslate"><span class="pre">expect_error()</span></code> has
+changed slightly as both now pass <code class="docutils literal notranslate"><span class="pre">...</span></code> on another function. This reveals
+itself with a number of different errors, like:</p>
+<ul class="simple">
+<li><p>‘what’ must be a character vector</p></li>
+<li><p>‘check.attributes’ must be logical</p></li>
+<li><p>‘tolerance’ should be numeric</p></li>
+<li><p>argument is not interpretable as logical</p></li>
+<li><p>threw an error with unexpected class</p></li>
+<li><p>argument “quo” is missing, with no default</p></li>
+<li><p>argument is missing, with no default</p></li>
+</ul>
+<p>If you see one of these errors, check the number, order, and names of
+arguments to the expectation.</p>
+</li>
+<li><p>“Failure: (unknown)”. The last release mistakenly failed to test
+bare expectations not wrapped inside <code class="docutils literal notranslate"><span class="pre">test_that()</span></code>. If you see “(unknown)”
+in a failure message, this is a failing expectation that you previously
+weren’t seeing. As well as fixing the failure, please also wrap inside
+a <code class="docutils literal notranslate"><span class="pre">test_that()</span></code> with an informative name.</p></li>
+<li><p>“Error: the argument has already been evaluated”: the way in which
+expectations now need create labels has changed, which caused a couple
+of failures with unusual usage when combined with <code class="docutils literal notranslate"><span class="pre">Reduce</span></code>, <code class="docutils literal notranslate"><span class="pre">lapply()</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">Map()</span></code>. Avoid these functions in favour of for loops. I also recommend
+reading the section below on quasiquotation support in order to create more
+informative failure messages.</p></li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>Expectations<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="new-and-improved-expectations">
+<h3>New and improved expectations<a class="headerlink" href="#new-and-improved-expectations" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_condition()</span></code> works like <code class="docutils literal notranslate"><span class="pre">expect_error()</span></code> but captures any
+condition, not just error conditions (#621).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_error()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">class</span></code> argument that allows you to make an
+assertion about the class of the error object (#530).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_reference()</span></code> checks if two names point to the same object (#622).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_setequal()</span></code> compares two sets (stored in vectors), ignoring
+duplicates and differences in order (#528).</p></li>
+</ul>
+</div>
+<div class="section" id="new-and-improved-skips">
+<h3>New and improved skips<a class="headerlink" href="#new-and-improved-skips" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">skip_if()</span></code> makes it easy to skip a test when a condition is true (#571).
+For example, use <code class="docutils literal notranslate"><span class="pre">skip_if(getRversion()</span> <span class="pre">&lt;=</span> <span class="pre">3.1)</span></code> to skip a test in older
+R versions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">skip_if_translated()</span></code> skips tests if you’re running in an locale
+where translations are likely to occur (#565). Use this to avoid
+spurious failures when checking the text of error messages in non-English
+locales.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">skip_if_not_installed()</span></code> gains new <code class="docutils literal notranslate"><span class="pre">minimum_version</span></code> argument (#487, #499).</p></li>
+</ul>
+</div>
+<div class="section" id="known-good-values">
+<h3>Known good values<a class="headerlink" href="#known-good-values" title="Permalink to this headline">¶</a></h3>
+<p>We have identified a useful family of expectations that compares the results of an expression to a known good value stored in a file. They are designed to be use in conjunction with git so that you can see what precisely has changed, and revert it if needed.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_known_output()</span></code> replaces <code class="docutils literal notranslate"><span class="pre">expect_output_file()</span></code>, which has
+been soft-deprecated. It now defaults to <code class="docutils literal notranslate"><span class="pre">update</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> and warn, rather
+than failing on the first run. It gains a <code class="docutils literal notranslate"><span class="pre">print</span></code> argument to automatically
+print the input (#627). It also sets the width option to 80 to ensure
+consistent output across environments (#514)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_known_value()</span></code> replaces <code class="docutils literal notranslate"><span class="pre">expect_equal_to_reference()</span></code>, which
+has been soft-deprecated. It gains an update argument defaulting to <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>.
+This changes behaviour from the previous version, and soft-deprecated
+<code class="docutils literal notranslate"><span class="pre">expect_equal_to_reference()</span></code> gets <code class="docutils literal notranslate"><span class="pre">update</span> <span class="pre">=</span> <span class="pre">FALSE</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_known_failure()</span></code> stored and compares the failure message from
+an expectation. It’s a useful regression test when developing informative
+failure messges for your own expectations.</p></li>
+</ul>
+</div>
+<div class="section" id="quasiquotation-support">
+<h3>Quasiquotation support<a class="headerlink" href="#quasiquotation-support" title="Permalink to this headline">¶</a></h3>
+<p>All expectations can now use unquoting (#626). This makes it much easier to generate informative failure messages when running tests in a for loop.</p>
+<p>For example take this test:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="nf">if </span><span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="m">3</span><span class="p">)</span> <span class="n">i</span> <span class="o">*</span> <span class="m">9</span> <span class="n">else</span> <span class="n">i</span> <span class="o">*</span> <span class="m">10</span>
+
+<span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nf">expect_equal</span><span class="p">(</span><span class="nf">f</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">i</span> <span class="o">*</span> <span class="m">10</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>When it fails, you’ll see the message <code class="docutils literal notranslate"><span class="pre">Error:</span> <span class="pre">`f(i)`</span> <span class="pre">not</span> <span class="pre">equal</span> <span class="pre">to</span> <span class="pre">`i</span> <span class="pre">*</span> <span class="pre">10`</span> </code>.
+That’s hard to diagnose because you don’t know which iteration caused the problem!</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">for </span><span class="p">(</span><span class="n">i</span> <span class="n">in</span> <span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nf">expect_equal</span><span class="p">(</span><span class="nf">f</span><span class="p">(</span><span class="o">!!</span><span class="n">i</span><span class="p">),</span> <span class="o">!!</span><span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="m">10</span><span class="p">))</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>If you unquote the values using <code class="docutils literal notranslate"><span class="pre">!!</span></code>, you get the failure message <code class="docutils literal notranslate"> <span class="pre">`f(4L)`</span> <span class="pre">not</span> <span class="pre">equal</span> <span class="pre">to</span> <span class="pre">40.</span></code>. This is much easier to diagnose!  See <code class="docutils literal notranslate"><span class="pre">?quasi_label()</span></code> for more details.</p>
+<p>(Note that this is not tidy evaluation per se, but is closely related. At this time you can not unquote quosures.)</p>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>New features<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="setup-and-teardown">
+<h3>Setup and teardown<a class="headerlink" href="#setup-and-teardown" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>New <code class="docutils literal notranslate"><span class="pre">setup()</span></code> and <code class="docutils literal notranslate"><span class="pre">teardown()</span></code> functions allow you to run at the start and
+end of each test file. This is useful if you want to pair cleanup code
+with the code that messes up state (#536).</p></li>
+<li><p>Two new prefixes are recognised in the <code class="docutils literal notranslate"><span class="pre">test/</span></code> directory. Files starting
+with <code class="docutils literal notranslate"><span class="pre">setup</span></code> are run before tests (but unlike <code class="docutils literal notranslate"><span class="pre">helpers</span></code> are not run in
+<code class="docutils literal notranslate"><span class="pre">devtools::load_all()</span></code>). Files starting with <code class="docutils literal notranslate"><span class="pre">teardown</span></code> are run after all
+tests are completed (#589).</p></li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h3>Other new features<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>All files are now read and written as UTF-8 (#510, #605).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is_testing()</span></code> allows you to tell if your code is being run inside a
+testing environment (#631). Rather than taking a run-time dependency on testthat
+you may want to inline the function into your own package:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">is_testing</span> <span class="o">&lt;-</span> <span class="nf">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nf">identical</span><span class="p">(</span><span class="nf">Sys.getenv</span><span class="p">(</span><span class="s">&quot;TESTTHAT&quot;</span><span class="p">),</span> <span class="s">&quot;true&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>It’s frequently useful to combine with <code class="docutils literal notranslate"><span class="pre">interactive()</span></code>.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="new-default-reporter">
+<h3>New default reporter<a class="headerlink" href="#new-default-reporter" title="Permalink to this headline">¶</a></h3>
+<p>A new default reporter, <code class="docutils literal notranslate"><span class="pre">ReporterProgress</span></code>, produces more aesthetically pleasing output and makes the most important information available upfront (#529). You can return to the previous default by setting <code class="docutils literal notranslate"><span class="pre">options(testthat.default_reporter</span> <span class="pre">=</span> <span class="pre">&quot;summary&quot;)</span></code>.</p>
+</div>
+<div class="section" id="id9">
+<h3>Reporters<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Output colours have been tweaked to be consistent with clang:
+warnings are now in magenta, and skips in blue.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">default_reporter()</span></code> and <code class="docutils literal notranslate"><span class="pre">check_reporter()</span></code> which returns the default
+reporters for interactive and check environments (#504).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">DebugReporter</span></code> that calls a better version of <code class="docutils literal notranslate"><span class="pre">recover()</span></code> in case of
+failures, errors, or warnings (#360, #470).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">JunitReporter</span></code> generates reports in JUnit compatible format.<br />
+(#481, &#64;lbartnik; #640, &#64;nealrichardson; #575)</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">LocationReporter</span></code> which just prints the location of every expectation.
+This is useful for locating segfaults and C/C++ breakpoints (#551).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SummaryReporter</span></code> recieved a number of smaller tweaks</p>
+<ul>
+<li><p>Aborts testing as soon the limit given by the option
+<code class="docutils literal notranslate"><span class="pre">testthat.summary.max_reports</span></code> (default 10) is reached (#520).</p></li>
+<li><p>New option <code class="docutils literal notranslate"><span class="pre">testthat.summary.omit_dots</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> hides the progress dots
+speeding up tests by a small amount (#502).</p></li>
+<li><p>Bring back random praise and encouragement which I accidentally dropped
+(#478).</p></li>
+</ul>
+</li>
+<li><p>New option <code class="docutils literal notranslate"><span class="pre">testthat.default_check_reporter</span></code>, defaults to <code class="docutils literal notranslate"><span class="pre">&quot;check&quot;</span></code>.
+Continuous Integration system can set this option before evaluating
+package test sources in order to direct test result details to known
+location.</p></li>
+<li><p>All reporters now accept a <code class="docutils literal notranslate"><span class="pre">file</span></code> argument on initialization. If provided,
+reporters will write the test results to that path. This output destination
+can also be controlled with the option <code class="docutils literal notranslate"><span class="pre">testthat.output_file</span></code>
+(#635, &#64;nealrichardson).</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="deprecated-functions">
+<h2>Deprecated functions<a class="headerlink" href="#deprecated-functions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">is_null()</span></code> and <code class="docutils literal notranslate"><span class="pre">matches()</span></code> have been deprecated because they conflict
+with other functions in the tidyverse (#523).</p></li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h2>Minor improvements and bug fixes<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Updated Catch to 1.9.6. <code class="docutils literal notranslate"><span class="pre">testthat</span></code> now understands and makes use of the package
+routine registration mechanism required by CRAN with R &gt;= 3.4.0.
+(&#64;kevinushey)</p></li>
+<li><p>Better reporting for deeply nested failures, limiting the stack trace to the
+first and last 10 entries (#474).</p></li>
+<li><p>Bare expectations notify the reporter once again. This is achieved by running
+all tests inside <code class="docutils literal notranslate"><span class="pre">test_code()</span></code> by default (#427, #498). This behaviour can be
+overridden by setting <code class="docutils literal notranslate"><span class="pre">wrap</span> <span class="pre">=</span> <span class="pre">FALSE</span></code> in <code class="docutils literal notranslate"><span class="pre">test_dir()</span></code> and friends (#586).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">auto_test()</span></code> and <code class="docutils literal notranslate"><span class="pre">auto_test_package()</span></code> provide <code class="docutils literal notranslate"><span class="pre">hash</span></code> parameter to enable
+switching to faster, time-stamp-based modification detection
+(#598, &#64;katrinleinweber). <code class="docutils literal notranslate"><span class="pre">auto_test_package()</span></code> works correctly on windows
+(#465).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">capture_output_lines()</span></code> is now exported (#504).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compare.character()</span></code> works correctly for vectors of length &gt; 5 (#513, &#64;brodieG)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compare.default()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">max_diffs</span></code> argument and defaults to printing
+out only the first 9 differences (#538).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compare.numeric()</span></code> respects <code class="docutils literal notranslate"><span class="pre">check.attributes()</span></code> so <code class="docutils literal notranslate"><span class="pre">expect_equivalent()</span></code>
+correctly ignores attributes of numeric vectors (#485).</p></li>
+<li><p>Output expectations (<code class="docutils literal notranslate"><span class="pre">expect_output()</span></code>, <code class="docutils literal notranslate"><span class="pre">expect_message()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">expect_warning()</span></code>, and <code class="docutils literal notranslate"><span class="pre">expect_silent()</span></code>) all invisibly return the first
+argument to be consistent with the other expectations (#615).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_length()</span></code> works with any object that has a <code class="docutils literal notranslate"><span class="pre">length</span></code> method, not
+just vectors (#564, &#64;nealrichardson)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_match()</span></code> now accepts explicit <code class="docutils literal notranslate"><span class="pre">perl</span></code> and <code class="docutils literal notranslate"><span class="pre">fixed</span></code> arguments, and adapts
+the failure message to the value of <code class="docutils literal notranslate"><span class="pre">fixed</span></code>. This also affects other expectations
+that forward to <code class="docutils literal notranslate"><span class="pre">expect_match()</span></code>, like <code class="docutils literal notranslate"><span class="pre">expect_output()</span></code>, <code class="docutils literal notranslate"><span class="pre">expect_message()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">expect_warning()</span></code>, and <code class="docutils literal notranslate"><span class="pre">expect_error()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_match()</span></code> escapes special regular expression characters when printing
+(#522, &#64;jimhester).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_message()</span></code>, <code class="docutils literal notranslate"><span class="pre">expect_warning()</span></code> and <code class="docutils literal notranslate"><span class="pre">expect_error()</span></code> produce clearer
+failure messages.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">find_test_scripts()</span></code> only looks for <code class="docutils literal notranslate"><span class="pre">\.[rR]</span></code> in the extension
+(#492, &#64;brodieG)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_dir()</span></code>, <code class="docutils literal notranslate"><span class="pre">test_package()</span></code>, <code class="docutils literal notranslate"><span class="pre">test_check()</span></code> unset the <code class="docutils literal notranslate"><span class="pre">R_TESTS</span></code> env var
+(#603)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_examples()</span></code> now works with installed packages as well as source
+packages (&#64;jimhester, #532).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_dir()</span></code>, <code class="docutils literal notranslate"><span class="pre">test_package()</span></code>, and <code class="docutils literal notranslate"><span class="pre">test_check()</span></code> gain <code class="docutils literal notranslate"><span class="pre">stop_on_failure</span></code>
+and <code class="docutils literal notranslate"><span class="pre">stop_on_waring</span></code> arguments that control whether or not an error
+is signalled if any tests fail or generate warnings (#609, #619).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_file()</span></code> now triggers a <code class="docutils literal notranslate"><span class="pre">gc()</span></code> after tests are run. This helps
+to ensure that finalisers are run earlier (#535).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_path()</span></code> now generates correct path when called from within
+<code class="docutils literal notranslate"><span class="pre">tools::testInstalledPackage()</span></code> (#542).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_path()</span></code> no longer assumes that the path exists (#448).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_that()</span></code> calls without any expectations generate a default <code class="docutils literal notranslate"><span class="pre">skip()</span></code>
+(#413).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_dir()</span></code> gains <code class="docutils literal notranslate"><span class="pre">load_helpers</span></code> argument  (#505).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">show_failures()</span></code> simply prints a failure if it occurs. This makes it easier
+to show failures in examples.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">with_mock()</span></code> disallows mocking of functions in base packages, because this
+doesn’t work with the current development version of R (#553).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-1-0-2">
+<h1>testthat 1.0.2<a class="headerlink" href="#testthat-1-0-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Ensure <code class="docutils literal notranslate"><span class="pre">std::logic_error()</span></code> constructed with <code class="docutils literal notranslate"><span class="pre">std::string()</span></code>
+argument, to avoid build errors on Solaris.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-1-0-1">
+<h1>testthat 1.0.1<a class="headerlink" href="#testthat-1-0-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>New <code class="docutils literal notranslate"><span class="pre">expect_output_file()</span></code> to compare output of a function
+with a text file, and optionally update it (#443, &#64;krlmlr).</p></li>
+<li><p>Properly scoped use + compilation of C++ unit testing code using
+Catch to <code class="docutils literal notranslate"><span class="pre">gcc</span></code> and <code class="docutils literal notranslate"><span class="pre">clang</span></code> only, as Catch includes code that does
+not strictly conform to the C++98 standard. (&#64;kevinushey)</p></li>
+<li><p>Fixed an out-of-bounds memory access when routing Catch output
+through <code class="docutils literal notranslate"><span class="pre">Rprintf()</span></code>. (&#64;kevinushey)</p></li>
+<li><p>Ensure that unit tests run on R-oldrel (remove use of <code class="docutils literal notranslate"><span class="pre">dir.exists()</span></code>).
+(&#64;kevinushey)</p></li>
+<li><p>Improved overriding of calls to <code class="docutils literal notranslate"><span class="pre">exit()</span></code> within Catch, to ensure
+compatibility with GCC 6.0. (&#64;krlmlr)</p></li>
+<li><p>Hardened formatting of difference messages, previously the presence of <code class="docutils literal notranslate"><span class="pre">%</span></code>
+characters could affect the output (#446, &#64;krlmlr).</p></li>
+<li><p>Fixed errors in <code class="docutils literal notranslate"><span class="pre">expect_equal()</span></code> when comparing numeric vectors with and
+without attributes (#453, &#64;krlmlr).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">auto_test()</span></code> and <code class="docutils literal notranslate"><span class="pre">auto_test_package()</span></code> show only the results of the
+current test run and not of previously failed runs (#456, &#64;krlmlr).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-1-0-0">
+<h1>testthat 1.0.0<a class="headerlink" href="#testthat-1-0-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id11">
+<h2>Breaking changes<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">expectation()</span></code> function now expects an expectation type (one of “success”, “failure”, “error”, “skip”, “warning”) as first argument. If you’re creating your own expectations, you’ll need to use <code class="docutils literal notranslate"><span class="pre">expect()</span></code> instead (#437).</p>
+</div>
+<div class="section" id="id12">
+<h2>New expectations<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<p>The expectation system got a thorough overhaul (#217). This primarily makes it easier to add new expectations in the future, but also included a thorough review of the documentation, ensuring that related expectations are documented together, and have evocative names.</p>
+<p>One useful change is that most expectations invisibly return the input <code class="docutils literal notranslate"><span class="pre">object</span></code>. This makes it possible to chain together expectations with magrittr:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">factor</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+  <span class="nf">expect_type</span><span class="p">(</span><span class="s">&quot;integer&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+  <span class="nf">expect_s3_class</span><span class="p">(</span><span class="s">&quot;factor&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+  <span class="nf">expect_length</span><span class="p">(</span><span class="m">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(And to make this style even easier, testthat now re-exports the pipe, #412).</p>
+<p>The exception to this rule are the expectations that evaluate (i.e.
+for messages, warnings, errors, output etc), which invisibly return <code class="docutils literal notranslate"><span class="pre">NULL</span></code>. These functions are now more consistent: using <code class="docutils literal notranslate"><span class="pre">NA</span></code> will cause a failure if there is a errors/warnings/mesages/output (i.e. they’re not missing), and will <code class="docutils literal notranslate"><span class="pre">NULL</span></code> fail if there aren’t any errors/warnings/mesages/output. This previously didn’t work for <code class="docutils literal notranslate"><span class="pre">expect_output()</span></code> (#323), and the error messages were confusing with <code class="docutils literal notranslate"><span class="pre">expect_error(...,</span> <span class="pre">NA)</span></code> (#342, &#64;nealrichardson + &#64;krlmlr, #317).</p>
+<p>Another change is that <code class="docutils literal notranslate"><span class="pre">expect_output()</span></code> now requires you to explicitly print the output if you want to test a print method: <code class="docutils literal notranslate"><span class="pre">expect_output(&quot;a&quot;,</span> <span class="pre">&quot;a&quot;)</span></code> will fail, <code class="docutils literal notranslate"><span class="pre">expect_output(print(&quot;a&quot;),</span> <span class="pre">&quot;a&quot;)</span></code> will succeed.</p>
+<p>There are six new expectations:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_type()</span></code> checks the <em>type</em> of the object (#316),
+<code class="docutils literal notranslate"><span class="pre">expect_s3_class()</span></code> tests that an object is S3 with given class,
+<code class="docutils literal notranslate"><span class="pre">expect_s4_class()</span></code> tests that an object is S4 with given class (#373).
+I recommend using these more specific expectations instead of the
+more general <code class="docutils literal notranslate"><span class="pre">expect_is()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_length()</span></code> checks that an object has expected length.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_success()</span></code> and <code class="docutils literal notranslate"><span class="pre">expect_failure()</span></code> are new expectations designed
+specifically for testing other expectations (#368).</p></li>
+</ul>
+<p>A number of older features have been deprecated:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_more_than()</span></code> and <code class="docutils literal notranslate"><span class="pre">expect_less_than()</span></code> have been deprecated. Please
+use <code class="docutils literal notranslate"><span class="pre">expect_gt()</span></code> and <code class="docutils literal notranslate"><span class="pre">expect_lt()</span></code> instead.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">takes_less_than()</span></code> has been deprecated.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">not()</span></code> has been deprecated. Please use the explicit individual forms
+<code class="docutils literal notranslate"><span class="pre">expect_error(...,</span> <span class="pre">NA)</span></code> , <code class="docutils literal notranslate"><span class="pre">expect_warning(..,</span> <span class="pre">NA)</span></code> and so on.</p></li>
+</ul>
+</div>
+<div class="section" id="expectations-are-conditions">
+<h2>Expectations are conditions<a class="headerlink" href="#expectations-are-conditions" title="Permalink to this headline">¶</a></h2>
+<p>Now all expectations are also conditions, and R’s condition system is used to signal failures and successes (#360, &#64;krlmlr). All known conditions (currently, “error”, “warning”, “message”, “failure”, and “success”) are converted to expectations using the new <code class="docutils literal notranslate"><span class="pre">as.expectation()</span></code>. This allows third-party test packages (such as <code class="docutils literal notranslate"><span class="pre">assertthat</span></code>, <code class="docutils literal notranslate"><span class="pre">testit</span></code>, <code class="docutils literal notranslate"><span class="pre">ensurer</span></code>, <code class="docutils literal notranslate"><span class="pre">checkmate</span></code>, <code class="docutils literal notranslate"><span class="pre">assertive</span></code>) to seamlessly establish <code class="docutils literal notranslate"><span class="pre">testthat</span></code> compatibility by issuing custom error conditions (e.g., <code class="docutils literal notranslate"><span class="pre">structure(list(message</span> <span class="pre">=</span> <span class="pre">&quot;Error</span> <span class="pre">message&quot;),</span> <span class="pre">class</span> <span class="pre">=</span> <span class="pre">c(&quot;customError&quot;,</span> <span class="pre">&quot;error&quot;,</span> <span class="pre">&quot;condition&quot;))</span></code>) and then implementing <code class="docutils literal notranslate"><span class="pre">as.expectation.customError()</span></code>. The <code class="docutils literal notranslate"><span class="pre">assertthat</span></code> package contains an example.</p>
+</div>
+<div class="section" id="id13">
+<h2>Reporters<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<p>The reporters system class has been considerably refactored to make existing reporters simpler and to make it easier to write new reporters. There are two main changes:</p>
+<ul class="simple">
+<li><p>Reporters classes are now R6 classes instead of Reference Classes.</p></li>
+<li><p>Each callbacks receive the full context:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">add_results()</span></code> is passed context and test as well as the expectation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_start()</span></code> and <code class="docutils literal notranslate"><span class="pre">test_end()</span></code> both get the context and test.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">context_start()</span></code> and <code class="docutils literal notranslate"><span class="pre">context_end()</span></code> get the context.</p></li>
+</ul>
+</li>
+<li><p>Warnings are now captured and reported in most reporters.</p></li>
+<li><p>The reporter output goes to the original standard output and is not affected by <code class="docutils literal notranslate"><span class="pre">sink()</span></code> and <code class="docutils literal notranslate"><span class="pre">expect_output()</span></code> (#420, &#64;krlmlr).</p></li>
+<li><p>The default summary reporter lists all warnings (#310), and all skipped
+tests (&#64;krlmlr, #343). New option <code class="docutils literal notranslate"><span class="pre">testthat.summary.max_reports</span></code> limits
+the number of reports printed by the summary reporter. The default is 15
+(&#64;krlmlr, #354).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MinimalReporter</span></code> correct labels errors with E and failures with F (#311).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">FailReporter</span></code> to stop in case of failures or errors after all tests
+(#308, &#64;krlmlr).</p></li>
+</ul>
+</div>
+<div class="section" id="other">
+<h2>Other<a class="headerlink" href="#other" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>New functions <code class="docutils literal notranslate"><span class="pre">capture_output()</span></code>, <code class="docutils literal notranslate"><span class="pre">capture_message()</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">capture_warnings()</span></code> selectively capture function output. These are
+used in <code class="docutils literal notranslate"><span class="pre">expect_output()</span></code>, <code class="docutils literal notranslate"><span class="pre">expect_message()</span></code> and <code class="docutils literal notranslate"><span class="pre">expect_warning()</span></code>
+to allow other types out output to percolate up (#410).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">try_again()</span></code> allows you to retry code multiple times until it succeeds
+(#240).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_file()</span></code>, <code class="docutils literal notranslate"><span class="pre">test_check()</span></code>, and <code class="docutils literal notranslate"><span class="pre">test_package()</span></code> now attach testthat so
+all testing functions are available.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">source_test_helpers()</span></code> gets a useful default path: the testthat tests
+directory. It defaults to the <code class="docutils literal notranslate"><span class="pre">test_env()</span></code> to be consistent with the
+other source functions (#415).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_file()</span></code> now loads helpers in the test directory before running
+the tests (#350).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_path()</span></code> makes it possible to create paths to files in <code class="docutils literal notranslate"><span class="pre">tests/testthat</span></code>
+that work interactively and when called from tests (#345).</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">skip_if_not()</span></code> helper.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">skip_on_bioc()</span></code> helper (&#64;thomasp85).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make_expectation()</span></code> uses <code class="docutils literal notranslate"><span class="pre">expect_equal()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">setup_test_dir()</span></code> has been removed. If you used it previously, instead use
+<code class="docutils literal notranslate"><span class="pre">source_test_helpers()</span></code> and <code class="docutils literal notranslate"><span class="pre">find_test_scripts()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">source_file()</span></code> exports the function testthat uses to load files from disk.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_that()</span></code> returns a <code class="docutils literal notranslate"><span class="pre">logical</span></code> that indicates if all tests were successful
+(#360, &#64;krlmlr).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">find_reporter()</span></code> (and also all high-level testing functions) support a vector
+of reporters. For more than one reporter, a <code class="docutils literal notranslate"><span class="pre">MultiReporter</span></code> is created
+(#307, &#64;krlmlr).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">with_reporter()</span></code> is used internally and gains new argument
+<code class="docutils literal notranslate"><span class="pre">start_end_reporter</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> (&#64;krlmlr, 355).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set_reporter()</span></code> returns old reporter invisibly (#358, &#64;krlmlr).</p></li>
+<li><p>Comparing integers to non-numbers doesn’t raise errors anymore, and falls
+back to string comparison if objects have different lengths. Complex numbers
+are compared using the same routine (#309, &#64;krlmlr).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compare.numeric()</span></code> and <code class="docutils literal notranslate"><span class="pre">compare.character()</span></code> received another overhaul. This
+should improve behaviour of edge cases, and provides a strong foundation for
+further work. Added <code class="docutils literal notranslate"><span class="pre">compare.POSIXt()</span></code> for better reporting of datetime
+differences.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_identical()</span></code> and <code class="docutils literal notranslate"><span class="pre">is_identical_to()</span></code> now use <code class="docutils literal notranslate"><span class="pre">compare()</span></code> for more
+detailed output of differences (#319, &#64;krlmlr).</p></li>
+<li><p>Added <a class="reference external" href="https://github.com/catchorg/Catch2">Catch</a> v1.2.1 for unit testing of C++ code.
+See <code class="docutils literal notranslate"><span class="pre">?use_catch()</span></code> for more details. (&#64;kevinushey)</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-0-11-0">
+<h1>testthat 0.11.0<a class="headerlink" href="#testthat-0-11-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Handle skipped tests in the TAP reporter (#262).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">expect_silent()</span></code> ensures that code produces no output, messages,
+or warnings (#261).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">expect_lt()</span></code>, <code class="docutils literal notranslate"><span class="pre">expect_lte()</span></code>, <code class="docutils literal notranslate"><span class="pre">expect_gt()</span></code> and <code class="docutils literal notranslate"><span class="pre">expect_gte()</span></code> for
+comparison with or without equality (#305, &#64;krlmlr).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_output()</span></code>, <code class="docutils literal notranslate"><span class="pre">expect_message()</span></code>, <code class="docutils literal notranslate"><span class="pre">expect_warning()</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">expect_error()</span></code> now accept <code class="docutils literal notranslate"><span class="pre">NA</span></code> as the second argument to indicate that
+output, messages, warnings, and errors should be absent (#219).</p></li>
+<li><p>Praise gets more diverse thanks to the praise package, and you’ll now
+get random encouragment if your tests don’t pass.</p></li>
+<li><p>testthat no longer muffles warning messages. If you don’t want to see them
+in your output, you need to explicitly quiet them, or use an expectation that
+captures them (e.g. <code class="docutils literal notranslate"><span class="pre">expect_warning()</span></code>). (#254)</p></li>
+<li><p>Use tests in <code class="docutils literal notranslate"><span class="pre">inst/tests</span></code> is formally deprecated. Please move them into
+<code class="docutils literal notranslate"><span class="pre">tests/testthat</span></code> instead (#231).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_match()</span></code> now encodes the match, as well as the output, in the
+expectation message (#232).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_is()</span></code> gives better failure message when testing multiple inheritance,
+e.g. <code class="docutils literal notranslate"><span class="pre">expect_is(1:10,</span> <span class="pre">c(&quot;glm&quot;,</span> <span class="pre">&quot;lm&quot;))</span></code> (#293).</p></li>
+<li><p>Corrected argument order in <code class="docutils literal notranslate"><span class="pre">compare.numeric()</span></code> (#294).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">comparison()</span></code> constructure now checks its arguments are the correct type and
+length. This bugs a bug where tests failed with an error like “values must be
+length 1, but FUN(X[[1]]) result is length 2” (#279).</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">skip_on_os()</span></code>, to skip tests on specified operating systems
+(&#64;kevinushey).</p></li>
+<li><p>Skip test that depends on <code class="docutils literal notranslate"><span class="pre">devtools</span></code> if it is not installed (#247, &#64;krlmlr)</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">skip_on_appveyor()</span></code> to skip tests on Appveyor (&#64;lmullen).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compare()</span></code> shows detailed output of differences for character vectors of
+different length (#274, &#64;krlmlr).</p></li>
+<li><p>Detailed output from <code class="docutils literal notranslate"><span class="pre">expect_equal()</span></code> doesn’t confuse expected and actual
+values anymore (#274, &#64;krlmlr).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-0-10-0">
+<h1>testthat 0.10.0<a class="headerlink" href="#testthat-0-10-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Failure locations are now formated as R error locations.</p></li>
+<li><p>Add an ‘invert’ argument to <code class="docutils literal notranslate"><span class="pre">find_tests_scripts()</span></code>.  This allows one to
+select only tests which do <em>not</em> match a pattern. (#239, &#64;jimhester).</p></li>
+<li><p>Deprecated <code class="docutils literal notranslate"><span class="pre">library_if_available()</span></code> has been removed.</p></li>
+<li><p>test (<code class="docutils literal notranslate"><span class="pre">test_dir()</span></code>, <code class="docutils literal notranslate"><span class="pre">test_file()</span></code>, <code class="docutils literal notranslate"><span class="pre">test_package()</span></code>, <code class="docutils literal notranslate"><span class="pre">test_check()</span></code>) functions
+now return a <code class="docutils literal notranslate"><span class="pre">testthat_results</span></code> object that contains all results, and can be
+printed or converted to data frame.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_dir()</span></code>, <code class="docutils literal notranslate"><span class="pre">test_package()</span></code>, and <code class="docutils literal notranslate"><span class="pre">test_check()</span></code> have an added <code class="docutils literal notranslate"><span class="pre">...</span></code>
+argument that allows filtering of test files using, e.g., Perl-style regular
+expressions,or <code class="docutils literal notranslate"><span class="pre">fixed</span></code> character filtering. Arguments in <code class="docutils literal notranslate"><span class="pre">...</span></code> are passed to
+<code class="docutils literal notranslate"><span class="pre">grepl()</span></code> (&#64;leeper).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_check()</span></code> uses a new reporter specifically designed for <code class="docutils literal notranslate"><span class="pre">R</span> <span class="pre">CMD</span> <span class="pre">check</span></code>.
+It displays a summary at the end of the tests, designed to be &lt;13 lines long
+so test failures in <code class="docutils literal notranslate"><span class="pre">R</span> <span class="pre">CMD</span> <span class="pre">check</span></code> display something more useful. This will
+hopefully stop BDR from calling testthat a “test obfuscation suite” (#201).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compare()</span></code> is now documented and exported. Added a numeric method so when
+long numeric vectors don’t match you’ll see some examples of where the
+problem is (#177). The line spacing in <code class="docutils literal notranslate"><span class="pre">compare.character()</span></code> was
+tweaked.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">skip_if_not_installed()</span></code> skips tests if a package isn’t installed (#192).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_that(a,</span> <span class="pre">equals(b))</span></code> style of testing has been soft-deprecated.
+It will keep working, but it’s no longer demonstrated any where, and new
+expectations will only be available in <code class="docutils literal notranslate"><span class="pre">expect_equal(a,</span> <span class="pre">b)</span></code> style. (#172)</p></li>
+<li><p>Once again, testthat suppresses messages and warnings in tests (#189)</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">test_examples()</span></code> lets you run package examples as tests. Each example
+counts as one expectation and it succeeds if the code runs without errors
+(#204).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">succeed()</span></code> expectation always succeeds.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">skip_on_travis()</span></code> allows you to skip tests when run on Travis CI.
+(Thanks to &#64;mllg)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">colourise()</span></code> was removed. (Colour is still supported, via the <code class="docutils literal notranslate"><span class="pre">crayon</span></code>
+package.)</p></li>
+<li><p>Mocks can now access values local to the call of <code class="docutils literal notranslate"><span class="pre">with_mock</span></code> (#193, &#64;krlmlr).</p></li>
+<li><p>All equality expectations are now documented together (#173); all
+matching expectations are also documented together.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-0-9-1">
+<h1>testthat 0.9.1<a class="headerlink" href="#testthat-0-9-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Bump R version dependency</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-0-9">
+<h1>testthat 0.9<a class="headerlink" href="#testthat-0-9" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id14">
+<h2>New features<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>BDD: testhat now comes with an initial behaviour driven development (BDD)
+interface. The language is similiar to RSpec for Ruby or Mocha for JavaScript.
+BDD tests read like sentences, so they should make it easier to understand
+the specification of a function. See <code class="docutils literal notranslate"><span class="pre">?describe()</span></code> for further information
+and examples.</p></li>
+<li><p>It’s now possible to <code class="docutils literal notranslate"><span class="pre">skip()</span></code> a test with an informative message - this is
+useful when tests are only available under certain conditions, as when
+not on CRAN, or when an internet connection is available (#141).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">skip_on_cran()</span></code> allows you to skip tests when run on CRAN. To take advantage
+of this code, you’ll need either to use devtools, or run
+<code class="docutils literal notranslate"><span class="pre">Sys.setenv(NOT_CRAN</span> <span class="pre">=</span> <span class="pre">&quot;true&quot;))</span></code></p></li>
+<li><p>Simple mocking: <code class="docutils literal notranslate"><span class="pre">with_mock()</span></code> makes it easy to temporarily replace
+functions defined in packages. This is useful for testing code that relies
+on functions that are slow, have unintended side effects or access resources
+that may not be available when testing (#159, &#64;krlmlr).</p></li>
+<li><p>A new expectation, <code class="docutils literal notranslate"><span class="pre">expect_equal_to_reference()</span></code> has been added. It
+tests for equality to a reference value stored in a file (#148, &#64;jonclayden).</p></li>
+</ul>
+</div>
+<div class="section" id="id15">
+<h2>Minor improvements and bug fixes<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">auto_test_package()</span></code> works once more, and now uses <code class="docutils literal notranslate"><span class="pre">devtools::load_all()</span></code>
+for higher fidelity loading (#138, #151).</p></li>
+<li><p>Bug in <code class="docutils literal notranslate"><span class="pre">compare.character()</span></code> fixed, as reported by Georgi Boshnakov.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">colourise()</span></code> now uses option <code class="docutils literal notranslate"><span class="pre">testthat.use_colours</span></code> (default: <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>). If it
+is <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>, output is not colourised (#153, &#64;mbojan).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is_identical_to()</span></code> only calls <code class="docutils literal notranslate"><span class="pre">all.equal()</span></code> to generate an informative
+error message if the two objects are not identical (#165).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">safe_digest()</span></code> uses a better strategy, and returns NA for directories
+(#138, #146).</p></li>
+<li><p>Random praise is renabled by default (again!) (#164).</p></li>
+<li><p>Teamcity reporter now correctly escapes output messages (#150, &#64;windelinckx).
+It also uses nested suites to include test names.</p></li>
+</ul>
+</div>
+<div class="section" id="id16">
+<h2>Deprecated functions<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">library_if_available()</span></code> has been deprecated.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-0-8-1">
+<h1>testthat 0.8.1<a class="headerlink" href="#testthat-0-8-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Better default environment for <code class="docutils literal notranslate"><span class="pre">test_check()</span></code> and <code class="docutils literal notranslate"><span class="pre">test_package()</span></code> which
+allows S4 class creation in tests</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compare.character()</span></code> no longer fails when one value is missing.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-0-8">
+<h1>testthat 0.8<a class="headerlink" href="#testthat-0-8" title="Permalink to this headline">¶</a></h1>
+<p>testthat 0.8 comes with a new recommended structure for storing your tests. To
+better meet CRAN recommended practices, testthat now recommend that you to put
+your tests in <code class="docutils literal notranslate"><span class="pre">tests/testthat</span></code>, instead of <code class="docutils literal notranslate"><span class="pre">inst/tests</span></code> (this makes it
+possible for users to choose whether or not to install tests). With this
+new structure, you’ll need to use <code class="docutils literal notranslate"><span class="pre">test_check()</span></code> instead of <code class="docutils literal notranslate"><span class="pre">test_packages()</span></code>
+in the test file (usually <code class="docutils literal notranslate"><span class="pre">tests/testthat.R</span></code>) that runs all testthat unit
+tests.</p>
+<p>The other big improvement to usability comes from &#64;kforner, who contributed
+code to allow the default results (i.e. those produced by <code class="docutils literal notranslate"><span class="pre">SummaryReporter</span></code>)
+to include source references so you can see exactly where failures occured.</p>
+<div class="section" id="new-reporters">
+<h2>New reporters<a class="headerlink" href="#new-reporters" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">MultiReporter</span></code>, which combines several reporters into one.
+(Thanks to &#64;kforner)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ListReporter</span></code>, which captures all test results with their file,
+context, test and elapsed time. <code class="docutils literal notranslate"><span class="pre">test_dir</span></code>, <code class="docutils literal notranslate"><span class="pre">test_file</span></code>, <code class="docutils literal notranslate"><span class="pre">test_package</span></code> and
+<code class="docutils literal notranslate"><span class="pre">test_check</span></code> now use the <code class="docutils literal notranslate"><span class="pre">ListReporter</span></code> to invisibly  return a summary of
+the tests as a data frame. (Thanks to &#64;kforner)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TeamCityReporter</span></code> to produce output compatible with the TeamCity
+continuous integration environment. (Thanks to &#64;windelinckx)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SilentReporter</span></code> so that  <code class="docutils literal notranslate"><span class="pre">testthat</span></code> can test calls to <code class="docutils literal notranslate"><span class="pre">test_that</span></code>.
+(Thanks to &#64;craigcitro, #83)</p></li>
+</ul>
+</div>
+<div class="section" id="id17">
+<h2>New expectations<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_null()</span></code> and <code class="docutils literal notranslate"><span class="pre">is_null</span></code> to check if an object is NULL (#78)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_named()</span></code> and <code class="docutils literal notranslate"><span class="pre">has_names()</span></code> to check the names of a vector (#79)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_more_than()</span></code>, <code class="docutils literal notranslate"><span class="pre">is_more_than()</span></code>, <code class="docutils literal notranslate"><span class="pre">expect_less_than()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">is_less_than()</span></code> to check values above or below a threshold.
+(#77, thanks to &#64;jknowles)</p></li>
+</ul>
+</div>
+<div class="section" id="id18">
+<h2>Minor improvements and bug fixes<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_that()</span></code> (and thus all <code class="docutils literal notranslate"><span class="pre">expect_*</span></code> functions) now invisibly return
+the expectation result, and stops if info or label arguments have
+length &gt; 1 (thanks to &#64;kforner)</p></li>
+<li><p>fixed two bugs with source_dir(): it did not look for the source scripts
+at the right place, and it did not use its <code class="docutils literal notranslate"><span class="pre">chdir</span></code> argument.</p></li>
+<li><p>When using <code class="docutils literal notranslate"><span class="pre">expect_equal()</span></code> to compare strings, the default output for
+failure provides a lot more information, which should hopefully help make
+finding string mismatches easier.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SummaryReporter</span></code> has a <code class="docutils literal notranslate"><span class="pre">max_reports</span></code> option to limit the number of detailed
+failure reports to show. (Thanks to &#64;crowding)</p></li>
+<li><p>Tracebacks will now also contain information about where the functions came
+from (where that information is available).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">matches</span></code> and <code class="docutils literal notranslate"><span class="pre">expect_match</span></code> now pass additional arguments on to <code class="docutils literal notranslate"><span class="pre">grepl</span></code> so
+that you can use <code class="docutils literal notranslate"><span class="pre">fixed</span> <span class="pre">=</span> <span class="pre">TRUE</span></code>, <code class="docutils literal notranslate"><span class="pre">perl</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> or <code class="docutils literal notranslate"><span class="pre">ignore.case</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> to
+control details of the match. <code class="docutils literal notranslate"><span class="pre">expect_match</span></code> now correctly fails to match
+NULL. (#100)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_output</span></code>, <code class="docutils literal notranslate"><span class="pre">expect_message</span></code>, <code class="docutils literal notranslate"><span class="pre">expect_warning</span></code> and <code class="docutils literal notranslate"><span class="pre">expect_error</span></code>
+also pass … on to <code class="docutils literal notranslate"><span class="pre">grepl</span></code>, so that you can use  <code class="docutils literal notranslate"><span class="pre">fixed</span> <span class="pre">=</span> <span class="pre">TRUE</span></code>,
+<code class="docutils literal notranslate"><span class="pre">perl</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> or <code class="docutils literal notranslate"><span class="pre">ignore.case</span> <span class="pre">=</span> <span class="pre">TRUE</span></code></p></li>
+<li><p>Removed <code class="docutils literal notranslate"><span class="pre">stringr</span></code> and <code class="docutils literal notranslate"><span class="pre">evaluate</span></code> dependencies.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">not()</span></code> function makes it possible to negate tests. For example,
+<code class="docutils literal notranslate"><span class="pre">expect_that(f(),</span> <span class="pre">not(throws_error()))</span></code> asserts that <code class="docutils literal notranslate"><span class="pre">f()</span></code> does not
+throw an error.</p></li>
+<li><p>Make <code class="docutils literal notranslate"><span class="pre">dir_state</span></code> less race-y. (Thanks to &#64;craigcitro, #80)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">auto_test</span></code> now pays attention to its ‘reporter’ argument (Thanks to &#64;crowding, #81)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_reporter()</span></code>, <code class="docutils literal notranslate"><span class="pre">set_reporter()</span></code> and <code class="docutils literal notranslate"><span class="pre">with_reporter()</span></code> are now
+exported (#102)</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-0-7-1">
+<h1>testthat 0.7.1<a class="headerlink" href="#testthat-0-7-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Ignore attributes in <code class="docutils literal notranslate"><span class="pre">is_true</span></code> and <code class="docutils literal notranslate"><span class="pre">is_false</span></code> (#49)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make_expectation</span></code> works for more types of input (#52)</p></li>
+<li><p>Now works better with evaluate 0.4.3.</p></li>
+<li><p>new <code class="docutils literal notranslate"><span class="pre">fail()</span></code> function always forces a failure in a test. Suggested by
+Richie Cotton (#47)</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">TapReporter</span></code> to produce output compatible with the “test anything
+protocol”. Contributed by Dan Keshet.</p></li>
+<li><p>Fixed where <code class="docutils literal notranslate"><span class="pre">auto_test</span></code> would identify the wrong files as having changed.
+(Thanks to Peter Meilstrup)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-0-7">
+<h1>testthat 0.7<a class="headerlink" href="#testthat-0-7" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SummaryReporter</span></code>: still return informative messages even if no tests
+defined (just bare expectations). (Fixes #31)</p></li>
+<li><p>Improvements to reference classes (Thanks to John Chambers)</p></li>
+<li><p>Bug fixes for when nothing was generated in <code class="docutils literal notranslate"><span class="pre">gives_warning</span></code> /
+<code class="docutils literal notranslate"><span class="pre">shows_message</span></code>. (Thanks to Bernd Bischl)</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">make_expectation</span></code> function to programmatically generate an equality
+expectation. (Fixes #24)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SummaryReporter</span></code>: You don’t get praise until you have some tests.</p></li>
+<li><p>Depend on <code class="docutils literal notranslate"><span class="pre">methods</span></code> rather than requiring it so that testthat works when run
+from <code class="docutils literal notranslate"><span class="pre">Rscript</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">auto_test</span></code> now normalises paths to enable better identification of file
+changes, and fixes bug in instantiating new reporter object.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-0-6">
+<h1>testthat 0.6<a class="headerlink" href="#testthat-0-6" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>All <code class="docutils literal notranslate"><span class="pre">mutatr</span></code> classes have been replaced with ReferenceClasses.</p></li>
+<li><p>Better documentation for short-hand expectations.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_dir</span></code> and <code class="docutils literal notranslate"><span class="pre">test_package</span></code> gain new <code class="docutils literal notranslate"><span class="pre">filter</span></code> argument which allows you to
+restrict which tests are run.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-0-5">
+<h1>testthat 0.5<a class="headerlink" href="#testthat-0-5" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>bare expectations now correctly throw errors again</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-0-4">
+<h1>testthat 0.4<a class="headerlink" href="#testthat-0-4" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>autotest correctly loads code and executes tests in same environment</p></li>
+<li><p>contexts are never closed before they are opened, and always closed at the
+end of file</p></li>
+<li><p>fixed small bug in <code class="docutils literal notranslate"><span class="pre">test_dir</span></code> where each test was not given its own
+environment</p></li>
+<li><p>all <code class="docutils literal notranslate"><span class="pre">expect_*</span></code> short cut functions gain a label argument, thanks to Steve
+Lianoglou</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-0-3">
+<h1>testthat 0.3<a class="headerlink" href="#testthat-0-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>all expectations now have a shortcut form, so instead of
+expect_that(a, is_identical_to(b))
+you can do
+expect_identical(a, b)</p></li>
+<li><p>new shows_message and gives_warning expectations to test warnings and
+messages</p></li>
+<li><p>expect_that, equals, is_identical_to and is_equivalent to now have
+additional label argument which allows you to control the appearance of the
+text used for the expected object (for expect_that) and actual object (for
+all other functions) in failure messages. This is useful when you have loops
+that run tests as otherwise all the variable names are identical, and it’s
+difficult to tell which iteration caused the failure.</p></li>
+<li><p>executing bare tests gives nicer output</p></li>
+<li><p>all expectations now give more information on failure to make it easier to
+track down the problem.</p></li>
+<li><p>test_file and test_dir now run in code in separate environment to avoid
+pollution of global environment. They also temporary change the working
+directory so tests can use relative paths.</p></li>
+<li><p>test_package makes it easier to run all tests in an installed package. Code
+run in this manner has access to non-exported functions and objects. If any
+errors or failures occur, test_package will throw an error, making it
+suitable for use with R CMD check.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="testthat-0-2">
+<h1>testthat 0.2<a class="headerlink" href="#testthat-0-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>colourise also works in screen terminal</p></li>
+<li><p>equals expectation provides more information about failure</p></li>
+<li><p>expect_that has extra info argument to allow you to pass in any extra
+information you’d like included in the message - this is very helpful if
+you’re using a loop to run tests</p></li>
+<li><p>is_equivalent_to: new expectation that tests for equality ignoring
+attributes</p></li>
+<li><p>library_if_available now works! (thanks to report and fix from Felix
+Andrews)</p></li>
+<li><p>specify larger width and join pieces back together whenever deparse used
+(thanks to report and fix from Felix Andrews)</p></li>
+<li><p>test_dir now looks for any files starting with test (not test- as before)</p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./temporal/renv/library/R-4.1/aarch64-apple-darwin20/testthat"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Quan Nguyen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,900 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>haven 2.5.0 &#8212; Temporal and sequential analysis - LASI 2022</title>
+    
+  <link href="../../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../_static/togglebutton.js"></script>
+    <script src="../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../../../_static/solar_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Temporal and sequential analysis - LASI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture1.html">
+   Lecture 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture2.html">
+   Lecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture3.html">
+   Lecture 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Labs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab1.html">
+   Lab 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab2.html">
+   Lab 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab3.html">
+   Lab 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Quan Nguyen<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../../_sources/temporal/renv/library/R-4.1/aarch64-apple-darwin20/haven/NEWS.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/quan3010/temporal_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/quan3010/temporal_analysis/issues/new?title=Issue%20on%20page%20%2Ftemporal/renv/library/R-4.1/aarch64-apple-darwin20/haven/NEWS.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   haven 2.5.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-author">
+     New author
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#file-writing-improvements">
+     File writing improvements
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-improvements-and-fixes">
+     Other improvements and fixes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dependency-changes">
+     Dependency changes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#haven-2-4-3">
+   haven 2.4.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#haven-2-4-2">
+   haven 2.4.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#haven-2-4-1">
+   haven 2.4.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#haven-2-4-0">
+   haven 2.4.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-features">
+     New features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minor-improvements-and-bug-fixes">
+     Minor improvements and bug fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#haven-2-3-1">
+   haven 2.3.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#haven-2-3-0">
+   haven 2.3.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#haven-2-2-0">
+   haven 2.2.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#partial-reading">
+     Partial reading
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Minor improvements and bug fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#haven-2-1-1">
+   haven 2.1.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#haven-2-1-0">
+   haven 2.1.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#improved-labelling">
+     Improved labelling
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Minor improvements and bug fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#haven-2-0-0">
+   haven 2.0.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#breaking-changes">
+     BREAKING CHANGES
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minor-improvements">
+     Minor improvements
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#haven-1-1-2">
+   haven 1.1.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#haven-1-1-1">
+   haven 1.1.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#haven-1-1-0">
+   haven 1.1.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#haven-1-0-0">
+   haven 1.0.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#haven-0-2-0">
+   haven 0.2.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#haven-0-1-1">
+   haven 0.1.1
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="haven-2-5-0">
+<h1>haven 2.5.0<a class="headerlink" href="#haven-2-5-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="new-author">
+<h2>New author<a class="headerlink" href="#new-author" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>&#64;gorcha is now a haven author in recognition of his significant and sustained
+contributions.</p></li>
+</ul>
+</div>
+<div class="section" id="file-writing-improvements">
+<h2>File writing improvements<a class="headerlink" href="#file-writing-improvements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>All <code class="docutils literal notranslate"><span class="pre">write_</span></code> functions can now write custom variable widths by setting the
+<code class="docutils literal notranslate"><span class="pre">width</span></code> attribute (#650).</p></li>
+<li><p>When writing files, the minimum width for character variables is now 1. This
+fixes issues with statistical software reading blank character variables with
+width 0 (#650).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_dta()</span></code> now uses strL when strings are too long to be stored in an str#
+variable (#437). strL is used when strings are longer than 2045 characters by
+default, which matches Stata’s behaviour, but this can be reduced with the
+<code class="docutils literal notranslate"><span class="pre">strl_threshold</span></code> argument.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_xpt()</span></code> can now write dataset labels with the <code class="docutils literal notranslate"><span class="pre">label</span></code> argument,  which
+defaults to the <code class="docutils literal notranslate"><span class="pre">label</span></code> attribute of the input data frame, if present (#562).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_sav()</span></code> now checks for case-insensitive duplicate variable names
+(&#64;juansebastianl, #641) and verifies that variable names are valid SPSS
+variables.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">compress</span></code> argument for <code class="docutils literal notranslate"><span class="pre">write_sav()</span></code> now supports all 3 SPSS compression
+modes specified as a character string - “byte”, “none” and “zsav” (#614).
+<code class="docutils literal notranslate"><span class="pre">TRUE</span></code> and <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> can be used for backwards compatibility, and correspond to
+the “zsav” and “none” options respectively.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_sav()</span></code> successfully writes user missing values and ranges for
+<code class="docutils literal notranslate"><span class="pre">labelled()</span></code> integer vectors (#596).</p></li>
+<li><p>POSIXct and POSIXlt values with no time component (e.g. “2010-01-01”) were
+being converted to <code class="docutils literal notranslate"><span class="pre">NA</span></code> when attempting to convert the output timezone to UTC.
+These now output successfully (#634).</p></li>
+<li><p>Fix bug in output timezone conversion that was causing variable labels and
+other variable attributes to disappear (#624).</p></li>
+</ul>
+</div>
+<div class="section" id="other-improvements-and-fixes">
+<h2>Other improvements and fixes<a class="headerlink" href="#other-improvements-and-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Updated to ReadStat 1.1.8 RC.</p>
+<ul>
+<li><p>Fix bug when writing formats to XPT files (#650).</p></li>
+<li><p>Fix off by one error in indexing for strL variables (#437).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">labelled()</span></code> vectors now throw a warning when combining two vectors with
+conflicting labels (#667).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zap_labels()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">user_na</span></code> argument to control whether user-defined
+missing values are converted to <code class="docutils literal notranslate"><span class="pre">NA</span></code> or left as is (#638).</p></li>
+<li><p>vctrs casting and coercion generics now do less work when working with two
+identical <code class="docutils literal notranslate"><span class="pre">labelled()</span></code> vectors. This significantly improves performance when
+working with <code class="docutils literal notranslate"><span class="pre">labelled()</span></code> vectors in grouped data frames (#658).</p></li>
+<li><p>Errors and warnings now use <code class="docutils literal notranslate"><span class="pre">cli_abort()</span></code> and <code class="docutils literal notranslate"><span class="pre">cli_warning()</span></code> (#661).</p></li>
+</ul>
+</div>
+<div class="section" id="dependency-changes">
+<h2>Dependency changes<a class="headerlink" href="#dependency-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>R 3.4 is now the minimum supported version, in line with <a class="reference external" href="https://www.tidyverse.org/blog/2019/04/r-version-support/">tidyverse  policy</a>.</p></li>
+<li><p>cli &gt;= 3.0.0 has been added to Imports to support new error messaging.</p></li>
+<li><p>lifecycle has been added to Imports, and is now used to manage deprecations.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="haven-2-4-3">
+<h1>haven 2.4.3<a class="headerlink" href="#haven-2-4-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix build failure on Solaris.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="haven-2-4-2">
+<h1>haven 2.4.2<a class="headerlink" href="#haven-2-4-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Updated to ReadStat 1.1.7 RC (#620).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_dta()</span></code> no longer crashes if it sees StrL variables with missing values
+(&#64;gorcha, #594, #600, #608).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_dta()</span></code> now correctly handles “labelled”-class numeric (double) variables
+that don’t have value labels (&#64;jmobrien, #606, #609).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_dta()</span></code> now allows variable names up to 32 characters (&#64;sbae, #605).</p></li>
+<li><p>Can now correctly combine <code class="docutils literal notranslate"><span class="pre">labelled_spss()</span></code> with identical labels
+(&#64;gorcha, #599).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="haven-2-4-1">
+<h1>haven 2.4.1<a class="headerlink" href="#haven-2-4-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix buglet when combining <code class="docutils literal notranslate"><span class="pre">labelled()</span></code> with identical labels.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="haven-2-4-0">
+<h1>haven 2.4.0<a class="headerlink" href="#haven-2-4-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="new-features">
+<h2>New features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">labelled_spss()</span></code> gains full vctrs support thanks to the hard work of &#64;gorcha
+(#527, #534, #538, #557). This means that they should now work seamlessly
+in dplyr 1.0.0, tidyr 1.0.0 and other packages that use vctrs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">labelled()</span></code> vectors are more permissive when concatenating; output labels
+will be a combination of the left-hand and the right-hand side, preferring
+values assigned to the left-hand side (#543).</p></li>
+<li><p>Date-times are no longer forced to UTC, but instead converted to the
+equivalent UTC (#555). This should ensure that you see the same date-time
+in R and in Stata/SPSS/SAS.</p></li>
+</ul>
+</div>
+<div class="section" id="minor-improvements-and-bug-fixes">
+<h2>Minor improvements and bug fixes<a class="headerlink" href="#minor-improvements-and-bug-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Updated to ReadStat 1.1.5. Most importantly this includes support for
+SAS binary compression.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">as_factor(levels</span> <span class="pre">=</span> <span class="pre">&quot;values&quot;)</span></code> preserves values of unlabelled elements (#570).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">labelled_spss()</span></code> is a little stricter: it prevents <code class="docutils literal notranslate"><span class="pre">na_range</span></code> and <code class="docutils literal notranslate"><span class="pre">na_value</span></code>
+from containing missing values, and ensures that <code class="docutils literal notranslate"><span class="pre">na_range</span></code> is in the correct
+order (#574).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_spss()</span></code> now reads NA values and ranges of character variables (#409).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_dta()</span></code> now correctly writes tagged NAs (including tagged NAs in
+labels) (#583) and once again validates length of variables names (#485).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_*()</span></code> now validate file and variable metadata with ReadStat. This
+should prevent many invalid files from being written (#408). Additionally,
+validation failures now provide more details about the source of the problem
+(e.g. the column name of the problem) (#463).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_sav(compress</span> <span class="pre">=</span> <span class="pre">FALSE)</span></code> now uses SPSS bytecode compression instead of
+the rarely-used uncompressed mode. <code class="docutils literal notranslate"><span class="pre">compress</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> continues to use the
+newer (and not universally supported, but more compact) zlib format
+(&#64;oliverbock, #544).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="haven-2-3-1">
+<h1>haven 2.3.1<a class="headerlink" href="#haven-2-3-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Add missing methods so <code class="docutils literal notranslate"><span class="pre">median()</span></code>, <code class="docutils literal notranslate"><span class="pre">quantile()</span></code> and <code class="docutils literal notranslate"><span class="pre">summary()</span></code> work
+once more (#520).</p></li>
+<li><p>Add missing cast methods (#522).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="haven-2-3-0">
+<h1>haven 2.3.0<a class="headerlink" href="#haven-2-3-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">labelled()</span></code> gains the necessary support to work seemlessly in dplyr 1.0.0,
+tidyr 1.0.0, and other packages that use vctrs (&#64;mikmart, #496).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">labelled()</span></code> vectors now explicitly inherit from the corresponding base
+types (e.g. integer, double, or character) (#509).</p></li>
+<li><p>ReadStat update, including <code class="docutils literal notranslate"><span class="pre">read_sas()</span></code> supports for “any” encoding (#482),
+and fixes for compiler warnings.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="haven-2-2-0">
+<h1>haven 2.2.0<a class="headerlink" href="#haven-2-2-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="partial-reading">
+<h2>Partial reading<a class="headerlink" href="#partial-reading" title="Permalink to this headline">¶</a></h2>
+<p>Thanks to the hard work of &#64;mikmart, all <code class="docutils literal notranslate"><span class="pre">read_*()</span></code> functions gain three new arguments that allow you to read in only part of a large file:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">col_select</span></code>: selects columns to read with a tidyselect interface (#248).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">skip</span></code>: skips rows before reading data (#370).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_max</span></code>: limits the number of rows to read.</p></li>
+</ul>
+<p>This also brings with it a deprecation: <code class="docutils literal notranslate"><span class="pre">cols_only</span></code> in <code class="docutils literal notranslate"><span class="pre">read_sas()</span></code> has been deprecated in favour of the new <code class="docutils literal notranslate"><span class="pre">col_select</span></code> argument.</p>
+</div>
+<div class="section" id="id1">
+<h2>Minor improvements and bug fixes<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">as_factor()</span></code> allows non-unique labels when <code class="docutils literal notranslate"><span class="pre">levels</span> <span class="pre">=</span> <span class="pre">&quot;label&quot;</span></code>. This fixes
+a particularly annoying printing bug (#424, &#64;gergness)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_sas()</span></code> now supports (IS|E|B)8601(DT|DA|TM) date/time formats (&#64;mikmart).</p></li>
+<li><p>All <code class="docutils literal notranslate"><span class="pre">write_</span></code> functions gain a <code class="docutils literal notranslate"><span class="pre">.name_repair</span></code> argument that controls
+what happens when the input dataset has repeated column names (#436).</p></li>
+<li><p>All <code class="docutils literal notranslate"><span class="pre">write_</span></code> functions can now write labelled vectors with <code class="docutils literal notranslate"><span class="pre">NULL</span></code> labels
+(#442).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_dta()</span></code> can now write dataset labels with the <code class="docutils literal notranslate"><span class="pre">label</span></code> argument,
+which defaults to the <code class="docutils literal notranslate"><span class="pre">label</span></code> attribute of the input data frame, if present
+(&#64;gorcha, #449).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_dta()</span></code> works better with Stata 15, thanks to updated ReadStat (#461)</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="haven-2-1-1">
+<h1>haven 2.1.1<a class="headerlink" href="#haven-2-1-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixes for R CMD check</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="haven-2-1-0">
+<h1>haven 2.1.0<a class="headerlink" href="#haven-2-1-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="improved-labelling">
+<h2>Improved labelling<a class="headerlink" href="#improved-labelling" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">labelled</span></code> objects get pretty printing that shows the labels and NA values when inside of a <code class="docutils literal notranslate"><span class="pre">tbl_df</span></code>. Turn this behaviour off with behavior using <code class="docutils literal notranslate"><span class="pre">option(haven.show_pillar_labels</span> <span class="pre">=</span> <span class="pre">FALSE)</span></code> (#340, &#64;gergness).</p>
+<p><code class="docutils literal notranslate"><span class="pre">labelled()</span></code> and <code class="docutils literal notranslate"><span class="pre">labelled_spss()</span></code> now allow <code class="docutils literal notranslate"><span class="pre">NULL</span></code> labels. This makes both classes more flexible, allowing you to use them for their other attributes (#219).</p>
+<p><code class="docutils literal notranslate"><span class="pre">labelled()</span></code> tests that value labels are unique (&#64;larmarange, #364)</p>
+</div>
+<div class="section" id="id2">
+<h2>Minor improvements and bug fixes<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">as_factor()</span></code>:</p>
+<ul>
+<li><p>Is faster when input doesn’t contain any missing values (&#64;hughparsonage).</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">labelled</span></code> method for backward compatbility (#414).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data.frame</span></code> method now correctly passes <code class="docutils literal notranslate"><span class="pre">...</span></code> along (#407, &#64;zkamvar).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_dta()</span></code> now checks that the labelled values are integers, not the
+values themselves (#401).</p></li>
+<li><p>Updated to latest ReadStat from &#64;evanmiller:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_por()</span></code> can now read files from SPSS 25 (#412)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_por()</span></code> now uses base-30 instead of base-10 for the exponent (#413)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_sas()</span></code> can read zero column file (#420)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_sav()</span></code> reads long strings (#381)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_sav()</span></code> has greater memory limit allowing it to read more labels (#418)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_spss()</span></code> reads long variable labels (#422)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_sav()</span></code> no longer creates incorrect column names when &gt;10k columns (#410)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_sav()</span></code> no longer crashes when writing long label names (#395)</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="haven-2-0-0">
+<h1>haven 2.0.0<a class="headerlink" href="#haven-2-0-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="breaking-changes">
+<h2>BREAKING CHANGES<a class="headerlink" href="#breaking-changes" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">labelled()</span></code> and <code class="docutils literal notranslate"><span class="pre">labelled_spss()</span></code> now produce objects with class
+“haven_labelled” and “haven_labelled_spss”. Previously, the “labelled”
+class name clashed with the labelled class defined by Hmisc (#329).</p>
+<p>Unfortunately I couldn’t come up with a way to fix this problem except
+to change the class name; it seems reasonable that haven should be the one
+to change names given that Hmisc has been around much longer. This
+will require some changes to packages that use haven, but shouldn’t
+affect user code.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="minor-improvements">
+<h2>Minor improvements<a class="headerlink" href="#minor-improvements" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">labelled()</span></code> and <code class="docutils literal notranslate"><span class="pre">labelled_spss()</span></code> now support adding the <code class="docutils literal notranslate"><span class="pre">label</span></code>
+attribute to the resulting object. The <code class="docutils literal notranslate"><span class="pre">label</span></code> is a short,
+human-readable description of the object, and is now also used
+when printing, and can be easily removed using the new <code class="docutils literal notranslate"><span class="pre">zap_label()</span></code>
+function. (#362, &#64;huftis)</p>
+<p>Previously, the <code class="docutils literal notranslate"><span class="pre">label</span></code> attribute was supported both when reading
+and writing SPSS files, but it was not possible to actually create
+objects in R having the <code class="docutils literal notranslate"><span class="pre">label</span></code> attribute using the constructors
+<code class="docutils literal notranslate"><span class="pre">labelled()</span></code> or <code class="docutils literal notranslate"><span class="pre">labelled_spss()</span></code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="haven-1-1-2">
+<h1>haven 1.1.2<a class="headerlink" href="#haven-1-1-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>haven can read and write non-ASCII paths in R 3.5 (#371).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">labelled_spss</span></code> objects preserve their attributes when subsetted
+(#360, &#64;gergness).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_sav()</span></code> gains an <code class="docutils literal notranslate"><span class="pre">encoding</span></code> argument to override the encoding stored in
+the file (#305). <code class="docutils literal notranslate"><span class="pre">read_sav()</span></code> can now read <code class="docutils literal notranslate"><span class="pre">.zsav</span></code> files (#338).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_*()</span></code> functions now invisibly return the input data frame
+(as documented) (#349, &#64;austensen).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_dta()</span></code> allows non-ASCII variable labels for version 14 and above
+(#383). It also uses a less strict check for integers so that a
+labelled double containing only integer values can written (#343).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_sav()</span></code> produces <code class="docutils literal notranslate"><span class="pre">.zsav</span></code> files when <code class="docutils literal notranslate"><span class="pre">compress</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> (#338).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_xpt()</span></code> can now set the “member” name, which defaults to the file name
+san extension (#328).</p></li>
+<li><p>Update to latest readstat.</p>
+<ul>
+<li><p>Fixes out of memory error (#342)</p></li>
+<li><p>Now supports reading and writing stata 15 files (#339)</p></li>
+<li><p>Negative integer labelled values were tagged as missing (#367)</p></li>
+</ul>
+</li>
+<li><p>Fix for when <code class="docutils literal notranslate"><span class="pre">as_factor()</span></code> with option <code class="docutils literal notranslate"><span class="pre">levels=&quot;labels&quot;</span></code> is used on tagged NAs
+(#340, &#64;gergness)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="haven-1-1-1">
+<h1>haven 1.1.1<a class="headerlink" href="#haven-1-1-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Update to latest readstat. Includes:</p>
+<ul>
+<li><p>SPSS: empty charater columns now read as character (#311)</p></li>
+<li><p>SPSS: now write long strings (#266)</p></li>
+<li><p>Stata: reorder labelled vectors on write (#327)</p></li>
+<li><p>State: <code class="docutils literal notranslate"><span class="pre">encoding</span></code> now affects value labels (#325)</p></li>
+<li><p>SAS: can now write wide/long rows (#272, #335).</p></li>
+<li><p>SAS: can now handle Windows Vietnamese character set (#336)</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_por()</span></code> and <code class="docutils literal notranslate"><span class="pre">read_xpt()</span></code> now correctly preserve attributes if
+output needs to be reallocated (which is typical behaviour) (#313)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_sas()</span></code> recognises date/times format with trailing separator and width
+specifications (#324)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_sas()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">catalog_encoding</span></code> argument so you can independently
+specify encoding of data and catalog (#312)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_*()</span></code> correctly measures lengths of non-ASCII labels (#258): this
+fixes the cryptic error “A provided string value was longer than the
+available storage size of the specified column.”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_dta()</span></code> now checks for bad labels in all columns, not just the first
+(#326).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_sav()</span></code> no longer fails on empty factors or factors with an <code class="docutils literal notranslate"><span class="pre">NA</span></code>
+level (#301) and writes out more metadata for <code class="docutils literal notranslate"><span class="pre">labelled_spss</span></code> vectors
+(#334).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="haven-1-1-0">
+<h1>haven 1.1.0<a class="headerlink" href="#haven-1-1-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Update to latest readstat. Includes:</p>
+<ul>
+<li><p>SAS: support Win baltic code page (#231)</p></li>
+<li><p>SAS: better error messages instead of crashes (#234, #270)</p></li>
+<li><p>SAS: fix “unable to read error” (#271)</p></li>
+<li><p>SPSS: support uppercase time stamps (#230)</p></li>
+<li><p>SPSS: fixes for 252-255 byte strings (#226)</p></li>
+<li><p>SPSS: fixes for 0 byte strings (#245)</p></li>
+</ul>
+</li>
+<li><p>Share <code class="docutils literal notranslate"><span class="pre">as_factor()</span></code> with forcats package (#256)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_sav()</span></code> once again correctly returns system defined missings
+as <code class="docutils literal notranslate"><span class="pre">NA</span></code> (rather than <code class="docutils literal notranslate"><span class="pre">NaN</span></code>) (#223). <code class="docutils literal notranslate"><span class="pre">read_sav()</span></code> and <code class="docutils literal notranslate"><span class="pre">write_sav()</span></code> preserve
+SPSS’s display widths (&#64;ecortens).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_sas()</span></code> gains experimental <code class="docutils literal notranslate"><span class="pre">cols_only</span></code> argument to only read in
+specified columns (#248).</p></li>
+<li><p>tibbles are created with <code class="docutils literal notranslate"><span class="pre">tibble::as_tibble()</span></code>, rather than by “hand” (#229).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_sav()</span></code> checks that factors don’t have levels with &gt;120
+characters (#262)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_dta()</span></code> no longer checks that all value labels are at most 32
+characters (since this is not a restriction of dta files) (#239).</p></li>
+<li><p>All write methds now check that you’re trying to write a data frame (#287).</p></li>
+<li><p>Add support for reading (<code class="docutils literal notranslate"><span class="pre">read_xpt()</span></code>) and writing (<code class="docutils literal notranslate"><span class="pre">write_xpt()</span></code>) SAS
+transport files.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_*</span></code> functions turn ordered factors into labelled vectors (#285)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="haven-1-0-0">
+<h1>haven 1.0.0<a class="headerlink" href="#haven-1-0-0" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>The ReadStat library is stored in a subdirectory of <code class="docutils literal notranslate"><span class="pre">src</span></code> (#209, &#64;krlmlr).</p></li>
+<li><p>Import tibble so that tibbles are printed consistently (#154, &#64;krlmlr).</p></li>
+<li><p>Update to latest ReadStat (#65). Includes:</p>
+<ul class="simple">
+<li><p>Support for binary (aka Ross) compression for SAS (#31).</p></li>
+<li><p>Support extended ASCII encoding for Stata (#71).</p></li>
+<li><p>Support for Stata 14 files (#75, #212).</p></li>
+<li><p>Support for SPSS value labels with more than 8 characters (#157).</p></li>
+<li><p>More likely to get an error when attempting to create an invalid
+output file (#171).</p></li>
+</ul>
+</li>
+<li><p>Added support for reading and writing variable formats. Similarly to
+to variable labels, formats are stored as an attribute on the vector.
+Use <code class="docutils literal notranslate"><span class="pre">zap_formats()</span></code> if you want to remove these attributes.
+(&#64;gorcha, #119, #123).</p></li>
+<li><p>Added support for reading file “label” and “notes”. These are not currently
+printed, but are stored in the attributes if you need to access them (#186).</p></li>
+<li><p>Added support for “tagged” missing values (in Stata these are called
+“extended” and in SAS these are called “special”) which carry an extra
+byte of information: a character label from “a” to “z”. The downside of
+this change is that all integer columns are now converted to doubles,
+to support the encoding of the tag in the payload of a NaN.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">labelled_spss()</span></code> is a subclass of <code class="docutils literal notranslate"><span class="pre">labelled()</span></code> that can model
+user missing values from SPSS. These can either be a set of distinct
+values, or for numeric vectors, a range. <code class="docutils literal notranslate"><span class="pre">zap_labels()</span></code> strips labels,
+and replaces user-defined missing values with <code class="docutils literal notranslate"><span class="pre">NA</span></code>. New <code class="docutils literal notranslate"><span class="pre">zap_missing()</span></code>
+just replaces user-defined missing values with <code class="docutils literal notranslate"><span class="pre">NA</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">labelled_spss()</span></code> is potentially dangerous to work with in R because
+base functions don’t know about <code class="docutils literal notranslate"><span class="pre">labelled_spss()</span></code> functions so will
+return the wrong result in the presence of user-defined missing values.
+For this reason, they will only be created by <code class="docutils literal notranslate"><span class="pre">read_spss()</span></code> when
+<code class="docutils literal notranslate"><span class="pre">user_na</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> (normally user-defined missings are converted to
+NA).</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">as_factor()</span></code> no longer drops the <code class="docutils literal notranslate"><span class="pre">label</span></code> attribute (variable label) when
+used (#177, &#64;itsdalmo).</p></li>
+<li><p>Using <code class="docutils literal notranslate"><span class="pre">as_factor()</span></code> with <code class="docutils literal notranslate"><span class="pre">levels</span> <span class="pre">=</span> <span class="pre">&quot;default</span></code> or <code class="docutils literal notranslate"><span class="pre">levels</span> <span class="pre">=</span> <span class="pre">&quot;both&quot;</span></code> preserves
+unused labels (implicit missing) when converting (#172, &#64;itsdalmo). Labels
+(and the resulting factor levels) are always sorted by values.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">as_factor()</span></code> gains a new <code class="docutils literal notranslate"><span class="pre">levels</span> <span class="pre">=</span> <span class="pre">&quot;default&quot;</span></code> mechanism. This uses the
+labels where present, and otherwise uses the labels. This is now the
+default, as it seems to map better to the semantics of labelled values
+in other statistical packages (#81). You can also use <code class="docutils literal notranslate"><span class="pre">levels</span> <span class="pre">=</span> <span class="pre">&quot;both&quot;</span></code>
+to combine the value and the label into a single string (#82). It also
+gains a method for data frames, so you can easily convert every labelled
+column to a factor in one function call.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">vignette(&quot;semantics&quot;,</span> <span class="pre">package</span> <span class="pre">=</span> <span class="pre">&quot;haven&quot;)</span></code> discusses the semantics
+of missing values and labelling in SAS, SPSS, and Stata, and how they
+are translated into R.</p></li>
+<li><p>Support for <code class="docutils literal notranslate"><span class="pre">hms()</span></code> has been moved into the hms package (#162).
+Time varibles now have class <code class="docutils literal notranslate"><span class="pre">c(&quot;hms&quot;,</span> <span class="pre">&quot;difftime&quot;)</span></code> and a <code class="docutils literal notranslate"><span class="pre">units</span></code> attribute
+with value “secs” (#162).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">labelled()</span></code> is less strict with its checks: you can mix double and integer
+value and labels (#86, #110, &#64;lionel-), and <code class="docutils literal notranslate"><span class="pre">is.labelled()</span></code> is now exported
+(#124). Putting a labelled vector in a data frame now generates the correct
+column name (#193).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_dta()</span></code> now recognises “%d” and custom date types (#80, #130).
+It also gains an encoding parameter which you can use to override
+the default encoding. This is particularly useful for Stata 13 and below
+which did not store the encoding used in the file (#163).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_por()</span></code> now actually works (#35).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_sav()</span></code> now correctly recognises EDATE and JDATE formats as dates (#72).
+Variables with format DATE, ADATE, EDATE, JDATE or SDATE are imported as
+<code class="docutils literal notranslate"><span class="pre">Date</span></code> variables instead of <code class="docutils literal notranslate"><span class="pre">POSIXct</span></code>. You can now set <code class="docutils literal notranslate"><span class="pre">user_na</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> to
+preserve user defined missing values: they will be given class
+<code class="docutils literal notranslate"><span class="pre">labelled_spss</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_dta()</span></code>, <code class="docutils literal notranslate"><span class="pre">read_sas()</span></code>, and <code class="docutils literal notranslate"><span class="pre">read_sav()</span></code> have a better test for missing
+string values (#79). They can all read from connections and compressed files
+(&#64;lionel-, #109)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_sas()</span></code> gains an encoding parameter to overide the encoding stored
+in the file if it is incorrect (#176). It gets better argument names (#214).</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">type_sum()</span></code> method for labelled objects so they print nicely in
+tibbles.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_dta()</span></code> now verifies that variable names are valid Stata variables
+(#132), and throws an error if you attempt to save a labelled vector that
+is not an integer (#144). You can choose which <code class="docutils literal notranslate"><span class="pre">version</span></code> of Stata’s file
+format to output (#217).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">write_sas()</span></code> allows you to write data frames out to <code class="docutils literal notranslate"><span class="pre">sas7bdat</span></code>
+files. This is still somewhat experimental.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_sav()</span></code> writes hms variables to SPSS time variables, and the
+“measure” type is set for each variable (#133).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_dta()</span></code> and <code class="docutils literal notranslate"><span class="pre">write_sav()</span></code> support writing date and date/times
+(#25, #139, #145). Labelled values are always converted to UTF-8 before
+being written out (#87). Infinite values are now converted to missing values
+since SPSS and Stata don’t support them (#149). Both use a better test
+for missing values (#70).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zap_labels()</span></code> has been completely overhauled. It now works
+(&#64;markriseley, #69), and only drops label attributes; it no longer replaces
+labelled values with <code class="docutils literal notranslate"><span class="pre">NA</span></code>s. It also gains a data frame method that zaps
+the labels from every column.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">print.labelled()</span></code> and <code class="docutils literal notranslate"><span class="pre">print.labelled_spss()</span></code> now display the type.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="haven-0-2-0">
+<h1>haven 0.2.0<a class="headerlink" href="#haven-0-2-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>fixed a bug in <code class="docutils literal notranslate"><span class="pre">as_factor.labelled</span></code>, which generated <NA>’s and wrong
+labels for integer labels.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zap_labels()</span></code> now leaves unlabelled vectors unchanged, making it easier
+to apply to all columns.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_dta()</span></code> and <code class="docutils literal notranslate"><span class="pre">write_sav()</span></code> take more care to always write output as
+UTF-8 (#36)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_dta()</span></code> and <code class="docutils literal notranslate"><span class="pre">write_sav()</span></code> won’t crash if you give them invalid paths,
+and you can now use <code class="docutils literal notranslate"><span class="pre">~</span></code> to refer to your home directory (#37).</p></li>
+<li><p>Byte variables are now correctly read into integers (not strings, #45),
+and missing values are captured correctly (#43).</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">read_stata()</span></code> as alias to <code class="docutils literal notranslate"><span class="pre">read_dta()</span></code> (#52).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_spss()</span></code> uses extension to automatically choose between <code class="docutils literal notranslate"><span class="pre">read_sav()</span></code>
+and <code class="docutils literal notranslate"><span class="pre">read_por()</span></code> (#53)</p></li>
+<li><p>Updates from ReadStat. Including fixes for various parsing bugs, more
+encodings, and better support for large files.</p></li>
+<li><p>hms objects deal better with missings when printing.</p></li>
+<li><p>Fixed bug causing labels for numeric variables to be read in as
+integers and associated error: <code class="docutils literal notranslate"><span class="pre">Error:</span> <span class="pre">`x`</span> <span class="pre">and</span> <span class="pre">`labels`</span> <span class="pre">must</span> <span class="pre">be</span> <span class="pre">same</span> <span class="pre">type</span></code></p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="haven-0-1-1">
+<h1>haven 0.1.1<a class="headerlink" href="#haven-0-1-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed memory initialisation problems found by valgrind.</p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./temporal/renv/library/R-4.1/aarch64-apple-darwin20/haven"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Quan Nguyen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

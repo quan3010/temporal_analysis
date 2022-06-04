@@ -1,0 +1,561 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>withr 2.5.0 &#8212; Temporal and sequential analysis - LASI 2022</title>
+    
+  <link href="../../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../_static/togglebutton.js"></script>
+    <script src="../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../../../_static/solar_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Temporal and sequential analysis - LASI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture1.html">
+   Lecture 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture2.html">
+   Lecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture3.html">
+   Lecture 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Labs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab1.html">
+   Lab 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab2.html">
+   Lab 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab3.html">
+   Lab 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Quan Nguyen<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../../_sources/temporal/renv/library/R-4.1/aarch64-apple-darwin20/withr/NEWS.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/quan3010/temporal_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/quan3010/temporal_analysis/issues/new?title=Issue%20on%20page%20%2Ftemporal/renv/library/R-4.1/aarch64-apple-darwin20/withr/NEWS.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   withr 2.5.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#withr-2-4-3">
+   withr 2.4.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#withr-2-4-2">
+   withr 2.4.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#withr-2-4-1">
+   withr 2.4.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#withr-2-4-0">
+   withr 2.4.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#withr-2-3-0">
+   withr 2.3.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deprecations">
+     Deprecations
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-features">
+     New features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minor-improvements-and-fixes">
+     Minor improvements and fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#withr-2-2-0">
+   withr 2.2.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#withr-2-1-2">
+   withr 2.1.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#withr-2-1-1">
+   withr 2.1.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#withr-2-1-0">
+   withr 2.1.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#withr-2-0-0">
+   withr 2.0.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#withr-1-0-2">
+   withr 1.0.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#withr-1-0-1">
+   withr 1.0.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#withr-1-0-0">
+   withr 1.0.0
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="withr-2-5-0">
+<h1>withr 2.5.0<a class="headerlink" href="#withr-2-5-0" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">defer()</span></code> and all <code class="docutils literal notranslate"><span class="pre">local_*()</span></code> functions now work when run inside of
+a <code class="docutils literal notranslate"><span class="pre">.Rmd</span></code>. The deferred expressions are executed when knitr exits.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">defer()</span></code> and <code class="docutils literal notranslate"><span class="pre">local_</span></code> functions now work within <code class="docutils literal notranslate"><span class="pre">source()</span></code>.
+The deferred expressions are executed when <code class="docutils literal notranslate"><span class="pre">source()</span></code> exits.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">with_()</span></code> and <code class="docutils literal notranslate"><span class="pre">local_()</span></code> gain a <code class="docutils literal notranslate"><span class="pre">get</span></code> argument. Supply a getter
+function to create <code class="docutils literal notranslate"><span class="pre">with</span></code> and <code class="docutils literal notranslate"><span class="pre">local</span></code> functions that are robust to
+early exits.</p>
+<p>When supplied, this restoration pattern is used:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">old</span> <span class="o">&lt;-</span> <span class="n">get</span><span class="p">()</span>
+<span class="n">on</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">old</span><span class="p">))</span>
+<span class="nb">set</span><span class="p">(</span><span class="n">new</span><span class="p">)</span>
+<span class="n">action</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Instead of:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">old</span> <span class="o">&lt;-</span> <span class="nb">set</span><span class="p">(</span><span class="n">new</span><span class="p">)</span>
+<span class="n">on</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">old</span><span class="p">))</span>
+<span class="n">action</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This ensures proper restoration of the old state when an early exit
+occurs during <code class="docutils literal notranslate"><span class="pre">set()</span></code> (for instance when a deprecation warning is
+caught, see #191).</p>
+</li>
+<li><p>These <code class="docutils literal notranslate"><span class="pre">with_</span></code> and <code class="docutils literal notranslate"><span class="pre">local_</span></code> functions are now robust to early exits (see next bullet):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">_locale()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_envvar()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_libpaths()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_options()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_par()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_path()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">_seed()</span></code></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">with_namespace()</span></code> and <code class="docutils literal notranslate"><span class="pre">local_namespace()</span></code> now pass <code class="docutils literal notranslate"><span class="pre">warn.conflicts</span></code>
+to <code class="docutils literal notranslate"><span class="pre">attach()</span></code> (&#64;kyleam, #185).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">local_rng_version()</span></code> and <code class="docutils literal notranslate"><span class="pre">local_seed()</span></code> no longer warn when
+restoring <code class="docutils literal notranslate"><span class="pre">sample.kind</span></code> to <code class="docutils literal notranslate"><span class="pre">&quot;Rounding&quot;</span></code> (#167).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">with_seed()</span></code> now preserves the current values of <code class="docutils literal notranslate"><span class="pre">RNGkind()</span></code> (#167).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">with_collate()</span></code> is no longer affected by the <code class="docutils literal notranslate"><span class="pre">LC_COLLATE</span></code>
+environment variable set to “C” (#179).</p></li>
+<li><p>Local evaluations in the <code class="docutils literal notranslate"><span class="pre">globalenv()</span></code> (as opposed to top-level
+ones) are now unwound in the same way as regular environments.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">local_tempfile()</span></code> gains a lines argument so, if desired, you can pre-fill
+the temporary file with some data.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="withr-2-4-3">
+<h1>withr 2.4.3<a class="headerlink" href="#withr-2-4-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Lionel Henry is the new maintainer.</p></li>
+<li><p>Handlers registered with the global environment (as happens when <code class="docutils literal notranslate"><span class="pre">local_()</span></code>
+is run at the top-level, outside a function) are now automatically run
+when the R session ends (#173).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">with_language()</span></code> and <code class="docutils literal notranslate"><span class="pre">local_language()</span></code> to temporarily control the
+language used for translations (#180).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">with_seed()</span></code> now caches the check for R version, so is now faster (#170)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">with_makevars()</span></code> and <code class="docutils literal notranslate"><span class="pre">local_makevars()</span></code> now eagerly evaluate the <code class="docutils literal notranslate"><span class="pre">path</span></code> argument (#169)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="withr-2-4-2">
+<h1>withr 2.4.2<a class="headerlink" href="#withr-2-4-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">local_options()</span></code> now lets you set an option to <code class="docutils literal notranslate"><span class="pre">NULL</span></code> as intended (#156)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">local_tempfile()</span></code> argument <code class="docutils literal notranslate"><span class="pre">envir</span></code> is deprecated, in favor of <code class="docutils literal notranslate"><span class="pre">.local_envir</span></code>.
+All withr functions except <code class="docutils literal notranslate"><span class="pre">local_tempfile()</span></code> used <code class="docutils literal notranslate"><span class="pre">.local_envir</span></code> to specify environments, so this makes this function consistent with the rest. (#157)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">with_environment()</span></code> now passing <code class="docutils literal notranslate"><span class="pre">pos</span></code> and <code class="docutils literal notranslate"><span class="pre">warn.conflicts</span></code> to <code class="docutils literal notranslate"><span class="pre">attach()</span></code>, as intended (#161).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">with_seed()</span></code> now also sets the RNG via new arguments <code class="docutils literal notranslate"><span class="pre">.rng_kind</span></code>, <code class="docutils literal notranslate"><span class="pre">.rng_normal_kind</span></code> and <code class="docutils literal notranslate"><span class="pre">.rng_sample_kind</span></code>
+(#162, &#64;AshesITR).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">with_timezone()</span></code> now works after recent changes to <code class="docutils literal notranslate"><span class="pre">Sys.timezone()</span></code> in R-devel (#165)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="withr-2-4-1">
+<h1>withr 2.4.1<a class="headerlink" href="#withr-2-4-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Tests which require <code class="docutils literal notranslate"><span class="pre">capabilities(&quot;cairo&quot;)</span></code> are now skipped.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="withr-2-4-0">
+<h1>withr 2.4.0<a class="headerlink" href="#withr-2-4-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>withr is now licensed as MIT (#154).</p></li>
+<li><p>Tests for <code class="docutils literal notranslate"><span class="pre">with_cairo_pdf()</span></code> and <code class="docutils literal notranslate"><span class="pre">with_cairo_ps()</span></code> have been removed, as they fail if Cairo is not available, such as with M1 macOS systems (#158)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">local_seed()</span></code> is now exported (#153)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="withr-2-3-0">
+<h1>withr 2.3.0<a class="headerlink" href="#withr-2-3-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="deprecations">
+<h2>Deprecations<a class="headerlink" href="#deprecations" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">local_tempfile()</span></code> argument <code class="docutils literal notranslate"><span class="pre">new</span></code> is deprecated, in favor of returning the path to the new tempfile.
+calls like <code class="docutils literal notranslate"><span class="pre">local_tempfile(&quot;xyz&quot;)</span></code> should be replaced with <code class="docutils literal notranslate"><span class="pre">xyx</span> <span class="pre">&lt;-</span> <span class="pre">local_tempfile()</span></code> in your code (#141).</p></li>
+</ul>
+</div>
+<div class="section" id="new-features">
+<h2>New features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>New <code class="docutils literal notranslate"><span class="pre">local_seed()</span></code> function and <code class="docutils literal notranslate"><span class="pre">local_preserve_seed()</span></code> functions to correspond to <code class="docutils literal notranslate"><span class="pre">with_seed()</span></code> and <code class="docutils literal notranslate"><span class="pre">with_preserve_seed()</span></code> (#139).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">local_tempdir()</span></code> function added to create a temp directory (#140)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">local_*()</span></code> functions now take dots (<code class="docutils literal notranslate"><span class="pre">...</span></code>), which can simplify calls in some cases, e.g. you can now use <code class="docutils literal notranslate"><span class="pre">local_options(foo</span> <span class="pre">=</span> <span class="pre">&quot;bar&quot;)</span></code> rather than <code class="docutils literal notranslate"><span class="pre">local_options(c(foo</span> <span class="pre">=</span> <span class="pre">&quot;bar&quot;))</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="minor-improvements-and-fixes">
+<h2>Minor improvements and fixes<a class="headerlink" href="#minor-improvements-and-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">defer()</span></code> now throws an error if an error occurs in the deferred expression (#148)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">with_file()</span></code> and <code class="docutils literal notranslate"><span class="pre">local_file()</span></code> can now work if the file is actually a directory (#144).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="withr-2-2-0">
+<h1>withr 2.2.0<a class="headerlink" href="#withr-2-2-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">defer()</span></code> can set deferred events on <code class="docutils literal notranslate"><span class="pre">.GlobalEnv</span></code> to facilitate the interactive development of code inside a function or test.
+Helpers <code class="docutils literal notranslate"><span class="pre">deferred_run()</span></code> (and <code class="docutils literal notranslate"><span class="pre">deferred_clear()</span></code>) provide a way to explicity run and clear (or just clear) deferred events (#76, &#64;jennybc).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">with_connection()</span></code> now works when existing objects or connections exist with the same names (#120)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">with_makevars()</span></code> now uses <code class="docutils literal notranslate"><span class="pre">tools::makevars_user()</span></code> to determine the default user makevars file (#77, &#64;siddharthab).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">with_options()</span></code> no longer uses <code class="docutils literal notranslate"><span class="pre">do.call()</span></code>, so optiosn are not evaluated on exit (#73, &#64;mtmorgan).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">with_package()</span></code> no longer has the <code class="docutils literal notranslate"><span class="pre">help</span></code> argument (#94, &#64;wendtke).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">with_package()</span></code> now does not try to detach the package if it is already attached before calling <code class="docutils literal notranslate"><span class="pre">with_package()</span></code> (#107)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">with_preserve_seed()</span></code> now restores <code class="docutils literal notranslate"><span class="pre">.Random.seed</span></code> if it is not set
+originally (#124).</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">with_rng_version()</span></code> and <code class="docutils literal notranslate"><span class="pre">local_rng_version()</span></code> functions to change the version of the RNG (#90, &#64;gaborcsardi).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">with_svg()</span></code> documentation now is consistent across R versions (#129)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">with_timezone()</span></code> and <code class="docutils literal notranslate"><span class="pre">local_timezone()</span></code> functions to change the time zone (#92, &#64;gaborcsardi).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">with_tempfile()</span></code> and <code class="docutils literal notranslate"><span class="pre">local_tempfile()</span></code> now delete recursively directories on exit (#84, &#64;meta00).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="withr-2-1-2">
+<h1>withr 2.1.2<a class="headerlink" href="#withr-2-1-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">set_makevars()</span></code> is now exported (#68, &#64;gaborcsardi).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">with_temp_libpaths()</span></code> gains an <code class="docutils literal notranslate"><span class="pre">action</span></code> argument, to specify how the
+temporary library path will be added (#66, &#64;krlmlr).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="withr-2-1-1">
+<h1>withr 2.1.1<a class="headerlink" href="#withr-2-1-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixes test failures with testthat 2.0.0</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">with_file()</span></code> function to automatically remove files.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="withr-2-1-0">
+<h1>withr 2.1.0<a class="headerlink" href="#withr-2-1-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">with_connection()</span></code> function to automatically close R file connections.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">with_db_connection()</span></code> function to automatically disconnect from DBI database
+connections.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">with_gctorture2</span></code> command to run code with gctorture2, useful for testing
+(#47).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">with_package()</span></code>, <code class="docutils literal notranslate"><span class="pre">with_namespace()</span></code> and <code class="docutils literal notranslate"><span class="pre">with_environment()</span></code> (and equivalent
+locals) functions added, to run code with a modified object search path (#38,
+#48).</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">with_tempfile()</span></code> and <code class="docutils literal notranslate"><span class="pre">local_tempfile()</span></code> functions to create temporary
+files which are cleanup up afterwards. (#32)</p></li>
+<li><p>Remove the <code class="docutils literal notranslate"><span class="pre">code</span></code> argument from <code class="docutils literal notranslate"><span class="pre">local_</span></code> functions (#50).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="withr-2-0-0">
+<h1>withr 2.0.0<a class="headerlink" href="#withr-2-0-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Each <code class="docutils literal notranslate"><span class="pre">with_</span></code> function now has a <code class="docutils literal notranslate"><span class="pre">local_</span></code> variant, which reset at the end of
+their local scope, generally at the end of the function body.</p></li>
+<li><p>New functions <code class="docutils literal notranslate"><span class="pre">with_seed()</span></code> and <code class="docutils literal notranslate"><span class="pre">with_preserve_seed()</span></code> for running code with
+a given random seed (#45, &#64;krlmlr).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="withr-1-0-2">
+<h1>withr 1.0.2<a class="headerlink" href="#withr-1-0-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">with_makevars()</span></code> gains an <code class="docutils literal notranslate"><span class="pre">assignment</span></code> argument to allow specifying
+additional assignment types.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="withr-1-0-1">
+<h1>withr 1.0.1<a class="headerlink" href="#withr-1-0-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Relaxed R version requirement to 3.0.2 (#35, #39).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">with_output_sink()</span></code> and <code class="docutils literal notranslate"><span class="pre">with_message_sink()</span></code> (#24).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="withr-1-0-0">
+<h1>withr 1.0.0<a class="headerlink" href="#withr-1-0-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>First Public Release</p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./temporal/renv/library/R-4.1/aarch64-apple-darwin20/withr"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Quan Nguyen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

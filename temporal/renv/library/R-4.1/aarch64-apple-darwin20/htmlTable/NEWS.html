@@ -1,0 +1,683 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Changes for 2.4.0 &#8212; Temporal and sequential analysis - LASI 2022</title>
+    
+  <link href="../../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../_static/togglebutton.js"></script>
+    <script src="../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../../../_static/solar_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Temporal and sequential analysis - LASI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture1.html">
+   Lecture 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture2.html">
+   Lecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture3.html">
+   Lecture 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Labs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab1.html">
+   Lab 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab2.html">
+   Lab 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab3.html">
+   Lab 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Quan Nguyen<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../../_sources/temporal/renv/library/R-4.1/aarch64-apple-darwin20/htmlTable/NEWS.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/quan3010/temporal_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/quan3010/temporal_analysis/issues/new?title=Issue%20on%20page%20%2Ftemporal/renv/library/R-4.1/aarch64-apple-darwin20/htmlTable/NEWS.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Changes for 2.4.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-for-2-3-0">
+   Changes for 2.3.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-for-2-2-1">
+   Changes for 2.2.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-fro-2-2-0">
+   Changes fro 2.2.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-fro-2-1-0">
+   Changes fro 2.1.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-for-2-0-1">
+   Changes for 2.0.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-for-2-0-0">
+   Changes for 2.0.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-for-1-13-3">
+   Changes for 1.13.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-for-1-13-1">
+   Changes for 1.13.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-for-1-13">
+   Changes for 1.13
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-for-1-12">
+   Changes for 1.12
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-for-1-11-4">
+   Changes for 1.11.4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-for-1-11-3">
+   Changes for 1.11.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-for-1-11-2">
+   Changes for 1.11.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-for-1-11-1">
+   Changes for 1.11.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-for-1-11-0">
+   Changes for 1.11.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-for-1-10-1">
+   Changes for 1.10.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-for-1-10">
+   Changes for 1.10
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-for-1-9">
+   Changes for 1.9
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-for-1-8">
+   Changes for 1.8
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-for-1-7">
+   Changes for 1.7
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-for-1-6">
+   Changes for 1.6
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-for-1-5">
+   Changes for 1.5
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-for-1-4">
+   Changes for 1.4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-for-1-3">
+   Changes for 1.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-for-1-2">
+   Changes for 1.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-for-1-1">
+   Changes for 1.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#changes-for-1-0">
+   Changes for 1.0
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p>NEWS for the htmlTable package</p>
+<div class="section" id="changes-for-2-4-0">
+<h1>Changes for 2.4.0<a class="headerlink" href="#changes-for-2-4-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">txtRound.data.frame</span></code> converted all data to a matrix before rounding all elements. Changed
+to only convert numeric variables and also added tidy-select syntax. The function now returns
+the entire input <code class="docutils literal notranslate"><span class="pre">data.frame</span></code> with rounded elements as requested.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">txtMergeLines</span></code> now returns an <code class="docutils literal notranslate"><span class="pre">knitr::asis_output</span></code> if html mode is activated. Fixed also
+multiline strings conversion into latex/html format.</p></li>
+<li><p>Added vignette for the text formatting functions.</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-2-3-0">
+<h1>Changes for 2.3.0<a class="headerlink" href="#changes-for-2-3-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">rnames_unique</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">tidyHtmlTable</span></code> so that rows can have non-unique names</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-2-2-1">
+<h1>Changes for 2.2.1<a class="headerlink" href="#changes-for-2-2-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">txtInt</span></code> handles <code class="docutils literal notranslate"><span class="pre">NA</span></code> more gracefully.</p></li>
+</ul>
+</div>
+<div class="section" id="changes-fro-2-2-0">
+<h1>Changes fro 2.2.0<a class="headerlink" href="#changes-fro-2-2-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">htmlTable_args</span></code> attribute for making modifications to the final table easier</p></li>
+</ul>
+</div>
+<div class="section" id="changes-fro-2-1-0">
+<h1>Changes fro 2.1.0<a class="headerlink" href="#changes-fro-2-1-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added options for how the empty spacer cell appears (see <code class="docutils literal notranslate"><span class="pre">addHtmlTableStyle()</span></code> spacer.* options)</p></li>
+<li><p>Fixed ignored <code class="docutils literal notranslate"><span class="pre">align.header</span></code></p></li>
+<li><p>Fix for wrapped styles (issue #80)</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-2-0-1">
+<h1>Changes for 2.0.1<a class="headerlink" href="#changes-for-2-0-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix for txtRound not handling negative numbers (issue #76)</p></li>
+<li><p>Fix bug for <code class="docutils literal notranslate"><span class="pre">hidden.rgroup</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">hidden_tspanner</span></code> in <code class="docutils literal notranslate"><span class="pre">tidyHtmlTable</span></code></p></li>
+<li><p>Documentation improvements &amp; switched to markdown docs</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-2-0-0">
+<h1>Changes for 2.0.0<a class="headerlink" href="#changes-for-2-0-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added theming and styling with <code class="docutils literal notranslate"><span class="pre">addHtmlTableStyle</span></code> and <code class="docutils literal notranslate"><span class="pre">setHtmlTableTheme</span></code> to reduce the cognitive burden of finding the right
+option within the docs. Note: this may impact your current tables and hence the major version (2.0.0).</p></li>
+<li><p>Changed so that <code class="docutils literal notranslate"><span class="pre">css.cell</span></code> is properly applied to rownames, cell fillers and the actual cells of interest (may impact the final layout!)</p></li>
+<li><p>Breaking change <code class="docutils literal notranslate"><span class="pre">tidyHtmlTable</span></code>: Moved to a fully tidyverse compatible system with tidyHtmlTable. This is a breaking change to the API as we switch from
+columns as strings to <code class="docutils literal notranslate"><span class="pre">tidyselect</span></code> syntax and as <code class="docutils literal notranslate"><span class="pre">gather</span></code>/<code class="docutils literal notranslate"><span class="pre">spread</span></code> have been replaced by <code class="docutils literal notranslate"><span class="pre">pivot_longer</span></code>/<code class="docutils literal notranslate"><span class="pre">pivot_wider</span></code>
+the default values have been updated in accordance with their defaults, e.g. <code class="docutils literal notranslate"><span class="pre">rnames</span> <span class="pre">=</span> <span class="pre">&quot;name&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">value</span> <span class="pre">=</span> <span class="pre">&quot;value&quot;</span></code>.</p></li>
+<li><p>Breaking change <code class="docutils literal notranslate"><span class="pre">tidyHtmlTable</span></code>: Sorting of rows is skipped as we may have situations with repeating inputs and this can easily
+be performed pre-function by calling <code class="docutils literal notranslate"><span class="pre">dplyr::arrange</span></code>. This has furthermore the desirable feature that any custom sorting
+is retained.</p></li>
+<li><p>Added <em>mso-number-format</em> to help (Issue #63) - thanks Rasmus Hertzum</p></li>
+<li><p>txtRound can now add txtInt when formatting the integer section for easier readability</p></li>
+<li><p>Added htmlTable css options - they should all start with <code class="docutils literal notranslate"><span class="pre">htmlTable.</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pos.caption</span></code> now uses match.arg as expected</p></li>
+<li><p>Fixed proper S3 function definition for <code class="docutils literal notranslate"><span class="pre">htmlTable</span></code> with all the arguments</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">htmlTable.css.border</span></code> style option for allowing to choose border style. Also fixed bug with cgroup empty cells and vertical border.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">htmlTable.pretty_indentation</span></code> option for skipping the stripping of all the tabs that was required due to old Pandoc bug.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">attr(x,</span> <span class="pre">&quot;html&quot;)</span> <span class="pre">&lt;-</span> <span class="pre">TRUE</span></code> by default and UTF-8 encoding on all outputted strings to mimic the <code class="docutils literal notranslate"><span class="pre">htmltools::HTML</span></code> function behavior.</p></li>
+<li><p>For simple tibble output the <code class="docutils literal notranslate"><span class="pre">tidyHtmlTable</span></code> can now be used to choose a column for the rnames argument</p></li>
+<li><p>The print statement now respects the <code class="docutils literal notranslate"><span class="pre">chunk_output_type</span></code> in Rmd files in RStudio</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tidyHtmlTable</span></code> now accepts table function that allows switching to other table functions</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">css.header</span></code> style as using <code class="docutils literal notranslate"><span class="pre">css.cell</span></code> wasn’t entirely intuitive (fixes issue #73)</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-1-13-3">
+<h1>Changes for 1.13.3<a class="headerlink" href="#changes-for-1-13-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Prepared for R 4.0</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-1-13-1">
+<h1>Changes for 1.13.1<a class="headerlink" href="#changes-for-1-13-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Bug fix for cgroup as list argument</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">n.tspanner</span></code> now also accepts number of <code class="docutils literal notranslate"><span class="pre">rgroup</span></code>s</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-1-13">
+<h1>Changes for 1.13<a class="headerlink" href="#changes-for-1-13" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added the ability to have <code class="docutils literal notranslate"><span class="pre">cgroup</span></code> arguments as a list</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">n.rgoup</span></code> bug with css</p></li>
+<li><p>Improved the general vignette</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">vector2string</span></code> - a convenience function when you want to output a vector into a string</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">digits.nonzero</span></code> to <code class="docutils literal notranslate"><span class="pre">txtRound</span></code> function that allows more digits with values close to zero</p></li>
+<li><p>Force encoding for <code class="docutils literal notranslate"><span class="pre">print.htmlTable</span></code> when outputting a table using the viewer (Issue #61)</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-1-12">
+<h1>Changes for 1.12<a class="headerlink" href="#changes-for-1-12" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added scientific notation to <code class="docutils literal notranslate"><span class="pre">txtRound</span></code> (Issue #35)</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-1-11-4">
+<h1>Changes for 1.11.4<a class="headerlink" href="#changes-for-1-11-4" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix $ MathJax bug (Issue #57)</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-1-11-3">
+<h1>Changes for 1.11.3<a class="headerlink" href="#changes-for-1-11-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix single-row <code class="docutils literal notranslate"><span class="pre">css.cell</span></code> bug (Issue #54)</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-1-11-2">
+<h1>Changes for 1.11.2<a class="headerlink" href="#changes-for-1-11-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Set <code class="docutils literal notranslate"><span class="pre">htmlEscape</span></code> to default to <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> as some features depend on the ability to be able to
+send html formatted strings.</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-1-11-1">
+<h1>Changes for 1.11.1<a class="headerlink" href="#changes-for-1-11-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Removed tidyr and dplyr from dependencies (issue #47)</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-1-11-0">
+<h1>Changes for 1.11.0<a class="headerlink" href="#changes-for-1-11-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Strings are now escaped using <code class="docutils literal notranslate"><span class="pre">htmltools::htmlEscape</span></code> - issue #40 (thanks Peter Konings)</p></li>
+<li><p>Tidy data interface - issue #42 (thanks Stephen Gragg)</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-1-10-1">
+<h1>Changes for 1.10.1<a class="headerlink" href="#changes-for-1-10-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed bug with rownames styling (thanks Shira Mitchell)</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-1-10">
+<h1>Changes for 1.10<a class="headerlink" href="#changes-for-1-10" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added conversion of dimnames into row/column labels</p></li>
+<li><p>Added detection of sum row/colum when using <code class="docutils literal notranslate"><span class="pre">base::table</span></code></p></li>
+<li><p>fixed <code class="docutils literal notranslate"><span class="pre">cgroup</span></code> bug with automated <code class="docutils literal notranslate"><span class="pre">n.cgroup</span></code> calculations</p></li>
+<li><p>fixed output to viewport when not in RStudio notebook (thanks Peter Konings)</p></li>
+<li><p>fixed vector input for <code class="docutils literal notranslate"><span class="pre">txtRound</span></code> warning</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-1-9">
+<h1>Changes for 1.9<a class="headerlink" href="#changes-for-1-9" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">txtInt</span></code> handles nsmall warning when working with non-atomic numbers (issue #23)</p></li>
+<li><p>fixed output for RStudio notebook (issue #26)</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-1-8">
+<h1>Changes for 1.8<a class="headerlink" href="#changes-for-1-8" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">txtRound</span></code> now throws an error when provided a too short vector of digits (thanks Peter Konings)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">css.cell</span></code> has improved docs and added checkmate to verify format (thanks maverickg)</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">concatHtmlTables</span></code> for merging multiple tables into one string element of class <code class="docutils literal notranslate"><span class="pre">htmlTable</span></code></p></li>
+<li><p>Fixed CRAN bugs in dev version</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-1-7">
+<h1>Changes for 1.7<a class="headerlink" href="#changes-for-1-7" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added ability to print <code class="docutils literal notranslate"><span class="pre">matrix</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">data.frame</span></code> without any rows, i.e. empty (Thanks Peter Konings)</p></li>
+<li><p>Added table border flexibility via the <code class="docutils literal notranslate"><span class="pre">ctable</span></code> argument (Thanks raredd)</p></li>
+<li><p>Added option of having row-group separators for no-named row groups (Thanks, prof. Harrell)</p></li>
+<li><p>Fixed bug with outputting dates (issue #14)</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-1-6">
+<h1>Changes for 1.6<a class="headerlink" href="#changes-for-1-6" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">txtRound</span></code> now properly handles vector digits argument</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">txtRound</span></code> is now a S3-function and handles <code class="docutils literal notranslate"><span class="pre">data.frame</span></code> objects in a cleaner way</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-1-5">
+<h1>Changes for 1.5<a class="headerlink" href="#changes-for-1-5" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added better description for how to use the add attribute for <code class="docutils literal notranslate"><span class="pre">rgroup</span></code>s</p></li>
+<li><p>Extended the add attribute for <code class="docutils literal notranslate"><span class="pre">rgroup</span></code> to accept matrices</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">n.rgroup</span></code>/<code class="docutils literal notranslate"><span class="pre">rgroup</span></code> are automaticaly completed with the last rows if sum(<code class="docutils literal notranslate"><span class="pre">n.rgroup</span></code>) is less than the total number of rows</p></li>
+<li><p>Similar applies to <code class="docutils literal notranslate"><span class="pre">n.cgroup</span></code>/<code class="docutils literal notranslate"><span class="pre">cgroup</span></code></p></li>
+<li><p>Fixed the line-merge so that all new lines get an <code class="docutils literal notranslate"><span class="pre">&lt;br&gt;</span></code>-tag</p></li>
+<li><p>Added an <code class="docutils literal notranslate"><span class="pre">interactiveTable</span></code> for allowing tables with cells that have resizeable content</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">css.table</span></code> for table element css styling</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-1-4">
+<h1>Changes for 1.4<a class="headerlink" href="#changes-for-1-4" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Handles <code class="docutils literal notranslate"><span class="pre">data.frames</span></code> with factors - thanks Sergio Oller #4</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-1-3">
+<h1>Changes for 1.3<a class="headerlink" href="#changes-for-1-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Prepared for API-changes with stringr 1.0</p></li>
+<li><p>The txtRound can now handle vectors and single values</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-1-2">
+<h1>Changes for 1.2<a class="headerlink" href="#changes-for-1-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed table counter update</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">htmlTable</span></code> can now also accept vectors</p></li>
+<li><p>Removed the <code class="docutils literal notranslate"><span class="pre">format.df</span></code> from Hmisc as it converted &amp; to &amp; with unexpected results. This functionality
+has also been superseeded by the txtRound function.</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-1-1">
+<h1>Changes for 1.1<a class="headerlink" href="#changes-for-1-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added the option of having an attribute on the <code class="docutils literal notranslate"><span class="pre">rgroup</span></code> in case there is an interest
+of adding more data to that particular row</p></li>
+<li><p>Added a fix for the pandoc tab bug</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">knit_print</span></code> implemented removing the need for results=’asis’ except for within for-loops</p></li>
+<li><p>Removed the capitalize tspanner css as this may cause confusion with limited word processor compatibility</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">htmlTable</span></code> tests</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">txtRound</span></code> now also rounds character matrices</p></li>
+<li><p>Added a detailed vignette with the primary features of <code class="docutils literal notranslate"><span class="pre">htmlTable</span></code></p></li>
+<li><p>Added the option of having a total row</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">pos.caption</span></code> can now also be “below”</p></li>
+<li><p>Fixed minor bug with numbering not beeing turned off with options(table_counter = FALSE)</p></li>
+<li><p>Zebra striping now works for <code class="docutils literal notranslate"><span class="pre">rgroup</span></code>s mixed with “”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">txtRound</span></code> returns “” by default if value missing. This can also be specified with the
+<code class="docutils literal notranslate"><span class="pre">txt.NA</span></code> option</p></li>
+</ul>
+</div>
+<div class="section" id="changes-for-1-0">
+<h1>Changes for 1.0<a class="headerlink" href="#changes-for-1-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">htmlTable</span></code> and associated txt-functions are now separated from Gmisc</p></li>
+<li><p>Argument name changes for <code class="docutils literal notranslate"><span class="pre">htmlTable</span></code> for better consistency and logic:
+<code class="docutils literal notranslate"><span class="pre">rowname</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">rnames</span></code>
+<code class="docutils literal notranslate"><span class="pre">headings</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">header</span></code>
+<code class="docutils literal notranslate"><span class="pre">halign</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">align.header</span></code>
+<code class="docutils literal notranslate"><span class="pre">cgroup.just</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">align.cgroup</span></code>
+<code class="docutils literal notranslate"><span class="pre">rgroupCSSstyle</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">css.rgroup</span></code>
+<code class="docutils literal notranslate"><span class="pre">rgroupCSSseparator</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">css.rgroup.sep</span></code>
+<code class="docutils literal notranslate"><span class="pre">tspannerCSSstyle</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">css.tspanner</span></code>
+<code class="docutils literal notranslate"><span class="pre">tspannerCSSseparator</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">css.tspanner.sep</span></code>
+<code class="docutils literal notranslate"><span class="pre">tableCSSclass</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">css.table.class</span></code>
+<code class="docutils literal notranslate"><span class="pre">rowlabel.pos</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">pos.rowlabel</span></code>
+<code class="docutils literal notranslate"><span class="pre">caption.loc</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">pos.caption</span></code>
+<code class="docutils literal notranslate"><span class="pre">altcol</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">col.rgroup</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">htmlTable</span></code> can now handle <code class="docutils literal notranslate"><span class="pre">rnames</span> <span class="pre">=</span> <span class="pre">FALSE</span></code> in order to surpress rownames</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">htmlTable</span></code> now defaults to the layout of <code class="docutils literal notranslate"><span class="pre">ctable</span></code> as this is the more commonly found layout among medical papers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">htmlTable</span></code> <code class="docutils literal notranslate"><span class="pre">rgroup</span></code> has the additional <code class="docutils literal notranslate"><span class="pre">padding.rgroup</span></code> for those that want to change the no-breaking space padding</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">htmlTable</span></code> <code class="docutils literal notranslate"><span class="pre">tfoot</span></code> is automatically run through <code class="docutils literal notranslate"><span class="pre">txtMergeLines</span></code> in order to retain wrapped text</p></li>
+<li><p>Renamed <code class="docutils literal notranslate"><span class="pre">splitLines4Table</span></code> to <code class="docutils literal notranslate"><span class="pre">txtMergeLines</span></code>, <code class="docutils literal notranslate"><span class="pre">outputInt</span></code> to <code class="docutils literal notranslate"><span class="pre">txtInt</span></code>, <code class="docutils literal notranslate"><span class="pre">pvalueFormatter</span></code> to <code class="docutils literal notranslate"><span class="pre">txtPval</span></code> and these follow now the argument style of <code class="docutils literal notranslate"><span class="pre">htmlTable</span></code></p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">txtRound</span></code> for rounding matrices. The problem with <code class="docutils literal notranslate"><span class="pre">round()</span></code> is that 1.01 rounds to 1
+instead of “1.0” that is wanted for output.</p></li>
+<li><p>Multiple bug-fixes</p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./temporal/renv/library/R-4.1/aarch64-apple-darwin20/htmlTable"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Quan Nguyen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

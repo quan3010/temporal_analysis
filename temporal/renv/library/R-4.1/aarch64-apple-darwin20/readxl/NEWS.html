@@ -1,0 +1,571 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>readxl 1.4.0 &#8212; Temporal and sequential analysis - LASI 2022</title>
+    
+  <link href="../../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../_static/togglebutton.js"></script>
+    <script src="../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../../../_static/solar_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Temporal and sequential analysis - LASI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture1.html">
+   Lecture 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture2.html">
+   Lecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture3.html">
+   Lecture 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Labs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab1.html">
+   Lab 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab2.html">
+   Lab 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab3.html">
+   Lab 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Quan Nguyen<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../../_sources/temporal/renv/library/R-4.1/aarch64-apple-darwin20/readxl/NEWS.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/quan3010/temporal_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/quan3010/temporal_analysis/issues/new?title=Issue%20on%20page%20%2Ftemporal/renv/library/R-4.1/aarch64-apple-darwin20/readxl/NEWS.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   readxl 1.4.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dependency-and-licensing-changes">
+     Dependency and licensing changes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#readxl-1-3-1">
+   readxl 1.3.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#readxl-1-3-0">
+   readxl 1.3.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dependency-changes">
+     Dependency changes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#readxl-1-2-0">
+   readxl 1.2.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#column-name-repair">
+     Column name repair
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-changes">
+     Other changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Dependency changes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#readxl-1-1-0">
+   readxl 1.1.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#readxl-1-0-0">
+   readxl 1.0.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sheet-geometry">
+     Sheet geometry
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#column-types-and-coercion">
+     Column types and coercion
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compatibility">
+     Compatibility
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other">
+     Other
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#readxl-0-1-1">
+   readxl 0.1.1
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="readxl-1-4-0">
+<h1>readxl 1.4.0<a class="headerlink" href="#readxl-1-4-0" title="Permalink to this headline">¶</a></h1>
+<p>This release is mostly about substantial internal changes that should not be
+noticeable to most users (but that set the stage for future work):</p>
+<ul class="simple">
+<li><p>Updating the embedded version of libxls (more below)</p></li>
+<li><p>Switching from Rcpp to cpp11 (more below)</p></li>
+<li><p>Refactoring to reduce duplication between the <code class="docutils literal notranslate"><span class="pre">.xls</span></code> and <code class="docutils literal notranslate"><span class="pre">.xlsx</span></code> branches</p></li>
+</ul>
+<p>However, there are a few small features / bug fixes:</p>
+<ul class="simple">
+<li><p>“Date or Not Date”: The classification of number formats as being datetime-ish
+is more sophisticated and should no longer be so easily fooled by, e.g.,
+colours or currencies. This affects cell and column type guessing, hopefully
+for the better (#388, #559, &#64;nacnudus, &#64;reviewher).</p></li>
+<li><p>Cell location is determined more robustly in <code class="docutils literal notranslate"><span class="pre">.xlsx</span></code> files, guarding against
+the idiosyncratic way in which certain 3rd party tools include (or, rather,
+do not include) cell location in individual cell nodes (#648, #671).</p></li>
+<li><p>Warning messages for impossible dates are more specific.
+Unsupported dates prior to 1900 have their own message now, instead of being
+lumped in with dates on the non-existent day of February 29, 1900
+(#551, #554, &#64;cderv).</p></li>
+</ul>
+<div class="section" id="dependency-and-licensing-changes">
+<h2>Dependency and licensing changes<a class="headerlink" href="#dependency-and-licensing-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>readxl is now licensed as MIT (#632).</p></li>
+<li><p>readxl now states its support for R &gt;= 3.4 explicitly.
+Why 3.4? Because the <a class="reference external" href="https://www.tidyverse.org/blog/2019/04/r-version-support/">tidyverse policy</a>
+is to support the current version, the devel version, and four previous
+versions of R.
+It was necessary to introduce a minimum R version, in order to state a minimum
+version for a package listed in <code class="docutils literal notranslate"><span class="pre">LinkingTo</span></code>.</p></li>
+<li><p>readxl embeds libxls v1.6.2 (the previous release embedded v1.5.0).
+The libxls project is hosted at <a class="reference external" href="https://github.com/libxls/libxls">https://github.com/libxls/libxls</a> and you can
+learn more about the cumulative changes in its release notes:</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/libxls/libxls/releases/tag/v1.6.2">v1.6.2</a></p></li>
+<li><p><a class="reference external" href="https://github.com/libxls/libxls/releases/tag/v1.6.1">v1.6.1</a></p></li>
+<li><p><a class="reference external" href="https://github.com/libxls/libxls/releases/tag/v1.6.0">v1.6.0</a></p></li>
+<li><p><a class="reference external" href="https://github.com/libxls/libxls/releases/tag/v1.5.3">v1.5.3</a></p></li>
+<li><p><a class="reference external" href="https://github.com/libxls/libxls/releases/tag/v1.5.2">v1.5.2</a></p></li>
+<li><p><a class="reference external" href="https://github.com/libxls/libxls/releases/tag/v1.5.1">v1.5.1</a></p></li>
+</ul>
+</li>
+<li><p>readxl has switched from Rcpp to cpp11 and now requires C++11 (#659,
+&#64;sbearrows).</p></li>
+<li><p>The minimum version of tibble has been bumped to 2.0.1 (released 2019-01-12),
+completing the transition to an approach to column name repair used across the
+tidyverse.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="readxl-1-3-1">
+<h1>readxl 1.3.1<a class="headerlink" href="#readxl-1-3-1" title="Permalink to this headline">¶</a></h1>
+<p>Pragmatic patch release to update some tests in advance of v2.1.0 of the tibble package. That release updates name repair: standard suffix becomes <code class="docutils literal notranslate"><span class="pre">...j</span></code>, instead of <code class="docutils literal notranslate"><span class="pre">..j</span></code>, partially motivated by user experience in readxl.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="readxl-1-3-0">
+<h1>readxl 1.3.0<a class="headerlink" href="#readxl-1-3-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="dependency-changes">
+<h2>Dependency changes<a class="headerlink" href="#dependency-changes" title="Permalink to this headline">¶</a></h2>
+<p>readxl embeds libxls v1.5.0. This is the first <em>official</em> release of libxls in several years, although readxl has been tracking the development version in the interim. The libxls project is now officially hosted at <a class="reference external" href="https://github.com/libxls/libxls">https://github.com/libxls/libxls</a>. In particular, libxls v1.5.0 addresses these two CVEs:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-20452">CVE-2018-20452</a></p></li>
+<li><p><a class="reference external" href="http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-20450">CVE-2018-20450</a></p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="readxl-1-2-0">
+<h1>readxl 1.2.0<a class="headerlink" href="#readxl-1-2-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="column-name-repair">
+<h2>Column name repair<a class="headerlink" href="#column-name-repair" title="Permalink to this headline">¶</a></h2>
+<p>readxl exposes the <code class="docutils literal notranslate"><span class="pre">.name_repair</span></code> argument that is <a class="reference external" href="https://www.tidyverse.org/blog/2018/11/tibble-2.0.0-pre-announce/">coming to version 2.0.0 of the tibble package</a>. The readxl default is <code class="docutils literal notranslate"><span class="pre">.name_repair</span> <span class="pre">=</span> <span class="pre">&quot;unique&quot;</span></code>, keeping with the readxl convention to ensure column names are neither missing nor duplicated.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://readxl.tidyverse.org/articles/articles/column-names.html">Column Names</a> is a new article about this feature.</p></li>
+<li><p>readxl delegates name repair to tibble, therefore the installed tibble version determines how names are repaired.</p></li>
+<li><p>If tibble &gt;= v2.0.0, the full power of <code class="docutils literal notranslate"><span class="pre">.name_repair</span></code> is available, defaulting to <code class="docutils literal notranslate"><span class="pre">.name_repair</span> <span class="pre">=</span> <span class="pre">&quot;unique&quot;</span></code>. Otherwise, the legacy function <code class="docutils literal notranslate"><span class="pre">tibble::repair_names(prefix</span> <span class="pre">=</span> <span class="pre">&quot;X&quot;,</span> <span class="pre">sep</span> <span class="pre">=</span> <span class="pre">&quot;__&quot;)</span></code> is used, replicating the behaviour of readxl v1.1.0.</p>
+<ul>
+<li><p>Consider a spreadsheet with three columns: one unnamed and two named <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+<li><p>Content of cells in Excel: <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span></code></p></li>
+<li><p>New style column names: <code class="docutils literal notranslate"><span class="pre">..1</span></code>, <code class="docutils literal notranslate"><span class="pre">x..2</span></code>, <code class="docutils literal notranslate"><span class="pre">x..3</span></code></p></li>
+<li><p>Legacy column names: <code class="docutils literal notranslate"><span class="pre">X__1</span></code>, <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">x__1</span></code></p></li>
+</ul>
+</li>
+<li><p>Once per session, readxl emits a message stating that it works best with tibble &gt;= v2.0.0. It is anticipated that this will become a hard minimum version requirement in a future version of readxl.</p></li>
+</ul>
+</div>
+<div class="section" id="other-changes">
+<h2>Other changes<a class="headerlink" href="#other-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">read_excel()</span></code> and friends gain a <code class="docutils literal notranslate"><span class="pre">progress</span></code> argument that controls a progress spinner (#243, #538).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_xls()</span></code> and <code class="docutils literal notranslate"><span class="pre">read_xlsx()</span></code> pass the <code class="docutils literal notranslate"><span class="pre">trim_ws</span></code> argument along (#514).</p></li>
+<li><p>readxl has a <a class="reference external" href="https://readxl.tidyverse.org/articles/articles/multiple-header-rows.html">new article</a> on reading Excel files with multiple header rows (#486, #492  &#64;apreshill).</p></li>
+<li><p>xlsx files that do not have a “styles” part can now be read (#505, #506 &#64;jt6)</p></li>
+<li><p>All paths are passed through <code class="docutils literal notranslate"><span class="pre">normalizePath()</span></code> (#498, #499, new behaviour for xlsx but not xls) and <code class="docutils literal notranslate"><span class="pre">enc2native()</span></code> (#370).</p></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2>Dependency changes<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>readxl is now tested back to R &gt;= 3.1.</p>
+<p>Embedded libxls has been updated, using the source in <a class="reference external" href="https://github.com/libxls/libxls">https://github.com/libxls/libxls</a>. readxl’s DESCRIPTION now records the SHA associated to the embedded libxls in a <code class="docutils literal notranslate"><span class="pre">Note</span></code>.</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="readxl-1-1-0">
+<h1>readxl 1.1.0<a class="headerlink" href="#readxl-1-1-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">read_excel()</span></code> and <code class="docutils literal notranslate"><span class="pre">excel_sheets()</span></code> associate a larger set of file extensions with xlsx and are better able to guess the format of a file with a nonstandard or missing extension. This is about deciding whether to treat a file as xls or xlsx. (#342, #411, #457)</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">excel_format()</span></code> is the newly-exported format-guessing function.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">format_from_ext()</span></code> is a low-level helper, also exported, that only consults file extension. In addition to the obvious interpretation of <code class="docutils literal notranslate"><span class="pre">.xls</span></code> and <code class="docutils literal notranslate"><span class="pre">.xlsx</span></code>, the extensions <code class="docutils literal notranslate"><span class="pre">.xlsm</span></code>, <code class="docutils literal notranslate"><span class="pre">.xltx</span></code>, and <code class="docutils literal notranslate"><span class="pre">.xltm</span></code> are now associated with xlsx.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">format_from_signature()</span></code> is a low-level helper, also exported, that consults the file’s signature (a.k.a. magic number). It’s handy for files that lack an extension.</p></li>
+</ul>
+</li>
+<li><p>Embedded libxls has been updated to address security vulnerabilitities identified in late 2017 (#441, #442).</p>
+<ul>
+<li><p><a class="reference external" href="https://talosintelligence.com/vulnerability_reports/TALOS-2017-0462">CVE-2017-12110</a>, <a class="reference external" href="https://talosintelligence.com/vulnerability_reports/TALOS-2017-0403">CVE-2017-2896</a>, and <a class="reference external" href="https://talosintelligence.com/vulnerability_reports/TALOS-2017-0404">CVE-2017-2897</a> were demonstrated to affect readxl v1.0.0. These have been addressed in libxls and the embedded version of libxls incorporates those fixes.</p></li>
+<li><p>Although <a class="reference external" href="https://talosintelligence.com/vulnerability_reports/TALOS-2017-0463">CVE-2017-12111</a> and <a class="reference external" href="https://talosintelligence.com/vulnerability_reports/TALOS-2017-0426">CVE-2017-2919</a> mention readxl, the notices clarify that these CVEs do not actually affect readxl. Both have been fixed in libxls for quite a while: CVE-2017-12111 since 2014 and CVE-2017-2919 since 2012.</p></li>
+</ul>
+</li>
+<li><p>xlsx structured as a “minimal conformant SpreadsheetML package” can be read. Most obvious feature of such sheets is the lack of an <code class="docutils literal notranslate"><span class="pre">xl/</span></code> directory in the unzipped form. (xlsx, #435, #437)</p></li>
+<li><p>Reading xls sheet with exactly 65,536 rows no longer enters an infinite loop. (xls, #373, #416, #432 &#64;vkapartzianis)</p></li>
+<li><p>Doubles, including datetimes, coerced to character from xls now have much higher precision, comparable to the xlsx behaviour. (xls, #430, #431)</p></li>
+<li><p>Integer-y numbers larger than 2^31 are coerced properly to string (xls, #346)</p></li>
+<li><p>Shared strings are only compared to NA strings after lookup, never on the basis of their index. (xlsx, #401)</p></li>
+<li><p>Better checks and messaging around nonexistent files. (#392)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">$(C_VISIBILITY)</span></code> to compiler flags to hide internal symbols from the dll. (#385 &#64;jeroen)</p></li>
+<li><p>Numeric data in a logical column now coerces properly to logical. (xlsx, #385 &#64;nacnudus)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="readxl-1-0-0">
+<h1>readxl 1.0.0<a class="headerlink" href="#readxl-1-0-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sheet-geometry">
+<h2>Sheet geometry<a class="headerlink" href="#sheet-geometry" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">range</span></code> is a new argument for reading a rectangular range, possibly open. (#314, #8)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_max</span></code> is a new argument that limits the number of data rows read. (#306, #281)</p></li>
+<li><p>Empty cells, rows, columns (xlsx #248 and #240, xls #271): Cells with no content are no longer loaded, even if they appear in the file. Affects cells that have no data but that carry explicit formatting, detectable in Excel as seemingly empty cells with a format other than “General”. Such cells may still exist in the returned tibble, with value <code class="docutils literal notranslate"><span class="pre">NA</span></code>, depending on the sheet geometry.</p>
+<ul>
+<li><p>Eliminates a source of trailing rows (#203) and columns (#236, #162, #146) consisting entirely of <code class="docutils literal notranslate"><span class="pre">NA</span></code>.</p></li>
+<li><p>Eliminates a subtle source of disagreement between user-provided column names and guessed column types (#169, #81).</p></li>
+<li><p>Embedded empty columns are no longer automatically dropped, regardless of whether there is a column name. (#157, #261)</p></li>
+<li><p>Worksheets that are completely empty or that contain only column names no longer error, but return a tibble with zero rows. (#222, #144, #65)</p></li>
+<li><p>Improved handling of leading and embedded blank rows and explicit row skipping. (#224, #194, #178, #156, #101)</p></li>
+</ul>
+</li>
+<li><p>User-supplied <code class="docutils literal notranslate"><span class="pre">col_names</span></code> are processed relative to user-supplied <code class="docutils literal notranslate"><span class="pre">col_types</span></code>, if given. Specifically, <code class="docutils literal notranslate"><span class="pre">col_names</span></code> is considered valid if it has the same length as <code class="docutils literal notranslate"><span class="pre">col_types</span></code>, before <em>or after</em> removing skipped columns. (#81, #261)</p></li>
+</ul>
+</div>
+<div class="section" id="column-types-and-coercion">
+<h2>Column types and coercion<a class="headerlink" href="#column-types-and-coercion" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;list&quot;</span></code> is a new accepted value for <code class="docutils literal notranslate"><span class="pre">col_types</span></code>. Loads data as a list of length-1 vectors, that are typed using the logic from <code class="docutils literal notranslate"><span class="pre">col_types</span> <span class="pre">=</span> <span class="pre">NULL</span></code>, but on a cell-by-cell basis (#262 &#64;gergness).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;logical&quot;</span></code> is a new accepted value for <code class="docutils literal notranslate"><span class="pre">col_types</span></code>. When <code class="docutils literal notranslate"><span class="pre">col_types</span> <span class="pre">=</span> <span class="pre">NULL</span></code>, it is the guessed type for cells Excel advertises as Boolean. When a column has no data, it is now filled with logical <code class="docutils literal notranslate"><span class="pre">NA</span></code>. (#277, #270)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;guess&quot;</span></code> is a new accepted value for <code class="docutils literal notranslate"><span class="pre">col_types</span></code>. Allows the user to specify some column types, while allowing others to be guessed (#286)</p></li>
+<li><p>A user-specified <code class="docutils literal notranslate"><span class="pre">col_types</span></code> of length one will be replicated to have length equal to the number of columns. (#127, #114, #261)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;blank&quot;</span></code> has been deprecated in favor of the more descriptive and readr-compatible <code class="docutils literal notranslate"><span class="pre">&quot;skip&quot;</span></code>, which is now the preferred way to request that a column be skipped. (#260, #193, #261)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">guess_max</span></code> is a new argument that lets user adjust the number of rows used to guess column types. (#223, #257 &#64;tklebel and &#64;jennybc)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">trim_ws</span></code> is a new argument to remove leading and trailing whitespace. It defaults to <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>. (#326, #211)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">na</span></code> can now hold multiple NA values, e.g., <code class="docutils literal notranslate"><span class="pre">read_excel(&quot;missing-values.xls&quot;,</span> <span class="pre">na</span> <span class="pre">=</span> <span class="pre">c(&quot;NA&quot;,</span> <span class="pre">&quot;1&quot;))</span></code>. (#13, #56, &#64;jmarshallnz)</p></li>
+<li><p>Coercions and cell data:</p>
+<ul>
+<li><p>Numeric data that appears in a date column is coerced to a date. Throws a warning. (#277, #266)</p></li>
+<li><p>Dates that appear in a numeric column are converted to <code class="docutils literal notranslate"><span class="pre">NA</span></code> instead of their integer representation. Throws warning. (#277, #263)</p></li>
+<li><p>“Number stored as text”: when a text cell is found in a numeric column, <code class="docutils literal notranslate"><span class="pre">read_excel()</span></code> attempts to coerce the string to numeric and falls back to <code class="docutils literal notranslate"><span class="pre">NA</span></code> if unsuccessful. Throws warning. (#277, #217, #106)</p></li>
+<li><p>Cells in error are treated as blank and are imported as <code class="docutils literal notranslate"><span class="pre">NA</span></code> (instead of the string <code class="docutils literal notranslate"><span class="pre">&quot;error&quot;</span></code>). (#277, #62)</p></li>
+<li><p>BoolErr cells are now handled in xls. Suppresses message <code class="docutils literal notranslate"><span class="pre">&quot;Unknown</span> <span class="pre">type:</span> <span class="pre">517&quot;</span></code>. (#274, #259)</p></li>
+<li><p>Dates that arise from a formula are treated as dates (vs. numeric) in xls. (#277)</p></li>
+<li><p>Dates in .xlsx files saved with LibreOffice are now recognized as such. (#134, &#64;zeehio)</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="compatibility">
+<h2>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h2>
+<p>Many 3rd party tools write xls and xlsx that comply with the spec, but that are quite different from files produced by Excel.</p>
+<ul class="simple">
+<li><p>Namespace prefixes are now stripped from element names and attributes when parsing XML from xlsx. Workaround for the creative approach taken in some other s/w, coupled with rapidxml’s lack of namespace support. (#295, #268, #202, #80)</p></li>
+<li><p>Excel mixes 0- and 1-indexing in reported row and column dimensions for xls and libxls expects that. Other s/w may index from 0 for both, preventing libxls from reading the last column. Patched to restore access to those cells. (#273, #180, #152, #99)</p></li>
+<li><p>More robust logic for sheet lookup in xlsx. Improves compatibility with xlsx written by a variety of tools and/or xlsx containing chartsheets. (#233, #104, #200, #168, #116, &#64;jimhester and &#64;jennybc)</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">numFmtId</span></code> attribute is no longer accessed when it does not exist (xlsx written by <a class="reference external" href="https://www.epplussoftware.com">https://www.epplussoftware.com</a>). (#191, #229)</p></li>
+<li><p>Location is inferred for cells that do not declare their location (xlsx written by JMP). (#240, #163, #102)</p></li>
+</ul>
+</div>
+<div class="section" id="other">
+<h2>Other<a class="headerlink" href="#other" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">read_xls()</span></code> and <code class="docutils literal notranslate"><span class="pre">read_xlsx()</span></code> are now exposed, such that files without an <code class="docutils literal notranslate"><span class="pre">.xls</span></code> or <code class="docutils literal notranslate"><span class="pre">.xlsx</span></code> extension can be read. (#85, &#64;jirkalewandowski)</p></li>
+<li><p>The <a class="reference external" href="https://docs.microsoft.com/en-US/office/troubleshoot/excel/wrongly-assumes-1900-is-leap-year">Lotus 1-2-3 leap year bug</a> is now accounted for, i.e. date-times prior to March 1, 1900 import correctly. Date-times on the non-existent leap day February 29, 1900 import as NA and throw a warning. (#264, #148, #292)</p></li>
+<li><p>The tibble package is now imported (#175, &#64;krlmlr) and <code class="docutils literal notranslate"><span class="pre">tibble::repair_names()</span></code> is used to prevent empty, <code class="docutils literal notranslate"><span class="pre">NA</span></code>, or duplicated column names. (#216, #208, #199 #182, #53, #247).</p></li>
+<li><p>Default column names for xlsx now start with X__1 instead of X__0. (#98, &#64;zeehio, &#64;krlmlr)</p></li>
+<li><p>Fix compilation warnings/failures (FreeBSD 10.3 #221, gcc 4.9.3 #124) and/or problems reading xls (CentOS 6.6 #189). (#244, #245, #246 &#64;jeroen)</p></li>
+<li><p>Unwanted printed output (e.g., <code class="docutils literal notranslate"><span class="pre">DEFINEDNAME:</span> <span class="pre">21</span> <span class="pre">00</span> <span class="pre">00</span> <span class="pre">...</span></code>) is suppressed when reading xls that contains a defined range. (#82, #188, &#64;PedramNavid)</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="readxl-0-1-1">
+<h1>readxl 0.1.1<a class="headerlink" href="#readxl-0-1-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Add support for correctly reading strings in .xlsx files containing escaped
+unicode characters (e.g. <code class="docutils literal notranslate"><span class="pre">_x005F_</span></code>). (#51, &#64;jmarshallnz)</p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./temporal/renv/library/R-4.1/aarch64-apple-darwin20/readxl"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Quan Nguyen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

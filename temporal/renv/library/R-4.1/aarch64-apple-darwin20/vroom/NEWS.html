@@ -1,0 +1,738 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>vroom 1.5.7 &#8212; Temporal and sequential analysis - LASI 2022</title>
+    
+  <link href="../../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../_static/togglebutton.js"></script>
+    <script src="../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../../../_static/solar_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Temporal and sequential analysis - LASI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture1.html">
+   Lecture 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture2.html">
+   Lecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture3.html">
+   Lecture 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Labs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab1.html">
+   Lab 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab2.html">
+   Lab 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab3.html">
+   Lab 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Quan Nguyen<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../../_sources/temporal/renv/library/R-4.1/aarch64-apple-darwin20/vroom/NEWS.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/quan3010/temporal_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/quan3010/temporal_analysis/issues/new?title=Issue%20on%20page%20%2Ftemporal/renv/library/R-4.1/aarch64-apple-darwin20/vroom/NEWS.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   vroom 1.5.7
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vroom-1-5-6">
+   vroom 1.5.6
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vroom-1-5-5">
+   vroom 1.5.5
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vroom-1-5-4">
+   vroom 1.5.4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vroom-1-5-3">
+   vroom 1.5.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vroom-1-5-2">
+   vroom 1.5.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vroom-1-5-1">
+   vroom 1.5.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vroom-1-5-0">
+   vroom 1.5.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#major-improvements">
+     Major improvements
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minor-improvements-and-fixes">
+     Minor improvements and fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vroom-1-4-0">
+   vroom 1.4.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#major-changes-and-new-functions">
+     Major changes and new functions
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Minor improvements and fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vroom-1-3-2">
+   vroom 1.3.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vroom-1-3-1">
+   vroom 1.3.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vroom-1-3-0">
+   vroom 1.3.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vroom-1-2-1">
+   vroom 1.2.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vroom-1-2-0">
+   vroom 1.2.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#breaking-changes">
+     Breaking changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-features">
+     New Features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Minor improvements and fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vroom-1-0-2">
+   vroom 1.0.2
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     New Features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Minor improvements and fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vroom-1-0-1">
+   vroom 1.0.1
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     New Features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Minor improvements and fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vroom-1-0-0">
+   vroom 1.0.0
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="vroom-1-5-7">
+<h1>vroom 1.5.7<a class="headerlink" href="#vroom-1-5-7" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Jenny Bryan is now the official maintainer.</p></li>
+<li><p>Fix uninitialized bool detected by CRAN’s UBSAN check (<a class="reference external" href="https://github.com/r-lib/vroom/pull/386">https://github.com/r-lib/vroom/pull/386</a>)</p></li>
+<li><p>Fix buffer overflow when trying to parse an integer field that is over 64 characters long (<a class="reference external" href="https://github.com/tidyverse/readr/issues/1326">https://github.com/tidyverse/readr/issues/1326</a>)</p></li>
+<li><p>Fix subset indexing when indexes span a file boundary multiple times (#383)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vroom-1-5-6">
+<h1>vroom 1.5.6<a class="headerlink" href="#vroom-1-5-6" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom(col_select=)</span></code> now works if <code class="docutils literal notranslate"><span class="pre">col_names</span> <span class="pre">=</span> <span class="pre">FALSE</span></code> as intended (#381)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom(n_max=)</span></code> now correctly handles cases when reading from a connection and the file does <em>not</em> end with a newline (<a class="reference external" href="https://github.com/tidyverse/readr/issues/1321">https://github.com/tidyverse/readr/issues/1321</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> no longer issues a spurious warning when the parsing needs to be restarted due to the presence of embedded newlines (<a class="reference external" href="https://github.com/tidyverse/readr/issues/1313">https://github.com/tidyverse/readr/issues/1313</a>)</p></li>
+<li><p>Fix performance issue when materializing subsetted vectors (#378)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom_format()</span></code> now uses the same internal multi-threaded code as <code class="docutils literal notranslate"><span class="pre">vroom_write()</span></code>, improving its performance in most cases (#377)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom_fwf()</span></code> no longer omits the last line if it does <em>not</em> end with a newline (<a class="reference external" href="https://github.com/tidyverse/readr/issues/1293">https://github.com/tidyverse/readr/issues/1293</a>)</p></li>
+<li><p>Empty files or files with only a header line and no data no longer cause a crash if read with multiple files (<a class="reference external" href="https://github.com/tidyverse/readr/issues/1297">https://github.com/tidyverse/readr/issues/1297</a>)</p></li>
+<li><p>Files with a header but no contents, or a empty file if <code class="docutils literal notranslate"><span class="pre">col_names</span> <span class="pre">=</span> <span class="pre">FALSE</span></code> no longer cause a hang when <code class="docutils literal notranslate"><span class="pre">progress</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> (<a class="reference external" href="https://github.com/tidyverse/readr/issues/1297">https://github.com/tidyverse/readr/issues/1297</a>)</p></li>
+<li><p>Commented lines with comments at the end of lines no longer hang R (<a class="reference external" href="https://github.com/tidyverse/readr/issues/1309">https://github.com/tidyverse/readr/issues/1309</a>)</p></li>
+<li><p>Comment lines containing unpaired quotes are no longer treated as unterminated quotations (<a class="reference external" href="https://github.com/tidyverse/readr/issues/1307">https://github.com/tidyverse/readr/issues/1307</a>)</p></li>
+<li><p>Values with only a <code class="docutils literal notranslate"><span class="pre">Inf</span></code> or <code class="docutils literal notranslate"><span class="pre">NaN</span></code> prefix but additional data afterwards, like
+<code class="docutils literal notranslate"><span class="pre">Inform</span></code> or no longer inappropriately guessed as doubles (<a class="reference external" href="https://github.com/tidyverse/readr/issues/1319">https://github.com/tidyverse/readr/issues/1319</a>)</p></li>
+<li><p>Time types now support <code class="docutils literal notranslate"><span class="pre">%h</span></code> format to denote hour durations greater than 24, like readr (<a class="reference external" href="https://github.com/tidyverse/readr/issues/1312">https://github.com/tidyverse/readr/issues/1312</a>)</p></li>
+<li><p>Fix performance issue when materializing subsetted vectors (#378)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vroom-1-5-5">
+<h1>vroom 1.5.5<a class="headerlink" href="#vroom-1-5-5" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now supports files with only carriage return newlines (<code class="docutils literal notranslate"><span class="pre">\r</span></code>). (#360, <a class="reference external" href="https://github.com/tidyverse/readr/issues/1236">https://github.com/tidyverse/readr/issues/1236</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now parses single digit datetimes more consistently as readr has done (<a class="reference external" href="https://github.com/tidyverse/readr/issues/1276">https://github.com/tidyverse/readr/issues/1276</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now parses <code class="docutils literal notranslate"><span class="pre">Inf</span></code> values as doubles (<a class="reference external" href="https://github.com/tidyverse/readr/issues/1283">https://github.com/tidyverse/readr/issues/1283</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now parses <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values as doubles (<a class="reference external" href="https://github.com/tidyverse/readr/issues/1277">https://github.com/tidyverse/readr/issues/1277</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VROOM_CONNECTION_SIZE</span></code> is now parsed as a double, which supports scientific notation (#364)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now works around specifying a <code class="docutils literal notranslate"><span class="pre">\n</span></code> as the delimiter (#365, <a class="reference external" href="https://github.com/tidyverse/dplyr/issues/5977">https://github.com/tidyverse/dplyr/issues/5977</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> no longer crashes if given a <code class="docutils literal notranslate"><span class="pre">col_name</span></code> and <code class="docutils literal notranslate"><span class="pre">col_type</span></code> both less than the number of columns (<a class="reference external" href="https://github.com/tidyverse/readr/issues/1271">https://github.com/tidyverse/readr/issues/1271</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> no longer hangs if given an empty value for <code class="docutils literal notranslate"><span class="pre">locale(grouping_mark=)</span></code> (<a class="reference external" href="https://github.com/tidyverse/readr/issues/1241">https://github.com/tidyverse/readr/issues/1241</a>)</p></li>
+<li><p>Fix performance regression when guessing with large numbers of rows (<a class="reference external" href="https://github.com/tidyverse/readr/issues/1267">https://github.com/tidyverse/readr/issues/1267</a>)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vroom-1-5-4">
+<h1>vroom 1.5.4<a class="headerlink" href="#vroom-1-5-4" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom(col_types=)</span></code> now accepts column type names like those accepted by utils::read.table. e.g.
+vroom::vroom(col_types = list(a = “integer”, b = “double”, c = “skip”))</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now respects the <code class="docutils literal notranslate"><span class="pre">quote</span></code> parameter properly in the first two lines of the file (<a class="reference external" href="https://github.com/tidyverse/readr/issues/1262">https://github.com/tidyverse/readr/issues/1262</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom_write()</span></code> now always correctly writes its output including column names in UTF-8 (<a class="reference external" href="https://github.com/tidyverse/readr/issues/1242">https://github.com/tidyverse/readr/issues/1242</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom_write()</span></code> now creates an empty file when given a input without any columns (<a class="reference external" href="https://github.com/tidyverse/readr/issues/1234">https://github.com/tidyverse/readr/issues/1234</a>)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vroom-1-5-3">
+<h1>vroom 1.5.3<a class="headerlink" href="#vroom-1-5-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom(col_types=)</span></code> now truncates the column types if the user passes too many types. (#355)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now always includes the last row when guessing (#352)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom(trim_ws</span> <span class="pre">=</span> <span class="pre">TRUE)</span></code> now trims field content within quotes as well as without (#354).
+Previously vroom explicitly retained field content inside quotes regardless of the value of <code class="docutils literal notranslate"><span class="pre">trim_ws</span></code>.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vroom-1-5-2">
+<h1>vroom 1.5.2<a class="headerlink" href="#vroom-1-5-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now supports inputs with unnamed column types that are less than the number of columns (#296)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now outputs the correct column names even in the presence of skipped columns (#293, <a class="reference external" href="https://github.com/tidyverse/readr/issues/1215">tidyverse/readr#1215</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom_fwf(n_max=)</span></code> now works as intended when the input is a connection.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> and <code class="docutils literal notranslate"><span class="pre">vroom_write()</span></code> now automatically detect the compression format regardless of the file extension for bzip2, xzip, gzip and zip files (#348)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> and <code class="docutils literal notranslate"><span class="pre">vroom_write()</span></code> now automatically support many more archive formats thanks to the archive package.
+These include new support for writing zip files, reading and writing 7zip, tar and ISO files.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom(num_threads</span> <span class="pre">=</span> <span class="pre">1)</span></code> will now not spawn any threads.
+This can be used on as a workaround on systems without full thread support.</p></li>
+<li><p>Threads are now automatically disabled on non-macOS systems compiling against clang’s libc++.
+Most systems non-macOS systems use the more common gcc libstdc++, so this should not effect most users.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vroom-1-5-1">
+<h1>vroom 1.5.1<a class="headerlink" href="#vroom-1-5-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Parsers now treat NA values as NA even if they are valid values for the types (#342)</p></li>
+<li><p>Element-wise indexing into lazy (ALTREP) vectors now has much less overhead (#344)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vroom-1-5-0">
+<h1>vroom 1.5.0<a class="headerlink" href="#vroom-1-5-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="major-improvements">
+<h2>Major improvements<a class="headerlink" href="#major-improvements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>New <code class="docutils literal notranslate"><span class="pre">vroom(show_col_types=)</span></code> argument to more simply control when column types are shown.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code>, <code class="docutils literal notranslate"><span class="pre">vroom_fwf()</span></code> and <code class="docutils literal notranslate"><span class="pre">vroom_lines()</span></code> now support multi-byte encodings such as UTF-16 and UTF-32 by converting these files to UTF-8 under the hood (#138)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now supports skipping comments and blank lines within data, not just at the start of the file (#294, #302)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now uses the tzdb package when parsing date-times (&#64;DavisVaughan, #273)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now emits a warning of class <code class="docutils literal notranslate"><span class="pre">vroom_parse_issue</span></code> if there are non-fatal parsing issues.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now emits a warning of class <code class="docutils literal notranslate"><span class="pre">vroom_mismatched_column_name</span></code> if the user supplies a column type that does not match the name of a read column (#317).</p></li>
+<li><p>The vroom package now uses the MIT license, as part of systematic relicensing throughout the r-lib and tidyverse packages (#323)</p></li>
+</ul>
+</div>
+<div class="section" id="minor-improvements-and-fixes">
+<h2>Minor improvements and fixes<a class="headerlink" href="#minor-improvements-and-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>`vroom() correctly reads double values with comma as decimal separator (&#64;kent37 #313)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now correctly skips lines with only one quote if the format doesn’t use quoting (<a class="reference external" href="https://github.com/tidyverse/readr/issues/991#issuecomment-616378446">https://github.com/tidyverse/readr/issues/991#issuecomment-616378446</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> and <code class="docutils literal notranslate"><span class="pre">vroom_lines()</span></code> now handle files with mixed windows and POSIX line endings (<a class="reference external" href="https://github.com/tidyverse/readr/issues/1210">https://github.com/tidyverse/readr/issues/1210</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now outputs a tibble with the expected number of columns and types based on <code class="docutils literal notranslate"><span class="pre">col_types</span></code> and <code class="docutils literal notranslate"><span class="pre">col_names</span></code> even if the file is empty (#297).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> no longer mis-indexes files read from connections with windows line endings when the two line endings falls on separate sides of the read buffer (#331)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> no longer crashes if <code class="docutils literal notranslate"><span class="pre">n_max</span> <span class="pre">=</span> <span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">col_names</span></code> is a character (#316)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now preserves the spec attribute when vroom and readr are both loaded (#303)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now allows specifying column names in <code class="docutils literal notranslate"><span class="pre">col_types</span></code> that have been repaired (#311)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> no longer inadvertently calls <code class="docutils literal notranslate"><span class="pre">.name_repair</span></code> functions twice (#310).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> is now more robust to quoting issues when tracking the CSV state (#301)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now registers the S3 class with <code class="docutils literal notranslate"><span class="pre">methods::setOldClass()</span></code> (r-dbi/DBI#345)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">col_datetime()</span></code> now supports ‘%s’ format, which represents decimal seconds since the Unix epoch.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">col_numeric()</span></code> now supports <code class="docutils literal notranslate"><span class="pre">grouping_mark</span></code> and <code class="docutils literal notranslate"><span class="pre">decimal_mark</span></code> that are unicode characters, such as U+00A0 which is commonly used as the grouping mark for numbers in France (<a class="reference external" href="https://github.com/tidyverse/readr/issues/796">https://github.com/tidyverse/readr/issues/796</a>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom_fwf()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">skip_empty_rows</span></code> argument to skip empty lines (<a class="reference external" href="https://github.com/tidyverse/readr/issues/1211">https://github.com/tidyverse/readr/issues/1211</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom_fwf()</span></code> now respects <code class="docutils literal notranslate"><span class="pre">n_max</span></code>, as intended (#334)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom_lines()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">na</span></code> argument.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom_write_lines()</span></code> no longer escapes or quotes lines.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom_write_lines()</span></code> now works as intended (#291).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom_write(path=)</span></code> has been deprecated, in favor of <code class="docutils literal notranslate"><span class="pre">file</span></code>, to match readr.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom_write_lines()</span></code> now exposes the <code class="docutils literal notranslate"><span class="pre">num_threads</span></code> argument.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">problems()</span></code> now prints the correct row number of parse errors (#326)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">problems()</span></code> now throws a more informative error if called on a readr object (#308).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">problems()</span></code> now de-duplicates identical problems (#318)</p></li>
+<li><p>Fix an inadvertent performance regression when reading values (#309)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_max</span></code> argument is correctly respected in edge cases (#306)</p></li>
+<li><p>factors with implicit levels now work when fields are quoted, as intended (#330)</p></li>
+<li><p>Guessing double types no longer unconditionally ignores leading whitespace. Now whitespace is only ignored when <code class="docutils literal notranslate"><span class="pre">trim_ws</span></code> is set.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vroom-1-4-0">
+<h1>vroom 1.4.0<a class="headerlink" href="#vroom-1-4-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="major-changes-and-new-functions">
+<h2>Major changes and new functions<a class="headerlink" href="#major-changes-and-new-functions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>vroom now tracks indexing and parsing errors like readr. The first time an issue is encountered a warning will be signaled. A tibble of all found problems can be retrieved with <code class="docutils literal notranslate"><span class="pre">vroom::problems()</span></code>. (#247)</p></li>
+<li><p>Data with newlines within quoted fields will now automatically revert to using a single thread and be properly read (#282)</p></li>
+<li><p>NUL values in character data are now permitted, with a warning.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">vroom_write_lines()</span></code> function to write a character vector to a file (#291)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom_write()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">eol=</span></code> parameter to specify the end of line character(s) to use. Use <code class="docutils literal notranslate"><span class="pre">vroom_write(eol</span> <span class="pre">=</span> <span class="pre">&quot;\r\n&quot;)</span></code> to write a file with Windows style newlines (#263).</p></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2>Minor improvements and fixes<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Datetime formats used when guessing now match those used when parsing (#240)</p></li>
+<li><p>Quotes are now only valid next to newlines or delimiters (#224)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now signals an R error for invalid date and datetime formats, instead of crashing the session (#220).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom(comment</span> <span class="pre">=</span> <span class="pre">)</span></code> now accepts multi-character comments (#286)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom_lines()</span></code> now works with empty files (#285)</p></li>
+<li><p>Vectors are now subset properly when given invalid subscripts (#283)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom_write()</span></code> now works when the delimiter is empty, e.g. <code class="docutils literal notranslate"><span class="pre">delim</span> <span class="pre">=</span> <span class="pre">&quot;&quot;</span></code> (#287).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom_write()</span></code> now works with all ALTREP vectors, including string vectors (#270)</p></li>
+<li><p>An internal call to <code class="docutils literal notranslate"><span class="pre">new.env()</span></code> now correctly uses the <code class="docutils literal notranslate"><span class="pre">parent</span></code> argument (#281)</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vroom-1-3-2">
+<h1>vroom 1.3.2<a class="headerlink" href="#vroom-1-3-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Test failures on R 4.1 related to factors with NA values fixed (#262)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now works without error with readr versions of col specs (#256, #264, #266)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vroom-1-3-1">
+<h1>vroom 1.3.1<a class="headerlink" href="#vroom-1-3-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Test failures on R 4.1 related to POSIXct classes fixed (#260)</p></li>
+<li><p>Column subsetting with double indexes now works again (#257)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom(n_max=)</span></code> now only partially downloads files from connections, as intended (#259)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vroom-1-3-0">
+<h1>vroom 1.3.0<a class="headerlink" href="#vroom-1-3-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>The Rcpp dependency has been removed in favor of cpp11.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now handles cases when <code class="docutils literal notranslate"><span class="pre">id</span></code> is set and a column in skipped (#237)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now supports column selections when there are some empty column names (#238)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> argument <code class="docutils literal notranslate"><span class="pre">n_max</span></code> now works properly for files with windows newlines and no final newline (#244)</p></li>
+<li><p>Subsetting vectors now works with <code class="docutils literal notranslate"><span class="pre">View()</span></code> in RStudio if there are now rows to subset (#253).</p></li>
+<li><p>Subsetting datetime columns now works with <code class="docutils literal notranslate"><span class="pre">NA</span></code> indices (#236).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vroom-1-2-1">
+<h1>vroom 1.2.1<a class="headerlink" href="#vroom-1-2-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now writes the column names if given an input with no rows (#213)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> columns now support indexing with NA values (#201)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> no longer truncates the last value in a file if the file contains windows newlines but no final newline (#219).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now works when the <code class="docutils literal notranslate"><span class="pre">na</span></code> argument is encoded in non ASCII or UTF-8 locales <em>and</em> the file encoding is not the same as the native encoding (#233).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom_fwf()</span></code> now verifies that the positions are valid, namely that the begin value is always less than the previous end (#217).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom_lines()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">locale</span></code> argument so you can control the encoding of the file (#218)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom_write()</span></code> now supports the <code class="docutils literal notranslate"><span class="pre">append</span></code> argument with R connections (#232)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vroom-1-2-0">
+<h1>vroom 1.2.0<a class="headerlink" href="#vroom-1-2-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="breaking-changes">
+<h2>Breaking changes<a class="headerlink" href="#breaking-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom_altrep_opts()</span></code> and the argument <code class="docutils literal notranslate"><span class="pre">vroom(altrep_opts</span> <span class="pre">=)</span></code> have been
+renamed to <code class="docutils literal notranslate"><span class="pre">vroom_altrep()</span></code> and <code class="docutils literal notranslate"><span class="pre">altrep</span></code> respectively. The prior names have
+been deprecated.</p></li>
+</ul>
+</div>
+<div class="section" id="new-features">
+<h2>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now supports reading Big Integer values with the <code class="docutils literal notranslate"><span class="pre">bit64</span></code> package.
+Use <code class="docutils literal notranslate"><span class="pre">col_big_integer()</span></code> or the “I” shortcut to read a column as big integers. (#198)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cols()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">.delim</span></code> argument and <code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now uses it as the delimiter
+if it is provided (#192)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now supports reading from <code class="docutils literal notranslate"><span class="pre">stdin()</span></code> directly, interpreted as the
+C-level standard input (#106).</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>Minor improvements and fixes<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">col_date</span></code> now parses single digit month and day (&#64;edzer, #123, #170)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fwf_empty()</span></code> now uses the <code class="docutils literal notranslate"><span class="pre">skip</span></code> parameter, as intended.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> can now read single line files without a terminal newline (#173).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> can now select the id column if provided (#110).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now correctly copies string data for factor levels (#184)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> no longer crashes when files have trailing fields, windows newlines
+and the file is not newline or null terminated.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now includes a spec object with the <code class="docutils literal notranslate"><span class="pre">col_types</span></code> class, as intended.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now better handles floating point values with very large exponents
+(#164).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now uses better heuristics to guess the delimiter and now throws an
+error if a delimiter cannot be guessed (#126, #141, #167).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now has an improved error message when a file does not exist (#169).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> no longer leaks file handles (#177, #180)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now outputs its messages on <code class="docutils literal notranslate"><span class="pre">stdout()</span></code> rather than <code class="docutils literal notranslate"><span class="pre">stderr()</span></code>,
+which avoids the text being red in RStudio and in the Windows GUI.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> no longer overflows when reading files with more than 2B entries (&#64;wlattner, #183).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom_fwf()</span></code> is now more robust if not all lines are the expected length (#78)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom_fwf()</span></code> and <code class="docutils literal notranslate"><span class="pre">fwf_empty()</span></code> now support passing <code class="docutils literal notranslate"><span class="pre">Inf</span></code> to <code class="docutils literal notranslate"><span class="pre">guess_max()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom_str()</span></code> now works with S4 objects.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom_fwf()</span></code> now handles files with dos newlines properly.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom_write()</span></code> now does not try to write anything when given empty inputs (#172).</p></li>
+<li><p>Dates, times, and datetimes now properly consider the locale when parsing.</p></li>
+<li><p>Added benchmarks with <em>wide</em> data for both numeric and character data (#87, &#64;R3myG)</p></li>
+<li><p>The delimiter used for parsing is now shown in the message output (#95 &#64;R3myG)</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vroom-1-0-2">
+<h1>vroom 1.0.2<a class="headerlink" href="#vroom-1-0-2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id3">
+<h2>New Features<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The column created by <code class="docutils literal notranslate"><span class="pre">id</span></code> is now stored as an run length encoded Altrep
+vector, which uses less memory and is much faster for large inputs. (#111)</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>Minor improvements and fixes<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom_lines()</span></code> now properly respects the <code class="docutils literal notranslate"><span class="pre">n_max</span></code> parameter (#142)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom()</span></code> and <code class="docutils literal notranslate"><span class="pre">vroom_lines()</span></code> now support reading files which do not end in
+newlines by using a file connection (#40).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom_write()</span></code> now works with the standard output connection <code class="docutils literal notranslate"><span class="pre">stdout()</span></code> (#106).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom_write()</span></code> no longer crashes non-deterministically when used on Altrep vectors.</p></li>
+<li><p>The integer parser now returns NA values for invalid inputs (#135)</p></li>
+<li><p>Fix additional UBSAN issue in the mio project reported by CRAN (#97)</p></li>
+<li><p>Fix indexing into connections with quoted fields (#119)</p></li>
+<li><p>Move example files for <code class="docutils literal notranslate"><span class="pre">vroom()</span></code> out of <code class="docutils literal notranslate"><span class="pre">\dontshow{}</span></code>.</p></li>
+<li><p>Fix integer overflow with very large files (#116, #119)</p></li>
+<li><p>Fix missing columns and windows newlines (#114)</p></li>
+<li><p>Fix encoding of column names (#113, #115)</p></li>
+<li><p>Throw an error message when writing a zip file, which is not supported (&#64;metaOO, #145)</p></li>
+<li><p>Default message output from <code class="docutils literal notranslate"><span class="pre">vroom()</span></code> now uses <code class="docutils literal notranslate"><span class="pre">Rows</span></code> and <code class="docutils literal notranslate"><span class="pre">Cols</span></code> (&#64;meta00, #140)</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vroom-1-0-1">
+<h1>vroom 1.0.1<a class="headerlink" href="#vroom-1-0-1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id5">
+<h2>New Features<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">vroom_lines()</span></code> function added, to (lazily) read lines from a file into a
+character vector (#90).</p></li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>Minor improvements and fixes<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fix for a hang on Windows caused by a race condition in the progress bar (#98)</p></li>
+<li><p>Remove accidental runtime dependency on testthat (#104)</p></li>
+<li><p>Fix to actually return non-Altrep character columns on R 3.2, 3.3 and 3.4.</p></li>
+<li><p>Disable colors in the progress bar when running in RStudio, to work around an
+issue where the progress bar would be garbled (<a class="reference external" href="https://github.com/rstudio/rstudio/issues/4777">https://github.com/rstudio/rstudio/issues/4777</a>)</p></li>
+<li><p>Fix for UBSAN issues reported by CRAN (#97)</p></li>
+<li><p>Fix for rchk issues reported by CRAN (#94)</p></li>
+<li><p>The progress bar now only updates every 10 milliseconds.</p></li>
+<li><p>Getting started vignette index entry now more informative (#92)</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="vroom-1-0-0">
+<h1>vroom 1.0.0<a class="headerlink" href="#vroom-1-0-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Initial release</p></li>
+<li><p>Added a <code class="docutils literal notranslate"><span class="pre">NEWS.md</span></code> file to track changes to the package.</p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./temporal/renv/library/R-4.1/aarch64-apple-darwin20/vroom"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Quan Nguyen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,647 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>reprex 2.0.1 &#8212; Temporal and sequential analysis - LASI 2022</title>
+    
+  <link href="../../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../_static/togglebutton.js"></script>
+    <script src="../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../../../_static/solar_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Temporal and sequential analysis - LASI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture1.html">
+   Lecture 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture2.html">
+   Lecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture3.html">
+   Lecture 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Labs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab1.html">
+   Lab 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab2.html">
+   Lab 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab3.html">
+   Lab 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Quan Nguyen<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../../_sources/temporal/renv/library/R-4.1/aarch64-apple-darwin20/reprex/NEWS.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/quan3010/temporal_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/quan3010/temporal_analysis/issues/new?title=Issue%20on%20page%20%2Ftemporal/renv/library/R-4.1/aarch64-apple-darwin20/reprex/NEWS.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   reprex 2.0.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reprex-2-0-0">
+   reprex 2.0.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#when-the-clipboard-isn-t-available">
+     When the clipboard isn’t available
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#filepaths">
+     Filepaths
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rprofile">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       .Rprofile
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other">
+     Other
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dependency-changes">
+     Dependency changes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reprex-1-0-0">
+   reprex 1.0.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#venues">
+     Venues
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implementation-and-internals">
+     Implementation and internals
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-changes-and-improvements">
+     Other changes and improvements
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Dependency changes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reprex-0-3-0">
+   reprex 0.3.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reprex-0-2-1">
+   reprex 0.2.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reprex-0-2-0">
+   reprex 0.2.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#option-controlled-arguments-for-custom-defaults">
+     Option-controlled arguments for custom defaults
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-arguments-to-reprex">
+     New arguments to
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       reprex()
+      </span>
+     </code>
+     :
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Venues
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#other-changes">
+     Other changes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reprex-0-1-2">
+   reprex 0.1.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reprex-0-1-1">
+   reprex 0.1.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reprex-0-1-0">
+   reprex 0.1.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reprex-0-0-0-9000">
+   reprex 0.0.0.9000
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="reprex-2-0-1">
+<h1>reprex 2.0.1<a class="headerlink" href="#reprex-2-0-1" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">reprex_document()</span></code> has been adjusted for compatibility with changes introduced in Pandoc 2.13 around YAML headers (#375, #383 &#64;cderv).</p>
+<p><code class="docutils literal notranslate"><span class="pre">reprex_rtf()</span></code> (and the unexported <code class="docutils literal notranslate"><span class="pre">prex_rtf()</span></code>) work again.
+One of the filepaths involved in the highlight call was broken, but now it’s not (#379).</p>
+<p>The unexported <code class="docutils literal notranslate"><span class="pre">prex_*()</span></code> functions once again write their files to a temporary directory, as opposed to current working directory (#380).</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="reprex-2-0-0">
+<h1>reprex 2.0.0<a class="headerlink" href="#reprex-2-0-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="when-the-clipboard-isn-t-available">
+<h2>When the clipboard isn’t available<a class="headerlink" href="#when-the-clipboard-isn-t-available" title="Permalink to this headline">¶</a></h2>
+<p>We’ve made reprex more pleasant to use in settings where we cannot access the user’s clipboard from R.
+Specifically, this applies to use on RStudio Server and RStudio Cloud.</p>
+<ul class="simple">
+<li><p>When <code class="docutils literal notranslate"><span class="pre">reprex()</span></code> is called without <code class="docutils literal notranslate"><span class="pre">expr</span></code> or <code class="docutils literal notranslate"><span class="pre">input</span></code>, in a context where the
+user’s clipboard can’t be reached from R, the default is now to consult the
+current selection for reprex source. Previously this was only available via
+the <code class="docutils literal notranslate"><span class="pre">reprex_selection()</span></code> addin. Note that this “current selection” default
+behaviour propagates to convenience wrappers around <code class="docutils literal notranslate"><span class="pre">reprex()</span></code>, such as
+<code class="docutils literal notranslate"><span class="pre">reprex_locale()</span></code> and venue-specific functions like <code class="docutils literal notranslate"><span class="pre">reprex_r()</span></code>, and to the
+un-<code class="docutils literal notranslate"><span class="pre">reprex()</span></code> functions, such as <code class="docutils literal notranslate"><span class="pre">reprex_clean()</span></code>.</p></li>
+<li><p>In this context, the file containing the (un)rendered reprex is opened so the
+user can manually copy its contents.</p></li>
+</ul>
+</div>
+<div class="section" id="filepaths">
+<h2>Filepaths<a class="headerlink" href="#filepaths" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">wd</span></code> is a new argument to set the reprex working directory.
+As a result, the <code class="docutils literal notranslate"><span class="pre">outfile</span></code> argument is deprecated and the <code class="docutils literal notranslate"><span class="pre">input</span></code> argument has new significance.
+Here’s how to use <code class="docutils literal notranslate"><span class="pre">input</span></code> and <code class="docutils literal notranslate"><span class="pre">wd</span></code> to control reprex filepaths:</p>
+<ul class="simple">
+<li><p>To reprex in the current working directory,<br />
+Previously: <code class="docutils literal notranslate"><span class="pre">reprex(outfile</span> <span class="pre">=</span> <span class="pre">NA)</span></code><br />
+Now: <code class="docutils literal notranslate"><span class="pre">reprex(wd</span> <span class="pre">=</span> <span class="pre">&quot;.&quot;)</span></code><br />
+More generally, usage looks like <code class="docutils literal notranslate"><span class="pre">reprex(wd</span> <span class="pre">=</span> <span class="pre">&quot;path/to/desired/wd&quot;)</span></code>.</p></li>
+<li><p>If you really care about reprex filename (and location), write your source to
+<code class="docutils literal notranslate"><span class="pre">path/to/stuff.R</span></code> and call <code class="docutils literal notranslate"><span class="pre">reprex(input</span> <span class="pre">=</span> <span class="pre">&quot;path/to/stuff.R&quot;)</span></code>. When <code class="docutils literal notranslate"><span class="pre">input</span></code>
+is a filepath, that filepath determines the working directory and how reprex
+files are named and <code class="docutils literal notranslate"><span class="pre">wd</span></code> is never even consulted.</p></li>
+</ul>
+<p>Various changes mean that more users will see reprex filepaths.
+Therefore, we’ve revised them to be more self-explanatory and human-friendly.
+When reprex needs to invent a file name, it is now based on a random “adjective-animal” slug.
+Bring on the <code class="docutils literal notranslate"><span class="pre">angry-hamster</span></code>!</p>
+</div>
+<div class="section" id="rprofile">
+<h2><code class="docutils literal notranslate"><span class="pre">.Rprofile</span></code><a class="headerlink" href="#rprofile" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">reprex()</span></code> renders the reprex in a separate, fresh R session using <code class="docutils literal notranslate"><span class="pre">callr::r()</span></code>.
+As of callr 3.4.0 (released 2019-12-09), the default became <code class="docutils literal notranslate"><span class="pre">callr::r(...,</span> <span class="pre">user_profile</span> <span class="pre">=</span> <span class="pre">&quot;project&quot;)</span></code>, which means that callr executes a <code class="docutils literal notranslate"><span class="pre">.Rprofile</span></code> found in current working directory.
+Most reprexes happen in a temp directory and there will be no such <code class="docutils literal notranslate"><span class="pre">.Rprofile</span></code>.
+But if the user intentionally reprexes in an existing project with a <code class="docutils literal notranslate"><span class="pre">.Rprofile</span></code>, <code class="docutils literal notranslate"><span class="pre">callr::r()</span></code> and therefore <code class="docutils literal notranslate"><span class="pre">reprex()</span></code> honor it.
+In this version of reprex:</p>
+<ul class="simple">
+<li><p>We explicitly make sure that the working directory of the <code class="docutils literal notranslate"><span class="pre">callr::r()</span></code> call is
+the same as the effective working directory of the reprex.</p></li>
+<li><p>We alert the user that a local <code class="docutils literal notranslate"><span class="pre">.Rprofile</span></code> has been found.</p></li>
+<li><p>We indicate the usage of a local <code class="docutils literal notranslate"><span class="pre">.Rprofile</span></code> in the rendered reprex.</p></li>
+</ul>
+<p>These changes are of special interest to users of the <a class="reference external" href="https://rstudio.github.io/renv/">renv package</a>, which uses <code class="docutils literal notranslate"><span class="pre">.Rprofile</span></code> to implement a project-specific R package library.
+Combined with the filepath changes (described above), this means an renv user can call <code class="docutils literal notranslate"><span class="pre">reprex(wd</span> <span class="pre">=</span> <span class="pre">&quot;.&quot;)</span></code>, to render a reprex with respect to a project-specific library.</p>
+</div>
+<div class="section" id="other">
+<h2>Other<a class="headerlink" href="#other" title="Permalink to this headline">¶</a></h2>
+<p>HTML preview should work better with more ways of using <code class="docutils literal notranslate"><span class="pre">reprex_render()</span></code>, i.e. usage that doesn’t come via a call to <code class="docutils literal notranslate"><span class="pre">reprex()</span></code> (#293).</p>
+</div>
+<div class="section" id="dependency-changes">
+<h2>Dependency changes<a class="headerlink" href="#dependency-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>rstudioapi moves from Suggests to Imports. Related to improving the experience
+when reprex cannot access the user’s clipboard.</p></li>
+<li><p>mockr is new in Suggests; it’s used in the tests.</p></li>
+<li><p>We bumped the documented minimum version of Pandoc, because we use the <code class="docutils literal notranslate"><span class="pre">gfm</span></code>
+markdown variant to get GitHub-Flavored Markdown. The <code class="docutils literal notranslate"><span class="pre">gfm</span></code> variant was
+introduced in Pandoc 2.0 (released 2017-10-29).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="reprex-1-0-0">
+<h1>reprex 1.0.0<a class="headerlink" href="#reprex-1-0-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="venues">
+<h2>Venues<a class="headerlink" href="#venues" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">reprex_VENUE(...)</span></code> is a new way to call <code class="docutils literal notranslate"><span class="pre">reprex(...,</span> <span class="pre">venue</span> <span class="pre">=</span> <span class="pre">&quot;VENUE&quot;)</span></code>. For example, <code class="docutils literal notranslate"><span class="pre">reprex_r()</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">reprex(venue</span> <span class="pre">=</span> <span class="pre">&quot;r&quot;)</span></code>. This makes non-default venues easier to access via auto-completion (#256).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;slack&quot;</span></code> is a new venue that tweaks the default Markdown output for pasting into Slack messages. It removes the <code class="docutils literal notranslate"><span class="pre">r</span></code> language identifier from the opening code fence, simplifies image links and, by default, suppresses the ad. Note that <code class="docutils literal notranslate"><span class="pre">venue</span> <span class="pre">=</span> <span class="pre">&quot;slack&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">reprex_slack()</span></code> work best for people who opt-out of the WYSIWYG message editor: in <em>Preferences &gt; Advanced</em>, select “Format messages with markup”.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">venue</span> <span class="pre">=</span> <span class="pre">&quot;so&quot;</span></code> (SO = Stack Overflow) has converged with default <code class="docutils literal notranslate"><span class="pre">venue</span> <span class="pre">=</span> <span class="pre">&quot;gh&quot;</span></code> (GitHub). As of January 2019, SO <a class="reference external" href="https://meta.stackexchange.com/questions/125148/implement-style-fenced-markdown-code-blocks/322000#322000">supports CommonMark fenced code blocks</a>. The only remaining difference is that Stack Overflow does not support the collapsible details tag that we use on GitHub to reduce the clutter from, e.g., session info (#231).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;rtf&quot;</span></code> (Rich Text Format) is a new experimental <code class="docutils literal notranslate"><span class="pre">venue</span></code> for pasting into applications like PowerPoint and Keynote. It is experimental because it requires a working installation of the highlight command line tool, which is left as a somewhat fiddly exercise for the user (#331). <code class="docutils literal notranslate"><span class="pre">venue</span> <span class="pre">=</span> <span class="pre">&quot;rtf&quot;</span></code> is documented in its <a class="reference external" href="https://reprex.tidyverse.org/articles/articles/rtf.html">own article</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reprex.current_venue</span></code> is a new read-only option that is set during <code class="docutils literal notranslate"><span class="pre">reprex_render()</span></code>. Other packages can use it to generate <code class="docutils literal notranslate"><span class="pre">reprex()</span></code>-compatible, <code class="docutils literal notranslate"><span class="pre">venue</span></code>-aware output, such as an renv lockfile.</p></li>
+</ul>
+</div>
+<div class="section" id="implementation-and-internals">
+<h2>Implementation and internals<a class="headerlink" href="#implementation-and-internals" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">reprex()</span></code> has been internally refactored to make better use of the official
+machinery for extending rmarkdown:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">reprex_document()</span></code> is a new R Markdown output format.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reprex_render()</span></code> is a newly exported function.</p></li>
+<li><p>A <code class="docutils literal notranslate"><span class="pre">reprex_document()</span></code> is designed to be rendered with <code class="docutils literal notranslate"><span class="pre">reprex_render()</span></code>.
+<code class="docutils literal notranslate"><span class="pre">reprex_render()</span></code> is designed to act on a <code class="docutils literal notranslate"><span class="pre">reprex_document()</span></code>. This is
+(still) the heart of what the <code class="docutils literal notranslate"><span class="pre">reprex()</span></code> function does, in addition to
+various interface and workflow niceties.</p></li>
+<li><p>Two R Markdown templates ship with the package, which an RStudio user can
+access via <em>File &gt; New File &gt; R Markdown … &gt; From Template</em>. One is
+minimal; the other uses lots of reprex features. Both include
+<code class="docutils literal notranslate"><span class="pre">knit:</span> <span class="pre">reprex::reprex_render</span></code> in the YAML, which causes the RStudio “Knit”
+button to use <code class="docutils literal notranslate"><span class="pre">reprex_render()</span></code>.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">prex()</span></code>, <code class="docutils literal notranslate"><span class="pre">prex_VENUE()</span></code>, and <code class="docutils literal notranslate"><span class="pre">prex_render()</span></code> are new <strong>unexported</strong> functions that, like <code class="docutils literal notranslate"><span class="pre">reprex()</span></code>, render a small bit of code, but with much less <strong>re</strong>producibility! The code is evaluated in the global workspace of the current process, with the current working directory. This pragmatic hack is useful when preparing a series of related snippets, e.g., for a Keynote or PowerPoint presentation, and there’s not enough space to make each one self-contained.</p></li>
+<li><p>UTF-8 encoding: Following the lead of knitr, reprex makes explicit use of UTF-8 internally (#237 &#64;krlmlr, #261).</p></li>
+<li><p>When the reprex causes R to crash, <code class="docutils literal notranslate"><span class="pre">reprex(std_out_err</span> <span class="pre">=</span> <span class="pre">TRUE)</span></code> is able to provide more information about the crash, in some cases (#312).</p></li>
+</ul>
+</div>
+<div class="section" id="other-changes-and-improvements">
+<h2>Other changes and improvements<a class="headerlink" href="#other-changes-and-improvements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">tidyverse_quiet</span></code> argument and <code class="docutils literal notranslate"><span class="pre">reprex.tidyverse_quiet</span></code> option also control startup messages from the <a class="reference external" href="https://www.tidymodels.org">tidymodels</a> meta-package (#326, &#64;juliasilge).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reprex_locale()</span></code> is a new thin wrapper around <code class="docutils literal notranslate"><span class="pre">reprex()</span></code> that renders in a temporarily-altered locale (#250).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">si</span></code> argument of <code class="docutils literal notranslate"><span class="pre">reprex()</span></code> is now <code class="docutils literal notranslate"><span class="pre">session_info</span></code>. Being explicit seems more important than saving characters, given auto-completion.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">show</span></code> argument of <code class="docutils literal notranslate"><span class="pre">reprex()</span></code> is now <code class="docutils literal notranslate"><span class="pre">html_preview</span></code>, for the sake of consistency with other R Markdown output formats.</p></li>
+<li><p>New article on techniques for making package startup quieter (#187, &#64;marionlouveaux).</p></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2>Dependency changes<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>R 3.1 and R 3.2 are no longer explicitly supported or tested. Our general practice is to support the current release (4.0, at time of writing), devel, and the 4 previous versions of R (3.6, 3.5, 3.4, 3.3).</p>
+<ul class="simple">
+<li><p>sessioninfo is new in Suggests, replacing devtools.</p></li>
+<li><p>glue is new in Imports, replacing whisker.</p></li>
+<li><p>knitr moves from Suggests to Imports (although it was already a hard dependency via rmarkdown), so we can require v1.23 or higher, which represents a major switch to UTF-8.</p></li>
+<li><p>cli is new in Imports.</p></li>
+<li><p>reprex now relies on testthat &gt;= 3.0.0 and, specifically, uses third edition features.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="reprex-0-3-0">
+<h1>reprex 0.3.0<a class="headerlink" href="#reprex-0-3-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">crayon.enabled</span></code> option is explicitly set to <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> when rendering the reprex (#238, #239).</p></li>
+<li><p>Expression input is once again captured via <code class="docutils literal notranslate"><span class="pre">substitute()</span></code> (as opposed to <code class="docutils literal notranslate"><span class="pre">rlang::enexpr()</span></code>), which is more favorable for reprexes involving tidy eval (#241).</p></li>
+<li><p>New venue “html” to render HTML fragments, useful for pasting in sites without markdown but that allow HTML (#236 &#64;cwickham).</p></li>
+<li><p>The YAML of reprex’s template has been updated in light of the stricter YAML parser used in Pandoc &gt;= 2.2.2.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rlang::set_attrs()</span></code> has been soft-deprecated and is no longer used internally.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="reprex-0-2-1">
+<h1>reprex 0.2.1<a class="headerlink" href="#reprex-0-2-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>The reprex ad is formatted as superscript for <code class="docutils literal notranslate"><span class="pre">venue</span> <span class="pre">=</span> <span class="pre">&quot;gh&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">venue</span> <span class="pre">=</span> <span class="pre">&quot;so&quot;</span></code>, i.e. it is more subtle (#201).</p></li>
+<li><p>New experimental venue “rtf” produces syntax highlighted snippets suitable for pasting into presentation software such as Keynote or PowerPoint. This venue is discussed in <a class="reference external" href="https://reprex.tidyverse.org/articles/articles/rtf.html">an article</a> (#26).</p></li>
+<li><p>Arguments <code class="docutils literal notranslate"><span class="pre">opts_chunk</span></code> and <code class="docutils literal notranslate"><span class="pre">opts_knit</span></code> have been removed from <code class="docutils literal notranslate"><span class="pre">reprex()</span></code>. The same effect has always been achievable via roxygen comments in the reprex code and the examples have always demonstrated this. Overriding knitr options doesn’t seem to come up often enough in real-world <code class="docutils literal notranslate"><span class="pre">reprex()</span></code> usage to justify these arguments.</p></li>
+<li><p>Internal file system operations use the <a class="reference external" href="https://fs.r-lib.org">fs</a> package. This should not make any user-facing changes in reprex and we definitely want to know if it does.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="reprex-0-2-0">
+<h1>reprex 0.2.0<a class="headerlink" href="#reprex-0-2-0" title="Permalink to this headline">¶</a></h1>
+<p>reprex has a website: <a class="reference external" href="https://reprex.tidyverse.org">https://reprex.tidyverse.org</a>. It includes a contributed article from &#64;njtierney (#103).</p>
+<p>reprex has moved to the <a class="reference external" href="https://github.com/tidyverse">tidyverse Organization</a>. It is installed as part of the <a class="reference external" href="https://www.tidyverse.org">tidyverse meta-package</a> and is <a class="reference external" href="https://www.tidyverse.org/help/">suggested to those seeking help</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">reprex()</span></code> gains several arguments and many arguments can now be controlled via an option, in case a user wants their own defaults.</p>
+<p>The new <code class="docutils literal notranslate"><span class="pre">reprex_selection()</span></code> add-in reprexes the current selection, with venue controlled by the option <code class="docutils literal notranslate"><span class="pre">reprex.venue</span></code>. It can be handy to bind to a keyboard shortcut (#84 &#64;hadley).</p>
+<p>If reprex can’t write to the user’s clipboard (e.g. on RStudio server or Unix-like systems lacking xclip or xsel), it offers to open the output file for manual copy.</p>
+<div class="section" id="option-controlled-arguments-for-custom-defaults">
+<h2>Option-controlled arguments for custom defaults<a class="headerlink" href="#option-controlled-arguments-for-custom-defaults" title="Permalink to this headline">¶</a></h2>
+<p>These look like <code class="docutils literal notranslate"><span class="pre">reprex(...,</span> <span class="pre">arg</span> <span class="pre">=</span> <span class="pre">opt(DEFAULT),</span> <span class="pre">...)</span></code> in the help file. This is shorthand for <code class="docutils literal notranslate"><span class="pre">arg</span> <span class="pre">=</span> <span class="pre">getOption(&quot;reprex.arg&quot;,</span> <span class="pre">DEFAULT)</span></code>, i.e. the option <code class="docutils literal notranslate"><span class="pre">reprex.arg</span></code> is consulted and, if unset, the documented default is used. Allows user to define their own default behaviour (#116).</p>
+</div>
+<div class="section" id="new-arguments-to-reprex">
+<h2>New arguments to <code class="docutils literal notranslate"><span class="pre">reprex()</span></code>:<a class="headerlink" href="#new-arguments-to-reprex" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">advertise</span></code>: toggles inclusion of a footer that describes when and how the reprex was created, e.g., “Created on 2017-11-16 by the reprex package (v0.1.1.9000)”. Defaults to <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> (#121, #69).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">style</span></code>: requests code restyling via the newly-Suggested styler package. styler can cope with tidyeval syntactical sugar, e.g. <code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">%&gt;%</span> <span class="pre">group_by(!!</span> <span class="pre">group_var)</span></code>. Defaults to <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> (#108, #94).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tidyverse_quiet</span></code>: affords control of the startup message of the tidyverse meta-package. Defaults to <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>, i.e. suppresses the message (important special case of #70, #100).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">std_out_err</span></code>: appends output sent to stdout and stderr by the reprex rendering process. This can be necessary to reveal output if the reprex spawns child processes or has <code class="docutils literal notranslate"><span class="pre">system()</span></code> calls. Defaults to <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> (#90, #110).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">render</span></code>: determines if the reprex is actually rendered or just returns after producing the templated <code class="docutils literal notranslate"><span class="pre">.R</span></code> file. For internal testing.</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>Venues<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Line wrapping is preserved from source via a Pandoc option (#145 &#64;jimhester, #175).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">venue</span> <span class="pre">=</span> <span class="pre">&quot;gh&quot;</span></code> now targets CommonMark as the standard for GitHub Flavored Markdown (#77).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">venue</span> <span class="pre">=</span> <span class="pre">&quot;so&quot;</span></code> has appropriate whitespace at the start.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">venue</span> <span class="pre">=</span> <span class="pre">&quot;ds&quot;</span></code> is a new value, corresponding to <a class="reference external" href="https://www.discourse.org">https://www.discourse.org</a>, which is the platform behind <a class="reference external" href="https://community.rstudio.com">community.rstudio.com</a>. This is currently just an alias for the default <code class="docutils literal notranslate"><span class="pre">&quot;gh&quot;</span></code> GitHub venue, because the formatting appears to be compatible. Adding the <code class="docutils literal notranslate"><span class="pre">&quot;ds&quot;</span></code> value so Discourse can be documented and to guard against the possibility that some formatting is actually unique.</p></li>
+</ul>
+</div>
+<div class="section" id="other-changes">
+<h2>Other changes<a class="headerlink" href="#other-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">keep.source</span></code> option is set to <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> when rendering the reprex, so reprexes involving srcrefs should work (#152).</p></li>
+<li><p>The “undo” functions (<code class="docutils literal notranslate"><span class="pre">reprex_invert()</span></code>, <code class="docutils literal notranslate"><span class="pre">reprex_clean()</span></code>, <code class="docutils literal notranslate"><span class="pre">reprex_rescue()</span></code>) handle <code class="docutils literal notranslate"><span class="pre">input</span></code> and <code class="docutils literal notranslate"><span class="pre">outfile</span></code> like <code class="docutils literal notranslate"><span class="pre">reprex()</span></code> does. The <code class="docutils literal notranslate"><span class="pre">outfile</span></code> argument is new (#129, #68).</p></li>
+<li><p>The default value for knitr’s <code class="docutils literal notranslate"><span class="pre">upload.fun</span></code> is now set according to the venue. It is <code class="docutils literal notranslate"><span class="pre">knitr::imgur_upload()</span></code> for all venues except <code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code>, where it is <code class="docutils literal notranslate"><span class="pre">identity</span></code> (#125).</p></li>
+<li><p>The HTML preview should appear in the RStudio Viewer more consistently, especially on Windows (#75 &#64;yutannihilation).</p></li>
+<li><p>More rigorous use of UTF-8 encoding (#76 &#64;yutannihilation).</p></li>
+<li><p>Expression input handling has been refactored. As a result, formatR is no longer Suggested. Trailing comments – inline and on their own line – are also now retained (#89, #91, #114, &#64;jennybc and &#64;jimhester).</p></li>
+<li><p>Custom prompts are now escaped when used in regexes (#98, #99 &#64;jimhester). Embedded newlines are now escaped.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="reprex-0-1-2">
+<h1>reprex 0.1.2<a class="headerlink" href="#reprex-0-1-2" title="Permalink to this headline">¶</a></h1>
+<p>This was a non-functioning release created by CRAN maintainers by commenting out lines of code relating to the clipboard.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="reprex-0-1-1">
+<h1>reprex 0.1.1<a class="headerlink" href="#reprex-0-1-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Pandoc added to SystemRequirements.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="reprex-0-1-0">
+<h1>reprex 0.1.0<a class="headerlink" href="#reprex-0-1-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">outfile</span> <span class="pre">=</span> <span class="pre">NA</span></code> causes outfiles to be left in working directory. Filenames will be based on the <code class="docutils literal notranslate"><span class="pre">input</span></code> file, if there was one.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reprex()</span></code> strips any leading prompts from input code.</p></li>
+<li><p>Added functions <code class="docutils literal notranslate"><span class="pre">reprex_clean()</span></code>, <code class="docutils literal notranslate"><span class="pre">reprex_invert()</span></code>, and <code class="docutils literal notranslate"><span class="pre">reprex_rescue()</span></code> in order to go backwards, i.e. recover source from a wild-caught reprex.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">venue</span> <span class="pre">=</span> <span class="pre">&quot;R&quot;</span></code> (or <code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code>) can be used to get an R script back, augmented with commented output.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">comment</span></code> argument added to specify prefix for commented output.</p></li>
+<li><p>Added an RStudio addin, accessed via “Render reprex”.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">input</span></code> argument to <code class="docutils literal notranslate"><span class="pre">reprex()</span></code> and friends handles code as string, character vector, or file path.</p></li>
+<li><p>The reprex is rendered via <code class="docutils literal notranslate"><span class="pre">callr::r_safe()</span></code> and is thus run in a clean, separate R process, eliminating any leakage of objects or loaded packages to/from the calling session.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reprex()</span></code> gains optional arguments <code class="docutils literal notranslate"><span class="pre">opts_chunk</span></code> and <code class="docutils literal notranslate"><span class="pre">opts_knit</span></code>, taking named list as input, in order to supplement or override default knitr chunk and package options, respectively. (#33)</p>
+<ul>
+<li><p>This made the explicit <code class="docutils literal notranslate"><span class="pre">upload.fun</span></code> argument unnecessary, so it’s gone. The <code class="docutils literal notranslate"><span class="pre">upload.fun</span></code> option defaults to <code class="docutils literal notranslate"><span class="pre">knitr::imgur_upload</span></code>, which means figures produced by the reprex will be uploaded to <a class="reference external" href="https://imgur.com/">imgur.com</a> and the associated image syntax will be put into the Markdown, e.g. <code class="docutils literal notranslate"><span class="pre">![](https://i.imgur.com/QPU5Cg9.png)</span></code>. (#15 &#64;paternogbc)</p></li>
+</ul>
+</li>
+<li><p>Order of <code class="docutils literal notranslate"><span class="pre">reprex()</span></code> arguments has changed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reprex()</span></code> gains the <code class="docutils literal notranslate"><span class="pre">si</span></code> argument to request that <code class="docutils literal notranslate"><span class="pre">devtools::session_info()</span></code> or <code class="docutils literal notranslate"><span class="pre">sessionInfo()</span></code> be appended to reprex code (#6 &#64;dgrtwo). When <code class="docutils literal notranslate"><span class="pre">si</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> and <code class="docutils literal notranslate"><span class="pre">venue</span> <span class="pre">=</span> <span class="pre">&quot;gh&quot;</span></code> (the default), session info is wrapped in a collapsible details tag. See <a class="reference external" href="https://github.com/tidyverse/reprex/issues/55">an example</a> (#55).</p></li>
+<li><p>Reprex code can be provided as an R expression. (#6 &#64;dgrtwo, #35)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reprex()</span></code> uses clipboard functionality from <a class="reference external" href="https://CRAN.R-project.org/package=clipr"><code class="docutils literal notranslate"><span class="pre">clipr</span></code></a> and thus should work on Windows and suitably prepared Unix-like systems, in addition to Mac OS. (#16 &#64;mdlincoln)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="reprex-0-0-0-9000">
+<h1>reprex 0.0.0.9000<a class="headerlink" href="#reprex-0-0-0-9000" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>I tweeted about this and some people actually used it!</p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./temporal/renv/library/R-4.1/aarch64-apple-darwin20/reprex"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Quan Nguyen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

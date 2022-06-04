@@ -1,0 +1,717 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstrap 3 for Sass &#8212; Temporal and sequential analysis - LASI 2022</title>
+    
+  <link href="../../../../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../../../../" id="documentation_options" src="../../../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../../../_static/togglebutton.js"></script>
+    <script src="../../../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../../../../../_static/solar_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Temporal and sequential analysis - LASI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../../../Lecture1.html">
+   Lecture 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../../../Lecture2.html">
+   Lecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../../../Lecture3.html">
+   Lecture 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Labs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../../../Lab1.html">
+   Lab 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../../../Lab2.html">
+   Lab 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../../../Lab3.html">
+   Lab 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Quan Nguyen<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../../../../_sources/temporal/renv/library/R-4.1/aarch64-apple-darwin20/bslib/lib/bs3/README.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/quan3010/temporal_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/quan3010/temporal_analysis/issues/new?title=Issue%20on%20page%20%2Ftemporal/renv/library/R-4.1/aarch64-apple-darwin20/bslib/lib/bs3/README.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation">
+   Installation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-ruby-on-rails">
+     a. Ruby on Rails
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#bower-with-rails">
+       Bower with Rails
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#rails-4-x">
+       Rails 4.x
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#rails-3-2-x">
+       Rails 3.2.x
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#b-bower">
+     b. Bower
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#node-js-mincer">
+       Node.js Mincer
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#c-npm-node-js">
+     c. npm / Node.js
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#configuration">
+   Configuration
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sass">
+     Sass
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sass-number-precision">
+     Sass: Number Precision
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sass-autoprefixer">
+     Sass: Autoprefixer
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#javascript">
+     JavaScript
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#javascript-with-sprockets-or-mincer">
+       JavaScript with Sprockets or Mincer
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fonts">
+     Fonts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#usage">
+   Usage
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Sass
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#eyeglass">
+     Eyeglass
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version">
+   Version
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#development-and-contributing">
+   Development and Contributing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#upstream-converter">
+     Upstream Converter
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#credits">
+   Credits
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#you-re-in-good-company">
+   You’re in good company
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="bootstrap-3-for-sass">
+<h1>Bootstrap 3 for Sass<a class="headerlink" href="#bootstrap-3-for-sass" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://badge.fury.io/rb/bootstrap-sass"><img alt="Gem Version" src="https://badge.fury.io/rb/bootstrap-sass.svg" /></a>
+<a class="reference external" href="https://www.npmjs.com/package/bootstrap-sass"><img alt="npm version" src="https://img.shields.io/npm/v/bootstrap-sass.svg?style=flat" /></a>
+<a class="reference external" href="http://badge.fury.io/bo/bootstrap-sass"><img alt="Bower Version" src="https://badge.fury.io/bo/bootstrap-sass.svg" /></a>
+<a class="reference external" href="https://travis-ci.org/twbs/bootstrap-sass"><img alt="Build Status" src="https://img.shields.io/travis/twbs/bootstrap-sass.svg" /></a></p>
+<p><code class="docutils literal notranslate"><span class="pre">bootstrap-sass</span></code> is a Sass-powered version of <a class="reference external" href="https://github.com/twbs/bootstrap">Bootstrap</a> 3, ready to drop right into your Sass powered applications.</p>
+<p>This is Bootstrap <strong>3</strong>. For Bootstrap <strong>4</strong> use the <a class="reference external" href="https://github.com/twbs/bootstrap-rubygem">Bootstrap rubygem</a> if you use Ruby, and the <a class="reference external" href="https://github.com/twbs/bootstrap">main repo</a> otherwise.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>Please see the appropriate guide for your environment of choice:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="#a-ruby-on-rails">Ruby on Rails</a>.</p></li>
+<li><p><a class="reference external" href="#b-bower">Bower</a>.</p></li>
+<li><p><a class="reference external" href="#c-npm--nodejs">npm / Node.js</a>.</p></li>
+</ul>
+<div class="section" id="a-ruby-on-rails">
+<h3>a. Ruby on Rails<a class="headerlink" href="#a-ruby-on-rails" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">bootstrap-sass</span></code> is easy to drop into Rails with the asset pipeline.</p>
+<p>In your Gemfile you need to add the <code class="docutils literal notranslate"><span class="pre">bootstrap-sass</span></code> gem, and ensure that the <code class="docutils literal notranslate"><span class="pre">sass-rails</span></code> gem is present - it is added to new Rails applications by default.</p>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="n">gem</span> <span class="s1">&#39;bootstrap-sass&#39;</span><span class="p">,</span> <span class="s1">&#39;~&gt; 3.4.1&#39;</span>
+<span class="n">gem</span> <span class="s1">&#39;sassc-rails&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 2.1.0&#39;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">bundle</span> <span class="pre">install</span></code> and restart your server to make the files available through the pipeline.</p>
+<p>Import Bootstrap styles in <code class="docutils literal notranslate"><span class="pre">app/assets/stylesheets/application.scss</span></code>:</p>
+<div class="highlight-scss notranslate"><div class="highlight"><pre><span></span><span class="c1">// &quot;bootstrap-sprockets&quot; must be imported before &quot;bootstrap&quot; and &quot;bootstrap/variables&quot;</span>
+<span class="k">@import</span> <span class="s2">&quot;bootstrap-sprockets&quot;</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">&quot;bootstrap&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">bootstrap-sprockets</span></code> must be imported before <code class="docutils literal notranslate"><span class="pre">bootstrap</span></code> for the icon fonts to work.</p>
+<p>Make sure the file has <code class="docutils literal notranslate"><span class="pre">.scss</span></code> extension (or <code class="docutils literal notranslate"><span class="pre">.sass</span></code> for Sass syntax). If you have just generated a new Rails app,
+it may come with a <code class="docutils literal notranslate"><span class="pre">.css</span></code> file instead. If this file exists, it will be served instead of Sass, so rename it:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mv app/assets/stylesheets/application.css app/assets/stylesheets/application.scss
+</pre></div>
+</div>
+<p>Then, remove all the <code class="docutils literal notranslate"><span class="pre">*=</span> <span class="pre">require_self</span></code> and <code class="docutils literal notranslate"><span class="pre">*=</span> <span class="pre">require_tree</span> <span class="pre">.</span></code> statements from the sass file. Instead, use <code class="docutils literal notranslate"><span class="pre">&#64;import</span></code> to import Sass files.</p>
+<p>Do not use <code class="docutils literal notranslate"><span class="pre">*=</span> <span class="pre">require</span></code> in Sass or your other stylesheets will not be <a class="reference external" href="https://github.com/twbs/bootstrap-sass/issues/79#issuecomment-4428595">able to access</a> the Bootstrap mixins or variables.</p>
+<p>Bootstrap JavaScript depends on jQuery.
+If you’re using Rails 5.1+, add the <code class="docutils literal notranslate"><span class="pre">jquery-rails</span></code> gem to your Gemfile:</p>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="n">gem</span> <span class="s1">&#39;jquery-rails&#39;</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>bundle install
+</pre></div>
+</div>
+<p>Require Bootstrap Javascripts in <code class="docutils literal notranslate"><span class="pre">app/assets/javascripts/application.js</span></code>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">//= require jquery</span>
+<span class="c1">//= require bootstrap-sprockets</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">bootstrap-sprockets</span></code> and <code class="docutils literal notranslate"><span class="pre">bootstrap</span></code> <a class="reference external" href="https://github.com/twbs/bootstrap-sass/issues/829#issuecomment-75153827">should not both be included</a> in <code class="docutils literal notranslate"><span class="pre">application.js</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">bootstrap-sprockets</span></code> provides individual Bootstrap Javascript files (<code class="docutils literal notranslate"><span class="pre">alert.js</span></code> or <code class="docutils literal notranslate"><span class="pre">dropdown.js</span></code>, for example), while
+<code class="docutils literal notranslate"><span class="pre">bootstrap</span></code> provides a concatenated file containing all Bootstrap Javascripts.</p>
+<div class="section" id="bower-with-rails">
+<h4>Bower with Rails<a class="headerlink" href="#bower-with-rails" title="Permalink to this headline">¶</a></h4>
+<p>When using <a class="reference external" href="#c-bower">bootstrap-sass Bower package</a> instead of the gem in Rails, configure assets in <code class="docutils literal notranslate"><span class="pre">config/application.rb</span></code>:</p>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bower asset paths</span>
+<span class="n">root</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;vendor&#39;</span><span class="p">,</span> <span class="s1">&#39;assets&#39;</span><span class="p">,</span> <span class="s1">&#39;bower_components&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_s</span><span class="o">.</span><span class="n">tap</span> <span class="k">do</span> <span class="o">|</span><span class="n">bower_path</span><span class="o">|</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">sass</span><span class="o">.</span><span class="n">load_paths</span> <span class="o">&lt;&lt;</span> <span class="n">bower_path</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">assets</span><span class="o">.</span><span class="n">paths</span> <span class="o">&lt;&lt;</span> <span class="n">bower_path</span>
+<span class="k">end</span>
+<span class="c1"># Precompile Bootstrap fonts</span>
+<span class="n">config</span><span class="o">.</span><span class="n">assets</span><span class="o">.</span><span class="n">precompile</span> <span class="o">&lt;&lt;</span> <span class="sr">%r(bootstrap-sass/assets/fonts/bootstrap/[\w-]+\.(?:eot|svg|ttf|woff2?)$)</span>
+<span class="c1"># Minimum Sass number precision required by bootstrap-sass</span>
+<span class="o">::</span><span class="no">Sass</span><span class="o">::</span><span class="no">Script</span><span class="o">::</span><span class="no">Value</span><span class="o">::</span><span class="no">Number</span><span class="o">.</span><span class="n">precision</span> <span class="o">=</span> <span class="o">[</span><span class="mi">8</span><span class="p">,</span> <span class="o">::</span><span class="no">Sass</span><span class="o">::</span><span class="no">Script</span><span class="o">::</span><span class="no">Value</span><span class="o">::</span><span class="no">Number</span><span class="o">.</span><span class="n">precision</span><span class="o">].</span><span class="n">max</span>
+</pre></div>
+</div>
+<p>Replace Bootstrap <code class="docutils literal notranslate"><span class="pre">&#64;import</span></code> statements in <code class="docutils literal notranslate"><span class="pre">application.scss</span></code> with:</p>
+<div class="highlight-scss notranslate"><div class="highlight"><pre><span></span><span class="nv">$icon-font-path</span><span class="o">:</span> <span class="s2">&quot;bootstrap-sass/assets/fonts/bootstrap/&quot;</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">&quot;bootstrap-sass/assets/stylesheets/bootstrap-sprockets&quot;</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">&quot;bootstrap-sass/assets/stylesheets/bootstrap&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Replace Bootstrap <code class="docutils literal notranslate"><span class="pre">require</span></code> directive in <code class="docutils literal notranslate"><span class="pre">application.js</span></code> with:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">//= require bootstrap-sass/assets/javascripts/bootstrap-sprockets</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rails-4-x">
+<h4>Rails 4.x<a class="headerlink" href="#rails-4-x" title="Permalink to this headline">¶</a></h4>
+<p>Please make sure <code class="docutils literal notranslate"><span class="pre">sprockets-rails</span></code> is at least v2.1.4.</p>
+</div>
+<div class="section" id="rails-3-2-x">
+<h4>Rails 3.2.x<a class="headerlink" href="#rails-3-2-x" title="Permalink to this headline">¶</a></h4>
+<p>bootstrap-sass is no longer compatible with Rails 3. The latest version of bootstrap-sass compatible with Rails 3.2 is v3.1.1.0.</p>
+</div>
+</div>
+<div class="section" id="b-bower">
+<h3>b. Bower<a class="headerlink" href="#b-bower" title="Permalink to this headline">¶</a></h3>
+<p>bootstrap-sass Bower package is compatible with node-sass 3.2.0+. You can install it with:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>bower install bootstrap-sass
+</pre></div>
+</div>
+<p>Sass, JS, and all other assets are located at <span class="xref myst">assets</span>.</p>
+<p>By default, <code class="docutils literal notranslate"><span class="pre">bower.json</span></code> main field list only the main <code class="docutils literal notranslate"><span class="pre">_bootstrap.scss</span></code> and all the static assets (fonts and JS).
+This is compatible by default with asset managers such as <a class="reference external" href="https://github.com/taptapship/wiredep">wiredep</a>.</p>
+<div class="section" id="node-js-mincer">
+<h4>Node.js Mincer<a class="headerlink" href="#node-js-mincer" title="Permalink to this headline">¶</a></h4>
+<p>If you use <a class="reference external" href="https://github.com/nodeca/mincer">mincer</a> with node-sass, import Bootstrap like so:</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">application.css.ejs.scss</span></code> (NB <strong>.css.ejs.scss</strong>):</p>
+<div class="highlight-scss notranslate"><div class="highlight"><pre><span></span><span class="c1">// Import mincer asset paths helper integration</span>
+<span class="k">@import</span> <span class="s2">&quot;bootstrap-mincer&quot;</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">&quot;bootstrap&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>In <code class="docutils literal notranslate"><span class="pre">application.js</span></code>:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">//= require bootstrap-sprockets</span>
+</pre></div>
+</div>
+<p>See also this <span class="xref myst">example manifest.js</span> for mincer.</p>
+</div>
+</div>
+<div class="section" id="c-npm-node-js">
+<h3>c. npm / Node.js<a class="headerlink" href="#c-npm-node-js" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>npm install bootstrap-sass
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sass">
+<h3>Sass<a class="headerlink" href="#sass" title="Permalink to this headline">¶</a></h3>
+<p>By default all of Bootstrap is imported.</p>
+<p>You can also import components explicitly. To start with a full list of modules copy
+<span class="xref myst"><code class="docutils literal notranslate"><span class="pre">_bootstrap.scss</span></code></span> file into your assets as <code class="docutils literal notranslate"><span class="pre">_bootstrap-custom.scss</span></code>.
+Then comment out components you do not want from <code class="docutils literal notranslate"><span class="pre">_bootstrap-custom</span></code>.
+In the application Sass file, replace <code class="docutils literal notranslate"><span class="pre">&#64;import</span> <span class="pre">'bootstrap'</span></code> with:</p>
+<div class="highlight-scss notranslate"><div class="highlight"><pre><span></span><span class="k">@import</span> <span class="s1">&#39;bootstrap-custom&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sass-number-precision">
+<h3>Sass: Number Precision<a class="headerlink" href="#sass-number-precision" title="Permalink to this headline">¶</a></h3>
+<p>bootstrap-sass <a class="reference external" href="https://github.com/twbs/bootstrap-sass/issues/409">requires</a> minimum <a class="reference external" href="http://sass-lang.com/documentation/Sass/Script/Value/Number.html#precision%3D-class_method">Sass number precision</a> of 8 (default is 5).</p>
+<p>Precision is set for Ruby automatically when using the <code class="docutils literal notranslate"><span class="pre">sassc-rails</span></code> gem.
+When using the npm or Bower version with Ruby, you can set it with:</p>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="o">::</span><span class="no">Sass</span><span class="o">::</span><span class="no">Script</span><span class="o">::</span><span class="no">Value</span><span class="o">::</span><span class="no">Number</span><span class="o">.</span><span class="n">precision</span> <span class="o">=</span> <span class="o">[</span><span class="mi">8</span><span class="p">,</span> <span class="o">::</span><span class="no">Sass</span><span class="o">::</span><span class="no">Script</span><span class="o">::</span><span class="no">Value</span><span class="o">::</span><span class="no">Number</span><span class="o">.</span><span class="n">precision</span><span class="o">].</span><span class="n">max</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sass-autoprefixer">
+<h3>Sass: Autoprefixer<a class="headerlink" href="#sass-autoprefixer" title="Permalink to this headline">¶</a></h3>
+<p>Bootstrap requires the use of <a class="reference external" href="https://github.com/postcss/autoprefixer">Autoprefixer</a>.
+<a class="reference external" href="https://github.com/postcss/autoprefixer">Autoprefixer</a> adds vendor prefixes to CSS rules using values from <a class="reference external" href="https://caniuse.com/">Can I Use</a>.</p>
+<p>To match <a class="reference external" href="https://getbootstrap.com/getting-started/#support">upstream Bootstrap’s level of browser compatibility</a>, set Autoprefixer’s <code class="docutils literal notranslate"><span class="pre">browsers</span></code> option to:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+  <span class="s2">&quot;Android 2.3&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;Android &gt;= 4&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;Chrome &gt;= 20&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;Firefox &gt;= 24&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;Explorer &gt;= 8&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;iOS &gt;= 6&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;Opera &gt;= 12&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;Safari &gt;= 6&quot;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="javascript">
+<h3>JavaScript<a class="headerlink" href="#javascript" title="Permalink to this headline">¶</a></h3>
+<p><span class="xref myst"><code class="docutils literal notranslate"><span class="pre">assets/javascripts/bootstrap.js</span></code></span> contains all of Bootstrap’s JavaScript,
+concatenated in the <span class="xref myst">correct order</span>.</p>
+<div class="section" id="javascript-with-sprockets-or-mincer">
+<h4>JavaScript with Sprockets or Mincer<a class="headerlink" href="#javascript-with-sprockets-or-mincer" title="Permalink to this headline">¶</a></h4>
+<p>If you use Sprockets or Mincer, you can require <code class="docutils literal notranslate"><span class="pre">bootstrap-sprockets</span></code> instead to load the individual modules:</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">// Load all Bootstrap JavaScript</span>
+<span class="c1">//= require bootstrap-sprockets</span>
+</pre></div>
+</div>
+<p>You can also load individual modules, provided you also require any dependencies.
+You can check dependencies in the <a class="reference external" href="https://getbootstrap.com/javascript/#transitions">Bootstrap JS documentation</a>.</p>
+<div class="highlight-js notranslate"><div class="highlight"><pre><span></span><span class="c1">//= require bootstrap/scrollspy</span>
+<span class="c1">//= require bootstrap/modal</span>
+<span class="c1">//= require bootstrap/dropdown</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="fonts">
+<h3>Fonts<a class="headerlink" href="#fonts" title="Permalink to this headline">¶</a></h3>
+<p>The fonts are referenced as:</p>
+<div class="highlight-scss notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;</span><span class="si">#{</span><span class="nv">$icon-font-path</span><span class="si">}#{</span><span class="nv">$icon-font-name</span><span class="si">}</span><span class="s2">.eot&quot;</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">$icon-font-path</span></code> defaults to <code class="docutils literal notranslate"><span class="pre">bootstrap/</span></code> if asset path helpers are used, and <code class="docutils literal notranslate"><span class="pre">../fonts/bootstrap/</span></code> otherwise.</p>
+<p>When using bootstrap-sass with Compass, Sprockets, or Mincer, you <strong>must</strong> import the relevant path helpers before Bootstrap itself, for example:</p>
+<div class="highlight-scss notranslate"><div class="highlight"><pre><span></span><span class="k">@import</span> <span class="s2">&quot;bootstrap-compass&quot;</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">&quot;bootstrap&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Sass<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Import Bootstrap into a Sass file (for example, <code class="docutils literal notranslate"><span class="pre">application.scss</span></code>) to get all of Bootstrap’s styles, mixins and variables!</p>
+<div class="highlight-scss notranslate"><div class="highlight"><pre><span></span><span class="k">@import</span> <span class="s2">&quot;bootstrap&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>You can also include optional Bootstrap theme:</p>
+<div class="highlight-scss notranslate"><div class="highlight"><pre><span></span><span class="k">@import</span> <span class="s2">&quot;bootstrap/theme&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The full list of Bootstrap variables can be found <a class="reference external" href="https://getbootstrap.com/customize/#less-variables">here</a>. You can override these by simply redefining the variable before the <code class="docutils literal notranslate"><span class="pre">&#64;import</span></code> directive, e.g.:</p>
+<div class="highlight-scss notranslate"><div class="highlight"><pre><span></span><span class="nv">$navbar-default-bg</span><span class="o">:</span> <span class="mh">#312312</span><span class="p">;</span>
+<span class="nv">$light-orange</span><span class="o">:</span> <span class="mh">#ff8c00</span><span class="p">;</span>
+<span class="nv">$navbar-default-color</span><span class="o">:</span> <span class="nv">$light-orange</span><span class="p">;</span>
+
+<span class="k">@import</span> <span class="s2">&quot;bootstrap&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="eyeglass">
+<h3>Eyeglass<a class="headerlink" href="#eyeglass" title="Permalink to this headline">¶</a></h3>
+<p>Bootstrap is available as an <a class="reference external" href="https://github.com/sass-eyeglass/eyeglass">Eyeglass</a> module. After installing Bootstrap via NPM you can import the Bootstrap library via:</p>
+<div class="highlight-scss notranslate"><div class="highlight"><pre><span></span><span class="k">@import</span> <span class="s2">&quot;bootstrap-sass/bootstrap&quot;</span>
+</pre></div>
+</div>
+<p>or import only the parts of Bootstrap you need:</p>
+<div class="highlight-scss notranslate"><div class="highlight"><pre><span></span><span class="k">@import</span> <span class="s2">&quot;bootstrap-sass/bootstrap/variables&quot;</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">&quot;bootstrap-sass/bootstrap/mixins&quot;</span><span class="p">;</span>
+<span class="k">@import</span> <span class="s2">&quot;bootstrap-sass/bootstrap/carousel&quot;</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="version">
+<h2>Version<a class="headerlink" href="#version" title="Permalink to this headline">¶</a></h2>
+<p>Bootstrap for Sass version may differ from the upstream version in the last number, known as
+<a class="reference external" href="https://semver.org/spec/v2.0.0.html">PATCH</a>. The patch version may be ahead of the corresponding upstream minor.
+This happens when we need to release Sass-specific changes.</p>
+<p>Before v3.3.2, Bootstrap for Sass version used to reflect the upstream version, with an additional number for
+Sass-specific changes. This was changed due to Bower and npm compatibility issues.</p>
+<p>The upstream versions vs the Bootstrap for Sass versions are:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:right head"><p>Upstream</p></th>
+<th class="text-align:right head"><p>Sass</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:right"><p>3.3.4+</p></td>
+<td class="text-align:right"><p>same</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p>3.3.2</p></td>
+<td class="text-align:right"><p>3.3.3</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p>&lt;= 3.3.1</p></td>
+<td class="text-align:right"><p>3.3.1.x</p></td>
+</tr>
+</tbody>
+</table>
+<p>Always refer to <span class="xref myst">CHANGELOG.md</span> when upgrading.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="development-and-contributing">
+<h2>Development and Contributing<a class="headerlink" href="#development-and-contributing" title="Permalink to this headline">¶</a></h2>
+<p>If you’d like to help with the development of bootstrap-sass itself, read this section.</p>
+<div class="section" id="upstream-converter">
+<h3>Upstream Converter<a class="headerlink" href="#upstream-converter" title="Permalink to this headline">¶</a></h3>
+<p>Keeping bootstrap-sass in sync with upstream changes from Bootstrap used to be an error prone and time consuming manual process. With Bootstrap 3 we have introduced a converter that automates this.</p>
+<p><strong>Note: if you’re just looking to <em>use</em> Bootstrap 3, see the <a class="reference external" href="#installation">installation</a> section above.</strong></p>
+<p>Upstream changes to the Bootstrap project can now be pulled in using the <code class="docutils literal notranslate"><span class="pre">convert</span></code> rake task.</p>
+<p>Here’s an example run that would pull down the master branch from the main <a class="reference external" href="https://github.com/twbs/bootstrap">twbs/bootstrap</a> repo:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rake convert
+</pre></div>
+</div>
+<p>This will convert the latest LESS to Sass and update to the latest JS.
+To convert a specific branch or version, pass the branch name or the commit hash as the first task argument:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rake convert[e8a1df5f060bf7e6631554648e0abde150aedbe4]
+</pre></div>
+</div>
+<p>The latest converter script is located <a class="reference external" href="https://github.com/twbs/bootstrap-sass/blob/master/tasks/converter/less_conversion.rb">here</a> and does the following:</p>
+<ul class="simple">
+<li><p>Converts upstream Bootstrap LESS files to its matching SCSS file.</p></li>
+<li><p>Copies all upstream JavaScript into <code class="docutils literal notranslate"><span class="pre">assets/javascripts/bootstrap</span></code>, a Sprockets manifest at <code class="docutils literal notranslate"><span class="pre">assets/javascripts/bootstrap-sprockets.js</span></code>, and a concatenation at <code class="docutils literal notranslate"><span class="pre">assets/javascripts/bootstrap.js</span></code>.</p></li>
+<li><p>Copies all upstream font files into <code class="docutils literal notranslate"><span class="pre">assets/fonts/bootstrap</span></code>.</p></li>
+<li><p>Sets <code class="docutils literal notranslate"><span class="pre">Bootstrap::BOOTSTRAP_SHA</span></code> in <a class="reference external" href="https://github.com/twbs/bootstrap-sass/blob/master/lib/bootstrap-sass/version.rb">version.rb</a> to the branch sha.</p></li>
+</ul>
+<p>This converter fully converts original LESS to SCSS. Conversion is automatic but requires instructions for certain transformations (see converter output).
+Please submit GitHub issues tagged with <code class="docutils literal notranslate"><span class="pre">conversion</span></code>.</p>
+</div>
+</div>
+<div class="section" id="credits">
+<h2>Credits<a class="headerlink" href="#credits" title="Permalink to this headline">¶</a></h2>
+<p>bootstrap-sass has a number of major contributors:</p>
+<!-- feel free to make these link wherever you wish -->
+<ul class="simple">
+<li><p><a class="reference external" href="https://twitter.com/thomasmcdonald_">Thomas McDonald</a></p></li>
+<li><p><a class="reference external" href="http://www.trisweb.com">Tristan Harward</a></p></li>
+<li><p>Peter Gumeson</p></li>
+<li><p><a class="reference external" href="https://github.com/glebm">Gleb Mazovetskiy</a></p></li>
+</ul>
+<p>and a <a class="reference external" href="https://github.com/twbs/bootstrap-sass/graphs/contributors">significant number of other contributors</a>.</p>
+</div>
+<div class="section" id="you-re-in-good-company">
+<h2>You’re in good company<a class="headerlink" href="#you-re-in-good-company" title="Permalink to this headline">¶</a></h2>
+<p>bootstrap-sass is used to build some awesome projects all over the web, including
+<a class="reference external" href="https://diasporafoundation.org/">Diaspora</a>, <a class="reference external" href="https://github.com/sferik/rails_admin">rails_admin</a>,
+Michael Hartl’s <a class="reference external" href="https://www.railstutorial.org/">Rails Tutorial</a>, <a class="reference external" href="http://gitlabhq.com/">gitlabhq</a> and
+<a class="reference external" href="http://getkandan.com/">kandan</a>.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./temporal/renv/library/R-4.1/aarch64-apple-darwin20/bslib/lib/bs3"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Quan Nguyen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,420 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bslib 0.3.1 &#8212; Temporal and sequential analysis - LASI 2022</title>
+    
+  <link href="../../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../_static/togglebutton.js"></script>
+    <script src="../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../../../_static/solar_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Temporal and sequential analysis - LASI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture1.html">
+   Lecture 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture2.html">
+   Lecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture3.html">
+   Lecture 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Labs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab1.html">
+   Lab 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab2.html">
+   Lab 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab3.html">
+   Lab 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Quan Nguyen<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../../_sources/temporal/renv/library/R-4.1/aarch64-apple-darwin20/bslib/NEWS.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/quan3010/temporal_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/quan3010/temporal_analysis/issues/new?title=Issue%20on%20page%20%2Ftemporal/renv/library/R-4.1/aarch64-apple-darwin20/bslib/NEWS.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   bslib 0.3.1
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-features">
+     New features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bug-fixes">
+     Bug fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bslib-0-3-0">
+   bslib 0.3.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#breaking-changes">
+     Breaking changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     New features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Bug fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bslib-0-2-5-1">
+   bslib 0.2.5.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bslib-0-2-5">
+   bslib 0.2.5
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-features-and-improvements">
+     New features and improvements
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Bug fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bslib-0-2-4">
+   bslib 0.2.4
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="bslib-0-3-1">
+<h1>bslib 0.3.1<a class="headerlink" href="#bslib-0-3-1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="new-features">
+<h2>New features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Upgraded Bootstrap 5 (i.e., <code class="docutils literal notranslate"><span class="pre">bs_theme(version</span> <span class="pre">=</span> <span class="pre">5)</span></code>) from 5.0.2 to 5.1.0 (#365)</p></li>
+</ul>
+</div>
+<div class="section" id="bug-fixes">
+<h2>Bug fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Closed rstudio/shiny#3519: <code class="docutils literal notranslate"><span class="pre">nav_menu()</span></code> (i.e., <code class="docutils literal notranslate"><span class="pre">shiny::navbarMenu()</span></code>) wasn’t producing an <code class="docutils literal notranslate"><span class="pre">.active</span></code> class on it’s <code class="docutils literal notranslate"><span class="pre">.dropdown</span></code> container properly. (#372)</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="bslib-0-3-0">
+<h1>bslib 0.3.0<a class="headerlink" href="#bslib-0-3-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="breaking-changes">
+<h2>Breaking changes<a class="headerlink" href="#breaking-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Closed rstudio/rmarkdown#2154: <code class="docutils literal notranslate"><span class="pre">{magrittr}</span></code>’s pipe operator (<code class="docutils literal notranslate"><span class="pre">%&gt;%</span></code>) is no longer re-exported by <code class="docutils literal notranslate"><span class="pre">{bslib}</span></code>. Either <code class="docutils literal notranslate"><span class="pre">library(magrittr)</span></code> to make <code class="docutils literal notranslate"><span class="pre">%&gt;%</span></code> available and/or use use R 4.1’s pipe operator (<code class="docutils literal notranslate"><span class="pre">|&gt;</span></code>).</p></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2>New features<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Closed #82: Added support for Bootstrap 5 (via <code class="docutils literal notranslate"><span class="pre">bs_theme(version</span> <span class="pre">=</span> <span class="pre">5)</span></code>). Bootstrap 4 remains the default in this release, but the next release, the default will likely change to Bootstrap 5.</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>Bug fixes<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Closed #6: rmarkdown’s .tabset-fade class now works with Bootstrap 4+ since legacy use of .nav .fade is now officially supported in Bootstrap 4+. (#325)</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="bslib-0-2-5-1">
+<h1>bslib 0.2.5.1<a class="headerlink" href="#bslib-0-2-5-1" title="Permalink to this headline">¶</a></h1>
+<p>Small patch release to fix failing test on Solaris.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="bslib-0-2-5">
+<h1>bslib 0.2.5<a class="headerlink" href="#bslib-0-2-5" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="new-features-and-improvements">
+<h2>New features and improvements<a class="headerlink" href="#new-features-and-improvements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Closed #251: New <code class="docutils literal notranslate"><span class="pre">bs_theme()</span></code> options (<code class="docutils literal notranslate"><span class="pre">navbar-bg</span></code>, <code class="docutils literal notranslate"><span class="pre">navbar-light-bg</span></code>, and <code class="docutils literal notranslate"><span class="pre">navbar-dark-bg</span></code>) for more easily customizing the navbar’s background (and foreground) color (#253, #271).</p></li>
+<li><p>Closed #281: New <code class="docutils literal notranslate"><span class="pre">bs_theme()</span></code> argument (<code class="docutils literal notranslate"><span class="pre">font_scale</span></code>) for easier scaling of the base font size (#288).</p></li>
+<li><p>Closed #256 and #282: Font file importers (<code class="docutils literal notranslate"><span class="pre">font_google()</span></code>, <code class="docutils literal notranslate"><span class="pre">font_link()</span></code>, and <code class="docutils literal notranslate"><span class="pre">font_face()</span></code>) are now re-exported from the <code class="docutils literal notranslate"><span class="pre">{sass}</span></code> package. As a result, they may now be used with any Sass variable (e.g., <code class="docutils literal notranslate"><span class="pre">bs_theme(&quot;input-font-family&quot;</span> <span class="pre">=</span> <span class="pre">font_google(&quot;Pacifico&quot;))</span></code>) as well as inside Rmd yaml without <code class="docutils literal notranslate"><span class="pre">!expr</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">input-font-family:</span> <span class="pre">google:</span> <span class="pre">Pacifico</span></code> – see #256 for more details). A new <code class="docutils literal notranslate"><span class="pre">font_collection()</span></code> function was also added for a more convenient way to specify font fallbacks (#291).</p></li>
+<li><p>Closed #255: <code class="docutils literal notranslate"><span class="pre">bs_themer()</span></code> now emits sensible <code class="docutils literal notranslate"><span class="pre">yaml</span></code> front matter when used within an Rmd document (#288).</p></li>
+<li><p>Closed #227: <code class="docutils literal notranslate"><span class="pre">bs_themer()</span></code> now overlays a spinner during Sass compilation (#243).</p></li>
+<li><p>Closed #278: <code class="docutils literal notranslate"><span class="pre">{bslib}</span></code> now includes <code class="docutils literal notranslate"><span class="pre">rmarkdown::html_document</span></code> templates demonstrating example usage with <code class="docutils literal notranslate"><span class="pre">{bslib}</span></code> and <code class="docutils literal notranslate"><span class="pre">{thematic}</span></code> (#288).</p></li>
+<li><p>Closed #231: Upgraded from Bootstrap 4.5.3 to 4.6.0 (#254).</p></li>
+<li><p>Closed #237: <code class="docutils literal notranslate"><span class="pre">&lt;blockquote&gt;</span></code> tags now have border-left/padding styles with <code class="docutils literal notranslate"><span class="pre">version</span> <span class="pre">=</span> <span class="pre">4</span></code> (to mirror the <code class="docutils literal notranslate"><span class="pre">version</span> <span class="pre">=</span> <span class="pre">3</span></code> behavior) (#239).</p></li>
+<li><p>Closed #279: Warnings about low color contrasts are now suppressed by default, unless <code class="docutils literal notranslate"><span class="pre">shiny::devmode()</span></code> is enabled. To enable/disable these warnings, set the new <code class="docutils literal notranslate"><span class="pre">options(bslib.color_contrast_warnings</span> <span class="pre">=</span> <span class="pre">)</span></code> to <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>/<code class="docutils literal notranslate"><span class="pre">FALSE</span></code> (#287).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bs_theme_dependencies()</span></code> now includes Sass source maps when <code class="docutils literal notranslate"><span class="pre">shiny::devmode()</span></code> is enabled (#312).</p></li>
+<li><p>Added new <code class="docutils literal notranslate"><span class="pre">bs_add_functions()</span></code>/<code class="docutils literal notranslate"><span class="pre">bs_add_mixins()</span></code> and deprecated <code class="docutils literal notranslate"><span class="pre">bs_add_declarations()</span></code> to reflect <code class="docutils literal notranslate"><span class="pre">sass::sass_layer()</span></code>’s new ability to place <code class="docutils literal notranslate"><span class="pre">functions</span></code> <em>before</em> variable <code class="docutils literal notranslate"><span class="pre">defaults</span></code>. As a result, variable definitions may now use functions defined with <code class="docutils literal notranslate"><span class="pre">bs_add_functions()</span></code>. (#311)</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>Bug fixes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Closed #236, #230, #242, #187, #215, #250: Addressed various cosmetic issues with CSS (#249).</p></li>
+<li><p>Closed #289: collapsed navbar toggle now correctly floats to the right (#290).</p></li>
+<li><p>Closed <a class="reference external" href="https://github.com/rstudio/flexdashboard/issues/316">rstudio/flexdashboard#316</a>: fixed an issue with navbar nav spacing/alignment (#286).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="bslib-0-2-4">
+<h1>bslib 0.2.4<a class="headerlink" href="#bslib-0-2-4" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Initial release of the package, see <a class="reference external" href="https://rstudio.github.io/bslib/">https://rstudio.github.io/bslib/</a></p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./temporal/renv/library/R-4.1/aarch64-apple-darwin20/bslib"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Quan Nguyen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

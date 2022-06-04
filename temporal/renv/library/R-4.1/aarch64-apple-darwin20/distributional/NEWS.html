@@ -1,0 +1,702 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>distributional 0.3.0 &#8212; Temporal and sequential analysis - LASI 2022</title>
+    
+  <link href="../../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../_static/togglebutton.js"></script>
+    <script src="../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../../../_static/solar_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Temporal and sequential analysis - LASI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture1.html">
+   Lecture 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture2.html">
+   Lecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture3.html">
+   Lecture 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Labs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab1.html">
+   Lab 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab2.html">
+   Lab 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab3.html">
+   Lab 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Quan Nguyen<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../../_sources/temporal/renv/library/R-4.1/aarch64-apple-darwin20/distributional/NEWS.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/quan3010/temporal_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/quan3010/temporal_analysis/issues/new?title=Issue%20on%20page%20%2Ftemporal/renv/library/R-4.1/aarch64-apple-darwin20/distributional/NEWS.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   distributional 0.3.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-features">
+     New features
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#probability-distributions">
+       Probability distributions
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#generics">
+       Generics
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#improvements">
+     Improvements
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bug-fixes">
+     Bug fixes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#breaking-changes">
+     Breaking changes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distributional-0-2-2">
+   distributional 0.2.2
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     New features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Improvements
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Bug fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distributional-0-2-1">
+   distributional 0.2.1
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     New features
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id5">
+       Probability distributions
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Improvements
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Bug fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distributional-0-2-0">
+   distributional 0.2.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     New features
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id9">
+       Probability distributions
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#methods">
+       Methods
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     Improvements
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deprecated-features">
+     Deprecated features
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#distributional-0-1-0">
+   distributional 0.1.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     New features
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#object-classes">
+       Object classes
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#generic-functions">
+       Generic functions
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#graphics">
+       Graphics
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id12">
+       Probability distributions
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#distribution-modifiers">
+       Distribution modifiers
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="distributional-0-3-0">
+<h1>distributional 0.3.0<a class="headerlink" href="#distributional-0-3-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="new-features">
+<h2>New features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="probability-distributions">
+<h3>Probability distributions<a class="headerlink" href="#probability-distributions" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">dist_categorical()</span></code> for the Categorical distribution.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">dist_lognormal()</span></code> for the log-normal distribution. Mathematical
+conversion shortcuts have also been added, so <code class="docutils literal notranslate"><span class="pre">exp(dist_normal())</span></code> produces
+<code class="docutils literal notranslate"><span class="pre">dist_lognormal()</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="generics">
+<h3>Generics<a class="headerlink" href="#generics" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">parameters()</span></code> generic for obtaining the distribution’s parameters.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">family(&lt;distribution&gt;)</span></code> for getting the distribution’s family name.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">covariance()</span></code> to return the covariance of a distribution.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">support()</span></code> to identify the distribution’s region of support (#8).</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">log_likelihood()</span></code> for computing the log-likelihood of observing a
+sample from a distribution.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="improvements">
+<h2>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">variance()</span></code> now always returns a variance. It will not default to providing
+a covariance matrix for matrices. This also applies to multivariate
+distributions such as <code class="docutils literal notranslate"><span class="pre">dist_multivariate_normal()</span></code>. The covariance can now
+be obtained using the <code class="docutils literal notranslate"><span class="pre">covariance()</span></code> function.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dist_wrap()</span></code> can now search for distribution functions in any environment,
+not just packages. If the <code class="docutils literal notranslate"><span class="pre">package</span></code> argument is <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, it will search the
+calling environment for the functions. You can also provide a package name as
+before, and additionally an arbitrary environment to this argument.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">median()</span></code> methods will now ignore the <code class="docutils literal notranslate"><span class="pre">na.rm</span></code> option when it does not apply
+to that distribution type (#72).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dist_sample()</span></code> now allows for missing values to be stored. Note that
+<code class="docutils literal notranslate"><span class="pre">density()</span></code>, <code class="docutils literal notranslate"><span class="pre">quantile()</span></code> and <code class="docutils literal notranslate"><span class="pre">cdf()</span></code> will remove these missing values by
+default. This behaviour can be changed with the <code class="docutils literal notranslate"><span class="pre">na.rm</span></code> argument.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;hilo&gt;</span></code> objects now support non-numeric and multivariate distributions.
+<code class="docutils literal notranslate"><span class="pre">&lt;hilo&gt;</span></code> vectors that have different bound types cannot be mixed (#74).</p></li>
+<li><p>Improved performance of default methods of <code class="docutils literal notranslate"><span class="pre">mean()</span></code> and <code class="docutils literal notranslate"><span class="pre">variance()</span></code>, which
+no longer use sampling based means and variances for univariate continuous
+distributions (#71, &#64;mjskay)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dist_binomial()</span></code> distributions now return integers for <code class="docutils literal notranslate"><span class="pre">quantile()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">generate()</span></code> methods.</p></li>
+<li><p>Added conditional examples for distributions using functions from supported
+packages.</p></li>
+</ul>
+</div>
+<div class="section" id="bug-fixes">
+<h2>Bug fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fixed fallback <code class="docutils literal notranslate"><span class="pre">format()</span></code> function for distributions classes that have not
+defined this method (#67).</p></li>
+</ul>
+</div>
+<div class="section" id="breaking-changes">
+<h2>Breaking changes<a class="headerlink" href="#breaking-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">variance()</span></code> on a <code class="docutils literal notranslate"><span class="pre">dist_multivariate_normal()</span></code> will now return the diagonal
+instead of the complete variance-covariance matrix.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dist_bernoulli()</span></code> will now return logical values for <code class="docutils literal notranslate"><span class="pre">quantile()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">generate()</span></code>.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="distributional-0-2-2">
+<h1>distributional 0.2.2<a class="headerlink" href="#distributional-0-2-2" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>New features<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">is_distribution()</span></code> to identify if an object is a distribution.</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>Improvements<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Improved NA structure of distributions, allowing it to work with <code class="docutils literal notranslate"><span class="pre">is.na()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">vctrs</span></code> vector resizing / filling functionality.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">as.character(&lt;hilo&gt;)</span></code> method, allowing datasets containing <code class="docutils literal notranslate"><span class="pre">hilo()</span></code>
+objects to be saved as a text file (#57).</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>Bug fixes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fixed issue with <code class="docutils literal notranslate"><span class="pre">hdr()</span></code> range <code class="docutils literal notranslate"><span class="pre">size</span></code> incorrectly being treated as <code class="docutils literal notranslate"><span class="pre">100-size</span></code>,
+giving 5% ranges for 95% sizes and vice-versa (#61).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="distributional-0-2-1">
+<h1>distributional 0.2.1<a class="headerlink" href="#distributional-0-2-1" title="Permalink to this headline">¶</a></h1>
+<p>A small performance and methods release. Some issues with truncated
+distributions have been fixed, and some more distribution methods have been
+added which improve performance of common tasks.</p>
+<div class="section" id="id4">
+<h2>New features<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h3>Probability distributions<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">dist_missing()</span></code> for representing unknown or missing (NA) distributions.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>Improvements<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Documentation improvements.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">cdf()</span></code> method for <code class="docutils literal notranslate"><span class="pre">dist_sample()</span></code> which uses the emperical cdf.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dist_mixture()</span></code> now preserves <code class="docutils literal notranslate"><span class="pre">dimnames()</span></code> if all distributions have the same
+<code class="docutils literal notranslate"><span class="pre">dimnames()</span></code>.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">density()</span></code> and <code class="docutils literal notranslate"><span class="pre">generate()</span></code> methods for sample distributions.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">skewness()</span></code> method for <code class="docutils literal notranslate"><span class="pre">dist_sample()</span></code>.</p></li>
+<li><p>Improved performance for truncated Normal and sample distributions (#49).</p></li>
+<li><p>Improved vectorisation of distribution methods.</p></li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>Bug fixes<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fixed issue with computing the median of <code class="docutils literal notranslate"><span class="pre">dist_truncated()</span></code> distributions.</p></li>
+<li><p>Fixed format method for <code class="docutils literal notranslate"><span class="pre">dist_truncated()</span></code> distributions with no upper or
+lower limit.</p></li>
+<li><p>Fixed issue with naming <hilo> objects giving an invalid structure. It now
+gives an informative error (#23).</p></li>
+<li><p>Fixed documentation for Negative Binomial distribution (#46).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="distributional-0-2-0">
+<h1>distributional 0.2.0<a class="headerlink" href="#distributional-0-2-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id8">
+<h2>New features<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id9">
+<h3>Probability distributions<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">dist_wrap()</span></code> for wrapping distributions not yet added in the package.</p></li>
+</ul>
+</div>
+<div class="section" id="methods">
+<h3>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">likelihood()</span></code> for computing the likelihood of observing a sample from a
+distribution.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">skewness()</span></code> for computing the skewness of a distribution.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">kurtosis()</span></code> for computing the kurtosis of a distribution.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">density()</span></code>, <code class="docutils literal notranslate"><span class="pre">cdf()</span></code> and <code class="docutils literal notranslate"><span class="pre">quantile()</span></code> methods now accept a <code class="docutils literal notranslate"><span class="pre">log</span></code> argument
+which will use/return probabilities as log probabilities.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id10">
+<h2>Improvements<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Improved documentation for most distributions to include equations for the
+region of support, summary statistics, density functions and moments. This is
+the work of &#64;alexpghayes in the <code class="docutils literal notranslate"><span class="pre">distributions3</span></code> package.</p></li>
+<li><p>Documentation improvements</p></li>
+<li><p>Added support for displaying distributions with <code class="docutils literal notranslate"><span class="pre">View()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hilo()</span></code> intervals can no longer be added to other intervals, as this is a
+common mistake when aggregating forecasts.</p></li>
+<li><p>Incremented <code class="docutils literal notranslate"><span class="pre">d</span></code> for <code class="docutils literal notranslate"><span class="pre">numDeriv::hessian()</span></code> when computing mean and variance of
+transformed distributions.</p></li>
+</ul>
+</div>
+<div class="section" id="deprecated-features">
+<h2>Deprecated features<a class="headerlink" href="#deprecated-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Graphics functionality provided by <code class="docutils literal notranslate"><span class="pre">autoplot.distribution()</span></code> is now deprecated
+in favour of using the <code class="docutils literal notranslate"><span class="pre">ggdist</span></code> package. The <code class="docutils literal notranslate"><span class="pre">ggdist</span></code> package allows
+distributions produced by distributional to be used directly with ggplot2 as
+aesthetics.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="distributional-0-1-0">
+<h1>distributional 0.1.0<a class="headerlink" href="#distributional-0-1-0" title="Permalink to this headline">¶</a></h1>
+<p>First release.</p>
+<div class="section" id="id11">
+<h2>New features<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="object-classes">
+<h3>Object classes<a class="headerlink" href="#object-classes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">distribution</span></code>: Distributions are represented in a vectorised format using the
+<a class="reference external" href="https://cran.r-project.org/package=vctrs">vctrs</a> package. This makes
+distributions suitable for inclusion in model prediction output. A
+<code class="docutils literal notranslate"><span class="pre">distribution</span></code> is a container for distribution-specific S3 classes.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hilo</span></code>: Intervals are also stored in a vector. A <code class="docutils literal notranslate"><span class="pre">hilo</span></code> consists of a <code class="docutils literal notranslate"><span class="pre">lower</span></code>
+bound, <code class="docutils literal notranslate"><span class="pre">upper</span></code> bound, and confidence <code class="docutils literal notranslate"><span class="pre">level</span></code>. Each numerical element can be
+extracted using <code class="docutils literal notranslate"><span class="pre">$</span></code>, for example my_hilo$lower to obtain the lower bounds.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hdr</span></code>: Highest density regions are currently stored as lists of <code class="docutils literal notranslate"><span class="pre">hilo</span></code> values.
+This is an experimental feature, and is likely to be expanded upon in an
+upcoming release.</p></li>
+</ul>
+</div>
+<div class="section" id="generic-functions">
+<h3>Generic functions<a class="headerlink" href="#generic-functions" title="Permalink to this headline">¶</a></h3>
+<p>Values of interest can be computed from the distribution using generic functions.
+The first release provides 9 functions for interacting with distributions:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">density()</span></code>: The probability density/mass function (equivalent to <code class="docutils literal notranslate"><span class="pre">d...()</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cdf()</span></code>: The cumulative distribution function (equivalent to <code class="docutils literal notranslate"><span class="pre">p...()</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">generate()</span></code>: Random generation from the distribution (equivalent to <code class="docutils literal notranslate"><span class="pre">r...()</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">quantile()</span></code>: Compute quantiles of the distribution (equivalent to <code class="docutils literal notranslate"><span class="pre">q...()</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hilo()</span></code>: Compute probability intervals of probability distribution(s).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hdr()</span></code>: Compute highest density regions of probability distribution(s).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mean()</span></code>: Obtain the mean(s) of probability distribution(s).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">median()</span></code>: Obtain the median(s) of probability distribution(s).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">variance()</span></code>: Obtain the variance(s) of probability distribution(s).</p></li>
+</ul>
+</div>
+<div class="section" id="graphics">
+<h3>Graphics<a class="headerlink" href="#graphics" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Added an <code class="docutils literal notranslate"><span class="pre">autoplot()</span></code> method for visualising the probability density function
+([<code class="docutils literal notranslate"><span class="pre">density()</span></code>]) or cumulative distribution function ([<code class="docutils literal notranslate"><span class="pre">cdf()</span></code>]) of one or more
+distribution.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">geom_hilo_ribbon()</span></code> and <code class="docutils literal notranslate"><span class="pre">geom_hilo_linerange()</span></code> geometries for ggplot2.
+These geoms allow uncertainty to be shown graphically with <code class="docutils literal notranslate"><span class="pre">hilo()</span></code> intervals.</p></li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h3>Probability distributions<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Added 20 continuous probability distributions:
+<code class="docutils literal notranslate"><span class="pre">dist_beta()</span></code>, <code class="docutils literal notranslate"><span class="pre">dist_burr()</span></code>, <code class="docutils literal notranslate"><span class="pre">dist_cauchy()</span></code>, <code class="docutils literal notranslate"><span class="pre">dist_chisq()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">dist_exponential()</span></code>, <code class="docutils literal notranslate"><span class="pre">dist_f()</span></code>, <code class="docutils literal notranslate"><span class="pre">dist_gamma()</span></code>, <code class="docutils literal notranslate"><span class="pre">dist_gumbel()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">dist_hypergeometric()</span></code>, <code class="docutils literal notranslate"><span class="pre">dist_inverse_exponential()</span></code>, <code class="docutils literal notranslate"><span class="pre">dist_inverse_gamma()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">dist_inverse_gaussian()</span></code>, <code class="docutils literal notranslate"><span class="pre">dist_logistic()</span></code>, <code class="docutils literal notranslate"><span class="pre">dist_multivariate_normal()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">dist_normal()</span></code>, <code class="docutils literal notranslate"><span class="pre">dist_pareto()</span></code>, <code class="docutils literal notranslate"><span class="pre">dist_student_t()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">dist_studentized_range()</span></code>, <code class="docutils literal notranslate"><span class="pre">dist_uniform()</span></code>, <code class="docutils literal notranslate"><span class="pre">dist_weibull()</span></code></p></li>
+<li><p>Added 8 discrete probability distributions:
+<code class="docutils literal notranslate"><span class="pre">dist_bernoulli()</span></code>, <code class="docutils literal notranslate"><span class="pre">dist_binomial()</span></code>, <code class="docutils literal notranslate"><span class="pre">dist_geometric()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">dist_logarithmic()</span></code>, <code class="docutils literal notranslate"><span class="pre">dist_multinomial()</span></code>, <code class="docutils literal notranslate"><span class="pre">dist_negative_binomial()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">dist_poisson()</span></code>, <code class="docutils literal notranslate"><span class="pre">dist_poisson_inverse_gaussian()</span></code></p></li>
+<li><p>Added 3 miscellaneous probability distributions:
+<code class="docutils literal notranslate"><span class="pre">dist_degenerate()</span></code>, <code class="docutils literal notranslate"><span class="pre">dist_percentile()</span></code>, <code class="docutils literal notranslate"><span class="pre">dist_sample()</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="distribution-modifiers">
+<h3>Distribution modifiers<a class="headerlink" href="#distribution-modifiers" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">dist_inflated()</span></code> which inflates a specific value of a distribution by
+a given probability. This can be used to produce zero-inflated distributions.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">dist_transformed()</span></code> for transforming distributions. This can be used
+to produce log distributions such as logNormal:
+<code class="docutils literal notranslate"><span class="pre">dist_transformed(dist_normal(),</span> <span class="pre">transform</span> <span class="pre">=</span> <span class="pre">exp,</span> <span class="pre">inverse</span> <span class="pre">=</span> <span class="pre">log)</span></code></p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">dist_mixture()</span></code> for producing weighted mixtures of distributions.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">dist_truncated()</span></code> to impose boundaries on a distribution’s domain via
+truncation.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./temporal/renv/library/R-4.1/aarch64-apple-darwin20/distributional"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Quan Nguyen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,1370 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>readr 2.1.2 &#8212; Temporal and sequential analysis - LASI 2022</title>
+    
+  <link href="../../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../_static/togglebutton.js"></script>
+    <script src="../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../../../_static/solar_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Temporal and sequential analysis - LASI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture1.html">
+   Lecture 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture2.html">
+   Lecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture3.html">
+   Lecture 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Labs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab1.html">
+   Lab 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab2.html">
+   Lab 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab3.html">
+   Lab 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Quan Nguyen<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../../_sources/temporal/renv/library/R-4.1/aarch64-apple-darwin20/readr/NEWS.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/quan3010/temporal_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/quan3010/temporal_analysis/issues/new?title=Issue%20on%20page%20%2Ftemporal/renv/library/R-4.1/aarch64-apple-darwin20/readr/NEWS.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   readr 2.1.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#readr-2-1-1">
+   readr 2.1.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#readr-2-1-0">
+   readr 2.1.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#readr-2-0-2">
+   readr 2.0.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#readr-2-0-1">
+   readr 2.0.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#readr-2-0-0">
+   readr 2.0.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#second-edition-changes">
+     second edition changes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#lazy-reading">
+       Lazy reading
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#reading-multiple-files-at-once">
+       Reading multiple files at once
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#delimiter-guessing">
+       Delimiter guessing
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#literal-data">
+       Literal data
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#license-changes">
+       License changes
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#deprecated-or-superseded-functions-and-features">
+       Deprecated or superseded functions and features
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#other-second-edition-changes">
+       Other second edition changes
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#additional-features-and-fixes">
+     Additional features and fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#readr-1-4-0">
+   readr 1.4.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#breaking-changes">
+     Breaking changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-features">
+     New features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Additional features and fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#readr-1-3-1">
+   readr 1.3.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#readr-1-3-0">
+   readr 1.3.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Breaking Changes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#blank-line-skipping">
+       Blank line skipping
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#tibble-data-frame-subclass">
+       tibble data frame subclass
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bugfixes">
+     Bugfixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#readr-1-2-1">
+   readr 1.2.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#readr-1-2-0">
+   readr 1.2.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Breaking Changes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#integer-column-guessing">
+       Integer column guessing
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id4">
+       Blank line skipping
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     New features
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#melt-functions">
+       Melt functions
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#connection-improvements">
+       Connection improvements
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#additional-new-features">
+       Additional new features
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bug-fixes">
+     Bug Fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#readr-1-1-1">
+   readr 1.1.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#readr-1-1-0">
+   readr 1.1.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     New features
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#parser-improvements">
+       Parser improvements
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#whitespace-fixed-width-improvements">
+       Whitespace / fixed width improvements
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#writing-to-connections">
+     Writing to connections
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#miscellaneous-features">
+     Miscellaneous features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Bugfixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#readr-1-0-0">
+   readr 1.0.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#column-guessing">
+     Column guessing
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#column-parsing">
+     Column parsing
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-readers-and-writers">
+     New readers and writers
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minor-features-and-bug-fixes">
+     Minor features and bug fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#readr-0-2-2">
+   readr 0.2.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#readr-0-2-1">
+   readr 0.2.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#readr-0-2-0">
+   readr 0.2.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#internationalisation">
+     Internationalisation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#file-parsing-improvements">
+     File parsing improvements
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#column-parsing-improvements">
+     Column parsing improvements
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minor-improvements-and-bug-fixes">
+     Minor improvements and bug fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="readr-2-1-2">
+<h1>readr 2.1.2<a class="headerlink" href="#readr-2-1-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">read_table()</span></code>, <code class="docutils literal notranslate"><span class="pre">read_log()</span></code>, and <code class="docutils literal notranslate"><span class="pre">read_delim_chunked()</span></code> (and friends) gain the <code class="docutils literal notranslate"><span class="pre">show_col_types</span></code> argument found elsewhere. All <code class="docutils literal notranslate"><span class="pre">read_*()</span></code> functions now respect the <code class="docutils literal notranslate"><span class="pre">show_col_types</span></code> argument or option, even when using the first edition parsing engine (#1331).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">show_progress()</span></code> uses <code class="docutils literal notranslate"><span class="pre">rlang::is_interactive()</span></code> instead of <code class="docutils literal notranslate"><span class="pre">base::interactive()</span></code> (#1356).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_builtin()</span></code> does more argument checking, so that we catch obviously malformed input before passing along to <code class="docutils literal notranslate"><span class="pre">utils::data()</span></code> (#1361).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">chickens.csv</span></code> and <code class="docutils literal notranslate"><span class="pre">whitespace-sample.txt</span></code> are new example datasets accessible via <code class="docutils literal notranslate"><span class="pre">readr_example()</span></code> (#1354).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="readr-2-1-1">
+<h1>readr 2.1.1<a class="headerlink" href="#readr-2-1-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Jenny Bryan is now the maintainer.</p></li>
+<li><p>Fix buffer overflow when trying to parse an integer from a field that is over 64 characters long (#1326)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="readr-2-1-0">
+<h1>readr 2.1.0<a class="headerlink" href="#readr-2-1-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>All readr functions again read eagerly by default. Unfortunately many users
+experienced frustration from the drawbacks of lazy reading, in particular
+locking files on Windows, so it was decided to disable lazy reading default.
+However <code class="docutils literal notranslate"><span class="pre">options(readr.read_lazy</span> <span class="pre">=</span> <span class="pre">TRUE)</span></code> can be used to set the default to by lazy if desired.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">readr.read_lazy</span></code> global option to control if readr reads files lazily or not (#1266)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="readr-2-0-2">
+<h1>readr 2.0.2<a class="headerlink" href="#readr-2-0-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>minor test tweak for compatibility with testthat 3.1.0 (#&#64;lionel-, #1304)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_rds()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">text=</span></code> argument, to control using a text based object representation, like the <code class="docutils literal notranslate"><span class="pre">ascii=</span></code> argument in <code class="docutils literal notranslate"><span class="pre">saveRDS()</span></code> (#1270)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="readr-2-0-1">
+<h1>readr 2.0.1<a class="headerlink" href="#readr-2-0-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">options(readr.show_col_types</span> <span class="pre">=</span> <span class="pre">FALSE)</span></code> now works as intended (#1250)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_delim_chunked()</span></code> now again correctly respects the <code class="docutils literal notranslate"><span class="pre">chunk_size</span></code> parameter (#1248)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type_convert()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">guess_integer</span></code> argument, passed to <code class="docutils literal notranslate"><span class="pre">guess_parser()</span></code> (&#64;jmbarbone, #1264)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_tsv()</span></code> now correctly passes the <code class="docutils literal notranslate"><span class="pre">quote</span></code> and <code class="docutils literal notranslate"><span class="pre">na</span></code> arguments to <code class="docutils literal notranslate"><span class="pre">vroom::vroom()</span></code> (#1254, #1255)</p></li>
+<li><p>Avoid spurious byte compilation errors due to the programmatically generated <code class="docutils literal notranslate"><span class="pre">spec_*()</span></code> functions.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="readr-2-0-0">
+<h1>readr 2.0.0<a class="headerlink" href="#readr-2-0-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="second-edition-changes">
+<h2>second edition changes<a class="headerlink" href="#second-edition-changes" title="Permalink to this headline">¶</a></h2>
+<p>readr 2.0.0 is a major release of readr and introduces a new second edition parsing and writing engine implemented via the <a class="reference external" href="https://vroom.r-lib.org/">vroom</a> package.</p>
+<p>This engine takes advantage of lazy reading, multi-threading and performance characteristics of modern SSD drives to significantly improve the performance of reading and writing compared to the first edition engine.</p>
+<p>We will continue to support the first edition for a number of releases, but eventually this support will be first deprecated and then removed.</p>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">with_edition()</span></code> or <code class="docutils literal notranslate"><span class="pre">local_edition()</span></code> functions to temporarily change the edition of readr for a section of code.</p>
+<p>e.g.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">with_edition(1,</span> <span class="pre">read_csv(&quot;my_file.csv&quot;))</span></code> will read <code class="docutils literal notranslate"><span class="pre">my_file.csv</span></code> with the first edition of readr.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">readr::local_edition(1)</span></code> placed at the top of your function or script will use the first edition for the rest of the function or script.</p></li>
+</ul>
+<div class="section" id="lazy-reading">
+<h3>Lazy reading<a class="headerlink" href="#lazy-reading" title="Permalink to this headline">¶</a></h3>
+<p>Edition two uses lazy reading by default.
+When you first call a <code class="docutils literal notranslate"><span class="pre">read_*()</span></code> function the delimiters and newlines throughout the entire file are found, but the data is not actually read until it is used in your program.
+This can provide substantial speed improvements for reading character data.
+It is particularly useful during interactive exploration of only a subset of a full dataset.</p>
+<p>However this also means that problematic values are not necessarily seen
+immediately, only when they are actually read.
+Because of this a warning will be issued the first time a problem is encountered,
+which may happen after initial reading.</p>
+<p>Run <code class="docutils literal notranslate"><span class="pre">problems()</span></code> on your dataset to read the entire dataset and return all of the problems found.
+Run <code class="docutils literal notranslate"><span class="pre">problems(lazy</span> <span class="pre">=</span> <span class="pre">TRUE)</span></code> if you only want to retrieve the problems found so far.</p>
+<p>Deleting files after reading is also impacted by laziness.
+On Windows open files cannot be deleted as long as a process has the file open.
+Because readr keeps a file open when reading lazily this means you cannot read, then immediately delete the file.
+readr will in most cases close the file once it has been completely read.
+However, if you know you want to be able to delete the file after reading it is best to pass <code class="docutils literal notranslate"><span class="pre">lazy</span> <span class="pre">=</span> <span class="pre">FALSE</span></code> when reading the file.</p>
+</div>
+<div class="section" id="reading-multiple-files-at-once">
+<h3>Reading multiple files at once<a class="headerlink" href="#reading-multiple-files-at-once" title="Permalink to this headline">¶</a></h3>
+<p>Edition two has built-in support for reading sets of files with the
+same columns into one output table in a single command.
+Just pass the filenames to be read in the same vector to the reading function.</p>
+<p>First we generate some files to read by splitting the nycflights dataset by
+airline.</p>
+<p>Then we can efficiently read them into one tibble by passing the filenames
+directly to readr.</p>
+<p>If the filenames contain data, such as the date when the sample was collected,
+use <code class="docutils literal notranslate"><span class="pre">id</span></code> argument to include the paths as a column in the data.
+You will likely have to post-process the paths to keep only the relevant portion for your use case.</p>
+</div>
+<div class="section" id="delimiter-guessing">
+<h3>Delimiter guessing<a class="headerlink" href="#delimiter-guessing" title="Permalink to this headline">¶</a></h3>
+<p>Edition two supports automatic guessing of delimiters.
+Because of this you can now use <code class="docutils literal notranslate"><span class="pre">read_delim()</span></code> without specifying a <code class="docutils literal notranslate"><span class="pre">delim</span></code> argument in many cases.</p>
+</div>
+<div class="section" id="literal-data">
+<h3>Literal data<a class="headerlink" href="#literal-data" title="Permalink to this headline">¶</a></h3>
+<p>In edition one the reading functions treated any input with a newline in it or vectors of length &gt; 1 as literal data.
+In edition two vectors of length &gt; 1 are now assumed to correspond to multiple files.
+Because of this we now have a more explicit way to represent literal data, by putting <code class="docutils literal notranslate"><span class="pre">I()</span></code> around the input.</p>
+</div>
+<div class="section" id="license-changes">
+<h3>License changes<a class="headerlink" href="#license-changes" title="Permalink to this headline">¶</a></h3>
+<p>We are systematically re-licensing tidyverse and r-lib packages to use the MIT license, to make our package licenses as clear and permissive as possible.</p>
+<p>To this end the readr and vroom packages are now released under the MIT license.</p>
+</div>
+<div class="section" id="deprecated-or-superseded-functions-and-features">
+<h3>Deprecated or superseded functions and features<a class="headerlink" href="#deprecated-or-superseded-functions-and-features" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">melt_csv()</span></code>, <code class="docutils literal notranslate"><span class="pre">melt_delim()</span></code>, <code class="docutils literal notranslate"><span class="pre">melt_tsv()</span></code> and <code class="docutils literal notranslate"><span class="pre">melt_fwf()</span></code> have been superseded by functions in the same name in the meltr package.
+The versions in readr have been deprecated.
+These functions rely on the first edition parsing code and would be challenging to update to the new parser.
+When the first edition parsing code is eventually removed from readr they will be removed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_table2()</span></code> has been renamed to <code class="docutils literal notranslate"><span class="pre">read_table()</span></code>, as most users expect <code class="docutils literal notranslate"><span class="pre">read_table()</span></code> to work like <code class="docutils literal notranslate"><span class="pre">utils::read.table()</span></code>.
+If you want the previous strict behavior of the <code class="docutils literal notranslate"><span class="pre">read_table()</span></code> you can use <code class="docutils literal notranslate"><span class="pre">read_fwf()</span></code> with <code class="docutils literal notranslate"><span class="pre">fwf_empty()</span></code> directly (#717).</p></li>
+<li><p>Normalizing newlines in files with just carriage returns <code class="docutils literal notranslate"><span class="pre">\r</span></code> is no longer supported.
+The last major OS to use only CR as the newline was ‘classic’ Mac OS, which had its final release in 2001.</p></li>
+</ul>
+</div>
+<div class="section" id="other-second-edition-changes">
+<h3>Other second edition changes<a class="headerlink" href="#other-second-edition-changes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">read_*_chunked()</span></code> functions now include their specification as an attribute (#1143)</p></li>
+<li><p>All <code class="docutils literal notranslate"><span class="pre">read_*()</span></code> functions gain a <code class="docutils literal notranslate"><span class="pre">col_select</span></code> argument to more easily choose which columns to select.</p></li>
+<li><p>All <code class="docutils literal notranslate"><span class="pre">read_*()</span></code> functions gain a <code class="docutils literal notranslate"><span class="pre">id</span></code> argument to optionally store the file paths when reading multiple files.</p></li>
+<li><p>All <code class="docutils literal notranslate"><span class="pre">read_*()</span></code> functions gain a <code class="docutils literal notranslate"><span class="pre">name_repair</span></code> argument to control how column names are repaired.</p></li>
+<li><p>All <code class="docutils literal notranslate"><span class="pre">read_*()</span></code> and <code class="docutils literal notranslate"><span class="pre">write_*()</span></code> functions gain a <code class="docutils literal notranslate"><span class="pre">num_threads</span></code> argument to control the number of processing threads they use (#1201)</p></li>
+<li><p>All <code class="docutils literal notranslate"><span class="pre">write_*()</span></code> and <code class="docutils literal notranslate"><span class="pre">format_*()</span></code> functions gain <code class="docutils literal notranslate"><span class="pre">quote</span></code> and <code class="docutils literal notranslate"><span class="pre">escape</span></code> arguments, to explicitly control how fields are quoted and how double quotes are escaped. (#653, #759, #844, #993, #1018, #1083)</p></li>
+<li><p>All <code class="docutils literal notranslate"><span class="pre">write_*()</span></code> functions gain a <code class="docutils literal notranslate"><span class="pre">progress</span></code> argument and display a progress bar when writing (#791).</p></li>
+<li><p>write_excel_csv() now defaults to <code class="docutils literal notranslate"><span class="pre">quote</span> <span class="pre">=</span> <span class="pre">&quot;all&quot;</span></code> (#759)</p></li>
+<li><p>write_tsv() now defaults to <code class="docutils literal notranslate"><span class="pre">quote</span> <span class="pre">=</span> <span class="pre">&quot;none&quot;</span></code> (#993)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_table()</span></code> now handles skipped lines with unpaired quotes properly (#1180)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="additional-features-and-fixes">
+<h2>Additional features and fixes<a class="headerlink" href="#additional-features-and-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The BH package is no longer a dependency.
+The boost C++ headers in BH have thousands of files, so can take a long time to extract and compiling them takes a great deal of memory, which made readr difficult to compile on systems with limited memory (#1147).</p></li>
+<li><p>readr now uses the tzdb package when parsing date-times (&#64;DavisVaughan, r-lib/vroom#273)</p></li>
+<li><p>Chunked readers now support files with more than <code class="docutils literal notranslate"><span class="pre">INT_MAX</span></code> (~ 2 Billion) number of lines (#1177)</p></li>
+<li><p>Memory no longer inadvertently leaks when reading memory from R connections (#1161)</p></li>
+<li><p>Invalid date formats no longer can potentially crash R (#1151)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">col_factor()</span></code> now throws a more informative error message if given non-character levels (#1140)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">problems()</span></code> now takes <code class="docutils literal notranslate"><span class="pre">.Last.value</span></code> as its default argument.
+This lets you run <code class="docutils literal notranslate"><span class="pre">problems()</span></code> without an argument to see the problems in the previously read dataset.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_delim()</span></code> fails when sample of parsing problems contains non-ASCII characters (&#64;hidekoji, #1136)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_log()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">trim_ws</span></code> argument (#738)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_rds()</span></code> and <code class="docutils literal notranslate"><span class="pre">write_rds()</span></code> gain a <code class="docutils literal notranslate"><span class="pre">refhook</span></code> argument, to pass functions that handle references objects (#1206)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_rds()</span></code> can now read .Rds files from URLs (#1186)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_*()</span></code> functions gain a <code class="docutils literal notranslate"><span class="pre">show_col_types</span></code> argument, if set to <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> this turns off showing the column types unconditionally.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type_convert()</span></code> now throws a warning if the input has no character columns (#1020)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_csv()</span></code> now errors if given a matrix column (#1171)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_csv()</span></code> now again is able to write data with duplicated column names (#1169)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_file()</span></code> now forces its argument before opening the output file (#1158)</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="readr-1-4-0">
+<h1>readr 1.4.0<a class="headerlink" href="#readr-1-4-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="breaking-changes">
+<h2>Breaking changes<a class="headerlink" href="#breaking-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">write_*()</span></code> functions first argument is now <code class="docutils literal notranslate"><span class="pre">file</span></code> instead of <code class="docutils literal notranslate"><span class="pre">path</span></code>, for consistency with the <code class="docutils literal notranslate"><span class="pre">read_*()</span></code> functions.
+<code class="docutils literal notranslate"><span class="pre">path</span></code> has been deprecated and will be removed in a future version of readr (#1110, &#64;brianrice2)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_*()</span></code> functions now output any NaN values in the same way as NA values, controlled by the <code class="docutils literal notranslate"><span class="pre">na=</span></code> argument. (#1082).</p></li>
+</ul>
+</div>
+<div class="section" id="new-features">
+<h2>New features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>It is now possible to generate a column specification from any tibble (or data.frame) with <code class="docutils literal notranslate"><span class="pre">as.col_spec()</span></code> and convert any column specification to a short representation with <code class="docutils literal notranslate"><span class="pre">as.character()</span></code></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>s &lt;- as.col_spec(iris)
+s
+#&gt; cols(
+#&gt;   Sepal.Length = col_double(),
+#&gt;   Sepal.Width = col_double(),
+#&gt;   Petal.Length = col_double(),
+#&gt;   Petal.Width = col_double(),
+#&gt;   Species = col_factor(levels = c(&quot;setosa&quot;, &quot;versicolor&quot;, &quot;virginica&quot;), ordered = FALSE, include_na = FALSE)
+#&gt; )
+as.character(s)
+#&gt; [1] &quot;ddddf&quot;
+</pre></div>
+</div>
+</li>
+<li><p>The cli package is now used for all messages.</p></li>
+<li><p>The runtime performance for tables with an extreme number of columns is greatly improved (#825)</p></li>
+<li><p>Compressed files are now detected by magic numbers rather than by the file extension (#1125)</p></li>
+<li><p>A memory leak when reading files is now fixed (#1092)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_*()</span></code> functions gain a <code class="docutils literal notranslate"><span class="pre">eol</span> <span class="pre">=</span></code> argument to control the end of line character used (#857).
+This allows writing of CSV files with Windows newlines (CRLF) if desired.</p></li>
+<li><p>The Rcpp dependency has been removed in favor of cpp11.</p></li>
+<li><p>The build system has been greatly simplified so should work on more systems.</p></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2>Additional features and fixes<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The full problem field is now displayed in the problems tibble, as intended (#444).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">%h</span></code> placeholder for parsing unrestricted hours (&lt;0 and &gt;23) to support parsing durations (#549, &#64;krlmlr).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">as.character.col_spec()</span></code> now handles logical columns as well (#1127)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fwf_positions(end)</span></code> no longer has a default argument and must be specified (#996)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">guess_parser()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">na</span></code> argument and removes NA values before guessing (#1041).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parse_guess()</span></code> now passes the <code class="docutils literal notranslate"><span class="pre">na</span></code> argument to <code class="docutils literal notranslate"><span class="pre">guess_parser()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_*</span></code> functions now close properly all connections, including on errors like HTTP errors when reading from a url (&#64;cderv, #1050).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_delimited()</span></code> no longer mistakenly stats literal filenames (#1063)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_lines()</span></code> now ignores quotations when skipping lines (#991).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_lines(skip_empty_rows</span> <span class="pre">=</span> <span class="pre">TRUE)</span></code> no longer crashes if a file ends with an empty line (#968)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_*()</span></code> functions now invisibly return the input data frame unchanged, rather than a version with factors and dates converted to strings. (&#64;jesse-ross, #975).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_csv2()</span></code> now formats decimal numbers more consistently with <code class="docutils literal notranslate"><span class="pre">utils::write.csv2()</span></code> (#1087)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_csv2()</span></code> and <code class="docutils literal notranslate"><span class="pre">format_csv2()</span></code> no longer pad number columns with whitespaces (&#64;keesdeschepper, #1046).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_excel_csv()</span></code> no longer outputs a byte order mark when appending to a file (#1075).</p></li>
+<li><p>Uses of <code class="docutils literal notranslate"><span class="pre">tibble::data_frame</span></code> updated to <code class="docutils literal notranslate"><span class="pre">tibble::tibble</span></code> (<a class="reference external" href="https://github.com/tidyverse/dplyr/issues/4069">tidyverse/dplyr#4069</a>, &#64;thays42, #1124, &#64;brianrice2)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_delimited()</span></code> now returns an empty <code class="docutils literal notranslate"><span class="pre">tibble::data_frame()</span></code> rather than signaling an error when given a connection with an empty file (&#64;pralitp, #963).</p></li>
+<li><p>More helpful error when trying to write out data frames with list columns (&#64;ellessenne, #938)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type_convert()</span></code> removes a ‘spec’ attribute, because the current columns likely have modified data types.  The ‘spec’ attribute is set by functions like <code class="docutils literal notranslate"><span class="pre">read_delim()</span></code> (&#64;jimhester, &#64;wibeasley, #1032).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_rds()</span></code> now can specify the Rds version to use. The default value is 2 as it’s compatible to R versions prior to 3.5.0 (&#64;shrektan, #1001).</p></li>
+<li><p>Fixes for issues related to variable initialization in C++ code (&#64;michaelquinn32, ##1133).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="readr-1-3-1">
+<h1>readr 1.3.1<a class="headerlink" href="#readr-1-3-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Column specifications are now coloured when printed. This makes it easy to
+see at a glance when a column is input as a different type then the rest.
+Colouring can be disabled by setting <code class="docutils literal notranslate"><span class="pre">options(crayon.enabled</span> <span class="pre">=</span> <span class="pre">FALSE)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">as.col_spec()</span></code> can now use named character vectors, which makes
+<code class="docutils literal notranslate"><span class="pre">read_csv(&quot;file.csv&quot;,</span> <span class="pre">col_types</span> <span class="pre">=</span> <span class="pre">c(xyz</span> <span class="pre">=</span> <span class="pre">&quot;c&quot;))</span></code> equivalent to
+<code class="docutils literal notranslate"><span class="pre">read_csv(&quot;file.csv&quot;,</span> <span class="pre">col_types</span> <span class="pre">=</span> <span class="pre">cols(xyz</span> <span class="pre">=</span> <span class="pre">col_character())</span></code></p></li>
+<li><p>Fix skipping when single quotes are embedded in double quoted strings, and
+single quotes in skipped or commented lines (#944, #945).</p></li>
+<li><p>Fix for compilation using custom architectures on macOS (#919)</p></li>
+<li><p>Fix for valgrind errors (#941)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="readr-1-3-0">
+<h1>readr 1.3.0<a class="headerlink" href="#readr-1-3-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>Breaking Changes<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="blank-line-skipping">
+<h3>Blank line skipping<a class="headerlink" href="#blank-line-skipping" title="Permalink to this headline">¶</a></h3>
+<p>readr’s blank line skipping has been modified to be more consistent and to
+avoid edge cases that affected the behavior in 1.2.0. The skip parameter now
+behaves more similar to how it worked previous to readr 1.2.0, but in addition
+the parameter <code class="docutils literal notranslate"><span class="pre">skip_blank_rows</span></code> can be used to control if fully blank lines are
+skipped. (#923)</p>
+</div>
+<div class="section" id="tibble-data-frame-subclass">
+<h3>tibble data frame subclass<a class="headerlink" href="#tibble-data-frame-subclass" title="Permalink to this headline">¶</a></h3>
+<p>readr 1.3.0 returns results with a <code class="docutils literal notranslate"><span class="pre">spec_tbl_df</span></code> subclass. This differs from a
+regular tibble only that the <code class="docutils literal notranslate"><span class="pre">spec</span></code> attribute (which holds the column
+specification) is lost as soon as the object is subset (and a normal <code class="docutils literal notranslate"><span class="pre">tbl_df</span></code>
+object is returned).</p>
+<p>Historically <code class="docutils literal notranslate"><span class="pre">tbl_df</span></code>’s lost their attributes once they were subset. However
+recent versions of tibble retain the attributes when subetting, so the
+<code class="docutils literal notranslate"><span class="pre">spec_tbl_df</span></code> subclass is needed to ensure the previous behavior.</p>
+<p>This should only break compatibility if you are explicitly checking the class
+of the returned object. A way to get backwards compatible behavior is to
+call subset with no arguments on your object, e.g. <code class="docutils literal notranslate"><span class="pre">x[]</span></code>.</p>
+</div>
+</div>
+<div class="section" id="bugfixes">
+<h2>Bugfixes<a class="headerlink" href="#bugfixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">hms</span></code> objects with NA values are now written without whitespace padding (#930).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_*()</span></code> functions now return <code class="docutils literal notranslate"><span class="pre">spec_tbl_df</span></code> objects, which differ from
+regular <code class="docutils literal notranslate"><span class="pre">tbl_df</span></code> objects only in that the <code class="docutils literal notranslate"><span class="pre">spec</span></code> attribute is removed (and
+they are demoted to regular <code class="docutils literal notranslate"><span class="pre">tbl_df</span></code> objects) as soon as they are subset
+(#934).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_csv2()</span></code> now properly respects the <code class="docutils literal notranslate"><span class="pre">na</span></code> argument (#928)</p></li>
+<li><p>Fixes compilation with multiple architectures on linux (#922).</p></li>
+<li><p>Fixes compilation with R &lt; 3.3.0</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="readr-1-2-1">
+<h1>readr 1.2.1<a class="headerlink" href="#readr-1-2-1" title="Permalink to this headline">¶</a></h1>
+<p>This release skips the clipboard tests on CRAN servers</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="readr-1-2-0">
+<h1>readr 1.2.0<a class="headerlink" href="#readr-1-2-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id3">
+<h2>Breaking Changes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="integer-column-guessing">
+<h3>Integer column guessing<a class="headerlink" href="#integer-column-guessing" title="Permalink to this headline">¶</a></h3>
+<p>readr functions no longer guess columns are of type integer, instead these
+columns are guessed as numeric. Because R uses 32 bit integers and 64 bit
+doubles all integers can be stored in doubles, guaranteeing no loss of
+information. This change was made to remove errors when numeric columns were
+incorrectly guessed as integers. If you know a certain column is an integer and
+would like to read them as such you can do so by specifying the column type
+explicitly with the <code class="docutils literal notranslate"><span class="pre">col_types</span></code> argument.</p>
+</div>
+<div class="section" id="id4">
+<h3>Blank line skipping<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>readr now always skips blank lines automatically when parsing, which may change
+the number of lines you need to pass to the <code class="docutils literal notranslate"><span class="pre">skip</span></code> parameter. For instance if
+your file had a one blank line then two more lines you want to skip previously
+you would pass <code class="docutils literal notranslate"><span class="pre">skip</span> <span class="pre">=</span> <span class="pre">3</span></code>, now you only need to pass <code class="docutils literal notranslate"><span class="pre">skip</span> <span class="pre">=</span> <span class="pre">2</span></code>.</p>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>New features<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="melt-functions">
+<h3>Melt functions<a class="headerlink" href="#melt-functions" title="Permalink to this headline">¶</a></h3>
+<p>There is now a family of <code class="docutils literal notranslate"><span class="pre">melt_*()</span></code> functions in readr. These functions store
+data in ‘long’ or ‘melted’ form, where each row corresponds to a single
+value in the dataset. This form is useful when your data is ragged and not
+rectangular.</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">&lt;-</span><span class="s">&quot;a,b,c</span>
+<span class="s">1,2</span>
+<span class="s">w,x,y,z&quot;</span>
+
+<span class="n">readr</span><span class="o">::</span><span class="nf">melt_csv</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="c1">#&gt; # A tibble: 9 x 4</span>
+<span class="c1">#&gt;     row   col data_type value</span>
+<span class="c1">#&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     &lt;chr&gt;</span>
+<span class="c1">#&gt; 1     1     1 character a    </span>
+<span class="c1">#&gt; 2     1     2 character b    </span>
+<span class="c1">#&gt; 3     1     3 character c    </span>
+<span class="c1">#&gt; 4     2     1 integer   1    </span>
+<span class="c1">#&gt; 5     2     2 integer   2    </span>
+<span class="c1">#&gt; 6     3     1 character w    </span>
+<span class="c1">#&gt; 7     3     2 character x    </span>
+<span class="c1">#&gt; 8     3     3 character y    </span>
+<span class="c1">#&gt; 9     3     4 character z</span>
+</pre></div>
+</div>
+<p>Thanks to Duncan Garmonsway (&#64;nacnudus) for great work on the idea an
+implementation of the <code class="docutils literal notranslate"><span class="pre">melt_*()</span></code> functions!</p>
+</div>
+<div class="section" id="connection-improvements">
+<h3>Connection improvements<a class="headerlink" href="#connection-improvements" title="Permalink to this headline">¶</a></h3>
+<p>readr 1.2.0 changes how R connections are parsed by readr.
+In previous versions of readr the connections were read into an in-memory raw vector, then passed to the readr functions.
+This made reading connections from small to medium datasets fast, but also meant that the dataset had to fit into memory at least twice (once for the raw data, once for the parsed data).
+It also meant that reading could not begin until the full vector was read through the connection.</p>
+<p>Now we instead write the connection to a temporary file (in the R temporary directory), than parse that temporary file.
+This means connections may take a little longer to be read, but also means they will no longer need to fit into memory.
+It also allows the use of the chunked readers to process the data in parts.</p>
+<p>Future improvements to readr would allow it to parse data from connections in a streaming fashion, which would avoid many of the drawbacks of either method.</p>
+</div>
+<div class="section" id="additional-new-features">
+<h3>Additional new features<a class="headerlink" href="#additional-new-features" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">melt_*()</span></code> functions added for reading ragged data (#760, &#64;nacnudus).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AccumulateCallback</span></code> R6 class added to provide an example of accumulating values in a single result (#689, &#64;blakeboswell).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_fwf()</span></code> can now accept overlapping field specifications (#692, &#64;gergness)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type_convert()</span></code> now allows character column specifications and also silently
+skips non-character columns (#369, #699)</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">parse_*()</span></code> functions and <code class="docutils literal notranslate"><span class="pre">read_fwf()</span></code> gain a <code class="docutils literal notranslate"><span class="pre">trim_ws</span></code> argument to
+control whether the fields should be trimmed before parsing (#636, #735).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parse_number()</span></code> now parses numbers in scientific notation using <code class="docutils literal notranslate"><span class="pre">e</span></code> and <code class="docutils literal notranslate"><span class="pre">E</span></code>
+(#684, &#64;sambrady3).</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">write_excel_csv2()</span></code> function to allow writing csv files with comma as a
+decimal separator and semicolon as a column separator (#753, &#64;olgamie).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_*()</span></code> files now support reading from the clipboard by using <code class="docutils literal notranslate"><span class="pre">clipboard()</span></code> (#656).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_file()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">sep</span></code> argument, to specify the line separator (#665).</p></li>
+<li><p>Allow files to be read via FTP over SSH by recognising <code class="docutils literal notranslate"><span class="pre">sftp</span></code> as a URL protocol (#707, &#64;jdeboer).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parse_date*()</span> <span class="pre">accepts</span> </code>%a` for local day of week (#763, &#64;tigertoes).</p></li>
+<li><p>Added function <code class="docutils literal notranslate"><span class="pre">read_lines_raw_chunked()</span></code> (#710, &#64;gergness)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_csv2()</span></code> added to complement <code class="docutils literal notranslate"><span class="pre">write_excel_csv2()</span></code> and allow writing csv file readable by <code class="docutils literal notranslate"><span class="pre">read_csv2()</span></code>
+(#870, &#64;cderv).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">as.col_spec()</span></code> is now exported (#517).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write*()</span></code> functions gain a <code class="docutils literal notranslate"><span class="pre">quote_escape</span></code> argument to control how quotes are escaped in the output (#854).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read*()</span></code> functions now have a more informative error when trying to read a remote bz2 file (#891).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">spec_table2()</span></code> function added to correspond to <code class="docutils literal notranslate"><span class="pre">read_table2()</span></code> (#778, &#64;mawds).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parse_factor()</span></code> now has <code class="docutils literal notranslate"><span class="pre">levels</span> <span class="pre">=</span> <span class="pre">NULL</span></code> by default (#862, &#64;mikmart).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;f&quot;</span></code> can now be used as a shortcode for <code class="docutils literal notranslate"><span class="pre">col_factor()</span></code> in <code class="docutils literal notranslate"><span class="pre">cols()</span></code> and the
+<code class="docutils literal notranslate"><span class="pre">col_types</span></code> argument to <code class="docutils literal notranslate"><span class="pre">read_delim()</span></code> and friends (#810, &#64;mikmart).</p></li>
+<li><p>Functions now read connections to a temporary file rather than to an in-memory object (#610, #76).</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="bug-fixes">
+<h2>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">standardise_path()</span></code> now uses a case-insensitive comparison for the file extensions (#794).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parse_guess()</span></code> now guesses logical types when given (lowercase) ‘true’ and ‘false’ inputs (#818).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_*()</span></code> now do not print a progress bar when running inside a RStudio notebook chunk (#793)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_table2()</span></code> now skips comments anywhere in the file (#908).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parse_factor()</span></code> now handles the case of empty strings separately, so you can
+have a factor level that is an empty string (#864).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_delim()</span></code> now correctly reads quoted headers with embedded newlines (#784).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fwf_positions()</span></code> now always returns <code class="docutils literal notranslate"><span class="pre">col_names</span></code> as a character (#797).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">format_*()</span></code> now explicitly marks it’s output encoding as UTF-8 (#697).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_delim()</span></code> now ignores whitespace between the delimiter and quoted fields (#668).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_table2()</span></code> now properly ignores blank lines at the end of a file like
+<code class="docutils literal notranslate"><span class="pre">read_table()</span></code> and <code class="docutils literal notranslate"><span class="pre">read_delim()</span></code> (#657).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_delim()</span></code>, <code class="docutils literal notranslate"><span class="pre">read_table()</span></code> and <code class="docutils literal notranslate"><span class="pre">read_table()</span></code> now skip blank lines at the
+start of a file (#680, #747).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">guess_parser()</span></code> now guesses a logical type for columns which are all
+missing. This is useful when binding multiple files together where some files
+have missing columns. (#662).</p></li>
+<li><p>Column guessing will now never guess an integer type. This avoids issues
+where double columns are incorrectly guessed as integers if they have only
+integer values in the first 1000 (#645, #652).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_*()</span></code> now converts string <code class="docutils literal notranslate"><span class="pre">file</span></code>s to UTF-8 before parsing, which is convenient for non-UTF-8 platforms
+in most cases (#730, &#64;yutannihilation).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_csv()</span></code> writes integers up to 10^15 without scientific notation (#765, &#64;zeehio)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_*()</span></code> no longer throws a “length of NULL cannot be changed” warning when
+trying to resize a skipped column (#750, #833).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_*()</span></code> now handles non-ASCII paths properly with R &gt;=3.5.0 on Windows (#838, &#64;yutannihilation).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read*()</span></code>’s <code class="docutils literal notranslate"><span class="pre">trim_ws</span></code> parameter now trims both spaces and tabs (#767)</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="readr-1-1-1">
+<h1>readr 1.1.1<a class="headerlink" href="#readr-1-1-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Point release for test compatibility with tibble v1.3.1.</p></li>
+<li><p>Fixed undefined behavior in localtime.c when using <code class="docutils literal notranslate"><span class="pre">locale(tz</span> <span class="pre">=</span> <span class="pre">&quot;&quot;)</span></code> after
+loading a timezone due to incomplete reinitialization of the global locale.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="readr-1-1-0">
+<h1>readr 1.1.0<a class="headerlink" href="#readr-1-1-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id6">
+<h2>New features<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="parser-improvements">
+<h3>Parser improvements<a class="headerlink" href="#parser-improvements" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">parse_factor()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">include_na</span></code> argument, to include <code class="docutils literal notranslate"><span class="pre">NA</span></code> in the factor levels (#541).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parse_factor()</span></code> will now can accept <code class="docutils literal notranslate"><span class="pre">levels</span> <span class="pre">=</span> <span class="pre">NULL</span></code>, which allows one to generate factor levels based on the data (like stringsAsFactors = TRUE) (#497).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parse_numeric()</span></code> now returns the full string if it contains no numbers (#548).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parse_time()</span></code> now correctly handles 12 AM/PM (#579).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">problems()</span></code> now returns the file path in additional to the location of the error in the file (#581).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_csv2()</span></code> gives a message if it updates the default locale (#443, &#64;krlmlr).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_delim()</span></code> now signals an error if given an empty delimiter (#557).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_*()</span></code> functions witting whole number doubles are no longer written with a trailing <code class="docutils literal notranslate"><span class="pre">.0</span></code> (#526).</p></li>
+</ul>
+</div>
+<div class="section" id="whitespace-fixed-width-improvements">
+<h3>Whitespace / fixed width improvements<a class="headerlink" href="#whitespace-fixed-width-improvements" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fwf_cols()</span></code> allows for specifying the <code class="docutils literal notranslate"><span class="pre">col_positions</span></code> argument of
+<code class="docutils literal notranslate"><span class="pre">read_fwf()</span></code> with named arguments of either column positions or widths
+(#616, &#64;jrnold).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fwf_empty()</span></code> gains an <code class="docutils literal notranslate"><span class="pre">n</span></code> argument to control how many lines are read for whitespace to determine column structure (#518, &#64;Yeedle).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_fwf()</span></code> gives error message if specifications have overlapping columns (#534, &#64;gergness)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_table()</span></code> can now handle <code class="docutils literal notranslate"><span class="pre">pipe()</span></code> connections (#552).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_table()</span></code> can now handle files with many lines of leading comments (#563).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_table2()</span></code> which allows any number of whitespace characters as delimiters, a more exact replacement for <code class="docutils literal notranslate"><span class="pre">utils::read.table()</span></code> (#608).</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="writing-to-connections">
+<h2>Writing to connections<a class="headerlink" href="#writing-to-connections" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">write_*()</span></code> functions now support writing to binary connections. In addition output filenames with <code class="docutils literal notranslate"><span class="pre">.gz</span></code>, <code class="docutils literal notranslate"><span class="pre">.bz2</span></code> or <code class="docutils literal notranslate"><span class="pre">.xz</span></code> will automatically open the appropriate connection and to write the compressed file. (#348)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_lines()</span></code> now accepts a list of raw vectors (#542).</p></li>
+</ul>
+</div>
+<div class="section" id="miscellaneous-features">
+<h2>Miscellaneous features<a class="headerlink" href="#miscellaneous-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">col_euro_double()</span></code>, <code class="docutils literal notranslate"><span class="pre">parse_euro_double()</span></code>, <code class="docutils literal notranslate"><span class="pre">col_numeric()</span></code>, and <code class="docutils literal notranslate"><span class="pre">parse_numeric()</span></code> have been removed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">guess_encoding()</span></code> returns a tibble, and works better with lists of raw vectors (as returned by <code class="docutils literal notranslate"><span class="pre">read_lines_raw()</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ListCallback</span></code> R6 Class to provide a more flexible return type for callback functions (#568, &#64;mmuurr)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tibble::as.tibble()</span></code> now used to construct tibbles (#538).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_csv</span></code>, <code class="docutils literal notranslate"><span class="pre">read_csv2</span></code>, and <code class="docutils literal notranslate"><span class="pre">read_tsv</span></code> gain a <code class="docutils literal notranslate"><span class="pre">quote</span></code> argument, (#631, &#64;noamross)</p></li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>Bugfixes<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">parse_factor()</span></code> now converts data to UTF-8 based on the supplied locale (#615).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_*()</span></code> functions with the <code class="docutils literal notranslate"><span class="pre">guess_max</span></code> argument now throw errors on inappropriate inputs (#588).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_*_chunked()</span></code> functions now properly end the stream if <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> is returned from the callback.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_delim()</span></code> and <code class="docutils literal notranslate"><span class="pre">read_fwf()</span></code> when columns are skipped using <code class="docutils literal notranslate"><span class="pre">col_types</span></code> now report the correct column name (#573, &#64;cb4ds).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">spec()</span></code> declarations that are long now print properly (#597).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_table()</span></code> does not print <code class="docutils literal notranslate"><span class="pre">spec</span></code> when <code class="docutils literal notranslate"><span class="pre">col_types</span></code> is not <code class="docutils literal notranslate"><span class="pre">NULL</span></code> (#630, &#64;jrnold).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">guess_encoding()</span></code> now returns a tibble for all ASCII input as well (#641).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="readr-1-0-0">
+<h1>readr 1.0.0<a class="headerlink" href="#readr-1-0-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="column-guessing">
+<h2>Column guessing<a class="headerlink" href="#column-guessing" title="Permalink to this headline">¶</a></h2>
+<p>The process by which readr guesses the types of columns has received a substantial overhaul to make it easier to fix problems when the initial guesses aren’t correct, and to make it easier to generate reproducible code. Now column specifications are printing by default when you read from a file:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">challenge</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="nf">readr_example</span><span class="p">(</span><span class="s">&quot;challenge.csv&quot;</span><span class="p">))</span>
+<span class="c1">#&gt; Parsed with column specification:</span>
+<span class="c1">#&gt; cols(</span>
+<span class="c1">#&gt;   x = col_integer(),</span>
+<span class="c1">#&gt;   y = col_character()</span>
+<span class="c1">#&gt; )</span>
+</pre></div>
+</div>
+<p>And you can extract those values after the fact with <code class="docutils literal notranslate"><span class="pre">spec()</span></code>:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">spec</span><span class="p">(</span><span class="n">challenge</span><span class="p">)</span>
+<span class="c1">#&gt; cols(</span>
+<span class="c1">#&gt;   x = col_integer(),</span>
+<span class="c1">#&gt;   y = col_character()</span>
+<span class="c1">#&gt; )</span>
+</pre></div>
+</div>
+<p>This makes it easier to quickly identify parsing problems and fix them (#314). If the column specification is long, the new <code class="docutils literal notranslate"><span class="pre">cols_condense()</span></code> is used to condense the spec by identifying the most common type and setting it as the default. This is particularly useful when only a handful of columns have a different type (#466).</p>
+<p>You can also generating an initial specification without parsing the file using <code class="docutils literal notranslate"><span class="pre">spec_csv()</span></code>, <code class="docutils literal notranslate"><span class="pre">spec_tsv()</span></code>, etc.</p>
+<p>Once you have figured out the correct column types for a file, it’s often useful to make the parsing strict. You can do this either by copying and pasting the printed output, or for very long specs, saving the spec to disk with <code class="docutils literal notranslate"><span class="pre">write_rds()</span></code>. In production scripts, combine this with <code class="docutils literal notranslate"><span class="pre">stop_for_problems()</span></code> (#465): if the input data changes form, you’ll fail fast with an error.</p>
+<p>You can now also adjust the number of rows that readr uses to guess the column types with <code class="docutils literal notranslate"><span class="pre">guess_max</span></code>:</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="n">challenge</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="nf">readr_example</span><span class="p">(</span><span class="s">&quot;challenge.csv&quot;</span><span class="p">),</span> <span class="n">guess_max</span> <span class="o">=</span> <span class="m">1500</span><span class="p">)</span>
+<span class="c1">#&gt; Parsed with column specification:</span>
+<span class="c1">#&gt; cols(</span>
+<span class="c1">#&gt;   x = col_double(),</span>
+<span class="c1">#&gt;   y = col_date(format = &quot;&quot;)</span>
+<span class="c1">#&gt; )</span>
+</pre></div>
+</div>
+<p>You can now access the guessing algorithm from R. <code class="docutils literal notranslate"><span class="pre">guess_parser()</span></code> will tell you which parser readr will select for a character vector (#377). We’ve made a number of fixes to the guessing algorithm:</p>
+<ul class="simple">
+<li><p>New example <code class="docutils literal notranslate"><span class="pre">extdata/challenge.csv</span></code> which is carefully created to cause
+problems with the default column type guessing heuristics.</p></li>
+<li><p>Blank lines and lines with only comments are now skipped automatically
+without warning (#381, #321).</p></li>
+<li><p>Single ‘-‘ or ‘.’ are now parsed as characters, not numbers (#297).</p></li>
+<li><p>Numbers followed by a single trailing character are parsed as character,
+not numbers (#316).</p></li>
+<li><p>We now guess at times using the <code class="docutils literal notranslate"><span class="pre">time_format</span></code> specified in the <code class="docutils literal notranslate"><span class="pre">locale()</span></code>.</p></li>
+</ul>
+<p>We have made a number of improvements to the reification of the <code class="docutils literal notranslate"><span class="pre">col_types</span></code>, <code class="docutils literal notranslate"><span class="pre">col_names</span></code> and the actual data:</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">col_types</span></code> is too long, it is subsetted correctly (#372, &#64;jennybc).</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">col_names</span></code> is too short, the added names are numbered correctly
+(#374, &#64;jennybc).</p></li>
+<li><p>Missing column name names are now given a default name (<code class="docutils literal notranslate"><span class="pre">X2</span></code>, <code class="docutils literal notranslate"><span class="pre">X7</span></code> etc) (#318).
+Duplicated column names are now deduplicated. Both changes generate a warning;
+to suppress it supply an explicit <code class="docutils literal notranslate"><span class="pre">col_names</span></code> (setting <code class="docutils literal notranslate"><span class="pre">skip</span> <span class="pre">=</span> <span class="pre">1</span></code> if there’s
+an existing ill-formed header).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">col_types()</span></code> accepts a named list as input (#401).</p></li>
+</ul>
+</div>
+<div class="section" id="column-parsing">
+<h2>Column parsing<a class="headerlink" href="#column-parsing" title="Permalink to this headline">¶</a></h2>
+<p>The date time parsers recognise three new format strings:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">%I</span></code> for 12 hour time format (#340).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%AD</span></code> and <code class="docutils literal notranslate"><span class="pre">%AT</span></code> are “automatic” date and time parsers. They are both slightly
+less flexible than previous defaults. The automatic date parser requires a
+four digit year, and only accepts <code class="docutils literal notranslate"><span class="pre">-</span></code> and <code class="docutils literal notranslate"><span class="pre">/</span></code> as separators (#442). The
+flexible time parser now requires colons between hours and minutes and
+optional seconds (#424).</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">%y</span></code> and <code class="docutils literal notranslate"><span class="pre">%Y</span></code> are now strict and require 2 or 4 characters respectively.</p>
+<p>Date and time parsing functions received a number of small enhancements:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">parse_time()</span></code> returns <code class="docutils literal notranslate"><span class="pre">hms</span></code> objects rather than a custom <code class="docutils literal notranslate"><span class="pre">time</span></code> class (#409).
+It now correctly parses missing values (#398).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parse_date()</span></code> returns a numeric vector (instead of an integer vector) (#357).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parse_date()</span></code>, <code class="docutils literal notranslate"><span class="pre">parse_time()</span></code> and <code class="docutils literal notranslate"><span class="pre">parse_datetime()</span></code> gain an <code class="docutils literal notranslate"><span class="pre">na</span></code>
+argument to match all other parsers (#413).</p></li>
+<li><p>If the format argument is omitted <code class="docutils literal notranslate"><span class="pre">parse_date()</span></code> or <code class="docutils literal notranslate"><span class="pre">parse_time()</span></code>,
+date and time formats specified in the locale will be used. These now
+default to <code class="docutils literal notranslate"><span class="pre">%AD</span></code> and <code class="docutils literal notranslate"><span class="pre">%AT</span></code> respectively.</p></li>
+<li><p>You can now parse partial dates with <code class="docutils literal notranslate"><span class="pre">parse_date()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">parse_datetime()</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">parse_date(&quot;2001&quot;,</span> <span class="pre">&quot;%Y&quot;)</span></code> returns <code class="docutils literal notranslate"><span class="pre">2001-01-01</span></code>.</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">parse_number()</span></code> is slightly more flexible - it now parses numbers up to the first ill-formed character. For example <code class="docutils literal notranslate"><span class="pre">parse_number(&quot;-3-&quot;)</span></code> and <code class="docutils literal notranslate"><span class="pre">parse_number(&quot;...3...&quot;)</span></code> now return -3 and 3 respectively. We also fixed a major bug where parsing negative numbers yielded positive values (#308).</p>
+<p><code class="docutils literal notranslate"><span class="pre">parse_logical()</span></code> now accepts <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span></code> as well as lowercase <code class="docutils literal notranslate"><span class="pre">t</span></code>, <code class="docutils literal notranslate"><span class="pre">f</span></code>, <code class="docutils literal notranslate"><span class="pre">true</span></code>, <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+</div>
+<div class="section" id="new-readers-and-writers">
+<h2>New readers and writers<a class="headerlink" href="#new-readers-and-writers" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">read_file_raw()</span></code> reads a complete file into a single raw vector (#451).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_*()</span></code> functions gain a <code class="docutils literal notranslate"><span class="pre">quoted_na</span></code> argument to control whether missing
+values within quotes are treated as missing values or as strings (#295).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_excel_csv()</span></code> can be used to write a csv file with a UTF-8 BOM at the
+start, which forces Excel to read it as UTF-8 encoded (#375).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_lines()</span></code> writes a character vector to a file (#302).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_file()</span></code> to write a single character or raw vector
+to a file (#474).</p></li>
+<li><p>Experimental support for chunked reading a writing (<code class="docutils literal notranslate"><span class="pre">read_*_chunked()</span></code>)
+functions. The API is unstable and subject to change in the future (#427).</p></li>
+</ul>
+</div>
+<div class="section" id="minor-features-and-bug-fixes">
+<h2>Minor features and bug fixes<a class="headerlink" href="#minor-features-and-bug-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Printing double values now uses an
+<a class="reference external" href="https://github.com/juj/MathGeoLib/blob/master/src/Math/grisu3.c">implementation</a>
+of the <a class="reference external" href="http://www.cs.tufts.edu/~nr/cs257/archive/florian-loitsch/printf.pdf">grisu3 algorithm</a>
+which speeds up writing of large numeric data frames by ~10X. (#432) ‘.0’ is
+appended to whole number doubles, to ensure they will be read as doubles as
+well. (#483)</p></li>
+<li><p>readr imports tibble so that you get consistent <code class="docutils literal notranslate"><span class="pre">tbl_df</span></code> behaviour
+(#317, #385).</p></li>
+<li><p>New example <code class="docutils literal notranslate"><span class="pre">extdata/challenge.csv</span></code> which is carefully created to cause
+problems with the default column type guessing heuristics.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">default_locale()</span></code> now sets the default locale in <code class="docutils literal notranslate"><span class="pre">readr.default_locale</span></code>
+rather than regenerating it for each call. (#416).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">locale()</span></code> now automatically sets decimal mark if you set the grouping
+mark. It throws an error if you accidentally set decimal and grouping marks
+to the same character (#450).</p></li>
+<li><p>All <code class="docutils literal notranslate"><span class="pre">read_*()</span></code> can read into long vectors, substantially increasing the
+number of rows you can read (#309).</p></li>
+<li><p>All <code class="docutils literal notranslate"><span class="pre">read_*()</span></code> functions return empty objects rather than signaling an error
+when run on an empty file (#356, #441).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_delim()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">trim_ws</span></code> argument (#312, noamross)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_fwf()</span></code> received a number of improvements:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_fwf()</span></code> now can now reliably read only a partial set of columns
+(#322, #353, #469)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fwf_widths()</span></code> accepts negative column widths for compatibility with the
+<code class="docutils literal notranslate"><span class="pre">widths</span></code> argument in <code class="docutils literal notranslate"><span class="pre">read.fwf()</span></code> (#380, &#64;leeper).</p></li>
+<li><p>You can now read fixed width files with ragged final columns, by setting
+the final end position in <code class="docutils literal notranslate"><span class="pre">fwf_positions()</span></code> or final width in <code class="docutils literal notranslate"><span class="pre">fwf_widths()</span></code>
+to <code class="docutils literal notranslate"><span class="pre">NA</span></code> (#353, &#64;ghaarsma). <code class="docutils literal notranslate"><span class="pre">fwf_empty()</span></code> does this automatically.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_fwf()</span></code> and <code class="docutils literal notranslate"><span class="pre">fwf_empty()</span></code> can now skip commented lines by setting a
+<code class="docutils literal notranslate"><span class="pre">comment</span></code> argument (#334).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_lines()</span></code> ignores embedded null’s in strings (#338) and gains a <code class="docutils literal notranslate"><span class="pre">na</span></code>
+argument (#479).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">readr_example()</span></code> makes it easy to access example files bundled with readr.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type_convert()</span></code> now accepts only <code class="docutils literal notranslate"><span class="pre">NULL</span></code> or a <code class="docutils literal notranslate"><span class="pre">cols</span></code> specification for
+<code class="docutils literal notranslate"><span class="pre">col_types</span></code> (#369).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_delim()</span></code> and <code class="docutils literal notranslate"><span class="pre">write_csv()</span></code> now invisibly return the input data frame
+(as documented, #363).</p></li>
+<li><p>Doubles are parsed with <code class="docutils literal notranslate"><span class="pre">boost::spirit::qi::long_double</span></code> to work around a bug
+in the spirit library when parsing large numbers (#412).</p></li>
+<li><p>Fix bug when detecting column types for single row files without headers
+(#333).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="readr-0-2-2">
+<h1>readr 0.2.2<a class="headerlink" href="#readr-0-2-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix bug when checking empty values for missingness (caused valgrind issue
+and random crashes).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="readr-0-2-1">
+<h1>readr 0.2.1<a class="headerlink" href="#readr-0-2-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixes so that readr works on Solaris.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="readr-0-2-0">
+<h1>readr 0.2.0<a class="headerlink" href="#readr-0-2-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="internationalisation">
+<h2>Internationalisation<a class="headerlink" href="#internationalisation" title="Permalink to this headline">¶</a></h2>
+<p>readr now has a strategy for dealing with settings that vary from place to place: locales. The default locale is still US centric (because R itself is), but you can now easily override the default timezone, decimal separator, grouping mark, day &amp; month names, date format, and encoding. This has lead to a number of changes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">read_csv()</span></code>, <code class="docutils literal notranslate"><span class="pre">read_tsv()</span></code>, <code class="docutils literal notranslate"><span class="pre">read_fwf()</span></code>, <code class="docutils literal notranslate"><span class="pre">read_table()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">read_lines()</span></code>, <code class="docutils literal notranslate"><span class="pre">read_file()</span></code>, <code class="docutils literal notranslate"><span class="pre">type_convert()</span></code>, <code class="docutils literal notranslate"><span class="pre">parse_vector()</span></code>
+all gain a <code class="docutils literal notranslate"><span class="pre">locale</span></code> argument.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">locale()</span></code> controls all the input settings that vary from place-to-place.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">col_euro_double()</span></code> and <code class="docutils literal notranslate"><span class="pre">parse_euro_double()</span></code> have been deprecated.
+Use the <code class="docutils literal notranslate"><span class="pre">decimal_mark</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">locale()</span></code> instead.</p></li>
+<li><p>The default encoding is now UTF-8. To load files that are not
+in UTF-8, set the <code class="docutils literal notranslate"><span class="pre">encoding</span></code> parameter of the <code class="docutils literal notranslate"><span class="pre">locale()</span></code> (#40).
+New <code class="docutils literal notranslate"><span class="pre">guess_encoding()</span></code> function uses stringi to help you figure out the
+encoding of a file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parse_datetime()</span></code> and <code class="docutils literal notranslate"><span class="pre">parse_date()</span></code> with <code class="docutils literal notranslate"><span class="pre">%B</span></code> and <code class="docutils literal notranslate"><span class="pre">%b</span></code> use the
+month names (full and abbreviate) defined in the locale (#242).
+They also inherit the tz from the locale, rather than using an
+explicit <code class="docutils literal notranslate"><span class="pre">tz</span></code> parameter.</p></li>
+</ul>
+<p>See <code class="docutils literal notranslate"><span class="pre">vignette(&quot;locales&quot;)</span></code> for more details.</p>
+</div>
+<div class="section" id="file-parsing-improvements">
+<h2>File parsing improvements<a class="headerlink" href="#file-parsing-improvements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cols()</span></code> lets you pick the default column type for columns not otherwise
+explicitly named (#148). You can refer to parsers either with their full
+name (e.g. <code class="docutils literal notranslate"><span class="pre">col_character()</span></code>) or their one letter abbreviation (e.g. <code class="docutils literal notranslate"><span class="pre">c</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cols_only()</span></code> allows you to load only named columns. You can also choose to
+override the default column type in <code class="docutils literal notranslate"><span class="pre">cols()</span></code> (#72).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_fwf()</span></code> is now much more careful with new lines. If a line is too short,
+you’ll get a warning instead of a silent mistake (#166, #254). Additionally,
+the last column can now be ragged: the width of the last field is silently
+extended until it hits the next line break (#146). This appears to be a
+common feature of “fixed” width files in the wild.</p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code>, <code class="docutils literal notranslate"><span class="pre">read_tsv()</span></code>, <code class="docutils literal notranslate"><span class="pre">read_delim()</span></code> etc:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">comment</span></code> argument allows you to ignore comments (#68).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">trim_ws</span></code> argument controls whether leading and trailing whitespace is
+removed. It defaults to <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> (#137).</p></li>
+<li><p>Specifying the wrong number of column names, or having rows with an
+unexpected number of columns, generates a warning, rather than an error
+(#189).</p></li>
+<li><p>Multiple NA values can be specified by passing a character vector to
+<code class="docutils literal notranslate"><span class="pre">na</span></code> (#125). The default has been changed to <code class="docutils literal notranslate"><span class="pre">na</span> <span class="pre">=</span> <span class="pre">c(&quot;&quot;,</span> <span class="pre">&quot;NA&quot;)</span></code>. Specifying
+<code class="docutils literal notranslate"><span class="pre">na</span> <span class="pre">=</span> <span class="pre">&quot;&quot;</span></code> now works as expected with character columns (#114).</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="column-parsing-improvements">
+<h2>Column parsing improvements<a class="headerlink" href="#column-parsing-improvements" title="Permalink to this headline">¶</a></h2>
+<p>Readr gains <code class="docutils literal notranslate"><span class="pre">vignette(&quot;column-types&quot;)</span></code> which describes how the defaults work and how to override them (#122).</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">parse_character()</span></code> gains better support for embedded nulls: any characters
+after the first null are dropped with a warning (#202).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parse_integer()</span></code> and <code class="docutils literal notranslate"><span class="pre">parse_double()</span></code> no longer silently ignore trailing
+letters after the number (#221).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">parse_time()</span></code> and <code class="docutils literal notranslate"><span class="pre">col_time()</span></code> allows you to parse times (hours, minutes,
+seconds) into number of seconds since midnight. If the format is omitted, it
+uses a flexible parser that looks for hours, then optional colon, then
+minutes, then optional colon, then optional seconds, then optional am/pm
+(#249).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parse_date()</span></code> and <code class="docutils literal notranslate"><span class="pre">parse_datetime()</span></code>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">parse_datetime()</span></code> no longer incorrectly reads partial dates (e.g. 19,
+1900, 1900-01) (#136). These triggered common false positives and after
+re-reading the ISO8601 spec, I believe they actually refer to periods of
+time, and should not be translated in to a specific instant (#228).</p></li>
+<li><p>Compound formats “%D”, “%F”, “%R”, “%X”, “%T”, “%x” are now parsed
+correctly, instead of using the  ISO8601 parser (#178, &#64;kmillar).</p></li>
+<li><p>“%.” now requires a non-digit. New “%+” skips one or more non-digits.</p></li>
+<li><p>You can now use <code class="docutils literal notranslate"><span class="pre">%p</span></code> to refer to AM/PM (and am/pm) (#126).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%b</span></code> and <code class="docutils literal notranslate"><span class="pre">%B</span></code> formats (month and abbreviated month name) ignore case
+when matching (#219).</p></li>
+<li><p>Local (non-UTC) times with and without daylight savings are now parsed
+correctly (#120, &#64;andres-s).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parse_number()</span></code> is a somewhat flexible numeric parser designed to read
+currencies and percentages. It only reads the first number from a string
+(using the grouping mark defined by the locale).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parse_numeric()</span></code> has been deprecated because the name is confusing -
+it’s a flexible number parser, not a parser of “numerics”, as R collectively
+calls doubles and integers. Use <code class="docutils literal notranslate"><span class="pre">parse_number()</span></code> instead.</p></li>
+</ul>
+<p>As well as improvements to the parser, I’ve also made a number of tweaks to the heuristics that readr uses to guess column types:</p>
+<ul class="simple">
+<li><p>New <code class="docutils literal notranslate"><span class="pre">parse_guess()</span></code> and <code class="docutils literal notranslate"><span class="pre">col_guess()</span></code> to explicitly guess column type.</p></li>
+<li><p>Bumped up row inspection for column typing guessing from 100 to 1000.</p></li>
+<li><p>The heuristics for guessing <code class="docutils literal notranslate"><span class="pre">col_integer()</span></code> and <code class="docutils literal notranslate"><span class="pre">col_double()</span></code> are stricter.
+Numbers with leading zeros now default to being parsed as text, rather than
+as integers/doubles (#266).</p></li>
+<li><p>A column is guessed as <code class="docutils literal notranslate"><span class="pre">col_number()</span></code> only if it parses as a regular number
+when you ignoring the grouping marks.</p></li>
+</ul>
+</div>
+<div class="section" id="minor-improvements-and-bug-fixes">
+<h2>Minor improvements and bug fixes<a class="headerlink" href="#minor-improvements-and-bug-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Now use R’s platform independent <code class="docutils literal notranslate"><span class="pre">iconv</span></code> wrapper, thanks to BDR (#149).</p></li>
+<li><p>Pathological zero row inputs (due to empty input, <code class="docutils literal notranslate"><span class="pre">skip</span></code> or <code class="docutils literal notranslate"><span class="pre">n_max</span></code>) now
+return zero row data frames (#119).</p></li>
+<li><p>When guessing field types, and there’s no information to go on, use
+character instead of logical (#124, #128).</p></li>
+<li><p>Concise <code class="docutils literal notranslate"><span class="pre">col_types</span></code> specification now understands <code class="docutils literal notranslate"><span class="pre">?</span></code> (guess) and
+<code class="docutils literal notranslate"><span class="pre">-</span></code> (skip) (#188).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">count_fields()</span></code> starts counting from 1, not 0 (#200).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">format_csv()</span></code> and <code class="docutils literal notranslate"><span class="pre">format_delim()</span></code> make it easy to render a csv or
+delimited file into a string.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fwf_empty()</span></code> now works correctly when <code class="docutils literal notranslate"><span class="pre">col_names</span></code> supplied (#186, #222).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">parse_*()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">na</span></code> argument that allows you to specify which values
+should be converted to missing.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">problems()</span></code> now reports column names rather than column numbers (#143).
+Whenever there is a problem, the first five problems are printing out
+in a warning message, so you can more easily see what’s wrong.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_*()</span></code> throws a warning instead of an error is <code class="docutils literal notranslate"><span class="pre">col_types</span></code>
+specifies a non-existent column (#145, &#64;alyst).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_*()</span></code> can read from a remote gz compressed file (#163).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_delim()</span></code> defaults to <code class="docutils literal notranslate"><span class="pre">escape_backslash</span> <span class="pre">=</span> <span class="pre">FALSE</span></code> and
+<code class="docutils literal notranslate"><span class="pre">escape_double</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> for consistency. <code class="docutils literal notranslate"><span class="pre">n_max</span></code> also affects the number
+of rows read to guess the column types (#224).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_lines()</span></code> gains a progress bar. It now also correctly checks for
+interrupts every 500,000 lines so you can interrupt long running jobs.
+It also correctly estimates the number of lines in the file, considerably
+speeding up the reading of large files (60s -&gt; 15s for a 1.5 Gb file).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_lines_raw()</span></code> allows you to read a file into a list of raw vectors,
+one element for each line.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type_convert()</span></code> gains <code class="docutils literal notranslate"><span class="pre">NA</span></code> and <code class="docutils literal notranslate"><span class="pre">trim_ws</span></code> arguments, and removes missing
+values before determining column types.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_csv()</span></code>, <code class="docutils literal notranslate"><span class="pre">write_delim()</span></code>, and <code class="docutils literal notranslate"><span class="pre">write_rds()</span></code> all invisibly return their
+input so you can use them in a pipe (#290).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_delim()</span></code> generalises <code class="docutils literal notranslate"><span class="pre">write_csv()</span></code> to write any delimited format (#135).
+<code class="docutils literal notranslate"><span class="pre">write_tsv()</span></code> is a helpful wrapper for tab separated files.</p>
+<ul>
+<li><p>Quotes are only used when they’re needed (#116): when the string contains
+a quote, the delimiter, a new line or NA.</p></li>
+<li><p>Double vectors are saved using same amount of precision as
+<code class="docutils literal notranslate"><span class="pre">as.character()</span></code> (#117).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">na</span></code> argument that specifies how missing values should be written
+(#187)</p></li>
+<li><p>POSIXt vectors are saved in a ISO8601 compatible format (#134).</p></li>
+<li><p>No longer fails silently if it can’t open the target for
+writing (#193, #172).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_rds()</span></code> and <code class="docutils literal notranslate"><span class="pre">read_rds()</span></code> wrap around <code class="docutils literal notranslate"><span class="pre">readRDS()</span></code> and <code class="docutils literal notranslate"><span class="pre">saveRDS()</span></code>,
+defaulting to no compression (#140, &#64;nicolasCoutin).</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./temporal/renv/library/R-4.1/aarch64-apple-darwin20/readr"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Quan Nguyen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

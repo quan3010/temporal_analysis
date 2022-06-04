@@ -1,0 +1,1403 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dbplyr 2.1.1 &#8212; Temporal and sequential analysis - LASI 2022</title>
+    
+  <link href="../../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../_static/togglebutton.js"></script>
+    <script src="../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../../../_static/solar_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Temporal and sequential analysis - LASI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture1.html">
+   Lecture 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture2.html">
+   Lecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture3.html">
+   Lecture 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Labs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab1.html">
+   Lab 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab2.html">
+   Lab 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab3.html">
+   Lab 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Quan Nguyen<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../../_sources/temporal/renv/library/R-4.1/aarch64-apple-darwin20/dbplyr/NEWS.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/quan3010/temporal_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/quan3010/temporal_analysis/issues/new?title=Issue%20on%20page%20%2Ftemporal/renv/library/R-4.1/aarch64-apple-darwin20/dbplyr/NEWS.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   dbplyr 2.1.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dbplyr-2-1-0">
+   dbplyr 2.1.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-features">
+     New features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-translation">
+     SQL translation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minor-improvements-and-bug-fixes">
+     Minor improvements and bug fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dbplyr-2-0-0">
+   dbplyr 2.0.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dplyr-1-0-0-compatibility">
+     dplyr 1.0.0 compatibility
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-generation">
+     SQL generation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     SQL translation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#extensibility">
+     Extensibility
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Minor improvements and bug fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dbplyr-1-4-4">
+   dbplyr 1.4.4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dbplyr-1-4-3">
+   dbplyr 1.4.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dbplyr-1-4-2">
+   dbplyr 1.4.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dbplyr-1-4-1">
+   dbplyr 1.4.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dbplyr-1-4-0">
+   dbplyr 1.4.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#breaking-changes">
+     Breaking changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     New features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sql-translations">
+     SQL translations
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#sql-simulation">
+       SQL simulation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#database-specific-improvements">
+     Database specific improvements
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Minor improvements and bug fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dbplyr-1-3-0">
+   dbplyr 1.3.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#api-changes">
+     API changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     SQL translation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Minor improvements and bug fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dbplyr-1-2-2">
+   dbplyr 1.2.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dbplyr-1-2-1">
+   dbplyr 1.2.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dbplyr-1-2-0">
+   dbplyr 1.2.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-top-level-translations">
+     New top-level translations
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     New features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#tools-for-developers">
+     Tools for developers
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Minor improvements and bug fixes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Database specific improvements
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dbplyr-1-1-0">
+   dbplyr 1.1.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     New features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     Minor improvements and bug fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dbplyr-1-0-0">
+   dbplyr 1.0.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id12">
+     New features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deprecated-and-defunct">
+     Deprecated and defunct
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verb-level-sql-generation">
+     Verb-level SQL generation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vector-level-sql-generation">
+     Vector-level SQL generation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#backends">
+     Backends
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minor-bug-fixes-and-improvements">
+     Minor bug fixes and improvements
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lazy-ops">
+     Lazy ops
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="dbplyr-2-1-1">
+<h1>dbplyr 2.1.1<a class="headerlink" href="#dbplyr-2-1-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>New support for Snowflake (&#64;edgararuiz)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compute()</span></code>, <code class="docutils literal notranslate"><span class="pre">sql_table_index()</span></code>, and <code class="docutils literal notranslate"><span class="pre">sql_query_wrap()</span></code> now work with
+schemas (&#64;mgirlich, #595).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">if_any()</span></code> and <code class="docutils literal notranslate"><span class="pre">if_all()</span></code> are now translated.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_by()</span></code> now ungroups when the dots argument is empty and <code class="docutils literal notranslate"><span class="pre">.add</span></code> is <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>
+(&#64;mgirlich, #615).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sql_escape_date()</span></code> and <code class="docutils literal notranslate"><span class="pre">sql_escape_datetime</span></code> gain methods for MS Access
+(&#64;erikvona, #608).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="dbplyr-2-1-0">
+<h1>dbplyr 2.1.0<a class="headerlink" href="#dbplyr-2-1-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="new-features">
+<h2>New features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Thanks to &#64;mgirlich, dbplyr gains support for key verbs from tidyr:
+<code class="docutils literal notranslate"><span class="pre">pivot_longer()</span></code> (#532), <code class="docutils literal notranslate"><span class="pre">pivot_wider()</span></code> (#543), <code class="docutils literal notranslate"><span class="pre">expand()</span></code> (#538),
+<code class="docutils literal notranslate"><span class="pre">complete()</span></code> (#538), <code class="docutils literal notranslate"><span class="pre">replace_na()</span></code> (#538), <code class="docutils literal notranslate"><span class="pre">fill()</span></code> (#566).</p></li>
+<li><p>&#64;mgirlich is now a dbplyr author in recognition of his significant and
+sustained contributions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">across()</span></code> implementation has been rewritten to support more inputs:
+it now translates formulas (#525), works with SQL functions that don’t have
+R translations (#534), and work with <code class="docutils literal notranslate"><span class="pre">NULL</span></code> (#554)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">summarise()</span></code> now supports argument <code class="docutils literal notranslate"><span class="pre">.groups</span></code> (&#64;mgirlich, #584).</p></li>
+</ul>
+</div>
+<div class="section" id="sql-translation">
+<h2>SQL translation<a class="headerlink" href="#sql-translation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>All backends: <code class="docutils literal notranslate"><span class="pre">str_sub()</span></code>, <code class="docutils literal notranslate"><span class="pre">substr()</span></code> and <code class="docutils literal notranslate"><span class="pre">substring()</span></code> get better
+translations (#577). Most importantly, the results of using negative
+locations should match the underlying R implementations more closely.</p></li>
+<li><p>MS SQL:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">as.integer()</span></code> and <code class="docutils literal notranslate"><span class="pre">as.integer64()</span></code> translations cast first to <code class="docutils literal notranslate"><span class="pre">NUMERIC</span></code>
+to avoid CASTing weirdness (&#64;DavidPatShuiFong, #496).</p></li>
+<li><p>Assumes a boolean context inside of <code class="docutils literal notranslate"><span class="pre">[</span></code> (#546)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">str_sub()</span></code> with <code class="docutils literal notranslate"><span class="pre">end</span> <span class="pre">=</span> <span class="pre">-1</span></code> now works (#577).</p></li>
+</ul>
+</li>
+<li><p>Redshift: <code class="docutils literal notranslate"><span class="pre">lag()</span></code> and <code class="docutils literal notranslate"><span class="pre">lead()</span></code> lose the <code class="docutils literal notranslate"><span class="pre">default</span></code> parameter  since it’s
+not supported (&#64;hdplsa, #548).</p></li>
+<li><p>SQLite: custom translation of <code class="docutils literal notranslate"><span class="pre">full_join()</span></code> and <code class="docutils literal notranslate"><span class="pre">right_join()</span></code>
+(&#64;mgirlich, #536).</p></li>
+</ul>
+</div>
+<div class="section" id="minor-improvements-and-bug-fixes">
+<h2>Minor improvements and bug fixes<a class="headerlink" href="#minor-improvements-and-bug-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>RPostgreSQL backend warns if <code class="docutils literal notranslate"><span class="pre">temporary</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> since temporary tables are
+not supported by <code class="docutils literal notranslate"><span class="pre">RPostgreSQL::dbWriteTable()</span></code> (#574).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">count()</span></code> method provides closer match to dplyr semantics (#347).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">distinct()</span></code> now respects grouping (&#64;mgirlich, #535).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">db_connection_describe()</span></code> no longer uses partial matching (&#64;mgirlich, #564).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pull()</span></code> no longer <code class="docutils literal notranslate"><span class="pre">select()</span></code>s the result when there’s already only
+one variable (#562).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">select()</span></code> no longer relocates grouping variables to the front
+(&#64;mgirlich, #568). and informs when adding missing grouping variables
+(&#64;mgirlich, #559).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tbl.src_dbi(...)</span></code> now passed on to <code class="docutils literal notranslate"><span class="pre">tbl_sql()</span></code> (#530).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="dbplyr-2-0-0">
+<h1>dbplyr 2.0.0<a class="headerlink" href="#dbplyr-2-0-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="dplyr-1-0-0-compatibility">
+<h2>dplyr 1.0.0 compatibility<a class="headerlink" href="#dplyr-1-0-0-compatibility" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">across()</span></code> is now translated into individual SQL statements (#480).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rename()</span></code> and <code class="docutils literal notranslate"><span class="pre">select()</span></code> support dplyr 1.0.0 tidyselect syntax (apart from
+predicate functions which can’t easily work on computed queries) (#502).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">relocate()</span></code> makes it easy to move columns (#494) and <code class="docutils literal notranslate"><span class="pre">rename_with()</span></code> makes
+it easy to rename columns programmatically (#502).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">slice_min()</span></code>, <code class="docutils literal notranslate"><span class="pre">slice_max()</span></code>, and <code class="docutils literal notranslate"><span class="pre">slice_order()</span></code> are now supported.
+<code class="docutils literal notranslate"><span class="pre">slice_head()</span></code> and <code class="docutils literal notranslate"><span class="pre">slice_tail()</span></code> throw clear error messages (#394)</p></li>
+</ul>
+</div>
+<div class="section" id="sql-generation">
+<h2>SQL generation<a class="headerlink" href="#sql-generation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Documentation has been radically improved with new topics for each major
+verb and each backend giving more details about the SQL translation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">intersect()</span></code>, <code class="docutils literal notranslate"><span class="pre">union()</span></code> and <code class="docutils literal notranslate"><span class="pre">setdiff()</span></code> gain an <code class="docutils literal notranslate"><span class="pre">all</span></code> argument to add the
+<code class="docutils literal notranslate"><span class="pre">ALL</span></code> argument (#414).</p></li>
+<li><p>Join functions gains a <code class="docutils literal notranslate"><span class="pre">na_matches</span></code> argument that allows you to control
+whether or not <code class="docutils literal notranslate"><span class="pre">NA</span></code> (<code class="docutils literal notranslate"><span class="pre">NULL</span></code>) values match other <code class="docutils literal notranslate"><span class="pre">NA</span></code> values. The default is
+<code class="docutils literal notranslate"><span class="pre">&quot;never&quot;</span></code>, which is the usual behaviour in databases. You can set
+<code class="docutils literal notranslate"><span class="pre">na_matches</span> <span class="pre">=</span> <span class="pre">&quot;na&quot;</span></code> to match R’s usual join behaviour (#180). Additional
+arguments error (instead of being silently swallowed) (#382).</p></li>
+<li><p>Joins now only use aliases where needed to disambiguate columns; this should
+make generated queries more readable.</p></li>
+<li><p>Subqueries no longer include an <code class="docutils literal notranslate"><span class="pre">ORDER</span> <span class="pre">BY</span></code> clause. This is not part of the
+SQL spec, and has very limited support across databases. Now such queries
+generate a warning suggesting that you move your <code class="docutils literal notranslate"><span class="pre">arrange()</span></code> call later in
+the pipeline (#276). (There’s one exception: <code class="docutils literal notranslate"><span class="pre">ORDER</span> <span class="pre">BY</span></code> is still generated
+if <code class="docutils literal notranslate"><span class="pre">LIMIT</span></code> is present; this tends to affect the returns rows but not
+necessarily their order).</p></li>
+<li><p>Subquery names are now scoped within the query. This makes query text
+deterministic which helps some query optimisers/cachers (#336).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sql_optimise()</span></code> now can partially optimise a pipeline; due to an unfortunate
+bug it previously gave up too easily.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">in_schema()</span></code> quotes each input individually (#287) (use <code class="docutils literal notranslate"><span class="pre">sql()</span></code> to opt out
+of quoting, if needed). And <code class="docutils literal notranslate"><span class="pre">DBI::Id()</span></code> should work anywhere that
+<code class="docutils literal notranslate"><span class="pre">in_schema()</span></code> does.</p></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2>SQL translation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Experimental new SAP HANA backend (#233). Requires the latest version of odbc.</p></li>
+<li><p>All backends:</p>
+<ul>
+<li><p>You can now use <code class="docutils literal notranslate"><span class="pre">::</span></code> in translations, so that (e.g.) <code class="docutils literal notranslate"><span class="pre">dbplyr::n()</span></code> is
+translated to <code class="docutils literal notranslate"><span class="pre">count(*)</span></code> (#207).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[[</span></code> can now also translate numeric indices (#520).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%/%</span></code> now generates a clear error message; previously it was translated to
+<code class="docutils literal notranslate"><span class="pre">/</span></code> which is not correct (#108).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n()</span></code> is translated to <code class="docutils literal notranslate"><span class="pre">count(*)</span></code> instead of <code class="docutils literal notranslate"><span class="pre">count()</span></code> (#343).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sub_str()</span></code> translation is more consistent in edge cases (&#64;ianmcook).</p></li>
+<li><p>All <code class="docutils literal notranslate"><span class="pre">median()</span></code> (&#64;lorenzwalthert, #483), <code class="docutils literal notranslate"><span class="pre">pmin()</span></code>, <code class="docutils literal notranslate"><span class="pre">pmax()</span></code> (#479), <code class="docutils literal notranslate"><span class="pre">sd()</span></code>
+and <code class="docutils literal notranslate"><span class="pre">var()</span></code> functions have an <code class="docutils literal notranslate"><span class="pre">na.rm</span></code> argument that warns once when not
+<code class="docutils literal notranslate"><span class="pre">TRUE</span></code>. This makes them consistent with <code class="docutils literal notranslate"><span class="pre">mean()</span></code> and <code class="docutils literal notranslate"><span class="pre">sum()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">substring()</span></code> is now translated the same way as <code class="docutils literal notranslate"><span class="pre">substr()</span></code> (#378).</p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://blob.tidyverse.org/">blob</a> vectors can now be used with <code class="docutils literal notranslate"><span class="pre">!!</span></code> and
+<code class="docutils literal notranslate"><span class="pre">!!!</span></code> operators, for example in <code class="docutils literal notranslate"><span class="pre">filter()</span></code> (&#64;okhoma, #433)</p></li>
+<li><p>MySQL uses standard SQL for index creation.</p></li>
+<li><p>MS SQL translation does better a distinguishing between bit and boolean
+(#377, #318). <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">ifelse</span></code> once again generate <code class="docutils literal notranslate"><span class="pre">IIF</span></code>, creating
+simpler expressions. <code class="docutils literal notranslate"><span class="pre">as.*()</span></code> function uses <code class="docutils literal notranslate"><span class="pre">TRY_CAST()</span></code> instead
+of <code class="docutils literal notranslate"><span class="pre">CAST()</span></code> for version 11+ (2012+) (&#64;DavidPatShuiFong, #380).</p></li>
+<li><p>odbc no longer translates <code class="docutils literal notranslate"><span class="pre">count()</span></code>; this was an accidental inclusion.</p></li>
+<li><p>Oracle translation now depends on Oracle 12c, and uses a “row-limiting”
+clause for <code class="docutils literal notranslate"><span class="pre">head()</span></code>. It gains translations for <code class="docutils literal notranslate"><span class="pre">today()</span></code> and <code class="docutils literal notranslate"><span class="pre">now()</span></code>, and
+improved <code class="docutils literal notranslate"><span class="pre">as.Date()</span></code> translation (&#64;rlh1994, #267).</p></li>
+<li><p>PostgreSQL: new translations for lubridate period functions <code class="docutils literal notranslate"><span class="pre">years()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">months()</span></code>, <code class="docutils literal notranslate"><span class="pre">days()</span></code>, and <code class="docutils literal notranslate"><span class="pre">floor_date()</span></code> (&#64;bkkkk, #333) and stringr functions
+<code class="docutils literal notranslate"><span class="pre">str_squish()</span></code>,  <code class="docutils literal notranslate"><span class="pre">str_remove()</span></code>, and <code class="docutils literal notranslate"><span class="pre">str_remove_all()</span></code> (&#64;shosaco).</p></li>
+<li><p>New RedShift translations when used with <code class="docutils literal notranslate"><span class="pre">RPostgres::Redshift()</span></code>.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">str_replace()</span></code> errors since there’s no Redshift translation,
+and <code class="docutils literal notranslate"><span class="pre">str_replace_all()</span></code> uses <code class="docutils literal notranslate"><span class="pre">REGEXP_REPLACE()</span></code> (#446).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">paste()</span></code> and <code class="docutils literal notranslate"><span class="pre">paste0()</span></code> use <code class="docutils literal notranslate"><span class="pre">||</span></code> (#458).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">as.numeric()</span></code> and <code class="docutils literal notranslate"><span class="pre">as.double()</span></code> cast to <code class="docutils literal notranslate"><span class="pre">FLOAT</span></code> (#408).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">substr()</span></code> and <code class="docutils literal notranslate"><span class="pre">str_sub()</span></code> use <code class="docutils literal notranslate"><span class="pre">SUBSTRING()</span></code> (#327).</p></li>
+</ul>
+</li>
+<li><p>SQLite gains translations for lubridate functions <code class="docutils literal notranslate"><span class="pre">today()</span></code>, <code class="docutils literal notranslate"><span class="pre">now()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">year()</span></code>, <code class="docutils literal notranslate"><span class="pre">month()</span></code>, <code class="docutils literal notranslate"><span class="pre">day()</span></code>, <code class="docutils literal notranslate"><span class="pre">hour()</span></code>, <code class="docutils literal notranslate"><span class="pre">minute()</span></code>, <code class="docutils literal notranslate"><span class="pre">second()</span></code>,<code class="docutils literal notranslate"><span class="pre">yday()</span></code>
+(#262), and correct translation for <code class="docutils literal notranslate"><span class="pre">median()</span></code> (#357).</p></li>
+</ul>
+</div>
+<div class="section" id="extensibility">
+<h2>Extensibility<a class="headerlink" href="#extensibility" title="Permalink to this headline">¶</a></h2>
+<p>If you are the author of a dbplyr backend, please see <code class="docutils literal notranslate"><span class="pre">vignette(&quot;backend-2&quot;)</span></code> for details.</p>
+<ul>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">dbplyr_edition()</span></code> generic allows you to opt-in to the 2nd edition of
+the dbplyr API.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">db_write_table()</span></code> now calls <code class="docutils literal notranslate"><span class="pre">DBI::dbWriteTable()</span></code> instead of nine generics
+that formerly each did a small part: <code class="docutils literal notranslate"><span class="pre">db_create_indexes()</span></code>, <code class="docutils literal notranslate"><span class="pre">db_begin()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">db_rollback()</span></code>, <code class="docutils literal notranslate"><span class="pre">db_commit()</span></code>, <code class="docutils literal notranslate"><span class="pre">db_list_tables()</span></code>, <code class="docutils literal notranslate"><span class="pre">drop_drop_table()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">db_has_table()</span></code>, <code class="docutils literal notranslate"><span class="pre">db_create_table()</span></code>, and <code class="docutils literal notranslate"><span class="pre">db_data_types()</span></code>. You can
+now delete the methods for these generics.</p>
+<p><code class="docutils literal notranslate"><span class="pre">db_query_rows()</span></code> is no longer used; it appears that it hasn’t been used
+for some time, so if you have a method, you can delete it.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DBI::dbQuoteIdentifier()</span></code> is now used instead of <code class="docutils literal notranslate"><span class="pre">sql_escape_ident()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">DBI::dbQuoteString()</span></code> instead of <code class="docutils literal notranslate"><span class="pre">sql_escape_string()</span></code>.</p></li>
+<li><p>A number of <code class="docutils literal notranslate"><span class="pre">db_*</span></code> generics have been replaced with new SQL generation
+generics:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dplyr::db_analyze()</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">dbplyr::sql_table_analyze()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dplyr::db_create_index()</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">dbplyr::sql_table_index()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dplyr::db_explain()</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">dbplyr::sql_queriy_explain()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dplyr::db_query_fields()</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">dbplyr::sql_query_fields()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dplyr::db_save_query()</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">dbplyr::sql_query_save()</span></code></p></li>
+</ul>
+<p>This makes them easier to test and is an important part of the process of
+moving all database generics in dbplyr (#284).</p>
+</li>
+<li><p>A number of other generics have been renamed to facilitate the move from
+dplyr to dbplyr:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dplyr::sql_select()</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">dbplyr::sql_query_select()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dplyr::sql_join()</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">dbplyr::sql_query_join()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dplyr::sql_semi_join()</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">dbplyr::sql_query_semi_join()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dplyr::sql_set_op()</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">dbplyr::sql_query_set_op()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dplyr::sql_subquery()</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">dbplyr::sql_query_wrap()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dplyr::db_desc()</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">dbplyr::db_connection_describe()</span></code></p></li>
+</ul>
+</li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">db_temporary_table()</span></code> generic makes it easier to work with databases
+that require temporary tables to be specially named.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">sql_expr_matches()</span></code> generic allows databases to use more efficient
+alternatives when determine if two values “match” (i.e. like equality but
+a pair of <code class="docutils literal notranslate"><span class="pre">NULL</span></code>s will also match). For more details, see
+<a class="reference external" href="https://modern-sql.com/feature/is-distinct-from">https://modern-sql.com/feature/is-distinct-from</a></p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">sql_join_suffix()</span></code> allows backends to control the default suffixes
+used (#254).</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>Minor improvements and bug fixes<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>All old lazy eval shims have been removed. These have been deprecated for
+some time.</p></li>
+<li><p>Date-time escaping methods for Athena and Presto have moved to the packages
+where they belong.</p></li>
+<li><p>Attempting to embed a Shiny reactive in a query now gives a helpful error
+(#439).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">copy_lahman()</span></code> and <code class="docutils literal notranslate"><span class="pre">copy_nycflights13()</span></code> (and hence <code class="docutils literal notranslate"><span class="pre">nycflights13_sqlite()</span></code>)
+and friends now return DBI connections rather than the now deprecated
+<code class="docutils literal notranslate"><span class="pre">src_dbi()</span></code> (#440).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">copy_to()</span></code> can now <code class="docutils literal notranslate"><span class="pre">overwrite</span></code> when table is specified with schema (#489),
+and gains an <code class="docutils literal notranslate"><span class="pre">in_transaction</span></code> argument used to optionally suppress the
+transaction wrapper (#368).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">distinct()</span></code> no longer duplicates column if grouped (#354).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">transmute()</span></code> now correctly tracks variables it needs when creating
+subqueries (#313).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mutate()</span></code> grouping variables no longer generates a downstream error (#396)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mutate()</span></code> correctly generates subqueries when you re-use the same variable
+three or more times (#412).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">window_order()</span></code> overrides ordering, rather than appending to it.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="dbplyr-1-4-4">
+<h1>dbplyr 1.4.4<a class="headerlink" href="#dbplyr-1-4-4" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Internally <code class="docutils literal notranslate"><span class="pre">DBI::dbExecute()</span></code> now uses <code class="docutils literal notranslate"><span class="pre">immediate</span> <span class="pre">=</span> <span class="pre">TRUE</span></code>; this improves
+support for session-scoped temporary tables in MS SQL (&#64;krlmlr, #438).</p></li>
+<li><p>Subqueries with <code class="docutils literal notranslate"><span class="pre">ORDER</span> <span class="pre">BY</span></code> use <code class="docutils literal notranslate"><span class="pre">TOP</span> <span class="pre">9223372036854775807</span></code> instead of
+<code class="docutils literal notranslate"><span class="pre">TOP</span> <span class="pre">100</span> <span class="pre">PERCENT</span></code> on SQL Server for compatibility with Azure Data Warehouse
+(#337, &#64;alexkyllo).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">escape()</span></code> now supports <code class="docutils literal notranslate"><span class="pre">blob</span></code> vectors using new <code class="docutils literal notranslate"><span class="pre">sql_escape_raw()</span></code>
+generic. It enables using <a class="reference external" href="https://blob.tidyverse.org/">blob</a> variables in
+dplyr verbs, for example to filter nvarchar values by UTF-16 blobs
+(see <a class="reference external" href="https://github.com/r-dbi/DBI/issues/215#issuecomment-356376133">https://github.com/r-dbi/DBI/issues/215#issuecomment-356376133</a>).
+(&#64;okhoma, #433)</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">setOldClass()</span></code> calls for <code class="docutils literal notranslate"><span class="pre">&quot;ident&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;ident_q&quot;</span></code> classes for
+compatibility with dplyr 1.0.0 (#448, &#64;krlmlr).</p></li>
+<li><p>Postgres <code class="docutils literal notranslate"><span class="pre">str_detect()</span></code> translation uses same argument names as stringr,
+and gains a <code class="docutils literal notranslate"><span class="pre">negate</span></code> argument (#444).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">semi_join()</span></code> and <code class="docutils literal notranslate"><span class="pre">anti_join()</span></code> now correctly support the <code class="docutils literal notranslate"><span class="pre">sql_on</span></code> argument
+(#443, &#64;krlmlr).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="dbplyr-1-4-3">
+<h1>dbplyr 1.4.3<a class="headerlink" href="#dbplyr-1-4-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>dbplyr now uses RPostgres (instead of RPostgreSQL) and RMariaDB (instead of
+RMySQL) for its internal tests and data functions (#427).</p></li>
+<li><p>The Date and POSIXt methods for <code class="docutils literal notranslate"><span class="pre">escape()</span></code> now use exported
+<code class="docutils literal notranslate"><span class="pre">sql_escape_date()</span></code> and <code class="docutils literal notranslate"><span class="pre">sql_escape_datetime()</span></code> generics to allow backend
+specific formatting of date and datetime literals. These are used to
+provide methods for Athena and Presto backends (&#64;OssiLehtinen, #384, #391).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">first()</span></code>, <code class="docutils literal notranslate"><span class="pre">last()</span></code>, <code class="docutils literal notranslate"><span class="pre">nth()</span></code>, <code class="docutils literal notranslate"><span class="pre">lead()</span></code> and <code class="docutils literal notranslate"><span class="pre">lag()</span></code> now respect the
+<code class="docutils literal notranslate"><span class="pre">window_frame()</span></code> (&#64;krlmlr, #366).</p></li>
+<li><p>SQL server: new translations for <code class="docutils literal notranslate"><span class="pre">str_flatten()</span></code> (&#64;PauloJhonny, #405).</p></li>
+<li><p>SQL server: temporary datasets are now session-local, not global (#401).</p></li>
+<li><p>Postgres: correct <code class="docutils literal notranslate"><span class="pre">str_detect()</span></code>, <code class="docutils literal notranslate"><span class="pre">str_replace()</span></code> and <code class="docutils literal notranslate"><span class="pre">str_replace_all()</span></code>
+translation (&#64;shosaco, #362).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="dbplyr-1-4-2">
+<h1>dbplyr 1.4.2<a class="headerlink" href="#dbplyr-1-4-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix bug when partially evaluating unquoting quosure containing a single
+symbol (#317)</p></li>
+<li><p>Fixes for rlang and dpylr compatibility.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="dbplyr-1-4-1">
+<h1>dbplyr 1.4.1<a class="headerlink" href="#dbplyr-1-4-1" title="Permalink to this headline">¶</a></h1>
+<p>Minor improvements to SQL generation</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%in%</span> <span class="pre">y</span></code> strips names of <code class="docutils literal notranslate"><span class="pre">y</span></code> (#269).</p></li>
+<li><p>Enhancements for scoped verbs (<code class="docutils literal notranslate"><span class="pre">mutate_all()</span></code>, <code class="docutils literal notranslate"><span class="pre">summarise_if()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">filter_at()</span></code> etc) (#296, #306).</p></li>
+<li><p>MS SQL use <code class="docutils literal notranslate"><span class="pre">TOP</span> <span class="pre">100</span> <span class="pre">PERCENT</span></code> as stop-gap to allow subqueries with
+<code class="docutils literal notranslate"><span class="pre">ORDER</span> <span class="pre">BY</span></code> (#277).</p></li>
+<li><p>Window functions now translated correctly for Hive (#293, &#64;cderv).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="dbplyr-1-4-0">
+<h1>dbplyr 1.4.0<a class="headerlink" href="#dbplyr-1-4-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="breaking-changes">
+<h2>Breaking changes<a class="headerlink" href="#breaking-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Error:</span> <span class="pre">`con`</span> <span class="pre">must</span> <span class="pre">not</span> <span class="pre">be</span> <span class="pre">NULL</span></code>: If you see this error, it probably means
+that you have forgotten to pass <code class="docutils literal notranslate"><span class="pre">con</span></code> down to a dbplyr function.
+Previously, dbplyr defaulted to using <code class="docutils literal notranslate"><span class="pre">simulate_dbi()</span></code> which introduced
+subtle escaping bugs. (It’s also possible I have forgotten to pass it
+somewhere that the dbplyr tests don’t pick up, so if you can’t figure it
+out, please let me know).</p></li>
+<li><p>Subsetting (<code class="docutils literal notranslate"><span class="pre">[[</span></code>, <code class="docutils literal notranslate"><span class="pre">$</span></code>, and <code class="docutils literal notranslate"><span class="pre">[</span></code>) functions are no longer evaluated locally.
+This makes the translation more consistent and enables useful new idioms
+for modern databases (#200).</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>New features<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>MySQL/MariaDB (<a class="reference external" href="https://mariadb.com/kb/en/library/window-functions/">https://mariadb.com/kb/en/library/window-functions/</a>)
+and SQLite (<a class="reference external" href="https://www.sqlite.org/windowfunctions.html">https://www.sqlite.org/windowfunctions.html</a>) translations gain
+support for window functions, available in Maria DB 10.2, MySQL 8.0, and
+SQLite 3.25 (#191).</p></li>
+<li><p>Overall, dplyr generates many fewer subqueries:</p>
+<ul>
+<li><p>Joins and semi-joins no longer add an unneeded subquery (#236). This is
+facilitated by the new <code class="docutils literal notranslate"><span class="pre">bare_identifier_ok</span></code> argument to <code class="docutils literal notranslate"><span class="pre">sql_render()</span></code>;
+the previous argument was called <code class="docutils literal notranslate"><span class="pre">root</span></code> and confused me.</p></li>
+<li><p>Many sequences of <code class="docutils literal notranslate"><span class="pre">select()</span></code>, <code class="docutils literal notranslate"><span class="pre">rename()</span></code>, <code class="docutils literal notranslate"><span class="pre">mutate()</span></code>, and <code class="docutils literal notranslate"><span class="pre">transmute()</span></code> can
+be collapsed into a single query, instead of always generating a subquery
+(#213).</p></li>
+</ul>
+</li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">vignette(&quot;sql&quot;)</span></code> describes some advantages of dbplyr over SQL (#205) and
+gives some advice about writing literal SQL inside of dplyr, when you need
+to (#196).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">vignette(&quot;reprex&quot;)</span></code> gives some hints on creating reprexes that work
+anywhere (#117). This is supported by a new <code class="docutils literal notranslate"><span class="pre">tbl_memdb()</span></code> that matches the
+existing <code class="docutils literal notranslate"><span class="pre">tbl_lazy()</span></code>.</p></li>
+<li><p>All <code class="docutils literal notranslate"><span class="pre">..._join()</span></code> functions gain an <code class="docutils literal notranslate"><span class="pre">sql_on</span></code> argument that allows specifying
+arbitrary join predicates in SQL code (#146, &#64;krlmlr).</p></li>
+</ul>
+</div>
+<div class="section" id="sql-translations">
+<h2>SQL translations<a class="headerlink" href="#sql-translations" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>New translations for some lubridate functions: <code class="docutils literal notranslate"><span class="pre">today()</span></code>, <code class="docutils literal notranslate"><span class="pre">now()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">year()</span></code>, <code class="docutils literal notranslate"><span class="pre">month()</span></code>, <code class="docutils literal notranslate"><span class="pre">day()</span></code>, <code class="docutils literal notranslate"><span class="pre">hour()</span></code>, <code class="docutils literal notranslate"><span class="pre">minute()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">second()</span></code>, <code class="docutils literal notranslate"><span class="pre">quarter()</span></code>, <code class="docutils literal notranslate"><span class="pre">yday()</span></code> (&#64;colearendt, &#64;derekmorr). Also added new
+translation for <code class="docutils literal notranslate"><span class="pre">as.POSIXct()</span></code>.</p></li>
+<li><p>New translations for stringr functions: <code class="docutils literal notranslate"><span class="pre">str_c()</span></code>, <code class="docutils literal notranslate"><span class="pre">str_sub()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">str_length()</span></code>, <code class="docutils literal notranslate"><span class="pre">str_to_upper()</span></code>, <code class="docutils literal notranslate"><span class="pre">str_to_lower()</span></code>, and <code class="docutils literal notranslate"><span class="pre">str_to_title()</span></code>
+(&#64;colearendt). Non-translated stringr functions throw a clear error.</p></li>
+<li><p>New translations for bitwise operations: <code class="docutils literal notranslate"><span class="pre">bitwNot()</span></code>, <code class="docutils literal notranslate"><span class="pre">bitwAnd()</span></code>, <code class="docutils literal notranslate"><span class="pre">bitwOr()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">bitwXor()</span></code>, <code class="docutils literal notranslate"><span class="pre">bitwShiftL()</span></code>, and <code class="docutils literal notranslate"><span class="pre">bitwShiftR()</span></code>. Unlike the base R functions,
+the translations do not coerce arguments to integers (&#64;davidchall, #235).</p></li>
+<li><p>New translation for <code class="docutils literal notranslate"><span class="pre">x[y]</span></code> to <code class="docutils literal notranslate"><span class="pre">CASE</span> <span class="pre">WHEN</span> <span class="pre">y</span> <span class="pre">THEN</span> <span class="pre">x</span> <span class="pre">END</span></code>. This enables
+<code class="docutils literal notranslate"><span class="pre">sum(a[b</span> <span class="pre">==</span> <span class="pre">0])</span></code> to work as you expect from R (#202). <code class="docutils literal notranslate"><span class="pre">y</span></code> needs to be
+a logical expression; if not you will likely get a type error from your
+database.</p></li>
+<li><p>New translations for <code class="docutils literal notranslate"><span class="pre">x$y</span></code> and <code class="docutils literal notranslate"><span class="pre">x[[&quot;y&quot;]]</span></code> to <code class="docutils literal notranslate"><span class="pre">x.y</span></code>, enabling you to index
+into nested fields in databases that provide them (#158).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">.data</span></code> and <code class="docutils literal notranslate"><span class="pre">.env</span></code> pronouns of tidy evaluation are correctly translated
+(#132).</p></li>
+<li><p>New translation for <code class="docutils literal notranslate"><span class="pre">median()</span></code> and <code class="docutils literal notranslate"><span class="pre">quantile()</span></code>. Works for all ANSI compliant
+databases (SQL Server, Postgres, MariaDB, Teradata) and has custom
+translations for Hive. Thanks to &#64;edavidaja for researching the SQL variants!
+(#169)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">na_if()</span></code> is correct translated to <code class="docutils literal notranslate"><span class="pre">NULLIF()</span></code> (rather than <code class="docutils literal notranslate"><span class="pre">NULL_IF</span></code>) (#211).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_distinct()</span></code> translation throws an error when given more than one argument.
+(#101, #133).</p></li>
+<li><p>New default translations for <code class="docutils literal notranslate"><span class="pre">paste()</span></code>, <code class="docutils literal notranslate"><span class="pre">paste0()</span></code>, and the hyperbolic
+functions (these previously were only available for ODBC databases).</p></li>
+<li><p>Corrected translations of <code class="docutils literal notranslate"><span class="pre">pmin()</span></code> and <code class="docutils literal notranslate"><span class="pre">pmax()</span></code> to <code class="docutils literal notranslate"><span class="pre">LEAST()</span></code> and <code class="docutils literal notranslate"><span class="pre">GREATEST()</span></code>
+for ANSI compliant databases (#118), to <code class="docutils literal notranslate"><span class="pre">MIN()</span></code> and <code class="docutils literal notranslate"><span class="pre">MAX()</span></code> for SQLite, and
+to an error for SQL server.</p></li>
+<li><p>New translation for <code class="docutils literal notranslate"><span class="pre">switch()</span></code> to the simple form of <code class="docutils literal notranslate"><span class="pre">CASE</span> <span class="pre">WHEN</span></code> (#192).</p></li>
+</ul>
+<div class="section" id="sql-simulation">
+<h3>SQL simulation<a class="headerlink" href="#sql-simulation" title="Permalink to this headline">¶</a></h3>
+<p>SQL simulation makes it possible to see what dbplyr will translate SQL to,
+without having an active database connection, and is used for testing and
+generating reprexes.</p>
+<ul class="simple">
+<li><p>SQL simulation has been overhauled. It now works reliably, is better
+documented, and always uses ANSI escaping (i.e. <code class="docutils literal notranslate"><span class="pre">`</span></code> for field
+names and <code class="docutils literal notranslate"><span class="pre">'</span></code> for strings).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tbl_lazy()</span></code> now actually puts a <code class="docutils literal notranslate"><span class="pre">dbplyr::src</span></code> in the <code class="docutils literal notranslate"><span class="pre">$src</span></code> field. This
+shouldn’t affect any downstream code unless you were previously working
+around this weird difference between <code class="docutils literal notranslate"><span class="pre">tbl_lazy</span></code> and <code class="docutils literal notranslate"><span class="pre">tbl_sql</span></code> classes.
+It also includes the <code class="docutils literal notranslate"><span class="pre">src</span></code> class in its class, and when printed,
+shows the generated SQL (#111).</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="database-specific-improvements">
+<h2>Database specific improvements<a class="headerlink" href="#database-specific-improvements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>MySQL/MariaDB</p>
+<ul>
+<li><p>Translations also applied to connections via the odbc package
+(&#64;colearendt, #238)</p></li>
+<li><p>Basic support for regular expressions via <code class="docutils literal notranslate"><span class="pre">str_detect()</span></code> and<br />
+<code class="docutils literal notranslate"><span class="pre">str_replace_all()</span></code> (&#64;colearendt, #168).</p></li>
+<li><p>Improved translation for <code class="docutils literal notranslate"><span class="pre">as.logical(x)</span></code> to <code class="docutils literal notranslate"><span class="pre">IF(x,</span> <span class="pre">TRUE,</span> <span class="pre">FALSE)</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Oracle</p>
+<ul>
+<li><p>New custom translation for <code class="docutils literal notranslate"><span class="pre">paste()</span></code> and <code class="docutils literal notranslate"><span class="pre">paste0()</span></code> (&#64;cderv, #221)</p></li>
+</ul>
+</li>
+<li><p>Postgres</p>
+<ul>
+<li><p>Basic support for regular expressions via <code class="docutils literal notranslate"><span class="pre">str_detect()</span></code> and<br />
+<code class="docutils literal notranslate"><span class="pre">str_replace_all()</span></code> (&#64;colearendt, #168).</p></li>
+</ul>
+</li>
+<li><p>SQLite</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">explain()</span></code> translation now generates <code class="docutils literal notranslate"><span class="pre">EXPLAIN</span> <span class="pre">QUERY</span> <span class="pre">PLAN</span></code> which
+generates a higher-level, more human friendly explanation.</p></li>
+</ul>
+</li>
+<li><p>SQL server</p>
+<ul>
+<li><p>Improved translation for <code class="docutils literal notranslate"><span class="pre">as.logical(x)</span></code> to <code class="docutils literal notranslate"><span class="pre">CAST(x</span> <span class="pre">as</span> <span class="pre">BIT)</span></code> (#250).</p></li>
+<li><p>Translates <code class="docutils literal notranslate"><span class="pre">paste()</span></code>, <code class="docutils literal notranslate"><span class="pre">paste0()</span></code>, and <code class="docutils literal notranslate"><span class="pre">str_c()</span></code> to <code class="docutils literal notranslate"><span class="pre">+</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">copy_to()</span></code> method applies temporary table name transformation
+earlier so that you can now overwrite temporary tables (#258).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">db_write_table()</span></code> method uses correct argument name for
+passing along field types (#251).</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>Minor improvements and bug fixes<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Aggregation functions only warn once per session about the use of
+<code class="docutils literal notranslate"><span class="pre">na.rm</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> (#216).</p></li>
+<li><p>table names generated by <code class="docutils literal notranslate"><span class="pre">random_table_name()</span></code> have the prefix
+“dbplyr_”, which makes it easier to find them programmatically
+(&#64;mattle24, #111)</p></li>
+<li><p>Functions that are only available in a windowed (<code class="docutils literal notranslate"><span class="pre">mutate()</span></code>) query now
+throw an error when called in a aggregate (<code class="docutils literal notranslate"><span class="pre">summarise()</span></code>) query (#129)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">arrange()</span></code> understands the <code class="docutils literal notranslate"><span class="pre">.by_group</span></code> argument, making it possible
+sort by groups if desired. The default is <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> (#115)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">distinct()</span></code> now handles computed variables like <code class="docutils literal notranslate"><span class="pre">distinct(df,</span> <span class="pre">y</span> <span class="pre">=</span> <span class="pre">x</span> <span class="pre">+</span> <span class="pre">y)</span></code>
+(#154).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">escape()</span></code>, <code class="docutils literal notranslate"><span class="pre">sql_expr()</span></code> and <code class="docutils literal notranslate"><span class="pre">build_sql()</span></code> no longer accept <code class="docutils literal notranslate"><span class="pre">con</span> <span class="pre">=</span> <span class="pre">NULL</span></code> as
+a shortcut for <code class="docutils literal notranslate"><span class="pre">con</span> <span class="pre">=</span> <span class="pre">simulate_dbi()</span></code>. This made it too easy to forget to
+pass <code class="docutils literal notranslate"><span class="pre">con</span></code> along, introducing extremely subtle escaping bugs. <code class="docutils literal notranslate"><span class="pre">win_over()</span></code>
+gains a <code class="docutils literal notranslate"><span class="pre">con</span></code> argument for the same reason.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">escape_ansi()</span></code> always uses ANSI SQL 92 standard escaping (for use
+in examples and documentation).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mutate(df,</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">NULL)</span></code> drops <code class="docutils literal notranslate"><span class="pre">x</span></code> from the output, just like when working with
+local data frames (#194).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">partial_eval()</span></code> processes inlined functions (including rlang lambda
+functions). This makes dbplyr work with more forms of scoped verbs like
+<code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">%&gt;%</span> <span class="pre">summarise_all(~</span> <span class="pre">mean(.))</span></code>, <code class="docutils literal notranslate"><span class="pre">df</span> <span class="pre">%&gt;%</span> <span class="pre">summarise_all(list(mean))</span></code> (#134).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sql_aggregate()</span></code> now takes an optional argument <code class="docutils literal notranslate"><span class="pre">f_r</span></code> for passing to
+<code class="docutils literal notranslate"><span class="pre">check_na_rm()</span></code>. This allows the warning to show the R function name rather
+than the SQL function name (&#64;sverchkov, #153).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sql_infix()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">pad</span></code> argument for the rare operator that doesn’t
+need to be surrounded by spaces.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sql_prefix()</span></code> no longer turns SQL functions into uppercase, allowing for
+correct translation of case-sensitive SQL functions (#181, &#64;mtoto).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">summarise()</span></code> gives a clear error message if you refer to a variable
+created in that same <code class="docutils literal notranslate"><span class="pre">summarise()</span></code> (#114).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">sql_call2()</span></code> which is to <code class="docutils literal notranslate"><span class="pre">rlang::call2()</span></code> as <code class="docutils literal notranslate"><span class="pre">sql_expr()</span></code> is to
+<code class="docutils literal notranslate"><span class="pre">rlang::expr()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">show_query()</span></code> and <code class="docutils literal notranslate"><span class="pre">explain()</span></code> use <code class="docutils literal notranslate"><span class="pre">cat()</span></code> rather than message.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">union()</span></code>, <code class="docutils literal notranslate"><span class="pre">union_all()</span></code>, <code class="docutils literal notranslate"><span class="pre">setdiff()</span></code> and <code class="docutils literal notranslate"><span class="pre">intersect()</span></code> do a better job
+of matching columns across backends (#183).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="dbplyr-1-3-0">
+<h1>dbplyr 1.3.0<a class="headerlink" href="#dbplyr-1-3-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Now supports for dplyr 0.8.0 (#190) and R 3.1.0</p></li>
+</ul>
+<div class="section" id="api-changes">
+<h2>API changes<a class="headerlink" href="#api-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Calls of the form <code class="docutils literal notranslate"><span class="pre">dplyr::foo()</span></code> are now evaluated in the database,
+rather than locally (#197).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vars</span></code> argument to <code class="docutils literal notranslate"><span class="pre">tbl_sql()</span></code> has been formally deprecated; it hasn’t
+actually done anything for a while (#3254).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src</span></code> and <code class="docutils literal notranslate"><span class="pre">tbl</span></code> objects now include a class generated from the class of
+the underlying connection object. This makes it possible for dplyr backends
+to implement different behaviour at the dplyr level, when needed. (#2293)</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>SQL translation<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%in%</span> <span class="pre">y</span></code> is now translated to <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> if <code class="docutils literal notranslate"><span class="pre">y</span></code> is empty (&#64;mgirlich, #160).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">as.integer64(x)</span></code> translation to <code class="docutils literal notranslate"><span class="pre">CAST(x</span> <span class="pre">AS</span> <span class="pre">BIGINT)</span></code> (#3305)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">case_when</span></code> now translates with a ELSE clause if a formula of the form
+<code class="docutils literal notranslate"><span class="pre">TRUE~&lt;RHS&gt;</span></code> is provided . (&#64;cderv, #112)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cummean()</span></code> now generates <code class="docutils literal notranslate"><span class="pre">AVG()</span></code> not <code class="docutils literal notranslate"><span class="pre">MEAN()</span></code> (#157)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">str_detect()</span></code> now uses correct parameter order (#3397)</p></li>
+<li><p>MS SQL</p>
+<ul>
+<li><p>Cumulative summary functions now work (#157)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ifelse()</span></code> uses <code class="docutils literal notranslate"><span class="pre">CASE</span> <span class="pre">WHEN</span></code> instead of <code class="docutils literal notranslate"><span class="pre">IIF</span></code>; this allows more complex
+operations, such as <code class="docutils literal notranslate"><span class="pre">%in%</span></code>, to work properly (#93)</p></li>
+</ul>
+</li>
+<li><p>Oracle</p>
+<ul>
+<li><p>Custom <code class="docutils literal notranslate"><span class="pre">db_drop_table()</span></code> now only drops tables if they exist (#3306)</p></li>
+<li><p>Custom <code class="docutils literal notranslate"><span class="pre">setdiff()</span></code> translation  (#3493)</p></li>
+<li><p>Custom <code class="docutils literal notranslate"><span class="pre">db_explain()</span></code> translation (#3471)</p></li>
+</ul>
+</li>
+<li><p>SQLite</p>
+<ul>
+<li><p>Correct translation for <code class="docutils literal notranslate"><span class="pre">as.numeric()</span></code>/<code class="docutils literal notranslate"><span class="pre">as.double()</span></code> (&#64;chris-park, #171).</p></li>
+</ul>
+</li>
+<li><p>Redshift</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">substr()</span></code> translation improved (#3339)</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>Minor improvements and bug fixes<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">copy_to()</span></code> will only remove existing table when <code class="docutils literal notranslate"><span class="pre">overwrite</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> and the
+table already exists, eliminating a confusing “NOTICE” from PostgreSQL
+(#3197).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">partial_eval()</span></code> handles unevaluated formulas (#184).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pull.tbl_sql()</span></code> now extracts correctly from grouped tables (#3562).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sql_render.op()</span></code> now correctly forwards the <code class="docutils literal notranslate"><span class="pre">con</span></code> argument (&#64;kevinykuo, #73).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="dbplyr-1-2-2">
+<h1>dbplyr 1.2.2<a class="headerlink" href="#dbplyr-1-2-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>R CMD check fixes</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="dbplyr-1-2-1">
+<h1>dbplyr 1.2.1<a class="headerlink" href="#dbplyr-1-2-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Forward compatibility fixes for rlang 0.2.0</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="dbplyr-1-2-0">
+<h1>dbplyr 1.2.0<a class="headerlink" href="#dbplyr-1-2-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="new-top-level-translations">
+<h2>New top-level translations<a class="headerlink" href="#new-top-level-translations" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>New translations for</p>
+<ul>
+<li><p>MS Access (#2946) (&#64;DavisVaughan)</p></li>
+<li><p>Oracle, via odbc or ROracle (#2928, #2732, &#64;edgararuiz)</p></li>
+<li><p>Teradata.</p></li>
+<li><p>Redshift.</p></li>
+</ul>
+</li>
+<li><p>dbplyr now supplies appropriate translations for the RMariaDB and
+RPostgres packages (#3154). We generally recommend using these packages
+in favour of the older RMySQL and RPostgreSQL packages as they are
+fully DBI compliant and tested with DBItest.</p></li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>New features<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">copy_to()</span></code> can now “copy” tbl_sql in the same src, providing another
+way to cache a query into a temporary table (#3064). You can also
+<code class="docutils literal notranslate"><span class="pre">copy_to</span></code> tbl_sqls from another source, and <code class="docutils literal notranslate"><span class="pre">copy_to()</span></code> will automatically
+collect then copy.</p></li>
+<li><p>Initial support for stringr functions: <code class="docutils literal notranslate"><span class="pre">str_length()</span></code>, <code class="docutils literal notranslate"><span class="pre">str_to_upper()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">str_to_lower()</span></code>, <code class="docutils literal notranslate"><span class="pre">str_replace_all()</span></code>, <code class="docutils literal notranslate"><span class="pre">str_detect()</span></code>, <code class="docutils literal notranslate"><span class="pre">str_trim()</span></code>.
+Regular expression support varies from database to database, but most
+simple regular expressions should be ok.</p></li>
+</ul>
+</div>
+<div class="section" id="tools-for-developers">
+<h2>Tools for developers<a class="headerlink" href="#tools-for-developers" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">db_compute()</span></code> gains an <code class="docutils literal notranslate"><span class="pre">analyze</span></code> argument to match <code class="docutils literal notranslate"><span class="pre">db_copy_to()</span></code>.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">remote_name()</span></code>, <code class="docutils literal notranslate"><span class="pre">remote_con()</span></code>, <code class="docutils literal notranslate"><span class="pre">remote_src()</span></code>, <code class="docutils literal notranslate"><span class="pre">remote_query()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">remote_query_plan()</span></code> provide a standard API for get metadata about a
+remote tbl (#3130, #2923, #2824).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">sql_expr()</span></code> is a more convenient building block for low-level SQL
+translation (#3169).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">sql_aggregate()</span></code> and <code class="docutils literal notranslate"><span class="pre">win_aggregate()</span></code> for generating SQL and windowed
+SQL functions for aggregates. These take one argument, <code class="docutils literal notranslate"><span class="pre">x</span></code>, and warn if
+<code class="docutils literal notranslate"><span class="pre">na.rm</span></code> is not <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> (#3155). <code class="docutils literal notranslate"><span class="pre">win_recycled()</span></code> is equivalent to
+<code class="docutils literal notranslate"><span class="pre">win_aggregate()</span></code> and has been soft-deprecated.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">db_write_table</span></code> now needs to return the table name</p></li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h2>Minor improvements and bug fixes<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Multiple <code class="docutils literal notranslate"><span class="pre">head()</span></code> calls in a row now collapse to a single call. This avoids
+a printing problem with MS SQL (#3084).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">escape()</span></code> now works with integer64 values from the bit64 package (#3230)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">ifelse()</span></code>, and <code class="docutils literal notranslate"><span class="pre">if_else()</span></code> now correctly scope the false condition
+so that it only applies to non-NULL conditions (#3157)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ident()</span></code> and <code class="docutils literal notranslate"><span class="pre">ident_q()</span></code> handle 0-length inputs better, and should
+be easier to use with S3 (#3212)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">in_schema()</span></code> should now work in more places, particularly in <code class="docutils literal notranslate"><span class="pre">copy_to()</span></code>
+(#3013, &#64;baileych)</p></li>
+<li><p>SQL generation for joins no longer gets stuck in a endless loop if you
+request an empty suffix (#3220).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mutate()</span></code> has better logic for splitting a single mutate into multiple
+subqueries (#3095).</p></li>
+<li><p>Improved <code class="docutils literal notranslate"><span class="pre">paste()</span></code> and <code class="docutils literal notranslate"><span class="pre">paste0()</span></code> support in MySQL, PostgreSQL (#3168),
+and RSQLite (#3176). MySQL and PostgreSQL gain support for <code class="docutils literal notranslate"><span class="pre">str_flatten()</span></code>
+which behaves like <code class="docutils literal notranslate"><span class="pre">paste(x,</span> <span class="pre">collapse</span> <span class="pre">=</span> <span class="pre">&quot;-&quot;)</span></code> (but for technical reasons
+can’t be implemented as a straightforward translation of <code class="docutils literal notranslate"><span class="pre">paste()</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">same_src.tbl_sql()</span></code> now performs correct comparison instead of always
+returning <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>. This means that <code class="docutils literal notranslate"><span class="pre">copy</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> once again allows you to
+perform cross-database joins (#3002).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">select()</span></code> queries no longer alias column names unnecessarily
+(#2968, &#64;DavisVaughan).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">select()</span></code> and <code class="docutils literal notranslate"><span class="pre">rename()</span></code> are now powered by tidyselect,
+fixing a few renaming bugs (#3132, #2943, #2860).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">summarise()</span></code> once again performs partial evaluation before database
+submission (#3148).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test_src()</span></code> makes it easier to access a single test source.</p></li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h2>Database specific improvements<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>MS SQL</p>
+<ul>
+<li><p>Better support for temporary tables (&#64;Hong-Revo)</p></li>
+<li><p>Different translations for filter/mutate contexts for: <code class="docutils literal notranslate"><span class="pre">NULL</span></code> evaluation
+(<code class="docutils literal notranslate"><span class="pre">is.na()</span></code>, <code class="docutils literal notranslate"><span class="pre">is.null()</span></code>), logical operators (<code class="docutils literal notranslate"><span class="pre">!</span></code>, <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code>, <code class="docutils literal notranslate"><span class="pre">||</span></code>),
+and comparison operators (<code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">!=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>)</p></li>
+</ul>
+</li>
+<li><p>MySQL: <code class="docutils literal notranslate"><span class="pre">copy_to()</span></code> (via <code class="docutils literal notranslate"><span class="pre">db_write_table()</span></code>) correctly translates logical
+variables to integers (#3151).</p></li>
+<li><p>odbc: improved <code class="docutils literal notranslate"><span class="pre">n()</span></code> translation in windowed context.</p></li>
+<li><p>SQLite: improved <code class="docutils literal notranslate"><span class="pre">na_if</span></code> translation (&#64;cwarden)</p></li>
+<li><p>PostgreSQL: translation for <code class="docutils literal notranslate"><span class="pre">grepl()</span></code> added (&#64;zozlak)</p></li>
+<li><p>Oracle: changed VARVHAR to VARCHAR2 datatype (&#64;washcycle, #66)</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="dbplyr-1-1-0">
+<h1>dbplyr 1.1.0<a class="headerlink" href="#dbplyr-1-1-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id10">
+<h2>New features<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">full_join()</span></code> over non-overlapping columns <code class="docutils literal notranslate"><span class="pre">by</span> <span class="pre">=</span> <span class="pre">character()</span></code> translated to
+<code class="docutils literal notranslate"><span class="pre">CROSS</span> <span class="pre">JOIN</span></code> (#2924).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">case_when()</span></code> now translates to SQL “CASE WHEN” (#2894)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%in%</span> <span class="pre">c(1)</span></code> now generates the same SQL as <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%in%</span> <span class="pre">1</span></code> (#2898).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">window_order()</span></code> and <code class="docutils literal notranslate"><span class="pre">window_frame()</span></code> give you finer control over
+the window functions that dplyr creates (#2874, #2593).</p></li>
+<li><p>Added SQL translations for Oracle (&#64;edgararuiz).</p></li>
+</ul>
+</div>
+<div class="section" id="id11">
+<h2>Minor improvements and bug fixes<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%in%</span> <span class="pre">c(1)</span></code> now generates the same SQL as <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%in%</span> <span class="pre">1</span></code> (#2898).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">head(tbl,</span> <span class="pre">0)</span></code> is now supported (#2863).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">select()</span></code>ing zero columns gives a more information error message (#2863).</p></li>
+<li><p>Variables created in a join are now disambiguated against other variables
+in the same table, not just variables in the other table (#2823).</p></li>
+<li><p>PostgreSQL gains a better translation for <code class="docutils literal notranslate"><span class="pre">round()</span></code> (#60).</p></li>
+<li><p>Added custom <code class="docutils literal notranslate"><span class="pre">db_analyze_table()</span></code> for MS SQL, Oracle, Hive and Impala (&#64;edgararuiz)</p></li>
+<li><p>Added support for <code class="docutils literal notranslate"><span class="pre">sd()</span></code> for aggregate and window functions (#2887) (&#64;edgararuiz)</p></li>
+<li><p>You can now use the magrittr pipe within expressions,
+e.g. <code class="docutils literal notranslate"><span class="pre">mutate(mtcars,</span> <span class="pre">cyl</span> <span class="pre">%&gt;%</span> <span class="pre">as.character())</span></code>.</p></li>
+<li><p>If a translation was supplied for a summarise function, but not for the
+equivalent windowed variant, the expression would be translated to <code class="docutils literal notranslate"><span class="pre">NULL</span></code>
+with a warning. Now <code class="docutils literal notranslate"><span class="pre">sql_variant()</span></code> checks that all aggregate functions
+have matching window functions so that correct translations or clean errors
+will be generated (#2887)</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="dbplyr-1-0-0">
+<h1>dbplyr 1.0.0<a class="headerlink" href="#dbplyr-1-0-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id12">
+<h2>New features<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">tbl()</span></code> and <code class="docutils literal notranslate"><span class="pre">copy_to()</span></code> now work directly with DBI connections (#2423, #2576),
+so there is no longer a need to generate a dplyr src.</p>
+<div class="highlight-R notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+
+<span class="n">con</span> <span class="o">&lt;-</span> <span class="n">DBI</span><span class="o">::</span><span class="nf">dbConnect</span><span class="p">(</span><span class="n">RSQLite</span><span class="o">::</span><span class="nf">SQLite</span><span class="p">(),</span> <span class="s">&quot;:memory:&quot;</span><span class="p">)</span>
+<span class="nf">copy_to</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="n">mtcars</span><span class="p">)</span>
+
+<span class="n">mtcars2</span> <span class="o">&lt;-</span> <span class="nf">tbl</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;mtcars&quot;</span><span class="p">)</span>
+<span class="n">mtcars2</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">glimpse()</span></code> now works with remote tables (#2665)</p></li>
+<li><p>dplyr has gained a basic SQL optimiser, which collapses certain nested
+SELECT queries into a single query (#1979). This will improve query
+execution performance for databases with less sophisticated query optimisers,
+and fixes certain problems with ordering and limits in subqueries (#1979).
+A big thanks goes to &#64;hhoeflin for figuring out this optimisation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compute()</span></code> and <code class="docutils literal notranslate"><span class="pre">collapse()</span></code> now preserve the “ordering” of rows.
+This only affects the computation of window functions, as the rest
+of SQL does not care about row order (#2281).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">copy_to()</span></code> gains an <code class="docutils literal notranslate"><span class="pre">overwrite</span></code> argument which allows you to overwrite
+an existing table. Use with care! (#2296)</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">in_schema()</span></code> function makes it easy to refer to tables in schema:
+<code class="docutils literal notranslate"><span class="pre">in_schema(&quot;my_schema_name&quot;,</span> <span class="pre">&quot;my_table_name&quot;)</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="deprecated-and-defunct">
+<h2>Deprecated and defunct<a class="headerlink" href="#deprecated-and-defunct" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">query()</span></code> is no longer exported. It hasn’t been useful for a while
+so this shouldn’t break any code.</p></li>
+</ul>
+</div>
+<div class="section" id="verb-level-sql-generation">
+<h2>Verb-level SQL generation<a class="headerlink" href="#verb-level-sql-generation" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Partial evaluation occurs immediately when you execute a verb (like
+<code class="docutils literal notranslate"><span class="pre">filter()</span></code> or <code class="docutils literal notranslate"><span class="pre">mutate()</span></code>) rather than happening when the query is executed
+(#2370).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mutate.tbl_sql()</span></code> will now generate as many subqueries as necessary so
+that you can refer to variables that you just created (like in mutate
+with regular dataframes) (#2481, #2483).</p></li>
+<li><p>SQL joins have been improved:</p>
+<ul class="simple">
+<li><p>SQL joins always use the <code class="docutils literal notranslate"><span class="pre">ON</span> <span class="pre">...</span></code> syntax, avoiding <code class="docutils literal notranslate"><span class="pre">USING</span> <span class="pre">...</span></code> even for
+natural joins. Improved handling of tables with columns of the same name
+(#1997, &#64;javierluraschi). They now generate SQL more similar to what you’d
+write by hand, eliminating a layer or two of subqueries (#2333)</p></li>
+<li><p>[API] They now follow the same rules for including duplicated key variables
+that the data frame methods do, namely that key variables are only
+kept from <code class="docutils literal notranslate"><span class="pre">x</span></code>, and never from <code class="docutils literal notranslate"><span class="pre">y</span></code> (#2410)</p></li>
+<li><p>[API] The <code class="docutils literal notranslate"><span class="pre">sql_join()</span></code> generic now gains a <code class="docutils literal notranslate"><span class="pre">vars</span></code> argument which lists
+the variables taken from the left and right sides of the join. If you
+have a custom <code class="docutils literal notranslate"><span class="pre">sql_join()</span></code> method, you’ll need to update how your
+code generates joins, following the template in <code class="docutils literal notranslate"><span class="pre">sql_join.generic()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">full_join()</span></code> throws a clear error when you attempt to use it with a
+MySQL backend (#2045)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">right_join()</span></code> and <code class="docutils literal notranslate"><span class="pre">full_join()</span></code> now return results consistent with
+local data frame sources when there are records in the right table with
+no match in the left table. <code class="docutils literal notranslate"><span class="pre">right_join()</span></code> returns values of <code class="docutils literal notranslate"><span class="pre">by</span></code> columns
+from the right table. <code class="docutils literal notranslate"><span class="pre">full_join()</span></code> returns coalesced values of <code class="docutils literal notranslate"><span class="pre">by</span></code>
+columns from the left and right tables (#2578, &#64;ianmcook)</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_by()</span></code> can now perform an inline mutate for database backends (#2422).</p></li>
+<li><p>The SQL generation set operations (<code class="docutils literal notranslate"><span class="pre">intersect()</span></code>, <code class="docutils literal notranslate"><span class="pre">setdiff()</span></code>, <code class="docutils literal notranslate"><span class="pre">union()</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">union_all()</span></code>) have been considerably improved.</p>
+<p>By default, the component SELECT are surrounded with parentheses, except on
+SQLite. The SQLite backend will now throw an error if you attempt a set operation
+on a query that contains a LIMIT, as that is not supported in SQLite (#2270).</p>
+<p>All set operations match column names across inputs, filling in non-matching
+variables with NULL (#2556).</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rename()</span></code> and <code class="docutils literal notranslate"><span class="pre">group_by()</span></code> now combine correctly (#1962)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tbl_lazy()</span></code> and <code class="docutils literal notranslate"><span class="pre">lazy_tbl()</span></code> have been exported. These help you test
+generated SQL with out an active database connection.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ungroup()</span></code> correctly resets grouping variables (#2704).</p></li>
+</ul>
+</div>
+<div class="section" id="vector-level-sql-generation">
+<h2>Vector-level SQL generation<a class="headerlink" href="#vector-level-sql-generation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>New <code class="docutils literal notranslate"><span class="pre">as.sql()</span></code> safely coerces an input to SQL.</p></li>
+<li><p>More translators for <code class="docutils literal notranslate"><span class="pre">as.character()</span></code>, <code class="docutils literal notranslate"><span class="pre">as.integer()</span></code> and <code class="docutils literal notranslate"><span class="pre">as.double()</span></code>
+(#2775).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">ident_q()</span></code> makes it possible to specifier identifiers that do not
+need to be quoted.</p></li>
+<li><p>Translation of inline scalars:</p>
+<ul>
+<li><p>Logical values are now translated differently depending on the backend.
+The default is to use “true” and “false” which is the SQL-99 standard,
+but not widely support. SQLite translates to “0” and “1” (#2052).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Inf</span></code> and <code class="docutils literal notranslate"><span class="pre">-Inf</span></code> are correctly escaped</p></li>
+<li><p>Better test for whether or not a double is similar to an integer and
+hence needs a trailing 0.0 added (#2004).</p></li>
+<li><p>Quoting defaults to <code class="docutils literal notranslate"><span class="pre">DBI::dbEscapeString()</span></code> and <code class="docutils literal notranslate"><span class="pre">DBI::dbQuoteIdentifier()</span></code>
+respectively.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">::</span></code> and <code class="docutils literal notranslate"><span class="pre">:::</span></code> are handled correctly (#2321)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%in%</span> <span class="pre">1</span></code> is now correctly translated to <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">IN</span> <span class="pre">(1)</span></code> (#511).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ifelse()</span></code> and <code class="docutils literal notranslate"><span class="pre">if_else()</span></code> use correct argument names in SQL translation
+(#2225).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ident()</span></code> now returns an object with class <code class="docutils literal notranslate"><span class="pre">c(&quot;ident&quot;,</span> <span class="pre">&quot;character&quot;)</span></code>. It
+no longer contains “sql” to indicate that this is not already escaped.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is.na()</span></code> and <code class="docutils literal notranslate"><span class="pre">is.null()</span></code> gain extra parens in SQL translation to preserve
+correct precedence (#2302).</p></li>
+<li><p>[API] <code class="docutils literal notranslate"><span class="pre">log(x,</span> <span class="pre">b)</span></code> is now correctly translated to the SQL <code class="docutils literal notranslate"><span class="pre">log(b,</span> <span class="pre">x)</span></code> (#2288).
+SQLite does not support the 2-argument log function so it is translated
+to <code class="docutils literal notranslate"><span class="pre">log(x)</span> <span class="pre">/</span> <span class="pre">log(b)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nth(x,</span> <span class="pre">i)</span></code> is now correctly translated to <code class="docutils literal notranslate"><span class="pre">nth_value(x,</span> <span class="pre">i)</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_distinct()</span></code> now accepts multiple variables (#2148).</p></li>
+<li><p>[API] <code class="docutils literal notranslate"><span class="pre">substr()</span></code> is now translated to SQL, correcting for the difference
+in the third argument. In R, it’s the position of the last character,
+in SQL it’s the length of the string (#2536).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">win_over()</span></code> escapes expression using current database rules.</p></li>
+</ul>
+</div>
+<div class="section" id="backends">
+<h2>Backends<a class="headerlink" href="#backends" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">copy_to()</span></code> now uses <code class="docutils literal notranslate"><span class="pre">db_write_table()</span></code> instead of <code class="docutils literal notranslate"><span class="pre">db_create_table()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">db_insert_into()</span></code>. <code class="docutils literal notranslate"><span class="pre">db_write_table.DBIConnection()</span></code> uses <code class="docutils literal notranslate"><span class="pre">dbWriteTable()</span></code>.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">db_copy_to()</span></code>, <code class="docutils literal notranslate"><span class="pre">db_compute()</span></code> and <code class="docutils literal notranslate"><span class="pre">db_collect()</span></code> allow backends to
+override the entire database process behind <code class="docutils literal notranslate"><span class="pre">copy_to()</span></code>, <code class="docutils literal notranslate"><span class="pre">compute()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">collect()</span></code>. <code class="docutils literal notranslate"><span class="pre">db_sql_render()</span></code> allow additional control over the SQL
+rendering process.</p></li>
+<li><p>All generics whose behaviour can vary from database to database now
+provide a DBIConnection method. That means that you can easily scan
+the NAMESPACE to see the extension points.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sql_escape_logical()</span></code> allows you to control the translation of
+literal logicals (#2614).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">src_desc()</span></code> has been replaced by <code class="docutils literal notranslate"><span class="pre">db_desc()</span></code> and  now dispatches on the
+connection, eliminating the last method that required dispatch on the class
+of the src.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">win_over()</span></code>, <code class="docutils literal notranslate"><span class="pre">win_rank()</span></code>, <code class="docutils literal notranslate"><span class="pre">win_recycled()</span></code>, <code class="docutils literal notranslate"><span class="pre">win_cumulative()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">win_current_group()</span></code> and <code class="docutils literal notranslate"><span class="pre">win_current_order()</span></code> are now exported. This
+should make it easier to provide customised SQL for window functions
+(#2051, #2126).</p></li>
+<li><p>SQL translation for Microsoft SQL Server (&#64;edgararuiz)</p></li>
+<li><p>SQL translation for Apache Hive (&#64;edgararuiz)</p></li>
+<li><p>SQL translation for Apache Impala (&#64;edgararuiz)</p></li>
+</ul>
+</div>
+<div class="section" id="minor-bug-fixes-and-improvements">
+<h2>Minor bug fixes and improvements<a class="headerlink" href="#minor-bug-fixes-and-improvements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">collect()</span></code> once again defaults to return all rows in the data (#1968).
+This makes it behave the same as <code class="docutils literal notranslate"><span class="pre">as.data.frame()</span></code> and <code class="docutils literal notranslate"><span class="pre">as_tibble()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">collect()</span></code> only regroups by variables present in the data (#2156)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">collect()</span></code> will automatically LIMIT the result to the <code class="docutils literal notranslate"><span class="pre">n</span></code>, the number of
+rows requested. This will provide the query planner with more information
+that it may be able to use to improve execution time (#2083).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">common_by()</span></code> gets a better error message for unexpected inputs (#2091)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">copy_to()</span></code> no longer checks that the table doesn’t exist before creation,
+instead preferring to fall back on the database for error messages. This
+should reduce both false positives and false negative (#1470)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">copy_to()</span></code> now succeeds for MySQL if a character column contains <code class="docutils literal notranslate"><span class="pre">NA</span></code>
+(#1975, #2256, #2263, #2381, &#64;demorenoc, &#64;eduardgrebe).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">copy_to()</span></code> now returns it’s output invisibly (since you’re often just
+calling for the side-effect).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">distinct()</span></code> reports improved variable information for SQL backends. This
+means that it is more likely to work in the middle of a pipeline (#2359).</p></li>
+<li><p>Ungrouped <code class="docutils literal notranslate"><span class="pre">do()</span></code> on database backends now collects all data locally first
+(#2392).</p></li>
+<li><p>Call <code class="docutils literal notranslate"><span class="pre">dbFetch()</span></code> instead of the deprecated <code class="docutils literal notranslate"><span class="pre">fetch()</span></code> (#2134).
+Use <code class="docutils literal notranslate"><span class="pre">DBI::dbExecute()</span></code> for non-query SQL commands (#1912)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">explain()</span></code> and <code class="docutils literal notranslate"><span class="pre">show_query()</span></code> now invisibly return the first argument,
+making them easier to use inside a pipeline.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">print.tbl_sql()</span></code> displays ordering (#2287) and prints table name, if known.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">print(df,</span> <span class="pre">n</span> <span class="pre">=</span> <span class="pre">Inf)</span></code> and <code class="docutils literal notranslate"><span class="pre">head(df,</span> <span class="pre">n</span> <span class="pre">=</span> <span class="pre">Inf)</span></code> now work with remote tables
+(#2580).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">db_desc()</span></code> and <code class="docutils literal notranslate"><span class="pre">sql_translate_env()</span></code> get defaults for DBIConnection.</p></li>
+<li><p>Formatting now works by overriding the <code class="docutils literal notranslate"><span class="pre">tbl_sum()</span></code> generic instead of <code class="docutils literal notranslate"><span class="pre">print()</span></code>. This means that the output is more consistent with tibble, and that <code class="docutils literal notranslate"><span class="pre">format()</span></code> is now supported also for SQL sources (tidyverse/dbplyr#14).</p></li>
+</ul>
+</div>
+<div class="section" id="lazy-ops">
+<h2>Lazy ops<a class="headerlink" href="#lazy-ops" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>[API] The signature of <code class="docutils literal notranslate"><span class="pre">op_base</span></code> has changed to <code class="docutils literal notranslate"><span class="pre">op_base(x,</span> <span class="pre">vars,</span> <span class="pre">class)</span></code></p></li>
+<li><p>[API] <code class="docutils literal notranslate"><span class="pre">translate_sql()</span></code> and <code class="docutils literal notranslate"><span class="pre">partial_eval()</span></code> have been refined:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">translate_sql()</span></code> no longer takes a vars argument; instead call
+<code class="docutils literal notranslate"><span class="pre">partial_eval()</span></code> yourself.</p></li>
+<li><p>Because it no longer needs the environment <code class="docutils literal notranslate"><span class="pre">translate_sql()_</span></code> now
+works with a list of dots, rather than a <code class="docutils literal notranslate"><span class="pre">lazy_dots</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">partial_eval()</span></code> now takes a character vector of variable names
+rather than a tbl.</p></li>
+<li><p>This leads to a simplification of the <code class="docutils literal notranslate"><span class="pre">op</span></code> data structure:
+dots is now a list of expressions rather than a <code class="docutils literal notranslate"><span class="pre">lazy_dots</span></code>.</p></li>
+</ul>
+</li>
+<li><p>[API] <code class="docutils literal notranslate"><span class="pre">op_vars()</span></code> now returns a list of quoted expressions. This
+enables escaping to happen at the correct time (i.e. when the connection
+is known).</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./temporal/renv/library/R-4.1/aarch64-apple-darwin20/dbplyr"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Quan Nguyen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

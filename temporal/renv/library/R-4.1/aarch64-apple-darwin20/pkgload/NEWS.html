@@ -1,0 +1,466 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pkgload 1.2.4 &#8212; Temporal and sequential analysis - LASI 2022</title>
+    
+  <link href="../../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../_static/togglebutton.js"></script>
+    <script src="../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../../../_static/solar_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Temporal and sequential analysis - LASI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture1.html">
+   Lecture 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture2.html">
+   Lecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture3.html">
+   Lecture 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Labs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab1.html">
+   Lab 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab2.html">
+   Lab 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab3.html">
+   Lab 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Quan Nguyen<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../../_sources/temporal/renv/library/R-4.1/aarch64-apple-darwin20/pkgload/NEWS.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/quan3010/temporal_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/quan3010/temporal_analysis/issues/new?title=Issue%20on%20page%20%2Ftemporal/renv/library/R-4.1/aarch64-apple-darwin20/pkgload/NEWS.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   pkgload 1.2.4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pkgload-1-2-3">
+   pkgload 1.2.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pkgload-1-2-2">
+   pkgload 1.2.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pkgload-1-2-1">
+   pkgload 1.2.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pkgload-1-2-0">
+   pkgload 1.2.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pkgload-1-1-0">
+   pkgload 1.1.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pkgload-1-0-2">
+   pkgload 1.0.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pkgload-1-0-1">
+   pkgload 1.0.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pkgload-1-0-0">
+   pkgload 1.0.0
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="pkgload-1-2-4">
+<h1>pkgload 1.2.4<a class="headerlink" href="#pkgload-1-2-4" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Lionel Henry is now the maintainer.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_all()</span></code> automatically registers package translations, if found.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="pkgload-1-2-3">
+<h1>pkgload 1.2.3<a class="headerlink" href="#pkgload-1-2-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>pkgload now forces all bindings on unload. This fixes errors and inconsistencies when dangling references force lazy bindings after unload or reload.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_all()</span></code> now restores S3 methods registered by third party packages (#163).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_dll()</span></code> will now preserve the DLL name when loading instead of always using the package name. This allows packages to include DLL’s with different names (#162, &#64;dfalbel).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="pkgload-1-2-2">
+<h1>pkgload 1.2.2<a class="headerlink" href="#pkgload-1-2-2" title="Permalink to this headline">¶</a></h1>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="pkgload-1-2-1">
+<h1>pkgload 1.2.1<a class="headerlink" href="#pkgload-1-2-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">unload()</span></code> no longer unregisters methods for generics of the package being unloaded. This way dangling references to generics defined in the stale namespace still work as expected (r-lib/vctrs#1341).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_all()</span></code> will now work for packages that have testthat tests but do not have testthat installed (#151)</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">pkgbuild</span></code> dependency has been moved to <code class="docutils literal notranslate"><span class="pre">Suggests</span></code>, as it is only needed for packages with compiled code.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_all()</span></code> will now work for packages that have testthat tests but do not have testthat installed (#151)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_all(warn_conflicts</span> <span class="pre">=</span> <span class="pre">TRUE)</span></code> becomes more narrow and only warns when a <em>function</em> in the global environment masks a <em>function</em> in the package, consistent with the docs (#125, #143 &#64;jennybc).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_all()</span></code> no longer does a comprehensive check on the <code class="docutils literal notranslate"><span class="pre">DESCRIPTION</span></code> file when loading, instead just checking that it exists and starts with Package (#149, &#64;malcolmbarrett)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unload()</span></code> no longer warns when it can’t unload a namespace.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="pkgload-1-2-0">
+<h1>pkgload 1.2.0<a class="headerlink" href="#pkgload-1-2-0" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Fix test failure in R 4.1 with regards to S4 method registration</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_all()</span></code> now preserves existing namespaces in working order. In
+particular, it doesn’t unload the package’s shared library and keeps
+it loaded instead. When reloading, a copy of the SO for the new
+namespace is loaded from a temporary location. These temporary SOs
+are only unloaded on GC and deleted from their temporary location
+via a weak reference attached to the namespace.</p>
+<p>This mechanism ensures that lingering references to the namespace
+keep working as expected. Consequently the namespace
+propagation routine that was added to pkgload as a workaround has
+been removed.</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">.Call()</span></code> invocations that pass a string symbol rather
+than a structured symbol may keep crashing, because R will look into
+the most recently loaded SO of a given name. Since symbol
+registration is now the norm, we don’t expect this to cause much
+trouble.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_all()</span></code> no longer forces all bindings of a namespace to avoid
+lazy-load errors. Instead, it removes exported S3 methods from the
+relevant tables.</p>
+<ul class="simple">
+<li><p>This improves the loading behaviour with packages that define
+objects in their namespaces lazily (e.g. with <code class="docutils literal notranslate"><span class="pre">delayedAssign()</span></code>).</p></li>
+<li><p>This also makes <code class="docutils literal notranslate"><span class="pre">load_all()</span></code> more predictable after a method has
+been removed from the package. It is now actually removed from the
+generic table. It would previously linger until R was restarted.</p></li>
+</ul>
+</li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">load_all()</span></code> attaches testthat, it automatically suppresses conflicts.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="pkgload-1-1-0">
+<h1>pkgload 1.1.0<a class="headerlink" href="#pkgload-1-1-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dev_example()</span></code> now works after removing an inconsistent call to <code class="docutils literal notranslate"><span class="pre">load_all()</span></code> (&#64;riccardoporreca, #122).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_all()</span></code> now issues a warning if exported objects conflict with objects defined in the global environment (#112)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">run_example()</span></code> arguments <code class="docutils literal notranslate"><span class="pre">run</span></code> and <code class="docutils literal notranslate"><span class="pre">test</span></code> are deprecated in favor of the (hopefully) more clear <code class="docutils literal notranslate"><span class="pre">run_dontrun</span></code> and <code class="docutils literal notranslate"><span class="pre">run_donttest</span></code> (#107).</p></li>
+<li><p>Internal fixes for compatibility with the future 4.1.0 release.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="pkgload-1-0-2">
+<h1>pkgload 1.0.2<a class="headerlink" href="#pkgload-1-0-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">shim_question()</span></code> now works for topics from the R base package that are passed with the double colon operator (e.g. <code class="docutils literal notranslate"><span class="pre">base::min</span></code>) (&#64;mdequeljoe, #99).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_all()</span></code> now allows using explicitly qualified, exported names in test
+helpers (&#64;klmr, #95).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_all()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">compile</span></code> argument which controls more finely whether to
+compile the code or not. The <code class="docutils literal notranslate"><span class="pre">recompile</span></code> argument is now deprecated and will
+be removed in a future version of pkgload.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="pkgload-1-0-1">
+<h1>pkgload 1.0.1<a class="headerlink" href="#pkgload-1-0-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">unload()</span></code> now only removes S4 classes which were generated in the package
+being unloaded (#75)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">help()</span></code> will no longer error when trying to load package level help (#67).</p></li>
+<li><p>Trailing slashes now removed from all paths, which fixes issues on Windows (#73).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_dll()</span></code> now fixed in R-devel (#77).</p></li>
+<li><p>The help shim’s now work for <code class="docutils literal notranslate"><span class="pre">:::</span></code> inputs (#72).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="pkgload-1-0-0">
+<h1>pkgload 1.0.0<a class="headerlink" href="#pkgload-1-0-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">load_all()</span></code> now updates imports of dependent packages when a package is
+reloaded (#59).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_all()</span></code> now assigns <code class="docutils literal notranslate"><span class="pre">DESCRIPTION/Depends</span></code> to <code class="docutils literal notranslate"><span class="pre">.Depends</span></code> object of
+package environment. (&#64;yiufung pkgload#61)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_all()</span></code> now attaches <code class="docutils literal notranslate"><span class="pre">testthat</span></code> if the <code class="docutils literal notranslate"><span class="pre">attach_testthat</span></code> option is
+<code class="docutils literal notranslate"><span class="pre">TRUE</span></code>. This allows <code class="docutils literal notranslate"><span class="pre">load_all()</span></code> to more closely mimic the testing
+environment. (#56)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">check_dep_version()</span></code> and <code class="docutils literal notranslate"><span class="pre">check_suggested()</span></code> are now exported.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">check_dep_version()</span></code> now emits a warning and returns <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> rather than
+aborting. (#47)</p></li>
+<li><p>Package imports are now exported when using <code class="docutils literal notranslate"><span class="pre">load_all()</span></code>. This behavior can
+be disabled by using <code class="docutils literal notranslate"><span class="pre">load_all(export_imports</span> <span class="pre">=</span> <span class="pre">FALSE)</span></code>.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">as.package()</span></code> and <code class="docutils literal notranslate"><span class="pre">is.package()</span></code> functions have been removed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_code()</span></code>, <code class="docutils literal notranslate"><span class="pre">load_data()</span></code>, <code class="docutils literal notranslate"><span class="pre">load_dll()</span></code>, <code class="docutils literal notranslate"><span class="pre">load_all()</span></code>, <code class="docutils literal notranslate"><span class="pre">parse_ns_file()</span></code>
+all now take an explicit path rather than a path or a <code class="docutils literal notranslate"><span class="pre">package</span></code> object.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">imports_env()</span></code>, <code class="docutils literal notranslate"><span class="pre">ns_env()</span></code>, <code class="docutils literal notranslate"><span class="pre">pkg_env()</span></code> and <code class="docutils literal notranslate"><span class="pre">unload()</span></code> now take a package
+name rather than a path or a <code class="docutils literal notranslate"><span class="pre">package</span></code> object.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">run_example()</span></code> now works on R 3.1.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unload()</span></code> now unloads S4 classes for packages loaded with <code class="docutils literal notranslate"><span class="pre">library()</span></code> as
+well as <code class="docutils literal notranslate"><span class="pre">load_all()</span></code> (#46).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_all()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">helpers</span></code> option to specify whether or not to
+source testthat helpers. (&#64;pitakakariki devtools #1202)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_all()</span></code> now sources the testthat helpers in the namespace environment
+rather than the package environment (#40).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_all()</span></code> now sets the <code class="docutils literal notranslate"><span class="pre">NOT_CRAN</span></code> environment variable when it
+sources testthat helpers. It also sets <code class="docutils literal notranslate"><span class="pre">DEVTOOLS_LOAD</span></code> to “true” so
+that you can check whether they are run during package loading.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dev_topic_path()</span></code> now only returns the last path found, fixing an error
+when a package has both a package function level help with the same name.
+(#21)</p></li>
+<li><p>New function <code class="docutils literal notranslate"><span class="pre">is_dev_package()</span></code> to determine if a given package has been loaded
+by <code class="docutils literal notranslate"><span class="pre">pkgload::load_all()</span></code> (#2).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">load_all()</span></code> no longer updates the collate directive. Instead this
+functionality has been moved to <code class="docutils literal notranslate"><span class="pre">devtools::document()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dev_help()</span></code> now optionally takes a character vector of packages to
+search within.  This replaces <code class="docutils literal notranslate"><span class="pre">find_topic()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dev_topic_index_reset()</span></code> is now exported, and allows you to reset
+the topic index associated with a given package.</p></li>
+<li><p>Added a <code class="docutils literal notranslate"><span class="pre">NEWS.md</span></code> file to track changes to the package.</p></li>
+<li><p>Initial release from code spun off from devtools</p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./temporal/renv/library/R-4.1/aarch64-apple-darwin20/pkgload"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Quan Nguyen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

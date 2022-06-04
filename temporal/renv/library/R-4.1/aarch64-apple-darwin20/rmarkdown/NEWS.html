@@ -1,0 +1,1269 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rmarkdown 2.14 &#8212; Temporal and sequential analysis - LASI 2022</title>
+    
+  <link href="../../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../_static/togglebutton.js"></script>
+    <script src="../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../../../_static/solar_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Temporal and sequential analysis - LASI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture1.html">
+   Lecture 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture2.html">
+   Lecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture3.html">
+   Lecture 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Labs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab1.html">
+   Lab 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab2.html">
+   Lab 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab3.html">
+   Lab 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Quan Nguyen<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../../_sources/temporal/renv/library/R-4.1/aarch64-apple-darwin20/rmarkdown/NEWS.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/quan3010/temporal_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/quan3010/temporal_analysis/issues/new?title=Issue%20on%20page%20%2Ftemporal/renv/library/R-4.1/aarch64-apple-darwin20/rmarkdown/NEWS.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   rmarkdown 2.14
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-2-13">
+   rmarkdown 2.13
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-2-12">
+   rmarkdown 2.12
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-2-11">
+   rmarkdown 2.11
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-2-10">
+   rmarkdown 2.10
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-2-9">
+   rmarkdown 2.9
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-2-8">
+   rmarkdown 2.8
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-2-7">
+   rmarkdown 2.7
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-2-6">
+   rmarkdown 2.6
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-2-5">
+   rmarkdown 2.5
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-2-4">
+   rmarkdown 2.4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-2-3">
+   rmarkdown 2.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-2-2">
+   rmarkdown 2.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-2-1">
+   rmarkdown 2.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-2-0">
+   rmarkdown 2.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-1-18">
+   rmarkdown 1.18
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-1-17">
+   rmarkdown 1.17
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-1-16">
+   rmarkdown 1.16
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-1-15">
+   rmarkdown 1.15
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-1-14">
+   rmarkdown 1.14
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-1-13">
+   rmarkdown 1.13
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-1-12">
+   rmarkdown 1.12
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-1-11">
+   rmarkdown 1.11
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-1-10">
+   rmarkdown 1.10
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-1-9">
+   rmarkdown 1.9
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-features">
+     NEW FEATURES
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#major-changes">
+     MAJOR CHANGES
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bug-fixes">
+     BUG FIXES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-1-8">
+   rmarkdown 1.8
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     BUG FIXES
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-1-7">
+   rmarkdown 1.7
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-1-6">
+   rmarkdown 1.6
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-1-5">
+   rmarkdown 1.5
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-1-4">
+   rmarkdown 1.4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-1-3">
+   rmarkdown 1.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-1-2">
+   rmarkdown 1.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-1-1">
+   rmarkdown 1.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-1-0">
+   rmarkdown 1.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-0-9-6">
+   rmarkdown 0.9.6
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-0-9-5">
+   rmarkdown 0.9.5
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-0-9-2">
+   rmarkdown 0.9.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-0-9-1">
+   rmarkdown 0.9.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-0-9">
+   rmarkdown 0.9
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-0-8-1">
+   rmarkdown 0.8.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-0-8">
+   rmarkdown 0.8
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-0-7">
+   rmarkdown 0.7
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-0-6">
+   rmarkdown 0.6
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-0-5-1">
+   rmarkdown 0.5.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-0-4-2">
+   rmarkdown 0.4.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rmarkdown-0-3-11">
+   rmarkdown 0.3.11
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-2-14">
+<h1>rmarkdown 2.14<a class="headerlink" href="#rmarkdown-2-14" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Improved highlighting theme <code class="docutils literal notranslate"><span class="pre">arrow</span></code> regarding accessibility.</p></li>
+<li><p>Fixed an issue with <code class="docutils literal notranslate"><span class="pre">site_generator()</span></code> detection of a site project (thanks, &#64;bhattmaulik, #2344).</p></li>
+<li><p>Fixed an issue with Shiny prerendered documents and Pandoc not correctly rendering last Markdown paragraph in HTML (thanks, &#64;gadenbuie, #2336).</p></li>
+<li><p>Fixed a bug that <code class="docutils literal notranslate"><span class="pre">site_generator()</span></code> fails to detect the root dir of the site and causes infinite recursion (thanks, &#64;fisher-j, #2339).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">html_vignette()</span></code> gains <code class="docutils literal notranslate"><span class="pre">code_folding</span></code> argument (thanks, &#64;atusy, #2340).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">html_document()</span></code> can opt-out <code class="docutils literal notranslate"><span class="pre">code_folding</span> <span class="pre">=</span> <span class="pre">&quot;show&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;hide&quot;</span></code> for individual code blocks by adding the <code class="docutils literal notranslate"><span class="pre">fold-none</span></code> class to the code blocks (thanks, &#64;atusy, #2348).</p></li>
+<li><p>When using a development version of Pandoc, a <code class="docutils literal notranslate"><span class="pre">.9999</span></code> suffix is appended to version number so that <code class="docutils literal notranslate"><span class="pre">pandoc_available()</span></code> can correctly compared version with last release.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-2-13">
+<h1>rmarkdown 2.13<a class="headerlink" href="#rmarkdown-2-13" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix an issue with older R version and vignette building (#2324).</p></li>
+<li><p>Fix an issue with older R version and <code class="docutils literal notranslate"><span class="pre">preserve_yaml</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> in <code class="docutils literal notranslate"><span class="pre">md_document()</span></code> (#2325).</p></li>
+<li><p>Long title in <code class="docutils literal notranslate"><span class="pre">ioslides_presentation</span></code> failed to work with Pandoc 2.17.x (thanks, &#64;Am386DX-40, #2327).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-2-12">
+<h1>rmarkdown 2.12<a class="headerlink" href="#rmarkdown-2-12" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">html_document()</span></code> and <code class="docutils literal notranslate"><span class="pre">html_document_base()</span></code> gains the <code class="docutils literal notranslate"><span class="pre">math_method</span></code> argument to support <a class="reference external" href="https://pandoc.org/MANUAL.html#math-rendering-in-html">all the math rendering engines from Pandoc</a>: “mathjax”, “katex”, “mathml”, “webtex”, and “gladtex”. For backward compatibility, the <code class="docutils literal notranslate"><span class="pre">mathjax</span></code> argument still works and will take precedence over <code class="docutils literal notranslate"><span class="pre">math_method</span></code>, but we recommend using the new <code class="docutils literal notranslate"><span class="pre">math_method</span></code> argument instead of the <code class="docutils literal notranslate"><span class="pre">mathjax</span></code> argument, and the latter could be deprecated in the future.</p>
+<p>You can specify a math engine via <code class="docutils literal notranslate"><span class="pre">math_method</span></code> as an engine name, e.g.,</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">output</span><span class="p">:</span>
+  <span class="nt">html_document</span><span class="p">:</span>
+    <span class="nt">math_method</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">katex</span>
+</pre></div>
+</div>
+<p>or provide both a name and a URL (for <code class="docutils literal notranslate"><span class="pre">mathjax</span></code>, <code class="docutils literal notranslate"><span class="pre">katex</span></code> and <code class="docutils literal notranslate"><span class="pre">webtex</span></code>):</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">output</span><span class="p">:</span>
+  <span class="nt">html_document</span><span class="p">:</span>
+    <span class="nt">math_method</span><span class="p">:</span> 
+      <span class="nt">engine</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mathjax</span>
+      <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js</span>
+</pre></div>
+</div>
+<p>For <code class="docutils literal notranslate"><span class="pre">math_method</span> <span class="pre">=</span> <span class="pre">&quot;katex&quot;</span></code>, KaTeX CDN will be inserted in version 0.15.2 by default (from jsdelivr). A custom URL toward another CDN can be passed as <code class="docutils literal notranslate"><span class="pre">url</span></code>.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">math_method</span> <span class="pre">=</span> <span class="pre">&quot;webtex&quot;</span></code>, it will default to inset SVG using <code class="docutils literal notranslate"><span class="pre">https://latex.codecogs.com/svg.image?</span></code>. Use <code class="docutils literal notranslate"><span class="pre">https://latex.codecogs.com/png.image?</span></code> for PNG. See <a class="reference external" href="https://latex.codecogs.com">https://latex.codecogs.com</a> for supported options (dpi, background, …).</p>
+<p>Most HTML output format using <code class="docutils literal notranslate"><span class="pre">html_document()</span></code> or <code class="docutils literal notranslate"><span class="pre">html_document_base()</span></code> as based format should benefit from this new feature.
+See <code class="docutils literal notranslate"><span class="pre">?rmarkdown::html_document()</span></code> for details (thanks, &#64;atusy, #1940).</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">github_document()</span></code> also gains the <code class="docutils literal notranslate"><span class="pre">math_method</span></code> argument set to <code class="docutils literal notranslate"><span class="pre">&quot;webtex&quot;</span></code> by default so that LaTeX equations can be rendered in the Github Markdown document as images. Previously, LaTeX equations were not rendered. Set <code class="docutils literal notranslate"><span class="pre">math_method</span> <span class="pre">=</span> <span class="pre">NULL</span></code> to deactivate.</p></li>
+<li><p>Added support for <a class="reference external" href="https://docs.ropensci.org/katex/"><strong>katex</strong></a> R package as a math engine with <code class="docutils literal notranslate"><span class="pre">math_method</span> <span class="pre">=</span> <span class="pre">&quot;r-katex&quot;</span></code> in HTML documents. This method offers server-side rendering of all the equations, which means no JS processing is needed in the browser as with usual KaTeX or MathJaX methods. (thanks, &#64;jeroen, #2304).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">anchor_sections</span></code> can now be easily customized using <code class="docutils literal notranslate"><span class="pre">style</span></code> or <code class="docutils literal notranslate"><span class="pre">depth</span></code> element for <code class="docutils literal notranslate"><span class="pre">anchor_sections</span></code>. For example:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">output</span><span class="p">:</span>
+  <span class="nt">html_document</span><span class="p">:</span>
+    <span class="nt">anchor_sections</span><span class="p">:</span>
+      <span class="nt">style</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">symbol</span> <span class="c1"># use symbol style (&quot;hash&quot;, &quot;symbol&quot;, &quot;icon&quot;)</span>
+      <span class="nt">depth</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span> <span class="c1"># max depth to apply anchor on (default to max which is 6)</span>
+</pre></div>
+</div>
+<p>Customizing using a CSS rule is still possible. Detailed explanation and examples have been added to the help page <code class="docutils literal notranslate"><span class="pre">?html_document</span></code>.</p>
+</li>
+<li><p>Improved the highlighting mechanism in formats that supports <code class="docutils literal notranslate"><span class="pre">highlight</span></code> argument:</p>
+<ul class="simple">
+<li><p>It is now possible to pass a custom theme file <code class="docutils literal notranslate"><span class="pre">.theme</span></code> in <code class="docutils literal notranslate"><span class="pre">highlight</span></code> argument for customizing the <a class="reference external" href="https://pandoc.org/MANUAL.html#syntax-highlighting">syntax highlighting style used by Pandoc</a>.</p></li>
+<li><p>In addition to Pandoc’s own supported themes, two more themes are bundled in the package:  <code class="docutils literal notranslate"><span class="pre">highlight:</span> <span class="pre">arrow</span></code> a theme <a class="reference external" href="https://www.a11yproject.com/">optimized for accessibility and color constrast</a> (thanks to &#64;apreshill), and <code class="docutils literal notranslate"><span class="pre">highlight:</span> <span class="pre">rstudio</span></code> to mimic the RStudio editor theme.</p></li>
+<li><p>For HTML output only, added optional <a class="reference external" href="https://downlit.r-lib.org/">downlit</a> support in <code class="docutils literal notranslate"><span class="pre">html_document()</span></code> for R syntax highlighting and autolinking. Use <code class="docutils literal notranslate"><span class="pre">highlight_downlit</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> to activate it (same argument as in <strong>distill</strong>). This features require the <strong>downlit</strong> package.</p></li>
+</ul>
+</li>
+<li><p>Templates for <code class="docutils literal notranslate"><span class="pre">html_document()</span></code> and <code class="docutils literal notranslate"><span class="pre">ioslides_presentation()</span></code> gained a new CSS rule to display single line <code class="docutils literal notranslate"><span class="pre">&lt;summary&gt;</span></code> content inline (rstudio/rstudio#10589).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">md_document()</span></code> gained a new <code class="docutils literal notranslate"><span class="pre">standalone</span></code> argument, which is <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> by default unless <code class="docutils literal notranslate"><span class="pre">toc</span> <span class="pre">=</span> <span class="pre">TRUE</span></code>. This allows to output authors, date and other metadata per the Pandoc’s template. Due to limitation in how Pandoc is handling metadata blocks in its extensions <code class="docutils literal notranslate"><span class="pre">yaml_metadata_block</span></code>, <code class="docutils literal notranslate"><span class="pre">preserve_yaml</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> now deactivate any extension to let <strong>rmarkdown</strong> directly handle the keeping of YAML block - this means it does not set <code class="docutils literal notranslate"><span class="pre">standalone</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> by default. Meanwhile, <code class="docutils literal notranslate"><span class="pre">github_document()</span></code> gained the <code class="docutils literal notranslate"><span class="pre">preserve_yaml</span></code> argument (thanks, &#64;florisvdh, #2297).</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">available_templates()</span></code> to list all the templates from a specific package that can be used with <code class="docutils literal notranslate"><span class="pre">rmarkdown::draft()</span></code>.</p></li>
+<li><p>Following support in Pandoc 2.15, <code class="docutils literal notranslate"><span class="pre">powerpoint_presentation()</span></code> gained a <code class="docutils literal notranslate"><span class="pre">incremental</span></code> argument as other slide formats. As a reminder, setting <code class="docutils literal notranslate"><span class="pre">incremental</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> will make lists to display incrementally. See more in <a class="reference external" href="https://pandoc.org/MANUAL.html#incremental-lists">Pandoc’s MANUAL</a>.</p></li>
+<li><p>Added support for Pandoc’s <code class="docutils literal notranslate"><span class="pre">dir</span></code> variable in HTML templates. This is the second <a class="reference external" href="https://pandoc.org/MANUAL.html#language-variables">Language Variables</a> after <code class="docutils literal notranslate"><span class="pre">lang</span></code>.</p></li>
+<li><p>Added a global option <code class="docutils literal notranslate"><span class="pre">rmarkdown.html_dependency.header_attr</span></code> (<code class="docutils literal notranslate"><span class="pre">TRUE</span></code> by default). It can be set to <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> to opt-out the HTML dependency <code class="docutils literal notranslate"><span class="pre">html_dependency_header_attrs()</span></code> in documents based on <code class="docutils literal notranslate"><span class="pre">html_document_base()</span></code> (thanks, &#64;salim-b rstudio/bookdown#865, &#64;maelle r-lib/downlit#1538).</p></li>
+<li><p>Rendering using <code class="docutils literal notranslate"><span class="pre">runtime:</span> <span class="pre">shiny_prerendered</span></code> or <code class="docutils literal notranslate"><span class="pre">runtime:</span> <span class="pre">shinyrmd</span></code> now natively supports custom templates. Previously since 2.8, developers had to add a special comment, <code class="docutils literal notranslate"><span class="pre">&lt;!--</span> <span class="pre">HEAD_CONTENT</span> <span class="pre">--&gt;</span></code>, conditionally to <code class="docutils literal notranslate"><span class="pre">shiny-prerendered</span></code> variable. (See also NEWS from 2.8 for the previous behavior). The new behavior inserts required special comment <code class="docutils literal notranslate"><span class="pre">&lt;!--</span> <span class="pre">HEAD_CONTENT</span> <span class="pre">--&gt;</span></code> as a last element of <code class="docutils literal notranslate"><span class="pre">$header-includes$</span></code>. If templates rely on the old behavior and require some contents between <code class="docutils literal notranslate"><span class="pre">$header-includes$</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;!--</span> <span class="pre">HEAD_CONTENT</span> <span class="pre">--&gt;</span></code>, consider including them with <code class="docutils literal notranslate"><span class="pre">$header-includes$</span></code> (thanks, &#64;atusy, &#64;gadenbuie #2249).</p></li>
+<li><p>A shiny prerendered document with only a empty server context does not error anymore. Document will be rendered with a empty server function and <code class="docutils literal notranslate"><span class="pre">server.R</span></code> file will be ignored. To use <code class="docutils literal notranslate"><span class="pre">server.R</span></code>, no server context should be present in the Rmd document (thanks, &#64;jcheng5, #2305).</p></li>
+<li><p>Fixed a regression with rendering <code class="docutils literal notranslate"><span class="pre">shiny_prerendered</span></code> document (thanks, &#64;aronatkins, &#64;gadenbuie, #2218).</p></li>
+<li><p>Fixed an issue in <code class="docutils literal notranslate"><span class="pre">beamer_presentation()</span></code> where <code class="docutils literal notranslate"><span class="pre">header-includes</span></code> would be overwritten by <code class="docutils literal notranslate"><span class="pre">includes</span> <span class="pre">=</span> <span class="pre">list(in_header</span> <span class="pre">=)</span></code> (thanks, &#64;samcarter, #2294). Same fix as for <code class="docutils literal notranslate"><span class="pre">pdf_document()</span></code> (#1359).</p></li>
+<li><p>Fixed broken links to section headers when <code class="docutils literal notranslate"><span class="pre">number_sections</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> is specified in <code class="docutils literal notranslate"><span class="pre">md_document</span></code> and <code class="docutils literal notranslate"><span class="pre">github_document</span></code> (thanks, &#64;atusy, #2093).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">draft()</span></code> now works with <code class="docutils literal notranslate"><span class="pre">devtools::load_all()</span></code> and <strong>testthat</strong> when used in other packages.</p></li>
+<li><p>Lua Filters: Added two more functions in <code class="docutils literal notranslate"><span class="pre">shared.lua</span></code> for other package to use:</p>
+<ul class="simple">
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">type()</span></code> function backward compatible following Pandoc 2.17 changes.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">print_debug()</span></code> for easier logging during debug.</p></li>
+</ul>
+</li>
+<li><p>Add opt-in <code class="docutils literal notranslate"><span class="pre">tabset</span></code> option to the <code class="docutils literal notranslate"><span class="pre">html_vignette</span></code>. In contrast to the similar feature from <code class="docutils literal notranslate"><span class="pre">html_document</span></code>, this feature supports navigation from ToC and URL. Any custom formats can introduce this feature by using an exported function <code class="docutils literal notranslate"><span class="pre">html_dependency_tabset()</span></code> (thanks, &#64;atusy, #2313).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-2-11">
+<h1>rmarkdown 2.11<a class="headerlink" href="#rmarkdown-2-11" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Relative paths in parent directories in the <code class="docutils literal notranslate"><span class="pre">css</span></code> argument of <code class="docutils literal notranslate"><span class="pre">html_document()</span></code> were incorrectly normalized to absolute paths by #2095 in v2.8. Now relative paths in parent directories will no longer be converted to absolute paths (thanks, &#64;daijiang, yihui/xaringan#331).</p></li>
+<li><p>It is possible to specify the version of jQuery via a global option now, e.g., <code class="docutils literal notranslate"><span class="pre">options(rmarkdown.jquery.version</span> <span class="pre">=</span> <span class="pre">2)</span></code> (note that the default major version is <code class="docutils literal notranslate"><span class="pre">3</span></code>). This is mainly for advanced users and developers to test different versions of jQuery.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pandoc_citeproc_convert()</span></code> now handles correctly bib file containing specific UTF-8 characters on non default UTF-8 systems like Windows (thanks, &#64;mitchelloharawild, #2195).</p></li>
+<li><p>Shiny prerendered documents are now pre-rendered in a child environment to avoid allowing the results of static code chunks to exist in the Shiny app environment (&#64;gadenbuie, #2203).</p></li>
+<li><p>The previously unexported function <code class="docutils literal notranslate"><span class="pre">convert_ipynb()</span></code> is exported now (thanks, &#64;acircleda).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-2-10">
+<h1>rmarkdown 2.10<a class="headerlink" href="#rmarkdown-2-10" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">md_document()</span></code> will now handle correctly <code class="docutils literal notranslate"><span class="pre">preserve_yaml</span></code> value for all variants and all pandoc versions (#2190).</p>
+<ul class="simple">
+<li><p>with <code class="docutils literal notranslate"><span class="pre">preserve_yaml</span> <span class="pre">=</span> <span class="pre">TRUE</span></code>, markdown output will keep the YAML metadata block from the Rmd file.</p></li>
+<li><p>with <code class="docutils literal notranslate"><span class="pre">preserve_yaml</span> <span class="pre">=</span> <span class="pre">FALSE</span></code>, markdown output will have no YAML metadata block.</p></li>
+</ul>
+<p>This fixes a breaking change in Pandoc 2.13 regarding <code class="docutils literal notranslate"><span class="pre">gfm</span></code>, <code class="docutils literal notranslate"><span class="pre">commonmark</span></code> and <code class="docutils literal notranslate"><span class="pre">commonmark_x</span></code> which now supports <code class="docutils literal notranslate"><span class="pre">yaml_metadata_block</span></code> by default (#2118).</p>
+</li>
+<li><p>New supported syntax for Shiny prerendered documents: you can now  use <code class="docutils literal notranslate"><span class="pre">server:</span> <span class="pre">shiny</span></code> or <code class="docutils literal notranslate"><span class="pre">server:</span> <span class="pre">type:</span> <span class="pre">shiny</span></code>.</p></li>
+<li><p>Ability to inject additional functions into Shiny prerendered server scope using the “server-extras” context.</p></li>
+<li><p>Fixed the syntax highlighting issue with R’s pipe operator <code class="docutils literal notranslate"><span class="pre">|&gt;</span></code> (thanks, &#64;edzer, rstudio/bookdown#1157).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-2-9">
+<h1>rmarkdown 2.9<a class="headerlink" href="#rmarkdown-2-9" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix a regression in version 2.8 when a url is used in <code class="docutils literal notranslate"><span class="pre">css</span></code> argument (thanks, &#64;vnijs, #2163).</p></li>
+<li><p>All HTML dependencies are now correctly supported, included those with only an <code class="docutils literal notranslate"><span class="pre">href</span></code> component but not <code class="docutils literal notranslate"><span class="pre">file</span></code> component in their <code class="docutils literal notranslate"><span class="pre">src</span></code> attribute. Previously, <strong>rmarkdown</strong> would throw the error <code class="docutils literal notranslate"><span class="pre">'path</span> <span class="pre">for</span> <span class="pre">html_dependency</span> <span class="pre">not</span> <span class="pre">provided'</span></code> when rendering documents containing HTML dependencies with <code class="docutils literal notranslate"><span class="pre">href</span></code> components (thanks, &#64;crazycapivara, &#64;matthewstrasiotto, #1805, #1948, #2151).</p></li>
+<li><p>Fix an error thrown with output format using a <code class="docutils literal notranslate"><span class="pre">file_scope</span></code> function (like in <strong>bookdown</strong>) (thanks, &#64;rfaelens, #2149).</p></li>
+<li><p>Fix an issue with <code class="docutils literal notranslate"><span class="pre">copy_ressource</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> in <code class="docutils literal notranslate"><span class="pre">html_document_base</span></code> where very long HTML documents were truncated during post processing (thanks, &#64;oliviermeslin, #2145).</p></li>
+<li><p>When <code class="docutils literal notranslate"><span class="pre">run()</span></code>-ing a <code class="docutils literal notranslate"><span class="pre">runtime:</span> <span class="pre">shiny</span></code> document, an extra temp folder will be used in the output path. With the extra temp random folder in the path, predictable output file names may be used. (#2137)</p></li>
+<li><p>When <code class="docutils literal notranslate"><span class="pre">run()</span></code>-ing a <code class="docutils literal notranslate"><span class="pre">runtime:</span> <span class="pre">shiny</span></code> document with a <code class="docutils literal notranslate"><span class="pre">{bslib}</span></code> theme, the global theme value wasn’t being restored properly. (#2160)</p></li>
+<li><p>Floating ToC in <code class="docutils literal notranslate"><span class="pre">html_document</span></code> can now hide headings with unnumbered and unlisted classes (thanks, &#64;atusy, #1993).</p></li>
+<li><p>Fix prefix handling in R Markdown website’s navbar for Fontawesome V5 and compatibility with V4. For icon only available in V5, the full prefix + name should be use, especially with new <code class="docutils literal notranslate"><span class="pre">fab</span></code> prefix (e.g. <code class="docutils literal notranslate"><span class="pre">fab</span> <span class="pre">fa-r-project</span></code>). If no prefix is used (e.g <code class="docutils literal notranslate"><span class="pre">fa-home</span></code> instead of <code class="docutils literal notranslate"><span class="pre">fas</span> <span class="pre">fa-home</span></code>), the <code class="docutils literal notranslate"><span class="pre">fa</span></code> prefix will be added for V4 compatibility as it has been deprecated in V5. We advice to use the full prefix + name for icons following Fontawesome documentation. (#1994)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rmarkdown::site_generator()</span></code> can hang session waiting for input when the <code class="docutils literal notranslate"><span class="pre">site</span></code> field is not found in the YAML frontmatter of <code class="docutils literal notranslate"><span class="pre">index.Rmd</span></code> (thanks, &#64;kevinushey &#64;mirh, #2043).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-2-8">
+<h1>rmarkdown 2.8<a class="headerlink" href="#rmarkdown-2-8" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix a issue with Pandoc 2.5 and <code class="docutils literal notranslate"><span class="pre">latex-div.lua</span></code> - documents can now be rendered as expected without error (thanks, &#64;davidwales, #2121).</p></li>
+<li><p>Fix an issue with styling and code folding button behavior when default is <code class="docutils literal notranslate"><span class="pre">code-folding:</span> <span class="pre">show</span></code>. The Button can now be correctly style according to state as <code class="docutils literal notranslate"><span class="pre">aria-expanded</span></code> attributes is correctly updated. Also, new classes has been added on the button to allow styling during transition: <code class="docutils literal notranslate"><span class="pre">btn-collapsing</span></code> and <code class="docutils literal notranslate"><span class="pre">btn-expanding</span></code> are respectively applied during transition Show to Hide and Hide to Show. (This follow <a class="reference external" href="https://getbootstrap.com/docs/3.4/javascript/#collapse">Bootstrap behavior for the collapsible block</a>) (thanks, &#64;steveharoz, #2085).</p></li>
+<li><p>Fix an issue with <code class="docutils literal notranslate"><span class="pre">citation_package</span></code> having no effect when using <code class="docutils literal notranslate"><span class="pre">.md</span></code> file as input to <code class="docutils literal notranslate"><span class="pre">render()</span></code> with latex and PDF output formats (thanks, &#64;andrewheiss, #2113).</p></li>
+<li><p>A new internal option <code class="docutils literal notranslate"><span class="pre">rmarkdown.knit.ext</span></code> has been added to control the extension of the intermediary knit output during a rendering. It defaults to <code class="docutils literal notranslate"><span class="pre">md</span></code> to produce <code class="docutils literal notranslate"><span class="pre">*.knit.md</span></code>. Only useful for very advanced usage (#2098).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">render()</span></code> won’t produce any <code class="docutils literal notranslate"><span class="pre">*.utf8.md</span></code> intermediary file anymore. This was a leftover from previous versions of <strong>rmarkdown</strong>. Since <strong>knitr</strong> 1.24 and <strong>rmarkdown</strong> 2.0, only UTF-8 input files are allowed. (#2098).</p></li>
+<li><p>Fix an <code class="docutils literal notranslate"><span class="pre">Invalid</span> <span class="pre">cross-device</span> <span class="pre">link</span></code> error when <code class="docutils literal notranslate"><span class="pre">tempdir()</span></code> is used for <code class="docutils literal notranslate"><span class="pre">intermediates_dir</span></code> in <code class="docutils literal notranslate"><span class="pre">render()</span></code> (thanks, &#64;gorgitko, #2096).</p></li>
+<li><p>Fix a regression in HTML default template with floating toc incorrectly placed on small size window (thanks, &#64;grimbough, #2071)</p></li>
+<li><p>Provided a <code class="docutils literal notranslate"><span class="pre">runtime:</span> <span class="pre">shiny</span></code> fix for output formats that pass a modified <code class="docutils literal notranslate"><span class="pre">bslib::bs_theme()</span></code> object to <code class="docutils literal notranslate"><span class="pre">html_document_base()</span></code>’s <code class="docutils literal notranslate"><span class="pre">theme</span></code> (thanks, &#64;cpsievert, #2049).</p></li>
+<li><p>Rendering using <code class="docutils literal notranslate"><span class="pre">runtime:</span> <span class="pre">shiny_prerendered</span></code> or <code class="docutils literal notranslate"><span class="pre">runtime:</span> <span class="pre">shinyrmd</span></code> will now produce valid HTML by not inserting anymore the full document as body in the resulting shiny apps (thanks, &#64;dakep, #1912). Header content usually containing html dependencies will be inserted in the HTML document at the end of the head before <code class="docutils literal notranslate"><span class="pre">&lt;/head&gt;</span></code>, unless the rendered HTML contains <code class="docutils literal notranslate"><span class="pre">&lt;!--</span> <span class="pre">HEAD_CONTENT</span> <span class="pre">--&gt;</span></code> special comment (see <code class="docutils literal notranslate"><span class="pre">htmltools::renderDocument()</span></code>). A new Pandoc variable is set in for shiny prerendered document to allow conditional insertion of such content in the the HTML template using <code class="docutils literal notranslate"><span class="pre">$if(shiny-prerendered)$</span></code>. This has been done in all HTML template in this package. Users of custom template should make this change to provide support for this runtime. See <strong>rmarkdown</strong> default template (<code class="docutils literal notranslate"><span class="pre">default.html</span></code>) for an example (#2064).</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">tectonic</span></code> as a supported LaTeX engine for generating PDF output (thanks, &#64;dpryan79, #2078). You can specify to use this by adding <code class="docutils literal notranslate"><span class="pre">engine:</span> <span class="pre">&quot;tectonic&quot;</span></code> to your output format in YAML, such as <code class="docutils literal notranslate"><span class="pre">pdf_document</span></code>.</p></li>
+<li><p>When no <code class="docutils literal notranslate"><span class="pre">output_format</span></code> is provided in any way but an <code class="docutils literal notranslate"><span class="pre">output_file</span></code> is provided in <code class="docutils literal notranslate"><span class="pre">render()</span></code>, the default format will be determined based on the extension: <code class="docutils literal notranslate"><span class="pre">&quot;pdf_document&quot;</span></code> for <code class="docutils literal notranslate"><span class="pre">.pdf</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;word_document&quot;</span></code> for <code class="docutils literal notranslate"><span class="pre">.docx</span></code>. Otherwise, it will be <code class="docutils literal notranslate"><span class="pre">&quot;html_document&quot;</span></code> as previous version (thanks, &#64;pearsonca, #1569).</p></li>
+<li><p>Added a new global option <code class="docutils literal notranslate"><span class="pre">rmarkdown.render.message</span></code>. When set <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>, <code class="docutils literal notranslate"><span class="pre">render()</span></code> will not output the message starting by <code class="docutils literal notranslate"><span class="pre">Output</span> <span class="pre">created:</span> </code> allowing RStudio IDE to open a preview of the document. This is useful for package developers that would need to emit there own output message for there custom format. See <code class="docutils literal notranslate"><span class="pre">?render_site</span></code> for more info on this special message (#2092).</p></li>
+<li><p>Internal changes regarding Lua filters. They have now an explicit Pandoc version minimal requirement: A filter will be skipped with a warning printed by the Lua filter if this requirement is not met. For now, all filters work for Pandoc 2.1 and above (thanks, &#64;atusy, #2088). There is also now a new mechanism to have a share Lua filter script loadable by other Lua files: <code class="docutils literal notranslate"><span class="pre">render()</span></code> will set the <code class="docutils literal notranslate"><span class="pre">RMARKDOWN_LUA_SHARED</span></code> env var to the path of Lua filter <code class="docutils literal notranslate"><span class="pre">shared.lua</span></code> so that other filters can access functions defined in it using <code class="docutils literal notranslate"><span class="pre">dofile(os.getenv</span> <span class="pre">'RMARKDOWN_LUA_SHARED')</span></code>. This is for internal usage only to avoid duplication (thanks, &#64;tarleb, #2103).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">html_document_base</span></code> gains a <code class="docutils literal notranslate"><span class="pre">css</span></code> argument, to which <code class="docutils literal notranslate"><span class="pre">html_document</span></code>’s <code class="docutils literal notranslate"><span class="pre">css</span></code> argument is now passed. This also fix an issue when <code class="docutils literal notranslate"><span class="pre">.sass</span></code> or <code class="docutils literal notranslate"><span class="pre">.scss</span></code> files are used with this <code class="docutils literal notranslate"><span class="pre">css</span></code> argument when <code class="docutils literal notranslate"><span class="pre">self_contained:</span> <span class="pre">FALSE</span></code>. Moreover, <strong>sass</strong> caching mechanism can now be used when passing <code class="docutils literal notranslate"><span class="pre">.sass</span></code> or <code class="docutils literal notranslate"><span class="pre">.scss</span></code> files to the <code class="docutils literal notranslate"><span class="pre">css</span></code> argument (thanks, &#64;cpsievert, #2095).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">fig_crop</span></code> option of PDF document formats (such as <code class="docutils literal notranslate"><span class="pre">pdf_document</span></code> and <code class="docutils literal notranslate"><span class="pre">beamer_presentation</span></code>) supports the value <code class="docutils literal notranslate"><span class="pre">&quot;auto&quot;</span></code> now, which means <code class="docutils literal notranslate"><span class="pre">fig_crop</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> when figure cropping tools <code class="docutils literal notranslate"><span class="pre">pdfcrop</span></code> and <code class="docutils literal notranslate"><span class="pre">ghostscript</span></code> are available.</p></li>
+<li><p>The default value of the <code class="docutils literal notranslate"><span class="pre">fig_crop</span></code> option of PDF output formats has been changed from <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> to <code class="docutils literal notranslate"><span class="pre">&quot;auto&quot;</span></code> (#2077).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rmarkdown::tufte_handout</span></code> has been deprecated and will be removed in the future from this package. It has been moved to the <strong>tufte</strong> package since <strong>rmarkdown</strong> 0.9.5 (released on 2016-02-22). Please use <code class="docutils literal notranslate"><span class="pre">tufte::tufte_handout</span></code> instead.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-2-7">
+<h1>rmarkdown 2.7<a class="headerlink" href="#rmarkdown-2-7" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">html_document</span></code> (and <code class="docutils literal notranslate"><span class="pre">html_document_base</span></code>)’s <code class="docutils literal notranslate"><span class="pre">theme</span></code> parameter now understands <code class="docutils literal notranslate"><span class="pre">bslib::bs_theme()</span></code> objects/arguments, meaning that one may opt-into Bootstrap 4 and more easily create custom themes. For examples, see <a class="reference external" href="https://github.com/rstudio/rmarkdown/pull/1706">https://github.com/rstudio/rmarkdown/pull/1706</a>, and for context, see <a class="reference external" href="https://rstudio.github.io/bslib/">https://rstudio.github.io/bslib/</a> (thanks, &#64;cpsievert, #1706).</p></li>
+<li><p>Files with <code class="docutils literal notranslate"><span class="pre">.scss</span></code>/<code class="docutils literal notranslate"><span class="pre">.sass</span></code> extension (i.e., Sass files) provided to <code class="docutils literal notranslate"><span class="pre">html_document</span></code>’s <code class="docutils literal notranslate"><span class="pre">css</span></code> parameter are now compiled to CSS using the <code class="docutils literal notranslate"><span class="pre">{sass}</span></code> package. Also, if <code class="docutils literal notranslate"><span class="pre">theme</span></code> is a <code class="docutils literal notranslate"><span class="pre">{bslib}</span></code> object, these Sass files may utilize Sass code inside the <code class="docutils literal notranslate"><span class="pre">theme</span></code> (thanks, &#64;cpsievert, #1706).</p></li>
+<li><p>Fix an issue with line numbering in code chunks when <code class="docutils literal notranslate"><span class="pre">.numberlines</span></code> with Pandoc’s highlighting (thanks, &#64;aosavi, #1876).</p></li>
+<li><p>Fix an issue with shiny runtime and <code class="docutils literal notranslate"><span class="pre">global.R</span></code> (thanks, &#64;liaojiahui-r, rstudio/flexdashboard#298).</p></li>
+<li><p>Accept <code class="docutils literal notranslate"><span class="pre">latex=&quot;{options}&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">latex=1</span></code>, or <code class="docutils literal notranslate"><span class="pre">latex=true</span></code> for Latex Divs.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">output_format_filter</span></code> function to <code class="docutils literal notranslate"><span class="pre">default_site_generator()</span></code>. Enables custom site generators to customize or even entirely replace the output format right before rendering of each page.</p></li>
+<li><p>Automatically exclude <strong>renv</strong> directory for <code class="docutils literal notranslate"><span class="pre">render_site()</span></code> (thanks, &#64;jmbuhr, #1996)</p></li>
+<li><p>Do not force <code class="docutils literal notranslate"><span class="pre">options(htmltools.preserve.raw</span> <span class="pre">=</span> <span class="pre">TRUE)</span></code> when this option has been set, otherwise it is impossible for other packages to turn this option off, e.g., yihui/xaringan#293.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">knitr_options_pdf()</span></code> will now throw a warning when <code class="docutils literal notranslate"><span class="pre">fig_crop</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> but is disabled because required tools <code class="docutils literal notranslate"><span class="pre">pdfcrop</span></code> and/or <code class="docutils literal notranslate"><span class="pre">ghostscript</span></code> are missing (thanks, &#64;netique, #2016).</p></li>
+<li><p>Eliminated the unnecessary padding in code blocks in the <code class="docutils literal notranslate"><span class="pre">html_document</span></code> output with Bootstrap 4 themes (thanks, &#64;atusy, #2019).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">github_document()</span></code> will produce a working TOC even if some headers start with number (#2039).</p></li>
+<li><p>Fix an issue with <code class="docutils literal notranslate"><span class="pre">knit_print.data.frame</span></code>. The <code class="docutils literal notranslate"><span class="pre">...</span></code> arguments are no more passed to <code class="docutils literal notranslate"><span class="pre">print()</span></code> to avoid passing <code class="docutils literal notranslate"><span class="pre">knit_print()</span></code> arguments <code class="docutils literal notranslate"><span class="pre">options</span></code> and <code class="docutils literal notranslate"><span class="pre">encoding</span></code> to custom <code class="docutils literal notranslate"><span class="pre">print()</span></code> methods (#2047).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-2-6">
+<h1>rmarkdown 2.6<a class="headerlink" href="#rmarkdown-2-6" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Encoding is correctly handled now in <code class="docutils literal notranslate"><span class="pre">html_vignette</span></code> when checking for identical title and vignette index entry (thanks, &#64;py-b, #1978).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clean_site()</span></code> now default to <code class="docutils literal notranslate"><span class="pre">preview</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> and will no more remove files without notice. This change will affect the “Clean All” button in the “Build” pane for website project. <code class="docutils literal notranslate"><span class="pre">clean_site(preview</span> <span class="pre">=</span> <span class="pre">FALSE)</span></code> must be run to effectively remove files (#1973).</p></li>
+<li><p>The intermediate <code class="docutils literal notranslate"><span class="pre">.tex</span></code> file is now correctly deleted if <code class="docutils literal notranslate"><span class="pre">keep_tex</span> <span class="pre">=</span> <span class="pre">FALSE</span></code> when the R Markdown document is not rendered from the working directory (thanks, &#64;vqv, #1308).</p></li>
+<li><p>Fix a bug causing certain resources files to be deleted as intermediate files when <code class="docutils literal notranslate"><span class="pre">intermediates_dir</span></code> is the same as the input (thanks, &#64;bellma-lilly, #1248).</p></li>
+<li><p>Fix issues with <code class="docutils literal notranslate"><span class="pre">anchor_sections</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> and <strong>learnr</strong> (thanks, &#64;gadenbuie, #1938).</p></li>
+<li><p>Enable use of <code class="docutils literal notranslate"><span class="pre">server.R</span></code> and <code class="docutils literal notranslate"><span class="pre">global.R</span></code> alongside <code class="docutils literal notranslate"><span class="pre">runtime:</span> <span class="pre">shinyrmd</span></code> documents.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pkg_file_lua()</span></code> now works with <code class="docutils literal notranslate"><span class="pre">devtools::load_all()</span></code> and <strong>testthat</strong> when used in other packages.</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">pandoc_convert(citeproc</span> <span class="pre">=</span> <span class="pre">TRUE)</span></code> not supressing the <code class="docutils literal notranslate"><span class="pre">--natbib</span></code> or <code class="docutils literal notranslate"><span class="pre">--biblatex</span></code> options (thanks, &#64;atusy, #1932).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pandoc-citeproc</span></code> is now activated if a <code class="docutils literal notranslate"><span class="pre">bibliography</span></code> field is defined in another YAML block instead of the first YAML block (thanks, &#64;bwiernik, #1364).</p></li>
+<li><p>Specify that <code class="docutils literal notranslate"><span class="pre">htmltools::htmlPreserve()</span></code> should use the pandoc raw attribute
+rather than preservation tokens when pandoc &gt;= v2.0. Note that this option will
+have the intended effect only for versions of htmltools &gt;= 0.5.0.9003.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">anchor_sections</span></code> in <code class="docutils literal notranslate"><span class="pre">html_documents()</span></code> now defaults to <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>. It was introduced in previous version with a default to <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>, but it is reverted now after hearing feedbacks from the community (thank you!). The <code class="docutils literal notranslate"><span class="pre">#</span></code> is still used as the character for the anchor but you can easily change that using CSS rules. Examples have been added to the help page <code class="docutils literal notranslate"><span class="pre">?html_document</span></code>.</p></li>
+<li><p>Using Pandoc’s default for <code class="docutils literal notranslate"><span class="pre">--email-obfuscation</span></code> now. Previously, it was set to <code class="docutils literal notranslate"><span class="pre">none</span></code> explicitly, which is the default for Pandoc 1.17.2+ anyway. Only users with a Pandoc version before 1.17.2 may see a change in the content of the html source file produced if the document contains email addresses. This change allows to pass the Pandoc’s command line flag if you want to set it to another value  (thanks,&#64;seankross, #1969).</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">output</span><span class="p">:</span>
+  <span class="nt">html_document</span><span class="p">:</span> 
+    <span class="nt">pandoc_args</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&quot;--email-obfuscation&quot;</span><span class="p p-Indicator">,</span> <span class="s">&quot;javascript&quot;</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<p>See <a class="reference external" href="https://pandoc.org/MANUAL.html#option--email-obfuscation">Pandoc’s manual</a> for the meaning of this option.</p>
+</li>
+<li><p>Fix Fontawesome 5 icons in navbar by correctly handling new prefix as <code class="docutils literal notranslate"><span class="pre">fa</span></code> has been deprecated in favor of <code class="docutils literal notranslate"><span class="pre">fas</span></code> or <code class="docutils literal notranslate"><span class="pre">fab</span></code> (#1967)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-2-5">
+<h1>rmarkdown 2.5<a class="headerlink" href="#rmarkdown-2-5" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Tables without header rows (wich can be possible in Pandoc’s <a class="reference external" href="https://pandoc.org/MANUAL.html#extension-simple_tables">simple table</a>) are now formatted correctly when using <code class="docutils literal notranslate"><span class="pre">html_document()</span></code> format (thanks, &#64;fkohrt, #1893).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">html_document()</span></code> gains the <code class="docutils literal notranslate"><span class="pre">anchor_sections</span></code> argument, which is <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> by default, so that readers can get links to section headers easily—when you mouse over a section header, you will see a hash symbol <code class="docutils literal notranslate"><span class="pre">#</span></code> at the end of the header, which contains the anchor link to this header. You can click on this link and get the URL in the addres bar of your web browser, or right-click on it and copy the URL from the context menu. The hash symbol is defined by the CSS rule <code class="docutils literal notranslate"><span class="pre">a.anchor-section::before</span> <span class="pre">{content:</span> <span class="pre">'#';}</span></code>. You can customize it by overriding this rule (e.g., via the <code class="docutils literal notranslate"><span class="pre">css</span></code> argument of <code class="docutils literal notranslate"><span class="pre">html_document</span></code>) and use any other symbols or icons, e.g., <code class="docutils literal notranslate"><span class="pre">content:</span> <span class="pre">&quot;\02AD8;&quot;</span></code> (thanks, &#64;atusy, #1884).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pkg_file_lua()</span></code> should have thrown an error if the expected Lua file does not exist.</p></li>
+<li><p>Provide <code class="docutils literal notranslate"><span class="pre">files_dir</span></code> and <code class="docutils literal notranslate"><span class="pre">intermediates_dir</span></code> as attributes on return from <code class="docutils literal notranslate"><span class="pre">render()</span></code> when <code class="docutils literal notranslate"><span class="pre">run_pandoc</span> <span class="pre">=</span> <span class="pre">FALSE</span></code>.</p></li>
+<li><p>Supports new Pandoc 2.11 <code class="docutils literal notranslate"><span class="pre">--citeproc</span></code> flags usage instead of <code class="docutils literal notranslate"><span class="pre">pandoc-citeproc</span></code> external filter. <code class="docutils literal notranslate"><span class="pre">pandoc_convert()</span></code> and <code class="docutils literal notranslate"><span class="pre">pandoc_citeproc_convert()</span></code> will now use the correct flags according to the Pandoc version used. The logic is exported in <code class="docutils literal notranslate"><span class="pre">pandoc_citeproc_args()</span></code>. See <a class="reference external" href="https://github.com/jgm/pandoc/releases/tag/2.11">Pandoc release note</a> for more information about the new <code class="docutils literal notranslate"><span class="pre">citeproc</span></code> processing (#1916).</p></li>
+<li><p>Fixed the code highlighting when code block is hidden. Previous version introduced a regression where non default code highlighting was still shown when <code class="docutils literal notranslate"><span class="pre">code_folding</span></code> is activated and code block is hidden (thanks, &#64;matthewcarlucci, #1921).</p></li>
+<li><p>The minimal required version for the <strong>xfun</strong> package (v0.15) has been specified for R Markdown Notebooks to work properly (thanks, &#64;jmcphers, #1923).</p></li>
+<li><p>Fixed a bug in <code class="docutils literal notranslate"><span class="pre">convert_ipynb()</span></code> when the language is not specified in the <code class="docutils literal notranslate"><span class="pre">.ipynb</span></code> file (thanks, &#64;acca3003, #1925).</p></li>
+<li><p>Introduce <code class="docutils literal notranslate"><span class="pre">runtime:</span> <span class="pre">shinyrmd</span></code> as a more user friendly alias for <code class="docutils literal notranslate"><span class="pre">runtime:</span> <span class="pre">shiny_prerendered</span></code>.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-2-4">
+<h1>rmarkdown 2.4<a class="headerlink" href="#rmarkdown-2-4" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Lua filters handling has been improved internally with some user-facing changes (#1899):</p>
+<ul>
+<li><p>New exported function <code class="docutils literal notranslate"><span class="pre">pandoc_lua_filter_args()</span></code> to return the Pandoc command-line argument to add a Lua filter.</p></li>
+<li><p>New argument <code class="docutils literal notranslate"><span class="pre">lua_filters</span></code> in <code class="docutils literal notranslate"><span class="pre">pandoc_options()</span></code> to pass the Lua filter paths to use with a format. This allow output format authors to add filters for a custom format using the <code class="docutils literal notranslate"><span class="pre">pandoc</span></code> argument of <code class="docutils literal notranslate"><span class="pre">output_format()</span></code> and to get filters from a format using <code class="docutils literal notranslate"><span class="pre">fmt$pandoc$lua_filters</span></code>.</p></li>
+<li><p>The Lua filters of an output format are now passed to Pandoc in <code class="docutils literal notranslate"><span class="pre">render()</span></code>. By default, they are passed to Pandoc before any other format-defined or user-defined Pandoc arguments (usually via the <code class="docutils literal notranslate"><span class="pre">pandoc_args</span></code> option of an output format). This ensures that filters of an output format are executed first. To change the default, you need to deal with it in a custom format (i.e., modify the elements in <code class="docutils literal notranslate"><span class="pre">fmt$pandoc$lua_filters</span></code>, such as reordering them).</p></li>
+<li><p>New exported function <code class="docutils literal notranslate"><span class="pre">pkg_file_lua()</span></code> to get the full system path of a Lua filter included in a package source within the <code class="docutils literal notranslate"><span class="pre">inst/rmarkdown/lua</span></code> folder (thanks, &#64;atusy, #1903).</p></li>
+</ul>
+</li>
+<li><p>Fixed the path separators for the <code class="docutils literal notranslate"><span class="pre">css</span></code> parameter in YAML frontmatter for HTML output files under Windows. Previously, forward slashes in <code class="docutils literal notranslate"><span class="pre">css</span></code> paths were converted to backslashes (thanks, &#64;jonathan-g, #1862).</p></li>
+<li><p>Since <strong>rmarkdown</strong> 1.16, Pandoc’s fenced <code class="docutils literal notranslate"><span class="pre">Div</span></code>’s are converted to LaTeX environments when the output format is LaTeX, e.g., <code class="docutils literal notranslate"><span class="pre">:::</span> <span class="pre">{.center</span> <span class="pre">data-latex=&quot;&quot;}</span></code> is converted to <code class="docutils literal notranslate"><span class="pre">\begin{center}</span></code>. The attribute <code class="docutils literal notranslate"><span class="pre">data-latex</span></code> of the <code class="docutils literal notranslate"><span class="pre">Div</span></code> was mandatory, even if it is empty. In <strong>rmarkdown</strong> 2.2, we silently drop this requirement, which means <code class="docutils literal notranslate"><span class="pre">:::</span> <span class="pre">{.center}</span></code> is converted to <code class="docutils literal notranslate"><span class="pre">\begin{center}</span></code>. This turns out to be a bad idea, because users have no control over which Div’s to be converted to LaTeX environments. Previously, they could opt-in by the <code class="docutils literal notranslate"><span class="pre">data-latex</span></code> attribute, but with <strong>rmarkdown</strong> 2.3, all Div’s are converted to LaTeX environments unconditionally. What’s more, this change led to bugs like <a class="reference external" href="https://stackoverflow.com/q/62340425/559676">https://stackoverflow.com/q/62340425/559676</a> and <a class="reference external" href="https://github.com/rstudio/bookdown/issues/883">https://github.com/rstudio/bookdown/issues/883</a>. Therefore the <code class="docutils literal notranslate"><span class="pre">data-latex</span></code> attribute became mandatory again in this version. If the LaTeX environment does not need arguments, you may use <code class="docutils literal notranslate"><span class="pre">data-latex=&quot;&quot;</span></code>.</p></li>
+<li><p>The two Lua fitlers <code class="docutils literal notranslate"><span class="pre">pagebreak.lua</span></code> and <code class="docutils literal notranslate"><span class="pre">latex-div.lua</span></code> (introduced in <strong>rmarkdown</strong> 1.16) are also applied to the output format <code class="docutils literal notranslate"><span class="pre">beamer_presentation</span></code> now (thanks, &#64;XiangyunHuang, #1815).</p></li>
+<li><p>When customizing formats with the <code class="docutils literal notranslate"><span class="pre">output_format</span></code> function, <code class="docutils literal notranslate"><span class="pre">pre_knit</span></code>, <code class="docutils literal notranslate"><span class="pre">opts_hooks</span></code>, and <code class="docutils literal notranslate"><span class="pre">knit_hooks</span></code> can now refer to <code class="docutils literal notranslate"><span class="pre">rmarkdown::metadata</span></code>. Previously, <code class="docutils literal notranslate"><span class="pre">rmarkdown::metadata</span></code> returned <code class="docutils literal notranslate"><span class="pre">list()</span></code> in these functions (thanks, &#64;atusy, #1855).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rmarkdown::find_external_resources()</span></code> now discovers external template files. This in turn fixes the rendering issue of <code class="docutils literal notranslate"><span class="pre">html_document</span></code> with the <code class="docutils literal notranslate"><span class="pre">shiny</span></code> runtime and <code class="docutils literal notranslate"><span class="pre">intermediate_dir</span></code> set (thanks, &#64;atusy, &#64;cderv, #1865).</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">number_sections</span></code> argument to following formats: <code class="docutils literal notranslate"><span class="pre">github_document</span></code>, <code class="docutils literal notranslate"><span class="pre">ioslides_presentation</span></code>, <code class="docutils literal notranslate"><span class="pre">md_document</span></code>, <code class="docutils literal notranslate"><span class="pre">odt_document</span></code>, <code class="docutils literal notranslate"><span class="pre">powerpoint_presentation</span></code>, <code class="docutils literal notranslate"><span class="pre">rtf_document</span></code>, <code class="docutils literal notranslate"><span class="pre">slidy_presentation</span></code>, <code class="docutils literal notranslate"><span class="pre">word_document</span></code>. These are powered by a Lua filter and requires Pandoc &gt; 2.0. It will silently have no effect has before with previous pandoc version (thanks &#64;atusy 1893).  Pandoc &gt;= 2.10.1 adds <code class="docutils literal notranslate"><span class="pre">--number-sections</span></code> for docx format, and thus <code class="docutils literal notranslate"><span class="pre">word_document</span></code> prefers the native feature to the Lua filter (thanks, &#64;jooyoungseo, #1869).</p></li>
+<li><p>For the output format <code class="docutils literal notranslate"><span class="pre">pdf_document</span></code>, the option <code class="docutils literal notranslate"><span class="pre">fig_crop</span></code> will not be enabled unless both the programs <code class="docutils literal notranslate"><span class="pre">pdfcrop</span></code> and <code class="docutils literal notranslate"><span class="pre">ghostscript</span></code> are found (thanks, &#64;dalupus, yihui/knitr#954).</p></li>
+<li><p>Fixed a bug that a chunk with a class <code class="docutils literal notranslate"><span class="pre">fold-hide</span></code> hides the rest of the chunks even the output format setting <code class="docutils literal notranslate"><span class="pre">html_document(code_folding</span> <span class="pre">=</span> <span class="pre">&quot;show&quot;)</span></code> (thanks, &#64;atusy, #1906).</p></li>
+<li><p>Updated documentation for <code class="docutils literal notranslate"><span class="pre">render()</span></code> to make it clearer how options are set for the <code class="docutils literal notranslate"><span class="pre">output_format</span></code> parameter (thanks, &#64;jonathan-g, #1907 and rstudio/bookdown#930).</p></li>
+<li><p>Ported some CSS styles (e.g., underlines, small caps, and multi-column layouts) from the latest Pandoc’s HTML template into <strong>rmarkdown</strong>s HTML templates (thanks, &#64;atusy, #1878, #1908).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-2-3">
+<h1>rmarkdown 2.3<a class="headerlink" href="#rmarkdown-2-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Addressed an accessibility issue in highlighted code blocks of HTML output for screen reader users: screen readers no longer read out an unnecessary code line id values (thanks, &#64;jooyoungseo and &#64;atusy, #1833).</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">file_scope</span></code> option to output format definition. This enables handling of duplicate numeric footnote identifiers (e.g. across bookdown chapters) via the pandoc <code class="docutils literal notranslate"><span class="pre">--file-scope</span></code> option (#1837).</p></li>
+<li><p>Added the customizable <code class="docutils literal notranslate"><span class="pre">lang</span></code> attribute to <code class="docutils literal notranslate"><span class="pre">ioslides_presentation</span></code> output (thanks, &#64;jooyoungseo, #1841).</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">publish_site()</span></code> function for “one-button” publishing of R Markdown websites.</p></li>
+<li><p>When the <code class="docutils literal notranslate"><span class="pre">df_print</span></code> option is <code class="docutils literal notranslate"><span class="pre">kable</span></code> and the output format is not HTML, <code class="docutils literal notranslate"><span class="pre">&lt;div</span> <span class="pre">class=&quot;kable-table&quot;&gt;</span></code> is no longer added to the <code class="docutils literal notranslate"><span class="pre">kable()</span></code> output, because recent versions of Pandoc will convert the <code class="docutils literal notranslate"><span class="pre">div</span></code> to a LaTeX environment when the output format is LaTeX (thanks, Laurens, <a class="reference external" href="https://stackoverflow.com/q/62340425/559676">https://stackoverflow.com/q/62340425/559676</a>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">html_vignette()</span></code> only warns against differences in the vignette title and the vignette index entry for R &gt;= 3.6.0 (thanks, &#64;krlmlr, #1832).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">html_document()</span></code> can apply <code class="docutils literal notranslate"><span class="pre">code_folding</span></code> on any chunk engines if the <code class="docutils literal notranslate"><span class="pre">foldable</span></code> class is added to a source code block via the chunk options (<code class="docutils literal notranslate"><span class="pre">class.source</span></code> or <code class="docutils literal notranslate"><span class="pre">attr.source</span></code>). You may apply this feature to all the source code blocks, for example, by setting <code class="docutils literal notranslate"><span class="pre">knitr::opts_chunk$set(class.source</span> <span class="pre">=</span> <span class="pre">&quot;foldable&quot;)</span></code> at the beginning of your document (thanks, &#64;atusy, #1835).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-2-2">
+<h1>rmarkdown 2.2<a class="headerlink" href="#rmarkdown-2-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Exported the internal function <code class="docutils literal notranslate"><span class="pre">find_pandoc()</span></code>, and also added two arguments, <code class="docutils literal notranslate"><span class="pre">dir</span></code> and <code class="docutils literal notranslate"><span class="pre">version</span></code>, so that users can provide a custom directory under which this function may find Pandoc, as well as an expected version of Pandoc to be found (thanks, &#64;connorp, #1785).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pandoc_metadata_arg()</span></code> is a new Pandoc helper function to generate <code class="docutils literal notranslate"><span class="pre">--metadata</span></code> argument for Pandoc command line (thanks, &#64;cderv, #1789).</p></li>
+<li><p>The output format <code class="docutils literal notranslate"><span class="pre">html_vignette()</span></code> now warns against differences in the vignette title specified in the <code class="docutils literal notranslate"><span class="pre">title</span></code> field in the YAML metadata and the one specified inside <code class="docutils literal notranslate"><span class="pre">\VignetteIndexEntry{}</span></code>. Normally they are expected to be identical (#1789).</p></li>
+<li><p>Fixed a bug with encoding when rendering <code class="docutils literal notranslate"><span class="pre">html_notebook</span></code> containing HTML widgets (thanks, &#64;cderv, #1799).</p></li>
+<li><p>TOC title can now be specified for <code class="docutils literal notranslate"><span class="pre">html_document</span></code> via the top-level option <code class="docutils literal notranslate"><span class="pre">toc-title</span></code> in the YAML frontmatter (thanks, &#64;atusy, #1771).</p></li>
+<li><p>Floating TOC can now distinguish upper/lower-cases (thanks, &#64;atusy, #1783).</p></li>
+<li><p>When <code class="docutils literal notranslate"><span class="pre">code_folding='show'</span></code> for the output format <code class="docutils literal notranslate"><span class="pre">html_document</span></code>, code blocks can be individually hidden initially by specifying the chunk option <code class="docutils literal notranslate"><span class="pre">class.source='fold-hide'</span></code> (thanks, &#64;atusy, #1798).</p></li>
+<li><p>For LaTeX/PDF output formats <code class="docutils literal notranslate"><span class="pre">pdf_document</span></code>, <code class="docutils literal notranslate"><span class="pre">beamer_presentation</span></code>, and <code class="docutils literal notranslate"><span class="pre">context_document</span></code>, the argument <code class="docutils literal notranslate"><span class="pre">citation_package</span> <span class="pre">=</span> <span class="pre">'none'</span></code> was deprecated, and <code class="docutils literal notranslate"><span class="pre">citation_package</span> <span class="pre">=</span> <span class="pre">'default'</span></code> should be used instead if citations are to be processed by <code class="docutils literal notranslate"><span class="pre">pandoc-citeproc</span></code> (thanks, &#64;njbart, rstudio/bookdown#754).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">output_format()</span></code> can now inherit <code class="docutils literal notranslate"><span class="pre">keep_md</span></code> and <code class="docutils literal notranslate"><span class="pre">clean_supporting</span></code> from <code class="docutils literal notranslate"><span class="pre">base_format</span></code> when <code class="docutils literal notranslate"><span class="pre">NULL</span></code> is passed to these arguments. Previously, you must explicitly specify <code class="docutils literal notranslate"><span class="pre">keep_md</span></code> and/or <code class="docutils literal notranslate"><span class="pre">clean_supporting</span></code> as <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> or <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> in <code class="docutils literal notranslate"><span class="pre">output_format()</span></code> since they could not inherit the corresponding options of <code class="docutils literal notranslate"><span class="pre">base_format</span></code>. This behavior was not consisent with other arguments of <code class="docutils literal notranslate"><span class="pre">output_format()</span></code> (thanks, &#64;atusy, #1823).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">smart</span></code> argument of most output formats has been removed, because Pandoc’s <code class="docutils literal notranslate"><span class="pre">smart</span></code> extension is enabled by default, and setting <code class="docutils literal notranslate"><span class="pre">smart:</span> <span class="pre">false</span></code> for an output format did not really have any effect (which could be considered a bug, but we want to get rid of this option since it existed only for a historical reason for Pandoc 1.x, and Pandoc 2.x has been released for more than two years). If you want to disable the <code class="docutils literal notranslate"><span class="pre">smart</span></code> extension, you can use the option <code class="docutils literal notranslate"><span class="pre">md_extensions:</span> <span class="pre">-smart</span></code> of the output format (thanks, &#64;atusy, #1774).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pdf_document()</span></code> should not specify the <code class="docutils literal notranslate"><span class="pre">geometry</span></code> variable when the <code class="docutils literal notranslate"><span class="pre">documentclass</span></code> variable is passed to Pandoc (thanks, &#64;jpcirrus, #1782).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">render()</span></code> now respects the YAML metadata in the R script when rendering the script with Pandoc 2.8 or later (thanks, &#64;nsoranzo #1740, &#64;cderv #1741).</p></li>
+<li><p>For <code class="docutils literal notranslate"><span class="pre">pandoc_convert()</span></code>, when the argument <code class="docutils literal notranslate"><span class="pre">to</span> <span class="pre">=</span> <span class="pre">'pdf'</span></code>, it will be changed to <code class="docutils literal notranslate"><span class="pre">'latex'</span></code> internally (thanks, &#64;JohannesFriedrich, #1802).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">render(run_pandoc</span> <span class="pre">=</span> <span class="pre">FALSE)</span></code> no longer cleans up the Markdown file (typically knitted from Rmd) (thanks, &#64;BrianDiggs, #1812).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-2-1">
+<h1>rmarkdown 2.1<a class="headerlink" href="#rmarkdown-2-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added the returned output from <code class="docutils literal notranslate"><span class="pre">shiny::runApp()</span></code> within <code class="docutils literal notranslate"><span class="pre">rmarkdown::run()</span></code> (thanks, &#64;schloerke, #1760).</p></li>
+<li><p>YAML header is now correctly parsed in <code class="docutils literal notranslate"><span class="pre">html_notebook</span></code>’s intermediate <code class="docutils literal notranslate"><span class="pre">.knit.md</span></code> file so that features like adding bibliography works again (thanks, &#64;everdark, &#64;cderv, #1747).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ioslides_presentation</span></code> template no longer generates an empty <code class="docutils literal notranslate"><span class="pre">&lt;h2&gt;</span></code> tag when <code class="docutils literal notranslate"><span class="pre">subtitle</span></code> is not specified in YAML (thanks, &#64;jooyoungseo #1735, &#64;cgrudz #1663).</p></li>
+<li><p>No longer center the <code class="docutils literal notranslate"><span class="pre">#header</span></code> element in the <code class="docutils literal notranslate"><span class="pre">html_vignette()</span></code> output (thanks, &#64;EmilHvitfeldt, #1742).</p></li>
+<li><p>Ensure the <code class="docutils literal notranslate"><span class="pre">tempdir()</span></code> exists (via <code class="docutils literal notranslate"><span class="pre">tempdir(TRUE)</span></code>) when writing HTML dependencies to a temporary file, because this directory might be erased by accident (thanks, Kurt Hornik, and also &#64;karawoo #1743).</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">slide_level</span></code> argument to <code class="docutils literal notranslate"><span class="pre">slidy_presentation()</span></code> (<a class="reference external" href="https://stackoverflow.com/q/59157211/559676">https://stackoverflow.com/q/59157211/559676</a>).</p></li>
+<li><p>Removed the jQuery dependency in <code class="docutils literal notranslate"><span class="pre">html_document_base()</span></code> (#1723). To avoid bugs like #1723, Pandoc 2.8 users have to upgrade to Pandoc 2.9+.</p></li>
+<li><p>For <code class="docutils literal notranslate"><span class="pre">pdf_document</span></code>, horizontal rules generated by Pandoc (before v2.8) stopped working in recent versions of TeX Live, and the same fix as the one to <a class="reference external" href="https://github.com/jgm/pandoc/issues/5801">https://github.com/jgm/pandoc/issues/5801</a> (i.e., hard-code <code class="docutils literal notranslate"><span class="pre">\linethickness</span></code> to <code class="docutils literal notranslate"><span class="pre">0.5pt</span></code>) was applied in <strong>rmarkdown</strong> (thanks, &#64;cderv, <a class="reference external" href="https://stackoverflow.com/a/58646915/559676">https://stackoverflow.com/a/58646915/559676</a>).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-2-0">
+<h1>rmarkdown 2.0<a class="headerlink" href="#rmarkdown-2-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>For the output format <code class="docutils literal notranslate"><span class="pre">pdf_document()</span></code>, we no longer adjust the vertical spacing of the title area. This means there will be a larger spacing above the document title in PDF. If you prefers the old (smaller) spacing, please download <a class="reference external" href="https://github.com/rstudio/rmarkdown/blob/f6961af/inst/rmd/latex/compact-title.tex">https://github.com/rstudio/rmarkdown/blob/f6961af/inst/rmd/latex/compact-title.tex</a> and include it to the preamble via the <code class="docutils literal notranslate"><span class="pre">includes</span></code> option of <code class="docutils literal notranslate"><span class="pre">pdf_document</span></code>. However, please note that this means you won’t be able to have multiple authors in the <code class="docutils literal notranslate"><span class="pre">author</span></code> field of the YAML frontmatter, unless you use a custom LaTeX template. With the default LaTeX template, you will run into the error in #1716. Besides, the <code class="docutils literal notranslate"><span class="pre">compact-title</span></code> option in YAML is no longer supported.</p></li>
+<li><p>R code in the <code class="docutils literal notranslate"><span class="pre">header-includes</span></code> field in the YAML frontmatter stopped working in the previous version of <strong>rmarkdown</strong>. The code should be evaluated before passing to Pandoc (thanks, &#64;mcol #1709, &#64;cderv #1710).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">encoding</span></code> argument is no longer passed to the <code class="docutils literal notranslate"><span class="pre">intermediates_generator</span></code> of R Markdown output formats. The <code class="docutils literal notranslate"><span class="pre">intermediates_generator</span></code> function can only accept arguments <code class="docutils literal notranslate"><span class="pre">input_file</span></code> and <code class="docutils literal notranslate"><span class="pre">intermediates_dir</span></code> now (see <code class="docutils literal notranslate"><span class="pre">?rmarkdown::output_format</span></code>). This is a breaking change to developers. If you are an output format developer, you have to remove the <code class="docutils literal notranslate"><span class="pre">encoding</span></code> argument in your <code class="docutils literal notranslate"><span class="pre">intermediates_generator</span></code> if your output format uses this function.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">encoding</span></code> argument is no longer passed to the <code class="docutils literal notranslate"><span class="pre">render</span></code> element of the site generator (see <code class="docutils literal notranslate"><span class="pre">?rmarkdown::render_site</span></code>).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">encoding</span></code> argument has been removed from many of the internal functions in the <strong>rmarkdown</strong> package. Now all input files are assumed to be encoded in UTF-8. If you see an error message like “Error in <code class="docutils literal notranslate"><span class="pre">FUN(arg</span> <span class="pre">=</span> <span class="pre">...)</span></code>: unused argument (<code class="docutils literal notranslate"><span class="pre">arg</span> <span class="pre">=</span> <span class="pre">...</span></code>)”, please file an issue (with a reproducible example) to <a class="reference external" href="https://github.com/rstudio/rmarkdown">https://github.com/rstudio/rmarkdown</a>.</p></li>
+<li><p>Added a new output format <code class="docutils literal notranslate"><span class="pre">context_document()</span></code> to support ConTeXT output (thanks, &#64;RLesur #1725, &#64;jooyoungseo #1713).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">render_site()</span></code> can render R scripts in addition to Rmd files if you set <code class="docutils literal notranslate"><span class="pre">autospin:</span> <span class="pre">true</span></code> in <code class="docutils literal notranslate"><span class="pre">_site.yml</span></code> (thanks, &#64;zeehio, #1564).</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">ext</span></code> argument to <code class="docutils literal notranslate"><span class="pre">md_document()</span></code>. Its default value is “.md”. This argument is intended to be used together with <code class="docutils literal notranslate"><span class="pre">variant</span></code> argument (e.g., <code class="docutils literal notranslate"><span class="pre">variant</span> <span class="pre">=</span> <span class="pre">&quot;context&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">ext</span> <span class="pre">=</span> <span class="pre">&quot;.pdf&quot;</span></code>) (thanks, &#64;atusy, #1715).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ioslides_presentation()</span></code> stylesheet is updated for printing. Browsers are notified that the presentation should preferentially be printed in landscape orientation and without margin (thanks, &#64;RLesur, #1718).</p></li>
+<li><p>Reverted the fix #1703 and applied an alternative fix to #1700, because the original fix brought a new bug #1714 (thanks, &#64;pablobernabeu &#64;cderv &#64;everron &#64;aronatkins).</p></li>
+<li><p>Tabsets don’t work with Pandoc 2.8 (thanks, &#64;mnazarov, #1723).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">pdf_document</span></code> format failed to work if the <code class="docutils literal notranslate"><span class="pre">header-includes</span></code> field in YAML is an empty list (thanks, &#64;cderv, #1728).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-1-18">
+<h1>rmarkdown 1.18<a class="headerlink" href="#rmarkdown-1-18" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>For <code class="docutils literal notranslate"><span class="pre">pdf_document()</span></code>, now we patch Pandoc’s built-in LaTeX template to include the document subtitle (unnecessary with pandoc 2.6 onwards) and reduce the vertical spacing before title using <code class="docutils literal notranslate"><span class="pre">--include-in-header</span></code> rather than overwriting the built-in template, avoiding compability problems with newer versions of Pandoc (thanks, &#64;adunning, #1563).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">find_external_resources()</span></code> works now when multiple files are specified in the <code class="docutils literal notranslate"><span class="pre">includes</span></code> option of the output format (thanks, &#64;andrie, #1677).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">find_external_resources()</span></code> can find external resources specified in the output format’s <code class="docutils literal notranslate"><span class="pre">reference_doc</span></code> or <code class="docutils literal notranslate"><span class="pre">reference_docx</span></code> option now (thanks, &#64;jmcphers, #1696).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rmarkdown::run(file</span> <span class="pre">=</span> <span class="pre">NULL,</span> <span class="pre">dir</span> <span class="pre">=</span> <span class="pre">&quot;foo/&quot;)</span></code> failed to run Rmd files under the <code class="docutils literal notranslate"><span class="pre">foo/</span></code> directory (thanks, &#64;jenzopr, #1703).</p></li>
+<li><p>Reverted the fix for #1692 since it is no longer necessary (<a class="reference external" href="https://github.com/yihui/tinytex/issues/152#issuecomment-552796864">https://github.com/yihui/tinytex/issues/152#issuecomment-552796864</a>).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">header-includes</span></code> field in the YAML metadata will no longer be overwritten by the command-line option <code class="docutils literal notranslate"><span class="pre">--include-in-header</span></code> (thanks, &#64;crsh &#64;mnazarov, #1359).</p></li>
+<li><p>Removed the <code class="docutils literal notranslate"><span class="pre">xmlns</span></code> attribute in the <code class="docutils literal notranslate"><span class="pre">&lt;html&gt;</span></code> tag in the default HTML template (thanks, &#64;grady #1640, &#64;spgarbet #995).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-1-17">
+<h1>rmarkdown 1.17<a class="headerlink" href="#rmarkdown-1-17" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">html_vignette()</span></code> passes <code class="docutils literal notranslate"><span class="pre">self_contained</span></code> argument value to base format (thanks, &#64;cderv, #1668).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">find_external_resources()</span></code> works for the <code class="docutils literal notranslate"><span class="pre">html_vignette</span></code> type again, this fixes rendering vignettes with external resources in pkgdown (regression introduced in rmarkdown 1.16, #1668).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">render(...,</span> <span class="pre">clean</span> <span class="pre">=</span> <span class="pre">TRUE)</span></code> may fail to clean the <code class="docutils literal notranslate"><span class="pre">*_files</span></code> directory when the output format is <code class="docutils literal notranslate"><span class="pre">prettydoc::html_pretty</span></code> (thanks, &#64;yixuan, #1664).</p></li>
+<li><p>For <code class="docutils literal notranslate"><span class="pre">ioslides_presentation</span></code>, images with atributes (e.g., <code class="docutils literal notranslate"><span class="pre">![](sample.png){width=80%}</span></code>) can be correctly embedded in the self-contained mode now (thanks, &#64;hadley, #1687).</p></li>
+<li><p>Fixed the Pandoc LaTeX templates to avoid the error <code class="docutils literal notranslate"><span class="pre">File</span> </code>grffile.sty’ not found`. This is because the LaTeX <strong>grffile</strong> is no longer available in TeX Live (thanks, &#64;cderv #1691, &#64;smmurphy #1692, &#64;JacobD05 <a class="reference external" href="https://github.com/yihui/tinytex/issues/152">https://github.com/yihui/tinytex/issues/152</a>).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-1-16">
+<h1>rmarkdown 1.16<a class="headerlink" href="#rmarkdown-1-16" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">pandoc-citeproc</span></code> binary can now be found correctly on Windows. This fixes an issue with <code class="docutils literal notranslate"><span class="pre">pandoc_citeproc_convert()</span></code> (thanks &#64;cderv, #1651).</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">self_contained</span></code> argument to <code class="docutils literal notranslate"><span class="pre">html_vignette</span></code> to keep intermediate directory if <code class="docutils literal notranslate"><span class="pre">self_contained</span> <span class="pre">=</span> <span class="pre">FALSE</span></code> (thanks, &#64;cderv, #1641).</p></li>
+<li><p>It is now possible to add pagebreak in HTML, Word, LaTeX, and ODT documents using the <code class="docutils literal notranslate"><span class="pre">\newpage</span></code> or <code class="docutils literal notranslate"><span class="pre">\pagebreak</span></code> command in an Rmd file. This is possible thanks to the <a class="reference external" href="https://github.com/pandoc/lua-filters/tree/master/pagebreak">Pandoc’s pagebreak Lua filter</a>. See <code class="docutils literal notranslate"><span class="pre">vignette(&quot;lua-filters&quot;,</span> <span class="pre">package</span> <span class="pre">=</span> <span class="pre">&quot;rmarkdown&quot;)</span></code> (thanks, &#64;cderv, #1626).</p></li>
+<li><p>The Pandoc extension <code class="docutils literal notranslate"><span class="pre">ascii_identifiers</span></code> is no longer enabled by default. If you still need it, you may use the argument <code class="docutils literal notranslate"><span class="pre">md_extensions</span> <span class="pre">=</span> <span class="pre">&quot;+ascii_identifiers&quot;</span></code> in the output format function. However, please note that this will trigger an error in a future version of Pandoc.</p></li>
+<li><p>Output formats can be configured by arbitrary YAML files, which used to be restricted to <code class="docutils literal notranslate"><span class="pre">_output.yml</span></code> or <code class="docutils literal notranslate"><span class="pre">_output.yaml</span></code>. They can be specified via the <code class="docutils literal notranslate"><span class="pre">output_yaml</span></code> argument of <code class="docutils literal notranslate"><span class="pre">render()</span></code> or the <code class="docutils literal notranslate"><span class="pre">output_yaml</span></code> top-level parameter of YAML front matter, and the first existing one will be used. If <code class="docutils literal notranslate"><span class="pre">output_yaml</span></code> is specified both for <code class="docutils literal notranslate"><span class="pre">render()</span></code> and YAML front matter, then <code class="docutils literal notranslate"><span class="pre">render()</span></code> has the priority. If none are found, then <code class="docutils literal notranslate"><span class="pre">_output.yml</span></code> or <code class="docutils literal notranslate"><span class="pre">_output.yaml</span></code> will be used if they exist (thanks, &#64;atusy, #1634).</p></li>
+<li><p>Added a Pandoc Lua filter to convert fenced Divs to LaTeX environments when the output format is <code class="docutils literal notranslate"><span class="pre">latex</span></code> or <code class="docutils literal notranslate"><span class="pre">beamer</span></code>. Basically a fenced Div <code class="docutils literal notranslate"><span class="pre">:::</span> <span class="pre">{.NAME</span> <span class="pre">data-latex=&quot;[OPTIONS]&quot;}</span></code> is converted to <code class="docutils literal notranslate"><span class="pre">\begin{NAME}[OPTIONS]</span> <span class="pre">\end{NAME}</span></code> in LaTeX. The attribute <code class="docutils literal notranslate"><span class="pre">data-latex</span></code> must be provided, even if it is an empty string (meaning that the LaTeX environment does not have any optional arguments). For example, <code class="docutils literal notranslate"><span class="pre">:::</span> <span class="pre">{.verbatim</span> <span class="pre">data-latex=&quot;&quot;}</span></code> generates a <code class="docutils literal notranslate"><span class="pre">verbatim</span></code> environment, and <code class="docutils literal notranslate"><span class="pre">:::</span> <span class="pre">{.minipage</span> <span class="pre">data-latex=&quot;{.5\textwidth}&quot;}</span></code> generates <code class="docutils literal notranslate"><span class="pre">\begin{minipage}{.5\textwidth}</span></code>. This Lua filter was originally written by &#64;RLesur at <a class="reference external" href="https://github.com/yihui/bookdown-crc/issues/1">https://github.com/yihui/bookdown-crc/issues/1</a>. It will allow users to create custom blocks that work for both HTML and LaTeX output (e.g., info boxes or warning boxes).</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">keep_html</span></code> argument to <code class="docutils literal notranslate"><span class="pre">github_document</span></code> so to save a preview HTML file in a working directory (thanks, &#64;atusy, #1650).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-1-15">
+<h1>rmarkdown 1.15<a class="headerlink" href="#rmarkdown-1-15" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Exclude <code class="docutils literal notranslate"><span class="pre">README.R?md</span></code> from files processed by <code class="docutils literal notranslate"><span class="pre">render_site()</span></code>,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">html_document</span></code> with <code class="docutils literal notranslate"><span class="pre">code_folding:</span> <span class="pre">hide</span></code> supports showing individual source code chunks if they are assigned the <code class="docutils literal notranslate"><span class="pre">fold-show</span></code> class via the chunk option <code class="docutils literal notranslate"><span class="pre">class.source=&quot;fold-show&quot;</span></code> (thanks, &#64;atusy, #1602).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">extra_dependencies</span></code> argument only works with <code class="docutils literal notranslate"><span class="pre">template:</span> <span class="pre">default</span></code> in <code class="docutils literal notranslate"><span class="pre">pdf_document</span></code>. Now it works with any Pandoc LaTeX templates as long as the template uses the <code class="docutils literal notranslate"><span class="pre">header-includes</span></code> variable.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-1-14">
+<h1>rmarkdown 1.14<a class="headerlink" href="#rmarkdown-1-14" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed a regression in <code class="docutils literal notranslate"><span class="pre">ioslides_presentation</span></code> that background colors via the <code class="docutils literal notranslate"><span class="pre">data-background</span></code> attribute on slides stopped working (thanks, &#64;ShKlinkenberg, #1265).</p></li>
+<li><p>Fixed the bug #1577 introduced in <strong>rmarkdown</strong> v1.12: tabsets, floating TOC, and code folding in the <code class="docutils literal notranslate"><span class="pre">html_document</span></code> format no longer work with the <code class="docutils literal notranslate"><span class="pre">shiny</span></code> runtime (thanks, &#64;RLesur for the fix #1587, and &#64;fawda123 &#64;ColinChisholm &#64;JasonAizkalns for the bug report).</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">keep_md</span></code> argument to <code class="docutils literal notranslate"><span class="pre">pdf_document()</span></code> to keep the intermediate <code class="docutils literal notranslate"><span class="pre">.md</span></code> output file (thanks, &#64;broomej, #1001).</p></li>
+<li><p>For <code class="docutils literal notranslate"><span class="pre">render()</span></code>, if the input filename contains special characters such as spaces or question marks (as defined in <code class="docutils literal notranslate"><span class="pre">rmarkdown:::.shell_chars_regex</span></code>), the file will be temporarily renamed with the special characters replaced by <code class="docutils literal notranslate"><span class="pre">-</span></code> (dash) instead of <code class="docutils literal notranslate"><span class="pre">_</span></code> (underscore, as in previous versions of <strong>rmarkdown</strong>). This change will affect users who render such files with caching (cache will be invalidated and regenerated). The change is due to the fact that <code class="docutils literal notranslate"><span class="pre">-</span></code> is generally a safer character than <code class="docutils literal notranslate"><span class="pre">_</span></code>, especially for LaTeX output (#1396).</p></li>
+<li><p>Added a <strong>pkgdown</strong> site for the <strong>rmarkdown</strong> package: <a class="reference external" href="https://rmarkdown.rstudio.com/docs/">https://rmarkdown.rstudio.com/docs/</a> (thanks, &#64;apreshill, #1574).</p></li>
+<li><p>Fixed the bug #1593: in HTML documents, when a MathJax URL is used with a custom template, the source code of the MathJax library is included in the document. This bug was first declared in <strong>bookdown</strong> (thanks, &#64;topepo for the bug report rstudio/bookdown#683, and &#64;RLesur for the fix #1594).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-1-13">
+<h1>rmarkdown 1.13<a class="headerlink" href="#rmarkdown-1-13" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>For <code class="docutils literal notranslate"><span class="pre">pdf_document()</span></code>, do not override margins to 1 inch when a custom document class or geometry settings are specified in the YAML front matter (thanks, &#64;adunning, #1550)</p></li>
+<li><p>The default value of the <code class="docutils literal notranslate"><span class="pre">encoding</span></code> argument in all functions in this package (such as <code class="docutils literal notranslate"><span class="pre">render()</span></code> and <code class="docutils literal notranslate"><span class="pre">render_site()</span></code>) has been changed from <code class="docutils literal notranslate"><span class="pre">getOption(&quot;encoding&quot;)</span></code> to <code class="docutils literal notranslate"><span class="pre">UTF-8</span></code>. We have been hoping to support UTF-8 only in <strong>rmarkdown</strong>, <strong>knitr</strong>, and other related packages in the future. For more info, you may read <a class="reference external" href="https://yihui.org/en/2018/11/biggest-regret-knitr/">https://yihui.org/en/2018/11/biggest-regret-knitr/</a>.</p></li>
+<li><p>The option <code class="docutils literal notranslate"><span class="pre">toc_float:</span> <span class="pre">true</span></code> for <code class="docutils literal notranslate"><span class="pre">html_document</span></code> now preserves the text formatting (thanks, &#64;codetrainee, #1548).</p></li>
+<li><p>For the <code class="docutils literal notranslate"><span class="pre">output_file</span></code> argument of <code class="docutils literal notranslate"><span class="pre">render()</span></code>, a file extension will be automatically added if the filename does not contain an extension (e.g., <code class="docutils literal notranslate"><span class="pre">render('foo.Rmd',</span> <span class="pre">'html_document',</span> <span class="pre">output_file</span> <span class="pre">=</span> <span class="pre">'bar')</span></code> will generate <code class="docutils literal notranslate"><span class="pre">bar.html</span></code>); see the help page <code class="docutils literal notranslate"><span class="pre">?rmarkdown::render</span></code> for details (thanks, &#64;apreshill, #1551).</p></li>
+<li><p>TOC items are not correctly indented when <code class="docutils literal notranslate"><span class="pre">toc_float</span></code> is enabled for the <code class="docutils literal notranslate"><span class="pre">html_document</span></code> format (thanks, &#64;carolynwclayton #1235 and &#64;RLesur #1243).</p></li>
+<li><p>Fixed rstudio/shiny#2307 where the second execution of a <code class="docutils literal notranslate"><span class="pre">shiny_prerendred</span></code> document with <code class="docutils literal notranslate"><span class="pre">href</span></code> dependencies would cause a prerender check error (thanks, &#64;schloerke, #1562).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">*_files</span></code> directory is not properly cleared due to the inappropriate fix for #1503 and #1472 in the last version (thanks, &#64;wxli0 #1553, &#64;cderv #1566).</p></li>
+<li><p>Added an <code class="docutils literal notranslate"><span class="pre">output_extensions</span></code> argument to <code class="docutils literal notranslate"><span class="pre">pdf_document()</span></code> to make it possible to enable/disable Pandoc extensions for the LaTeX output format (thanks, &#64;hongyuanjia, rstudio/bookdown#687).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-1-12">
+<h1>rmarkdown 1.12<a class="headerlink" href="#rmarkdown-1-12" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed file extensions of output files when using non-markdown Pandoc extensions such as <code class="docutils literal notranslate"><span class="pre">docx+styles</span></code> (#1494, &#64;noamross).</p></li>
+<li><p>Added a new argument <code class="docutils literal notranslate"><span class="pre">extra_lines</span></code> to <code class="docutils literal notranslate"><span class="pre">latex_dependency()</span></code> to allow users to add extra lines of LaTeX code after <code class="docutils literal notranslate"><span class="pre">\usepackage{}</span></code>. Also added a helper function <code class="docutils literal notranslate"><span class="pre">latex_dependency_tikz()</span></code> based on <code class="docutils literal notranslate"><span class="pre">latex_dependency()</span></code> (#1502, &#64;malcolmbarrett).</p></li>
+<li><p>Fixed #1529: when the path of an Rmd file contains Unicode characters that cannot be represented in the system native encoding (especially on Windows), <code class="docutils literal notranslate"><span class="pre">rmarkdown::render()</span></code> may fail.</p></li>
+<li><p>Applied a correct fix to an old <strong>plotly</strong> issue ropensci/plotly#463.</p></li>
+<li><p>HTML widgets used to be hidden when printing ioslides to PDF in Chrome. Now they will be printed correctly.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">render(output_format</span> <span class="pre">=</span> <span class="pre">'all')</span></code> may delete the figure directories that are still needed by certain output formats when one output format doesn’t need its figure directory (thanks, &#64;rmcd1024 #1472, &#64;cderv #1503).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">&lt;em&gt;</span></code> tags in the subtitle, date, and author are removed from the default HTML template (thanks, &#64;royfrancis, #1544).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-1-11">
+<h1>rmarkdown 1.11<a class="headerlink" href="#rmarkdown-1-11" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed #1483, which prevented the triangle to be displayed in Firefox when <code class="docutils literal notranslate"><span class="pre">&lt;details&gt;&lt;summary&gt;...&lt;/summary&gt;&lt;/details&gt;</span></code> was used (#1485, &#64;bisaloo)</p></li>
+<li><p>Provided <code class="docutils literal notranslate"><span class="pre">rmarkdown.pandoc.args</span></code> as a <strong>knitr</strong> package option in <code class="docutils literal notranslate"><span class="pre">knitr::opts_knit</span></code> (#1468, &#64;noamross).</p></li>
+<li><p>Added the exported function <code class="docutils literal notranslate"><span class="pre">pandoc_exec()</span></code>, which returns the path of the pandoc binary used by the package (#1465, #1466 &#64;noamross).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">new_session:</span> <span class="pre">true</span></code> in <code class="docutils literal notranslate"><span class="pre">_site.yml</span></code> causes <code class="docutils literal notranslate"><span class="pre">render_site()</span></code> to render each file in a new R session, eliminating some cross-file difficulties, such as function masking (#1326, #1443 &#64;jennybc).</p></li>
+<li><p>Added the LaTeX command <code class="docutils literal notranslate"><span class="pre">\passthrough</span></code> in the default LaTeX template for the <code class="docutils literal notranslate"><span class="pre">--listings</span></code> flag of Pandoc (rstudio/bookdown#591).</p></li>
+<li><p>The icons in <code class="docutils literal notranslate"><span class="pre">flexdashboard::valueBox()</span></code> are not of the full sizes due to the upgrade of FontAwesome in #1340 in the previous version (#1388, rstudio/flexdashboard#189).</p></li>
+<li><p>Added the ability to generate tabset dropdowns, usable by adding the <code class="docutils literal notranslate"><span class="pre">.tabset-dropdown</span></code> class to a header (e.g., <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">Heading</span> <span class="pre">{.tabset</span> <span class="pre">.tabset-dropdown}</span></code>) (#1405). Thanks &#64;stefanfritsch for contributing the necessary code for this (#1116).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">darkly</span></code> theme (a darker variant of the Bootswatch <code class="docutils literal notranslate"><span class="pre">flatly</span></code> theme) has been added to <code class="docutils literal notranslate"><span class="pre">html_document</span></code> and <code class="docutils literal notranslate"><span class="pre">html_notebook</span></code> (#1409, #889).</p></li>
+<li><p>Fixed a regression that caused scrollbars on code blocks when the syntax highlighting theme is not the default (#654, #1399).</p></li>
+<li><p>Fixed #1407: reactive expressions can break the section headers of Shiny R Markdown documents.</p></li>
+<li><p>Fixed #1431: <code class="docutils literal notranslate"><span class="pre">render()</span></code> with the <code class="docutils literal notranslate"><span class="pre">intermediates_dir</span></code> argument when the output format is <code class="docutils literal notranslate"><span class="pre">powerpoint_presentation</span></code> with a custom <code class="docutils literal notranslate"><span class="pre">reference_doc</span></code> fails to find the reference document.</p></li>
+<li><p>Fixed the website navbar not being able to display submenus properly (#721, #1426).</p></li>
+<li><p>Added checks for shiny-prerendered documents to find all html dependencies, match all execution packages, and match the major R version (#1420).</p></li>
+<li><p>Added an argument <code class="docutils literal notranslate"><span class="pre">cache</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> to the internal function <code class="docutils literal notranslate"><span class="pre">rmarkdown:::find_pandoc()</span></code>, so that users can invalidate the cached path of Pandoc via <code class="docutils literal notranslate"><span class="pre">rmarkdown:::find_pandoc(cache</span> <span class="pre">=</span> <span class="pre">FALSE)</span></code> (thanks, &#64;hammer, #1482).</p></li>
+<li><p>Added an RStudio project template for simple R Markdown websites, so that users can create such websites from RStudio: <code class="docutils literal notranslate"><span class="pre">New</span> <span class="pre">Project</span> <span class="pre">-&gt;</span> <span class="pre">New</span> <span class="pre">Directory</span> <span class="pre">-&gt;</span> <span class="pre">Simple</span> <span class="pre">R</span> <span class="pre">Markdown</span> <span class="pre">Website</span></code> (thanks, &#64;kevinushey, #1470).</p></li>
+<li><p>Fixed #1471: Pandoc’s (version 2.x) syntax highlighting themes don’t work well with the Bootstrap style (thanks, &#64;gponce-ars #1471, &#64;cderv #1489).</p></li>
+<li><p>Fixed the warnings in #1224 and #1288 when calling <code class="docutils literal notranslate"><span class="pre">render()</span></code> with an absolute <code class="docutils literal notranslate"><span class="pre">output_dir</span></code> or <code class="docutils literal notranslate"><span class="pre">intermediates_dir</span></code>.</p></li>
+<li><p>Fixed #1300: calling <code class="docutils literal notranslate"><span class="pre">render()</span></code> with <code class="docutils literal notranslate"><span class="pre">intermediates_dir</span></code> may fail when the intermediate dir is on a difference device or filesystem.</p></li>
+<li><p>Fixed #1358: calling <code class="docutils literal notranslate"><span class="pre">render()</span></code> with <code class="docutils literal notranslate"><span class="pre">intermediates_dir</span></code> will fail if the Rmd document contains bibliography files that are dynamically generated.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-1-10">
+<h1>rmarkdown 1.10<a class="headerlink" href="#rmarkdown-1-10" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added a new argument <code class="docutils literal notranslate"><span class="pre">slide_level</span></code> to <code class="docutils literal notranslate"><span class="pre">powerpoint_presentation()</span></code> (#1270).</p></li>
+<li><p>The <strong>tinytex</strong> package has become a required dependency (to build R Markdown to PDF).</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">compact-title</span></code> variable to the LaTeX default templates to control use of LaTeX <code class="docutils literal notranslate"><span class="pre">titling</span></code> package; defaults to <code class="docutils literal notranslate"><span class="pre">true</span></code> (#1284).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pdf_document(template</span> <span class="pre">=</span> <span class="pre">NULL)</span></code> does not work (#1295).</p></li>
+<li><p>Restore ability to use any HTML format with R Markdown Websites (#1328).</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">options</span></code> argument to <code class="docutils literal notranslate"><span class="pre">paged_table()</span></code> to enable explicit passing of display options.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">pandoc_citeproc_convert()</span></code> function for conversion of bibliography files (e.g. BibTeX files).</p></li>
+<li><p>Update to Font Awesome version 5.0.13 (#1340).</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">site_resources()</span></code> function for computing resource files required for a website.</p></li>
+<li><p>Export <code class="docutils literal notranslate"><span class="pre">default_site_generator()</span></code> function.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">latex_document()</span></code> format should not clean up the figure directory (thanks, &#64;emiltb, rstudio/bookdown#582).</p></li>
+<li><p>Enable post processors that change the output file to specify that the base post processor should still be applied to the original output file.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-1-9">
+<h1>rmarkdown 1.9<a class="headerlink" href="#rmarkdown-1-9" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="new-features">
+<h2>NEW FEATURES<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Added a new (experimental) output format <code class="docutils literal notranslate"><span class="pre">powerpoint_presentation</span></code>. If you want to test it, you will need Pandoc &gt;= 2.1 (#1231).</p></li>
+</ul>
+</div>
+<div class="section" id="major-changes">
+<h2>MAJOR CHANGES<a class="headerlink" href="#major-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>If the <strong>tinytex</strong> package is installed, PDF output is built through <code class="docutils literal notranslate"><span class="pre">tinytex::latexmk()</span></code>, otherwise it is generated by <code class="docutils literal notranslate"><span class="pre">rmarkdown:::latexmk()</span></code>, which has been factored out and improved in the <strong>tinytex</strong> package, so it is recommended that you install the <strong>tinytex</strong> package (#1222).</p></li>
+</ul>
+</div>
+<div class="section" id="bug-fixes">
+<h2>BUG FIXES<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Temporary files created in <code class="docutils literal notranslate"><span class="pre">render()</span></code> may be cleaned up prematurely, which can cause problems with Shiny R Markdown documents (#1184).</p></li>
+<li><p>Further improvements regarding compatibility with Pandoc 2.0, e.g. tabbed sections don’t work (<a class="reference external" href="https://community.rstudio.com/t/3019">https://community.rstudio.com/t/3019</a>).</p></li>
+<li><p>When <code class="docutils literal notranslate"><span class="pre">preserve_yaml</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> in <code class="docutils literal notranslate"><span class="pre">md_document()</span></code>, <code class="docutils literal notranslate"><span class="pre">toc</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> fails to create the table of contents (thanks, &#64;stla, #1216).</p></li>
+<li><p>Suppress confusing error messages from <code class="docutils literal notranslate"><span class="pre">knitr::purl()</span></code> during <code class="docutils literal notranslate"><span class="pre">rmarkdown::find_external_resources()</span></code> (thanks, &#64;aronatkins #1247, and &#64;paulobrecht #1154).</p></li>
+<li><p>Fixed the obscure error <code class="docutils literal notranslate"><span class="pre">Error:</span> <span class="pre">path</span> <span class="pre">for</span> <span class="pre">html_dependency</span> <span class="pre">not</span> <span class="pre">found:</span></code>, which was due to the HTML dependency of highlight.js (thanks, &#64;bborgesr, #1213).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-1-8">
+<h1>rmarkdown 1.8<a class="headerlink" href="#rmarkdown-1-8" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>BUG FIXES<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">render_site()</span></code> does not work with <code class="docutils literal notranslate"><span class="pre">_site.yml</span></code> that does not have the <code class="docutils literal notranslate"><span class="pre">output</span></code> setting (#1189).</p></li>
+<li><p>The variables <code class="docutils literal notranslate"><span class="pre">input</span></code> and <code class="docutils literal notranslate"><span class="pre">output</span></code> do not work in Shiny R Markdown documents (#1193).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ioslides_presentation</span></code> fails to embed images (#1197).</p></li>
+<li><p>With Pandoc 2.x, <code class="docutils literal notranslate"><span class="pre">github_document()</span></code> generates the wrong filename extension <code class="docutils literal notranslate"><span class="pre">.gfm-ascii_identifiers</span></code> instead of <code class="docutils literal notranslate"><span class="pre">.md</span></code>, and line height of code blocks in the HTML preview is too big (#1200).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-1-7">
+<h1>rmarkdown 1.7<a class="headerlink" href="#rmarkdown-1-7" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed an issue with <code class="docutils literal notranslate"><span class="pre">df_print:</span> <span class="pre">paged</span></code> where row names where not printed and added support for <code class="docutils literal notranslate"><span class="pre">rownames.print</span></code> option to control when they print.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">smart</span></code> option for <code class="docutils literal notranslate"><span class="pre">word_document()</span></code> format.</p></li>
+<li><p>Save render intermediates when generating beamer presentations (fixes #1106).</p></li>
+<li><p>Fixed issues when specifying NULL/null/empty parameter values (#729 and #762).</p></li>
+<li><p>Better error message when unable to prerender a document. (#1125)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">shiny::renderText()</span></code> does not work in Markdown section headings (#133).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">value</span></code> argument of <code class="docutils literal notranslate"><span class="pre">pandoc_variable_arg()</span></code> can be missing now (#287).</p></li>
+<li><p>Background colors and images are supported for ioslides presentations (#687).</p></li>
+<li><p>HTML widgets in an Rmd document cannot be rendered if another Rmd document is rendered via <code class="docutils literal notranslate"><span class="pre">rmarkdown::render()</span></code> in this document (#993).</p></li>
+<li><p>Try harder to clean up temporary files created during <code class="docutils literal notranslate"><span class="pre">render()</span></code> (#820).</p></li>
+<li><p>Wrong environment for evaluating R code chunks in Shiny R Markdown docs (#1162, #1124).</p></li>
+<li><p>Do not call <code class="docutils literal notranslate"><span class="pre">bibtex</span></code> to create the bibliography when there are no citations in the document and the output format is <code class="docutils literal notranslate"><span class="pre">pdf_document()</span></code> with <code class="docutils literal notranslate"><span class="pre">citation_package</span> <span class="pre">=</span> <span class="pre">'natbib'</span></code> (#1113).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">render()</span></code> will stop if the output format is PDF but there are any errors during building the index or bibliography (#1166).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">beamer_presentation()</span></code> doesn’t work when <code class="docutils literal notranslate"><span class="pre">citation_package</span> <span class="pre">!=</span> <span class="pre">'none'</span></code> (#1161).</p></li>
+<li><p>File-based inputs don’t work in parameterized documents (#919).</p></li>
+<li><p>rmarkdown is compatible with Pandoc 2.0 now (#1120).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">render()</span></code> with <code class="docutils literal notranslate"><span class="pre">intermediates_dir</span></code> fails with R plots (#500).</p></li>
+<li><p>Added two new output formats <code class="docutils literal notranslate"><span class="pre">latex_document()</span></code> and <code class="docutils literal notranslate"><span class="pre">latex_fragment()</span></code> (#626).</p></li>
+<li><p>Relative paths of images in HTML output should not be resolved to absolute paths (#808).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">render_site()</span></code> does not support multiple output formats for a single Rmd (#793).</p></li>
+<li><p>Unicode characters may be scrambled when downloading the Rmd source file using the download button generated by <code class="docutils literal notranslate"><span class="pre">html_document(code_download</span> <span class="pre">=</span> <span class="pre">TRUE)</span></code> (#722).</p></li>
+<li><p>Upgraded highlight.js from v1.1 to v9.12.0 (#988, #907).</p></li>
+<li><p>The argument <code class="docutils literal notranslate"><span class="pre">keep_md</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> actually preserves the Markdown output file from <code class="docutils literal notranslate"><span class="pre">knitr::knit()</span></code> now (as documented). Previously, it generates a new Markdown file by concatenating the YAML metadata (title, author, date) with the body of the original Markdown output file (#450).</p></li>
+<li><p>For <code class="docutils literal notranslate"><span class="pre">md_document()</span></code>, when <code class="docutils literal notranslate"><span class="pre">variant</span> <span class="pre">==</span> <span class="pre">'markdown'</span></code> and <code class="docutils literal notranslate"><span class="pre">perserve_yaml</span> <span class="pre">=</span> <span class="pre">TRUE</span></code>, the Pandoc argument <code class="docutils literal notranslate"><span class="pre">--standalone</span></code> should not be used (#656).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-1-6">
+<h1>rmarkdown 1.6<a class="headerlink" href="#rmarkdown-1-6" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed an issue where headers with non-ASCII text would not be linked to correctly in the table of contents.</p></li>
+<li><p>Support code folding for bash, python, sql, Rcpp, and Stan chunks.</p></li>
+<li><p>Provide rmarkdown.pandoc.id_prefix as Knit option</p></li>
+<li><p>Fixed two issue with <code class="docutils literal notranslate"><span class="pre">df_print:</span> <span class="pre">paged</span></code>, one would prevent rendering data with lists of lists and the other where the column type would get cut off.</p></li>
+<li><p>Better support for <code class="docutils literal notranslate"><span class="pre">citation_package:</span> <span class="pre">biblatex</span></code> in <code class="docutils literal notranslate"><span class="pre">pdf_document()</span></code> (#1062).</p></li>
+<li><p>On certain Windows platforms, compiling LaTeX to PDF may fail because <code class="docutils literal notranslate"><span class="pre">system2(stdout</span> <span class="pre">=</span> <span class="pre">FALSE)</span></code> is not supported, in which case the default <code class="docutils literal notranslate"><span class="pre">system2()</span></code> will be used (#1061).</p></li>
+<li><p>Allow paged tables to render even when page load / visibility has a long delay</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-1-5">
+<h1>rmarkdown 1.5<a class="headerlink" href="#rmarkdown-1-5" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed an issue where code within Shiny pre-rendered documents was not rendered correctly.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">includes</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">html_fragment</span></code> format.</p></li>
+<li><p>Use RStudio redirection URL to replace deprecated MathJax CDN</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-1-4">
+<h1>rmarkdown 1.4<a class="headerlink" href="#rmarkdown-1-4" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data.table</span></code> expressions involving <code class="docutils literal notranslate"><span class="pre">:=</span></code> are no longer automatically printed within R Markdown documents. (#829)</p></li>
+<li><p>Fix #910: the extra_dependencies argument of pdf_document() does not work when no code chunks contain LaTeX dependencies.</p></li>
+<li><p>The extra_dependencies of pdf_document() can also take a character vector of LaTeX package names, or a named list of LaTeX package options (with names being package names), which makes it much easier to express LaTeX dependencies via YAML.</p></li>
+<li><p>Automatically ignore packrat directory for render_site</p></li>
+<li><p>Fix #943: escape end tags in shiny_prerendered code contexts</p></li>
+<li><p>Add support for sticky tabs in html_document via tabset-sticky class</p></li>
+<li><p>Process Rmd files with lowercase extension (.rmd) in render_site</p></li>
+<li><p>Fix stack space consumption issues with large JS payloads in chunks</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">section_divs</span></code> argument to html_document and html_fragment to control generation of section tags/divs.</p></li>
+<li><p>Remove data-context=”(data|server|server-start)” chunks from HTML served to client in shiny_prerendered</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-1-3">
+<h1>rmarkdown 1.3<a class="headerlink" href="#rmarkdown-1-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix v1.2 regression in ordering of CSS for ioslides_presentation.</p></li>
+<li><p>Fix rendering of pagedtables within html_notebook format.</p></li>
+<li><p>Ensure that html_prerendered UI is never cached.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">citeproc</span></code> argument to YAML header; controls whether pandoc-citeproc is used (#831)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-1-2">
+<h1>rmarkdown 1.2<a class="headerlink" href="#rmarkdown-1-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Add support for df_print to handle additional dplyr classes: grouped_df, rowwise_df and tbl_sql.</p></li>
+<li><p>Add new <code class="docutils literal notranslate"><span class="pre">runtime:</span> <span class="pre">shiny_prerendered</span></code> mode for interactive documents.</p></li>
+<li><p>Prepend “section-” to ids in runtime: shiny[_prerendered] to eliminate potential conflicts with shiny output ids</p></li>
+<li><p>Use html_dependencies for highlight.js, pagedtables, slidy, ioslides, &amp; navigation (improved dependency behavior for runtime: shiny[_prerendered])</p></li>
+<li><p>Serialize runtime: shiny[_prerendered] dependencies to JSON rather than .rds</p></li>
+<li><p>ioslides: check for null before concatenating attr[“class”] (#836)</p></li>
+<li><p>Add rmarkdown.onKnit/onKnitCompleted package hooks</p></li>
+<li><p>Non-ASCII keys in yaml file should be marked to UTF8 as well, when read into R as the name of a list (#841)</p></li>
+<li><p>Remove key-column special-case left alignment in pagedtables (#829)</p></li>
+<li><p>Replace backslashes in floating TOC headings (#849)</p></li>
+<li><p>Suggests rather than Imports for tibble (R 3.0 compatibility)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">paged_table</span></code> function for printing paged tables within HTML documents</p></li>
+<li><p>Support <code class="docutils literal notranslate"><span class="pre">{.active}</span></code> attribute for setting initially active tab (#789)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">knit_root_dir</span></code> argument to <code class="docutils literal notranslate"><span class="pre">render()</span></code> and YAML header, a convenience for setting knitr’s root.dir option</p></li>
+<li><p>Improve alignment of text in sub-topics for floating TOC</p></li>
+<li><p>Bibliography file paths in YAML containing forward slashes could not be rendered (#875)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-1-1">
+<h1>rmarkdown 1.1<a class="headerlink" href="#rmarkdown-1-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed an issue where attempts to render an R Notebook could fail if the path contained multibyte characters.</p></li>
+<li><p>Fixed an issue where the default Beamer template did not provide vertical padding between paragraphs with certain versions of pandoc (&lt;= 1.17.2).</p></li>
+<li><p>Try to install latexmk automatically on Windows</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">df_print</span></code> option to html_document format for optionally printing data frames using <code class="docutils literal notranslate"><span class="pre">knitr::kable</span></code>, the <code class="docutils literal notranslate"><span class="pre">tibble</span></code> package, or an arbitrary function</p></li>
+<li><p>Fix for render_site not showing Chinese characters correctly</p></li>
+<li><p>Fix for ignoring knit_meta that is explicitly passed to render</p></li>
+<li><p>Parameter editing: don’t allow NULL to overwrite previous state</p></li>
+<li><p>Parameter editing: fix incorrect name for parameters with expressions</p></li>
+<li><p>Parameter editing: allow multiple values when the parameter is configured to use a “multiple” selector</p></li>
+<li><p>Switched the order in which format dependencies are added for <code class="docutils literal notranslate"><span class="pre">html_document</span></code> so that <code class="docutils literal notranslate"><span class="pre">extra_dependencies</span></code> are added at the end, after bootstrap, etc. (#737)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pdf_document(keep_tex</span> <span class="pre">=</span> <span class="pre">TRUE)</span></code> will generate the .tex document even if PDF conversion fails (#779).</p></li>
+<li><p>Move latex header includes to just before \begin{document}</p></li>
+<li><p>Special ‘global’ chunk label for runtime: shiny which designates a chunk to be run once and only once in the global environment (startup performance improvement for multi-user shiny documents)</p></li>
+<li><p>Ensure supporting files are writeable (#800)</p></li>
+<li><p>Make the “show code” buttons more CSS-friendly (#795)</p></li>
+<li><p>Exclude <code class="docutils literal notranslate"><span class="pre">output_dir</span></code> from site files (#803)</p></li>
+<li><p>Export <code class="docutils literal notranslate"><span class="pre">navbar_html</span></code> and <code class="docutils literal notranslate"><span class="pre">yaml_front_matter</span></code> functions</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-1-0">
+<h1>rmarkdown 1.0<a class="headerlink" href="#rmarkdown-1-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">toc_float</span></code> no longer automatically sets <code class="docutils literal notranslate"><span class="pre">toc</span> <span class="pre">=</span> <span class="pre">TRUE</span></code></p></li>
+<li><p>Added an argument <code class="docutils literal notranslate"><span class="pre">error</span></code> to <code class="docutils literal notranslate"><span class="pre">pandoc_available()</span></code> to signal an error when (if <code class="docutils literal notranslate"><span class="pre">error</span> <span class="pre">=</span> <span class="pre">TRUE</span></code>) pandoc with the required version is not found.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">html_notebook</span></code> format for creating HTML documents that include source code and output.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">resolve_output_format</span></code> function (useful for front ends that need to mirror the default format resolution logic of <code class="docutils literal notranslate"><span class="pre">render</span></code>).</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">code_download</span></code> option to <code class="docutils literal notranslate"><span class="pre">html_document</span></code> to provide an option to embed a downloadable copy of the Rmd source code within the document.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">slide_level</span></code> option to ioslides_presentation to set the level of heading used for individual slides.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">hard_line_breaks</span></code> option to <code class="docutils literal notranslate"><span class="pre">github_document</span></code> to deal with change in behavior of GitHub’s markdown renderer with respect to line breaks.</p></li>
+<li><p>Use “markdown_strict” rather than “markdown” for <code class="docutils literal notranslate"><span class="pre">pandoc_self_contained_html</span></code> when pandoc &gt;= 1.17 (pandoc hanging bug was fixed in this version)</p></li>
+<li><p>Default highlighting engine for <code class="docutils literal notranslate"><span class="pre">html_document</span></code> now highlights bash, c++, css, ini, javascript, perl, python, r, ruby, scala, stan and xml</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">print</span></code> sub-option to <code class="docutils literal notranslate"><span class="pre">toc_float</span></code> to control whether the table of contents appears when user prints out the HTML page.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">readme</span></code> option to <code class="docutils literal notranslate"><span class="pre">html_vignette</span></code> which automatically creates a package level <a class="reference external" href="http://README.md">README.md</a> (for GitHub) in addition to rendering the vignette.</p></li>
+<li><p>Support for <code class="docutils literal notranslate"><span class="pre">keep_md</span></code> in <code class="docutils literal notranslate"><span class="pre">html_vignette</span></code> format.</p></li>
+<li><p>Try to install the latexmk package automatically on Windows if the executable latexmk.exe exists.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-0-9-6">
+<h1>rmarkdown 0.9.6<a class="headerlink" href="#rmarkdown-0-9-6" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Ability to set <code class="docutils literal notranslate"><span class="pre">opts_hooks</span></code> in <code class="docutils literal notranslate"><span class="pre">knitr_options()</span></code> (#672)</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">render_site</span></code> and related functions for rendering collections of documents within a directory as a website.</p></li>
+<li><p>Ability to define html_document navigation bar using simple yaml format.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">pre_knit</span></code> and <code class="docutils literal notranslate"><span class="pre">post_knit</span></code> hooks for output formats.</p></li>
+<li><p>Discover <code class="docutils literal notranslate"><span class="pre">LaTeX</span></code> dependencies and add them to the <code class="docutils literal notranslate"><span class="pre">.tex</span></code> preamble (#647)</p></li>
+<li><p>Added new <code class="docutils literal notranslate"><span class="pre">all_output_formats</span></code> function to enumerate all output formats registered for an Rmd.</p></li>
+<li><p>Change <code class="docutils literal notranslate"><span class="pre">fig_caption</span></code> default to TRUE for all formats</p></li>
+<li><p>Change <code class="docutils literal notranslate"><span class="pre">fig_retina</span></code> to 2 for HTML formats (no longer contingent on <code class="docutils literal notranslate"><span class="pre">fig_caption</span></code>)</p></li>
+<li><p>Ensure pandoc binary exists before binding to pandoc directory (#632)</p></li>
+<li><p>Handle relative paths for ‘default_output_format’ (#638)</p></li>
+<li><p>Eliminate duplicate viewport meta tag from html_document</p></li>
+<li><p>Added biblatex biblio-style support to the LaTeX template for Pandoc 1.15.2 (#643)</p></li>
+<li><p>Allow override of header font-size in html_document custom css (#652)</p></li>
+<li><p>Fix for horizontal scrollbars appearing w/ code folding (#654)</p></li>
+<li><p>Specifying <code class="docutils literal notranslate"><span class="pre">toc_float</span></code> in <code class="docutils literal notranslate"><span class="pre">html_document</span></code> now automatically sets <code class="docutils literal notranslate"><span class="pre">toc</span> <span class="pre">=</span> <span class="pre">TRUE</span></code></p></li>
+<li><p>Enable per-header opt-out of <code class="docutils literal notranslate"><span class="pre">toc-float</span></code> via {.toc-ignore} attribute</p></li>
+<li><p>Correctly handle soft line breaks in ioslides_presentation (#661)</p></li>
+<li><p>Don’t use text-muted for code folding btns (text visibility in non-default themes)</p></li>
+<li><p>Fix for rendering non-HTML formats from .md files (resolve runtime before knit)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">html_dependency_bootstrap</span></code> now accepts theme = “default” argument</p></li>
+<li><p>Use pandoc 1.17.0.2 compatible LaTeX template when pandoc &gt;= 1.17.0.2</p></li>
+<li><p>Support custom template for <code class="docutils literal notranslate"><span class="pre">ioslides_presentation</span></code></p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">analytics</span></code> option for <code class="docutils literal notranslate"><span class="pre">ioslides_presentation</span></code> for Google Analytics</p></li>
+<li><p>Removed the extra tag <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;&lt;/p&gt;</span></code> around HTML output (typically generated by htmltools) from code chunks, to avoid invalid HTML like <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;&lt;div&gt;...&lt;/div&gt;&lt;p&gt;</span></code> (#685)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-0-9-5">
+<h1>rmarkdown 0.9.5<a class="headerlink" href="#rmarkdown-0-9-5" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added odt_document format for OpenDocument Text output</p></li>
+<li><p>Added rtf_document format for Rich Text Format output</p></li>
+<li><p>Added github_document format for GitHub Flavored Markdown output</p></li>
+<li><p>Only apply white background for themed HTML documents (#588)</p></li>
+<li><p>Added <meta name="viewport" content="width=device-width, initial-scale=1"> to the default HTML template to make it work better with mobile browsers. (#589)</p></li>
+<li><p>Specify –filter pandoc-citeproc after custom pandoc args</p></li>
+<li><p>Long lines in code blocks will be wrapped in the <code class="docutils literal notranslate"><span class="pre">html_vignette()</span></code> output (#595)</p></li>
+<li><p>Added new arguments <code class="docutils literal notranslate"><span class="pre">run_pandoc</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> and <code class="docutils literal notranslate"><span class="pre">knit_meta</span> <span class="pre">=</span> <span class="pre">NULL</span></code> to <code class="docutils literal notranslate"><span class="pre">render()</span></code>. See the help page of <code class="docutils literal notranslate"><span class="pre">render</span></code> for details. (#594)</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">tufte_handout</span></code> format now delegates to the <code class="docutils literal notranslate"><span class="pre">tufte</span></code> package and no longer provides a base template.</p></li>
+<li><p>Use pandoc 1.15.2 compatible LaTeX template when pandoc &gt;= 1.15.2</p></li>
+<li><p>Fix issue with Beamer template and pandoc 1.15.2</p></li>
+<li><p>Updated embedded JQuery to v1.11.3 and Bootstrap to v3.3.5.</p></li>
+<li><p>Expose core HTML dependencies for use by custom R Markdown formats.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">html_document</span></code> themes: “lumen”, “paper”, “sandstone”, “simplex”, &amp; “yeti”.</p></li>
+<li><p>Ability to include bootstrap navbar for multi-page <code class="docutils literal notranslate"><span class="pre">html_document</span></code> websites</p></li>
+<li><p>Added support for <code class="docutils literal notranslate"><span class="pre">abstract</span></code> field to <code class="docutils literal notranslate"><span class="pre">html_document</span></code> format</p></li>
+<li><p>Added support for floating table of contents (via tocify) to <code class="docutils literal notranslate"><span class="pre">html_document</span></code></p></li>
+<li><p>Added support for tabsets via use of {.tabset} class on top-level headings</p></li>
+<li><p>Added support for folding/unfolding of R code chunks in <code class="docutils literal notranslate"><span class="pre">html_document</span></code></p></li>
+<li><p>Support <code class="docutils literal notranslate"><span class="pre">url</span></code> references in CSS files for <code class="docutils literal notranslate"><span class="pre">runtime:</span> <span class="pre">shiny</span></code></p></li>
+<li><p>Change name of common options file to <code class="docutils literal notranslate"><span class="pre">_output.yml</span></code></p></li>
+<li><p>Tweak pandoc conversion used in <code class="docutils literal notranslate"><span class="pre">pandoc_self_contained_html</span></code> to prevent hanging with large script elements (use “markdown” rather than “markdown-strict” as input format)</p></li>
+<li><p>The filename extension .bib will be removed before bibliography files are passed to Pandoc when the output is LaTeX/PDF and the citation package natbib or biblatex is used on Windows. This is because bibtex in MikTeX will always add the extension .bib to bibliography files, e.g. it treats foo.bib as foo.bib.bib. (#623)</p></li>
+<li><p>Render Shiny documents in a clean environment; fixes issue in which code in Shiny documents could access internal R Markdown state</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-0-9-2">
+<h1>rmarkdown 0.9.2<a class="headerlink" href="#rmarkdown-0-9-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added a fix to #580 for Windows users.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-0-9-1">
+<h1>rmarkdown 0.9.1<a class="headerlink" href="#rmarkdown-0-9-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix for a bug causing certain files to be deleted as intermediate files. (#580)</p></li>
+<li><p>PDF/LaTeX output no longer uses natbib as the citation package by default. If you do want to use natbib or biblatex, you may still use the argument citation_package = ‘natbib’ or ‘biblatex’. (#577)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-0-9">
+<h1>rmarkdown 0.9<a class="headerlink" href="#rmarkdown-0-9" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix for JS exception in slidy_presentation when served from the filesystem (don’t call pushState for file:// urls)</p></li>
+<li><p>Escape single quotes in file paths</p></li>
+<li><p>Fix for missing resources when rendering a filename with shell characters</p></li>
+<li><p>For PDF/LaTeX output, citations are processed via natbib or biblatex instead of pandoc-citeproc. The ciation package natbib or biblatex can be chosen using the argument <code class="docutils literal notranslate"><span class="pre">citation_package</span></code> in <code class="docutils literal notranslate"><span class="pre">pdf_document()</span></code>, <code class="docutils literal notranslate"><span class="pre">beamer_presentation()</span></code>, and <code class="docutils literal notranslate"><span class="pre">tufte_handout()</span></code>. LaTeX is compiled to PDF via latexmk (<a class="reference external" href="https://www.ctan.org/pkg/latexmk/">https://www.ctan.org/pkg/latexmk/</a>); if it is not installed, a simple emulation will be used (run pdflatex/xelatex/lualatex, bibtex, and makeindex a few times). You are recommended to install latexmk, and please note latexmk requires a Perl installation (this is important especially for Windows users).</p></li>
+<li><p>Always use the graphics package for PDF output</p></li>
+<li><p>Fix for the error “cannot change value of locked binding for ‘metadata’” when one call of rmarkdown::render() is nested in another one (#248)</p></li>
+<li><p>Fix for an issue causing image paths to be rendered incorrectly in Windows when rendering an <code class="docutils literal notranslate"><span class="pre">html_document</span></code> with <code class="docutils literal notranslate"><span class="pre">self_contained:</span> <span class="pre">false</span></code> and a path is passed in argument <code class="docutils literal notranslate"><span class="pre">output_dir</span></code>. (#551)</p></li>
+<li><p>Add always_allow_html option for preventing errors when html_dependencies are rendered in non-HTML formats (e.g. pdf_document or word_document).</p></li>
+<li><p>Fix for an issue causing resources not to be discovered in some documents containing an empty quoted string (<code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>) in an R chunk.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-0-8-1">
+<h1>rmarkdown 0.8.1<a class="headerlink" href="#rmarkdown-0-8-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Support for table of contents in word_document (requires pandoc &gt;= 1.14)</p></li>
+<li><p>Support for opts_template in knitr options</p></li>
+<li><p>Don’t implicitly discover directories when scanning for dependent resources</p></li>
+<li><p>Fix for slide numbers not showing up in ioslides when served from the filesystem (don’t call pushState for file:// urls)</p></li>
+<li><p>Remove inlining of bootstrap CSS (was workaround for bug now fixed in pandoc)</p></li>
+<li><p>Allow specifying an R file in calls to find_all_resources</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-0-8">
+<h1>rmarkdown 0.8<a class="headerlink" href="#rmarkdown-0-8" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Add support for keep_md to word_document</p></li>
+<li><p>Increase pandoc stack size to 512M (often required for base64 encoding e.g. larger embedded leaflet maps). Stack size can also be controlled by the pandoc.stack.size option.</p></li>
+<li><p>Allow YAML front matter to be terminated with …</p></li>
+<li><p>Automatically generate a user-interface (via a Shiny application) for user specification of values in parameterized reports.</p></li>
+<li><p>Add tightlist macro for compatibility with pandoc &gt;= 1.14</p></li>
+<li><p>Bugfix: Don’t merge render params recursively with knit_params</p></li>
+<li><p>Bugfix: Handle slashes correctly on Windows for slidy_presentation when self_contained = FALSE</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-0-7">
+<h1>rmarkdown 0.7<a class="headerlink" href="#rmarkdown-0-7" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Add latex_engine option to beamer_presentation format</p></li>
+<li><p>Ensure that when LANG=en_US pandoc receives en_US.UTF-8 (prevent hang)</p></li>
+<li><p>Generate MathJax compatible output when using html_fragment format.</p></li>
+<li><p>Use pandoc built-in template for Beamer</p></li>
+<li><p>Use pandoc 1.14 compatible LaTeX template when pandoc &gt;= 1.14</p></li>
+<li><p>Inline bootstrap.min.css to workaround pandoc 1.14 base64 encoding issue</p></li>
+<li><p>Add support for discovering references to external resources when the document output format is PDF</p></li>
+<li><p>Fix several issues causing pandoc errors when an intermediates directory is used, including during render for Shiny documents</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-0-6">
+<h1>rmarkdown 0.6<a class="headerlink" href="#rmarkdown-0-6" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Support for parameterized reports. Parameter names and default values are defined in YAML and can be specified via the ‘params’ argument to the render function</p></li>
+<li><p>‘md_extensions’ option to enable/disable markdown extensions for input files</p></li>
+<li><p>Automatically discover and include dependent resources (e.g. images, css, etc.) for interactive documents.</p></li>
+<li><p>Added pandoc_version function.</p></li>
+<li><p>Use VignetteEncoding directive in html_vignette format</p></li>
+<li><p>Fix issues related to use of non-ASCII characters in ioslides_presentation</p></li>
+<li><p>Non-ASCII characters in the YAML data are not marked with the UTF-8 encoding when they are read into R, so character strings in <code class="docutils literal notranslate"><span class="pre">rmarkdown::metadata</span></code> may be displayed incorrectly (#420)</p></li>
+<li><p>Various improvements to tufte_handout format</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-0-5-1">
+<h1>rmarkdown 0.5.1<a class="headerlink" href="#rmarkdown-0-5-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Add ‘dev’ option to output formats to specify output device for figures</p></li>
+<li><p>Enable use of footnotes in titles of LaTeX documents</p></li>
+<li><p>Various improvements related to directory detection/handling on Windows</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-0-4-2">
+<h1>rmarkdown 0.4.2<a class="headerlink" href="#rmarkdown-0-4-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Sync to the latest LaTeX and Beamer templates from pandoc-templates</p></li>
+<li><p>Switched from the Bootstrap 2 web framework to Bootstrap 3. This is designed to work with Shiny &gt;= 0.10.3, which has made the same switch</p></li>
+<li><p>Add CSS to restore responsive image behavior from Bootstrap 2</p></li>
+<li><p>Use a more subtle treatment for inline code in Bootstrap themed documents</p></li>
+<li><p>Improved support for multiple authors in ioslides</p></li>
+<li><p>Workaround for poor rendering of ioslides multi-columns lists in Safari 8</p></li>
+<li><p>Serve index.html as fallback default file for rmarkdown::run</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="rmarkdown-0-3-11">
+<h1>rmarkdown 0.3.11<a class="headerlink" href="#rmarkdown-0-3-11" title="Permalink to this headline">¶</a></h1>
+<p>Initial release to CRAN</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./temporal/renv/library/R-4.1/aarch64-apple-darwin20/rmarkdown"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Quan Nguyen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

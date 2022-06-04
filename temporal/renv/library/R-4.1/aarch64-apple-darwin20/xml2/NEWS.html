@@ -1,0 +1,617 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>xml2 1.3.3 &#8212; Temporal and sequential analysis - LASI 2022</title>
+    
+  <link href="../../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../_static/togglebutton.js"></script>
+    <script src="../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../../../_static/solar_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Temporal and sequential analysis - LASI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture1.html">
+   Lecture 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture2.html">
+   Lecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture3.html">
+   Lecture 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Labs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab1.html">
+   Lab 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab2.html">
+   Lab 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab3.html">
+   Lab 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Quan Nguyen<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../../_sources/temporal/renv/library/R-4.1/aarch64-apple-darwin20/xml2/NEWS.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/quan3010/temporal_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/quan3010/temporal_analysis/issues/new?title=Issue%20on%20page%20%2Ftemporal/renv/library/R-4.1/aarch64-apple-darwin20/xml2/NEWS.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   xml2 1.3.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#xml2-1-3-2">
+   xml2 1.3.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#xml2-1-3-1">
+   xml2 1.3.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#xml2-1-3-0">
+   xml2 1.3.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#xml2-1-2-5">
+   xml2 1.2.5
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#xml2-1-2-4">
+   xml2 1.2.4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#xml2-1-2-2">
+   xml2 1.2.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#xml2-1-2-1">
+   xml2 1.2.1
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-features">
+     New Features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bugfixes-and-miscellaneous-features">
+     Bugfixes and Miscellaneous features
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#xml2-1-2-0">
+   xml2 1.2.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#breaking-changes">
+     Breaking changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     New Features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bugfixes">
+     Bugfixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#xml2-1-1-1">
+   xml2 1.1.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#xml2-1-1-0">
+   xml2 1.1.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     New Features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Bugfixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#xml2-1-0-0">
+   xml2 1.0.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#xml2-0-1-2">
+   xml2 0.1.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#xml2-0-1-1">
+   xml2 0.1.1
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="xml2-1-3-3">
+<h1>xml2 1.3.3<a class="headerlink" href="#xml2-1-3-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Hadley Wickham is now (again) the maintainer.</p></li>
+<li><p>xml2 has been re-licensed as MIT (#317).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xml_find_all.xml_node()</span></code> fails more informatively the <code class="docutils literal notranslate"><span class="pre">xpath</span></code> parameter is the wrong type (&#64;michaelchirico)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xml_find_all.xml_nodeset()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">flatten</span></code> argument to control whether to return a single nodeset or a list of nodesets (#311, &#64;jakejh)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">write_xml()</span></code> and <code class="docutils literal notranslate"><span class="pre">write_html()</span></code> now return NULL invisibly, as they did prior to version 1.3.0 (#307)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">XPtr</span></code> gets explicit copy constructor and assignment operator definitions, which were two missing components of the <a class="reference external" href="https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming)">Rule of three</a> (&#64;michaelchirico)</p></li>
+<li><p>Windows: update to libxml2 2.9.10 and libxslt 1.1.34 and add ucrt libs</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="xml2-1-3-2">
+<h1>xml2 1.3.2<a class="headerlink" href="#xml2-1-3-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">read_html()</span></code> and <code class="docutils literal notranslate"><span class="pre">read_xml()</span></code> now error if passed strings of length greater than one (#121)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_xml.raw()</span></code> had an inadvertent regression in 1.3.0 and is now again fixed (#300)</p></li>
+<li><p>Compilation fix on macOS 10.15.4 (&#64;kevinushey, #296)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="xml2-1-3-1">
+<h1>xml2 1.3.1<a class="headerlink" href="#xml2-1-3-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">read_html()</span></code> now again works with HTML files with non-ASCII encodings (#293).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="xml2-1-3-0">
+<h1>xml2 1.3.0<a class="headerlink" href="#xml2-1-3-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Removes the Rcpp dependency</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="xml2-1-2-5">
+<h1>xml2 1.2.5<a class="headerlink" href="#xml2-1-2-5" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix compilation issue on macOS versions after High Sierra when not using homebrew supplied libxml2</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="xml2-1-2-4">
+<h1>xml2 1.2.4<a class="headerlink" href="#xml2-1-2-4" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix potential dangling pointer with internal <code class="docutils literal notranslate"><span class="pre">asXmlChar()</span></code> function (&#64;michaelquinn32, #287).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">as_xml_document()</span></code> now handles cases with text nodes trailing normal nodes (#274).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xml_add_child()</span></code> can now create nodes with a <code class="docutils literal notranslate"><span class="pre">par</span></code> attribute. These previously errored due to partial name matching of the <code class="docutils literal notranslate"><span class="pre">parent</span></code> function in the internal <code class="docutils literal notranslate"><span class="pre">create_node()</span></code> function. (&#64;jennybc, #285)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">libxml2_version()</span></code> now returns a semantic version rather than alphanumeric version, so “2.9.10” &gt; “2.9.9” (#277)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="xml2-1-2-2">
+<h1>xml2 1.2.2<a class="headerlink" href="#xml2-1-2-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Export S4 classes with documentation, so they can be used in other packages
+without Warnings (&#64;nuest, #267)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="xml2-1-2-1">
+<h1>xml2 1.2.1<a class="headerlink" href="#xml2-1-2-1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="new-features">
+<h2>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>xml2 now has a pkgdown site! <a class="reference external" href="https://xml2.r-lib.org">https://xml2.r-lib.org</a> (&#64;jayhesselberth, #211).</p></li>
+<li><p>Windows: upgrade to libxml2 2.9.8</p></li>
+<li><p>print methods now match the type of document, e.g. <code class="docutils literal notranslate"><span class="pre">read_html()</span></code> prints as
+“{html_document}” rather than “{xml_document}” (#227)</p></li>
+</ul>
+</div>
+<div class="section" id="bugfixes-and-miscellaneous-features">
+<h2>Bugfixes and Miscellaneous features<a class="headerlink" href="#bugfixes-and-miscellaneous-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Generic xml2 error are now forwarded as R errors. Previously these errors
+were output to stderr, so could not be suppressed (#209).</p></li>
+<li><p>Fix for ICU 59+ defaulting to use char16_t, which is only available in C++11 (#231)</p></li>
+<li><p>No longer uses the C connections API</p></li>
+<li><p>Better error message when trying to run <code class="docutils literal notranslate"><span class="pre">download_xml()</span></code> without the curl
+package installed (#262)</p></li>
+<li><p>xml2 classes are now registered for use with S4 by calling <code class="docutils literal notranslate"><span class="pre">setOldClass()</span></code> (#248)</p></li>
+<li><p>Nodes with nested data type definition entities now work without crashing (#241)</p></li>
+<li><p>Test failure fixed due to behavior change with relative paths in libxml2
+2.9.9 (#245).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_xml()</span></code> now has a better error message when given zero length character
+inputs (#212).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_xml()</span></code> and <code class="docutils literal notranslate"><span class="pre">read_html()</span></code> now automatically check if the response
+succeeded before trying to read from a HTTP response (#255).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xml_root()</span></code> can now create root nodes with namespaces (#239)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xml_set_attr()</span></code> no longer crashes if you try to set the same namespace on
+the same node multiple times (#253).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xml_set_attr()</span></code> now recycles the values if needed (#221)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xml_structure()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">file</span></code> argument, to support writing to a file
+rather than the console (#244).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="xml2-1-2-0">
+<h1>xml2 1.2.0<a class="headerlink" href="#xml2-1-2-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="breaking-changes">
+<h2>Breaking changes<a class="headerlink" href="#breaking-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">as_list()</span></code> on <code class="docutils literal notranslate"><span class="pre">xml_document</span></code> objects did not properly include the root node
+in the returned list. Previous behavior can be obtained by using
+<code class="docutils literal notranslate"><span class="pre">as_list()[[1L]]</span></code> in place of <code class="docutils literal notranslate"><span class="pre">as_list()</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2>New Features<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">download_xml()</span></code> and <code class="docutils literal notranslate"><span class="pre">download_html()</span></code> helper functions to make it easy to
+download files (#193).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xml_attr()</span></code> can now set attributes with no value (#198).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xml_serialize()</span></code> and <code class="docutils literal notranslate"><span class="pre">xml_unserialize()</span></code> now create file connections when
+given character input (#179).</p></li>
+</ul>
+</div>
+<div class="section" id="bugfixes">
+<h2>Bugfixes<a class="headerlink" href="#bugfixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">xml_find_first()</span></code> no longer de-duplicates results, so the results are always
+the same length as the inputs (as documented) (#194).</p></li>
+<li><p>xml2 can now build using libxml2 2.7.0</p></li>
+<li><p>Use Rcpp symbol registration and visibility to prevent symbol conflicts on Linux</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xml_add_child()</span></code> now requires less resources to insert a node when called
+with <code class="docutils literal notranslate"><span class="pre">.where</span> <span class="pre">=</span> <span class="pre">0L</span></code> (&#64;heckendorfc, #175).</p></li>
+<li><p>Fixed failing examples due to a change in an external resource.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="xml2-1-1-1">
+<h1>xml2 1.1.1<a class="headerlink" href="#xml2-1-1-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>This is a small point release addressing installation issues found with older
+libxml2 versions shipped with RedHat Linux 6 / CentOS 6 (#163, #164).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="xml2-1-1-0">
+<h1>xml2 1.1.0<a class="headerlink" href="#xml2-1-1-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>New Features<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">write_xml()</span></code> and <code class="docutils literal notranslate"><span class="pre">write_html()</span></code> now accept connections as well as filenames
+for output. (#157)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xml_add_child()</span></code> now takes a <code class="docutils literal notranslate"><span class="pre">.where</span></code> argument specifying where to add the
+new children. (#138)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">as_xml()</span></code> generic function to convert R objects to xml. The most important
+method is for lists and enables full roundtrip support for going to and back
+from xml for lists and enables full roundtrip support to and from XML. (#137, #143)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xml_new_root()</span></code> can be used to create a new document and a root node in one step (#131).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xml_add_parent()</span></code> inserts a new node between the node and its parent (#129)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">xml_validate()</span></code> to validate a document against an xml schema (#31, &#64;jeroenooms).</p></li>
+<li><p>Export <code class="docutils literal notranslate"><span class="pre">xml2_types.h</span></code> to allow for extension packages such as xslt.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xml_comment()</span></code> allows you to add comment nodes to a document. (#111)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xml_cdata()</span></code> allows you to add CDATA nodes to a document. (#128)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">xml_set_text()</span></code> and <code class="docutils literal notranslate"><span class="pre">xml_set_name()</span></code> equivalent to <code class="docutils literal notranslate"><span class="pre">xml_text&lt;-</span></code> and <code class="docutils literal notranslate"><span class="pre">xml_name&lt;-</span></code>. (#130).</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">xml_set_attr()</span></code> and <code class="docutils literal notranslate"><span class="pre">xml_set_attrs()</span></code> equivalent to <code class="docutils literal notranslate"><span class="pre">xml_attr&lt;-</span></code> and <code class="docutils literal notranslate"><span class="pre">xml_attrs&lt;-</span></code>. (#109, #130)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">write_html()</span></code> method (#133).</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>Bugfixes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">xml_new_document()</span></code> now explicitly sets the encoding (default UTF-8) (#142)</p></li>
+<li><p>Document formatting options for <code class="docutils literal notranslate"><span class="pre">write_xml()</span></code> (#132)</p></li>
+<li><p>Add missing methods for xml_missing objects. (#134)</p></li>
+<li><p>Bugfix for xml_length.xml_nodeset that caused it to fail unconditionally. (#140)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is.na()</span></code> now returns <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> for <code class="docutils literal notranslate"><span class="pre">xml_missing</span></code> objects. (#139)</p></li>
+<li><p>Trim non-breaking spaces in <code class="docutils literal notranslate"><span class="pre">xml_text(trim</span> <span class="pre">=</span> <span class="pre">TRUE)</span></code> (#151).</p></li>
+<li><p>Allow setting non-character attributes (values are coerced to characters). (&#64;sjp, #117, #122).</p></li>
+<li><p>Fixed return value in call to vapply in xml_integer.xml_nodeset. (&#64;ddiez, #146, #147).</p></li>
+<li><p>Allow docs missing a root element to be created and printed. (&#64;sjp, #126, #121).</p></li>
+<li><p>xml_add_* methods now return invisibly. (&#64;sjp, #124)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">as_list()</span></code> now preserves element names when attributes exist, and escapes
+XML attributes that conflict with special R attributes (&#64;peterfoley, #115).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="xml2-1-0-0">
+<h1>xml2 1.0.0<a class="headerlink" href="#xml2-1-0-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>All C++ functions now use <code class="docutils literal notranslate"><span class="pre">checked_get()</span></code> instead of <code class="docutils literal notranslate"><span class="pre">get()</span></code> where possible,
+so NULL XPtrs properly throw an error rather than crashing. (&#64;jimhester,
+#101, #104).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xml_integer()</span></code> and <code class="docutils literal notranslate"><span class="pre">xml_double()</span></code> functions to make it easy to extract
+integer and double text from nodes (&#64;jimhester, #97, #99).</p></li>
+<li><p>xml2 now supports modification and creation of XML nodes. New functions
+<code class="docutils literal notranslate"><span class="pre">xml_new_document()</span></code>, <code class="docutils literal notranslate"><span class="pre">xml_new_child()</span></code>, <code class="docutils literal notranslate"><span class="pre">xml_new_sibling()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">xml_set_namespace()</span></code>, , <code class="docutils literal notranslate"><span class="pre">xml_remove()</span></code>, <code class="docutils literal notranslate"><span class="pre">xml_replace()</span></code>, <code class="docutils literal notranslate"><span class="pre">xml_root()</span></code>
+and replacement methods for <code class="docutils literal notranslate"><span class="pre">xml_name()</span></code>, <code class="docutils literal notranslate"><span class="pre">xml_attr()</span></code>, <code class="docutils literal notranslate"><span class="pre">xml_attrs()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">xml_text()</span></code> (&#64;jimhester, #9 #76)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xml_ns()</span></code> now keeps namespace prefixes that point to the same URI
+(&#64;jimhester, #35, #95).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read_xml()</span></code> and <code class="docutils literal notranslate"><span class="pre">read_html()</span></code> methods added for <code class="docutils literal notranslate"><span class="pre">httr::response()</span></code> objects.
+(&#64;jimhester, #63, #93)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xml_child()</span></code> function to make selecting children a little easier
+(&#64;jimhester, #23, #94)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xml_find_one()</span></code> has been deprecated in favor of <code class="docutils literal notranslate"><span class="pre">xml_find_first()</span></code>
+(&#64;jimhester, #58, #92)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xml_read()</span></code> functions now default to passing the document’s namespace
+object. Namespace definitions can now be removed as well as added and
+<code class="docutils literal notranslate"><span class="pre">xml_ns_strip()</span></code> added to remove all default namespaces from a document.
+(&#64;jimhester, #28, #89)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xml_read()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">options</span></code> argument to control all available parsing
+options, including <code class="docutils literal notranslate"><span class="pre">HUGE</span></code> to turn off limits for parsing very large
+documents and now drops blank text nodes by default, mimicking default
+behavior of XML package. (&#64;jimhester, #49, #62, #85, #88)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xml_write()</span></code> expands the path on filenames, so directories can be specified
+with ‘~/’ (&#64;jimhester, #86, #80)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xml_find_one()</span></code> now returns a ‘xml_missing’ node object if there are 0
+matches (&#64;jimhester, #55, #53, hadley/rvest#82).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xml_find_num()</span></code>, <code class="docutils literal notranslate"><span class="pre">xml_find_chr()</span></code>, <code class="docutils literal notranslate"><span class="pre">xml_find_lgl()</span></code> functions added to
+return numeric, character and logical results from XPath expressions. (&#64;jimhester, #55)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xml_name()</span></code> and <code class="docutils literal notranslate"><span class="pre">xml_text()</span></code> always correctly encode returned value as
+UTF-8 (#54).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="xml2-0-1-2">
+<h1>xml2 0.1.2<a class="headerlink" href="#xml2-0-1-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Improved configure script - now works again on R-devel on windows.</p></li>
+<li><p>Compiles with older versions of libxml2.,</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="xml2-0-1-1">
+<h1>xml2 0.1.1<a class="headerlink" href="#xml2-0-1-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Make configure script more cross platform.</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">xml_length()</span></code> to count the number of children (#32).</p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./temporal/renv/library/R-4.1/aarch64-apple-darwin20/xml2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Quan Nguyen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

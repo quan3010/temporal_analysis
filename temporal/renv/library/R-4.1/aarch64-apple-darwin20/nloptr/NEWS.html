@@ -1,0 +1,740 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>nloptr 2.0.3 &#8212; Temporal and sequential analysis - LASI 2022</title>
+    
+  <link href="../../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../_static/togglebutton.js"></script>
+    <script src="../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../../../_static/solar_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Temporal and sequential analysis - LASI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture1.html">
+   Lecture 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture2.html">
+   Lecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture3.html">
+   Lecture 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Labs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab1.html">
+   Lab 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab2.html">
+   Lab 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab3.html">
+   Lab 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Quan Nguyen<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../../_sources/temporal/renv/library/R-4.1/aarch64-apple-darwin20/nloptr/NEWS.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/quan3010/temporal_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/quan3010/temporal_analysis/issues/new?title=Issue%20on%20page%20%2Ftemporal/renv/library/R-4.1/aarch64-apple-darwin20/nloptr/NEWS.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   nloptr 2.0.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nloptr-2-0-2">
+   nloptr 2.0.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nloptr-2-0-1">
+   nloptr 2.0.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nloptr-2-0-0">
+   nloptr 2.0.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#major-changes">
+     Major changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minor-changes">
+     Minor changes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nloptr-1-2-2-29-february-2020">
+   nloptr 1.2.2 (29 February 2020)
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#february-2020">
+     26 February 2020:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#october-2018">
+     20 October 2018:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nloptr-1-2-1-03-october-2018">
+   nloptr 1.2.1 (03 October 2018)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nloptr-1-2-0-30-september-2018">
+   nloptr 1.2.0 (30 September 2018)
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#april-2018">
+     21 April 2018:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#september-2017">
+     25 September 2017:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nloptr-1-1-0-22-august-2016">
+   nloptr 1.1.0 (22 August 2016)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nloptr-1-0-9-22-march-2015">
+   nloptr 1.0.9 (22 March 2015)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nloptr-1-0-8-22-february-2015">
+   nloptr 1.0.8 (22 February 2015)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nloptr-1-0-7-14-february-2015">
+   nloptr 1.0.7 (14 February 2015)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nloptr-1-0-6-8-february-2015">
+   nloptr 1.0.6 (8 February 2015)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nloptr-1-0-5-28-january-2015">
+   nloptr 1.0.5 (28 January 2015)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nloptr-1-0-4-02-august-2014">
+   nloptr 1.0.4 (02 August 2014)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nloptr-1-0-3-25-july-2014">
+   nloptr 1.0.3 (25 July 2014)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nloptr-1-0-2-25-july-2014">
+   nloptr 1.0.2 (25 July 2014)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nloptr-1-0-1-05-may-2014">
+   nloptr 1.0.1 (05 May 2014)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nloptr-1-0-0-27-january-2014">
+   nloptr 1.0.0 (27 January 2014)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nloptr-0-9-6-19-november-2013">
+   nloptr 0.9.6 (19 November 2013)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nloptr-0-9-5-12-november-2013">
+   nloptr 0.9.5 (12 November 2013)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nloptr-0-9-4-09-november-2013">
+   nloptr 0.9.4 (09 November 2013)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nloptr-0-9-3-31-july-2013">
+   nloptr 0.9.3 (31 July 2013)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nloptr-0-9-2-11-july-2013">
+   nloptr 0.9.2 (11 July 2013)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nloptr-0-9-0">
+   nloptr 0.9.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nloptr-0-8-9-18-november-2011">
+   nloptr 0.8.9 (18 November 2011)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nloptr-0-8-8-28-september-2011">
+   nloptr 0.8.8 (28 September 2011)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nloptr-0-8-7-24-september-2011">
+   nloptr 0.8.7 (24 September 2011)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nloptr-0-8-6-19-september-2011">
+   nloptr 0.8.6 (19 September 2011)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nloptr-0-8-5-03-september-2011">
+   nloptr 0.8.5 (03 September 2011)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nloptr-0-8-4-12-august-2011">
+   nloptr 0.8.4 (12 August 2011)
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="nloptr-2-0-3">
+<h1>nloptr 2.0.3<a class="headerlink" href="#nloptr-2-0-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Improved compatibility on RHEL/CentOS by first searching for a <code class="docutils literal notranslate"><span class="pre">cmake3</span></code> binary
+on the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> (#104).</p></li>
+<li><p>Improved backward compatibility with older versions of <code class="docutils literal notranslate"><span class="pre">cmake</span></code> (#119).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nloptr-2-0-2">
+<h1>nloptr 2.0.2<a class="headerlink" href="#nloptr-2-0-2" title="Permalink to this headline">¶</a></h1>
+<p>This is a patch version in which:</p>
+<ul class="simple">
+<li><p>I link to the <code class="docutils literal notranslate"><span class="pre">nlopt</span></code> library via <code class="docutils literal notranslate"><span class="pre">nlopt/lib/libnlopt.a</span></code> instead of
+<code class="docutils literal notranslate"><span class="pre">-Lnlopt/lib</span> <span class="pre">-lnlopt</span></code> when building <code class="docutils literal notranslate"><span class="pre">nlopt</span></code> from included sources to avoid
+potential mess where <code class="docutils literal notranslate"><span class="pre">-lnlopt</span></code> could look for the <code class="docutils literal notranslate"><span class="pre">nlopt</span></code> library in other
+places and possibly link with an existing too old system build of <code class="docutils literal notranslate"><span class="pre">nlopt</span></code>.</p></li>
+</ul>
+<p>Additionally, we contacted Simon Urbanek for updating the <code class="docutils literal notranslate"><span class="pre">nlopt</span></code> recipe for
+macOS users so that it does now match the latest <code class="docutils literal notranslate"><span class="pre">v2.7.1</span></code>, which should avoid
+<code class="docutils literal notranslate"><span class="pre">nlopt</span></code> to be built on the fly on CRAN machines.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nloptr-2-0-1">
+<h1>nloptr 2.0.1<a class="headerlink" href="#nloptr-2-0-1" title="Permalink to this headline">¶</a></h1>
+<p>This is a release mainly for increasing direct compatibility with most user cases. In details, here is the list of changes that have been made:</p>
+<ul class="simple">
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">SystemRequirements</span></code> description to make it clearer which minimal versions of <code class="docutils literal notranslate"><span class="pre">cmake</span></code> (<code class="docutils literal notranslate"><span class="pre">&gt;=</span> <span class="pre">3.15.0</span></code>) and <code class="docutils literal notranslate"><span class="pre">nlopt</span></code> (<code class="docutils literal notranslate"><span class="pre">&gt;=</span> <span class="pre">2.7.0</span></code>) are required (#100, &#64;HenrikBengtsson).</p></li>
+<li><p>End configuration sooner and louder if <code class="docutils literal notranslate"><span class="pre">cmake</span></code> is missing when needed with clearer message (#103, &#64;eddelbuettel).</p></li>
+<li><p>Ensure system-wide installation of <code class="docutils literal notranslate"><span class="pre">cmake</span></code> in the list of suggestions to install it when missing.</p></li>
+<li><p>Update GHA scripts to latest versions.</p></li>
+<li><p>Configure git to always use LF line endings for <a class="reference external" href="http://configure.ac">configure.ac</a> file.</p></li>
+<li><p>Add CI for R-devel on Windows with Rtools42.</p></li>
+<li><p>Fix for compatibility with versions of R anterior to <code class="docutils literal notranslate"><span class="pre">4.0</span></code> (#111).</p></li>
+<li><p>Look for a <code class="docutils literal notranslate"><span class="pre">cmake3</span></code> binary in the current path before <code class="docutils literal notranslate"><span class="pre">cmake</span></code> for increasing compatibility with most RHEL/CentOS users (#104, &#64;bhogan-mitre &#64;HenrikBengtsson).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nloptr-2-0-0">
+<h1>nloptr 2.0.0<a class="headerlink" href="#nloptr-2-0-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="major-changes">
+<h2>Major changes<a class="headerlink" href="#major-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Use <a class="reference external" href="https://cmake.org">CMake</a> to build <code class="docutils literal notranslate"><span class="pre">nlopt</span></code> from included sources on macOS and on Linux if no system build of NLopt (&gt;= 2.7.0) is found.</p></li>
+<li><p>Update included sources of NLopt to latest version (2.7.1).</p></li>
+<li><p>Put back the ability on Linux platforms to re-use an existing external build of NLopt instead of building from the included sources (contributed by Dirk Eddelbuettel, #88).</p></li>
+<li><p>Now builds using NLopt from <code class="docutils literal notranslate"><span class="pre">rwinlib</span></code> on Windows current release (contributed by Jeroen Ooms, #92), or NLopt from <code class="docutils literal notranslate"><span class="pre">Rtools42</span></code> on Windows devel (contributed by Tomas Kalibera).</p></li>
+</ul>
+</div>
+<div class="section" id="minor-changes">
+<h2>Minor changes<a class="headerlink" href="#minor-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Added a <code class="docutils literal notranslate"><span class="pre">NEWS.md</span></code> file to track changes to the package.</p></li>
+<li><p>Use markdown in Roxygen documentation.</p></li>
+<li><p>Added a logo and a proper <a class="reference external" href="https://astamm.github.io/nloptr/"><strong>nloptr</strong> website</a>.</p></li>
+<li><p>Added coverage.</p></li>
+<li><p>Switch from Travis to Github Actions for CI.</p></li>
+<li><p>Use Catch for unit testing C/C++ code.</p></li>
+<li><p>Now tracking code coverage.</p></li>
+<li><p>Update NLopt-related URLs following migration of <a class="reference external" href="https://nlopt.readthedocs.io/en/latest/">NLopt website</a>.</p></li>
+<li><p>Fixed bug to avoid linking issues when using the C API via <code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;nloptrAPI.h&gt;</span></code> in several source files.</p></li>
+<li><p>Fix precision issue in test example <code class="docutils literal notranslate"><span class="pre">hs071</span></code> (jyypma/nloptr#81, &#64;Tom-python0121).</p></li>
+<li><p>Made NLopt algorithm <code class="docutils literal notranslate"><span class="pre">NLOPT_GN_ESCH</span></code> available from R interface (contributed by Xiongtao Dai).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nloptr-1-2-2-29-february-2020">
+<h1>nloptr 1.2.2 (29 February 2020)<a class="headerlink" href="#nloptr-1-2-2-29-february-2020" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Replaced deprecated functions from <a class="reference external" href="https://testthat.r-lib.org"><strong>testthat</strong></a> framework in unit tests (contributed by Avraham Adler).</p></li>
+</ul>
+<div class="section" id="february-2020">
+<h2>26 February 2020:<a class="headerlink" href="#february-2020" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fixed warnings (as requested by CRAN): R CMD config variables ‘CPP’ and ‘CXXCPP’ are deprecated.</p></li>
+</ul>
+</div>
+<div class="section" id="october-2018">
+<h2>20 October 2018:<a class="headerlink" href="#october-2018" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Exposed CCSAQ algorithm in R interface (contributed by Julien Chiquet).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nloptr-1-2-1-03-october-2018">
+<h1>nloptr 1.2.1 (03 October 2018)<a class="headerlink" href="#nloptr-1-2-1-03-october-2018" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Build process was changed to solve issues on several OS (many thanks to the CRAN maintainers).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nloptr-1-2-0-30-september-2018">
+<h1>nloptr 1.2.0 (30 September 2018)<a class="headerlink" href="#nloptr-1-2-0-30-september-2018" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="april-2018">
+<h2>21 April 2018:<a class="headerlink" href="#april-2018" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Changed installation procedure. NLopt source code is now part of nloptr package and not downloaded separately during configure in Unix systems in case NLopt library cannot be found.</p></li>
+<li><p>Registered NLopt C functions to be used by external R package and included C API.</p></li>
+<li><p>Documentation is generated using roxygen.</p></li>
+</ul>
+</div>
+<div class="section" id="september-2017">
+<h2>25 September 2017:<a class="headerlink" href="#september-2017" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fixed a bug in auglag. BOBYQA is now allowed as local solver (thanks to Léo Belzile).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nloptr-1-1-0-22-august-2016">
+<h1>nloptr 1.1.0 (22 August 2016)<a class="headerlink" href="#nloptr-1-1-0-22-august-2016" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed a bug that sometimes caused segmentation faults due to an uninitialized vector of tolerances for the inequality and/or equality constraints (thanks to Florian Schwendinger).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nloptr-1-0-9-22-march-2015">
+<h1>nloptr 1.0.9 (22 March 2015)<a class="headerlink" href="#nloptr-1-0-9-22-march-2015" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>When the problem fails with error status 6 (NLOPT_MAXTIME_REACHED) and maxtime was not set to a positive number in the options, then nloptr tries a couple more times to solve the problem. This is a new approach that should solve the bug that NLopt sometimes exits a problem stating the maximum available time has been reached, even when no limit on the time has been set.</p></li>
+<li><p>Changed warning to message in order to show that for consistency with the rest of the package the inequality sign in the functions auglag, cobyla, isres, mma, and slsqp will be switched from &gt;= to &lt;= in a future nloptr version.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nloptr-1-0-8-22-february-2015">
+<h1>nloptr 1.0.8 (22 February 2015)<a class="headerlink" href="#nloptr-1-0-8-22-february-2015" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Changed description in DESCRIPTION such that it does not start with the package name (as requested by CRAN).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nloptr-1-0-7-14-february-2015">
+<h1>nloptr 1.0.7 (14 February 2015)<a class="headerlink" href="#nloptr-1-0-7-14-february-2015" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Changed title field in DESCRIPTION to title case (as requested by CRAN).</p></li>
+<li><p>Added donttest around example in mma documentation.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nloptr-1-0-6-8-february-2015">
+<h1>nloptr 1.0.6 (8 February 2015)<a class="headerlink" href="#nloptr-1-0-6-8-february-2015" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Updated description to better reflect installation procedure on Linux when NLopt is pre-installed (as requested by CRAN).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nloptr-1-0-5-28-january-2015">
+<h1>nloptr 1.0.5 (28 January 2015)<a class="headerlink" href="#nloptr-1-0-5-28-january-2015" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added non-exported functions CFlags and LdFlags to be used in packages that want to link to the NLopt C library.</p></li>
+<li><p>For consistency with the rest of the package the inequality sign in the functions auglag, cobyla, isres, mma, and slsqp will be switched from &gt;= to &lt;= in the next nloptr version. The current version of nloptr shows a warning when using these functions with inequality constraints. This warning can be turned off with <code class="docutils literal notranslate"><span class="pre">options('nloptr.show.inequality.warning'</span> <span class="pre">=</span> <span class="pre">FALSE)</span></code>.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nloptr-1-0-4-02-august-2014">
+<h1>nloptr 1.0.4 (02 August 2014)<a class="headerlink" href="#nloptr-1-0-4-02-august-2014" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Increased version number to re-submit package to CRAN with CRLF line endings removed from <code class="docutils literal notranslate"><span class="pre">configure</span></code> and <code class="docutils literal notranslate"><span class="pre">configure.ac</span></code>.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nloptr-1-0-3-25-july-2014">
+<h1>nloptr 1.0.3 (25 July 2014)<a class="headerlink" href="#nloptr-1-0-3-25-july-2014" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Changed NLOPT_VERSION to 2.4.2 for Linux.</p></li>
+<li><p>Changed nloptr.default.options from a data.frame to a function returning the data.frame.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nloptr-1-0-2-25-july-2014">
+<h1>nloptr 1.0.2 (25 July 2014)<a class="headerlink" href="#nloptr-1-0-2-25-july-2014" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added configure script which tests for a system NLopt library via pkg-config and uses it if it is sufficiently recent (ie 2.4.*), and otherwise configure downloads, patches and builds the NLopt sources just how src/Makevars used to (thanks to Dirk Eddelbuettel).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nloptr-1-0-1-05-may-2014">
+<h1>nloptr 1.0.1 (05 May 2014)<a class="headerlink" href="#nloptr-1-0-1-05-may-2014" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>All unit tests are now enabled and use the package testthat. Install the package with argument INSTALL_opt = “–install-tests” supplied to install.packages to install the tests. The tests can be run after installation with test_package(‘nloptr’). The testthat package needs to be installed and loaded to be able to run the tests.</p></li>
+<li><p>Changed default value for maxtime option from 0.0 to -1.0. In some cases nloptr returned <code class="docutils literal notranslate"><span class="pre">NLOPT_MAXTIME_REACHED</span></code> without running any iterations with the default setting. This change solves this.</p></li>
+<li><p>Replaced cat by message or warning. Messages can be suppressed by suppressMessages.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nloptr-1-0-0-27-january-2014">
+<h1>nloptr 1.0.0 (27 January 2014)<a class="headerlink" href="#nloptr-1-0-0-27-january-2014" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Merged wrappers from the <strong>nloptwrap</strong> package.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nloptr-0-9-6-19-november-2013">
+<h1>nloptr 0.9.6 (19 November 2013)<a class="headerlink" href="#nloptr-0-9-6-19-november-2013" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added a line in <code class="docutils literal notranslate"><span class="pre">Makevars</span></code> to replace some code in NLopt to fix compilation on Solaris as requested by Brian Ripley.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nloptr-0-9-5-12-november-2013">
+<h1>nloptr 0.9.5 (12 November 2013)<a class="headerlink" href="#nloptr-0-9-5-12-november-2013" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Updated references from NLopt version 2.3 to NLopt version 2.4 in installation instructions in <code class="docutils literal notranslate"><span class="pre">INSTALL.windows</span></code>.</p></li>
+<li><p>Added a line in <code class="docutils literal notranslate"><span class="pre">Makevars</span></code> that replaces some code related to type-casting in <code class="docutils literal notranslate"><span class="pre">NLopt-2.4/isres/isres.c</span></code>.</p></li>
+<li><p>Changed encoding of <code class="docutils literal notranslate"><span class="pre">src/nloptr.c</span></code> from CP1252 to UTF-8.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nloptr-0-9-4-09-november-2013">
+<h1>nloptr 0.9.4 (09 November 2013)<a class="headerlink" href="#nloptr-0-9-4-09-november-2013" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Updated NLopt to version 2.4.</p></li>
+<li><p>Changed tests to use unit testing package testthat (these are currently disabled).</p></li>
+<li><p>Fixed a segfault that started to occur on the latest version of Ubuntu.</p></li>
+<li><p>Slightly changed the build process (Removed -lstdc++ from linker statement. A file dummy.cpp (with C++ extension) is added to the source directory to ensure linking with C++. Thanks to Brian Ripley for bringing this up.)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nloptr-0-9-3-31-july-2013">
+<h1>nloptr 0.9.3 (31 July 2013)<a class="headerlink" href="#nloptr-0-9-3-31-july-2013" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Split lines longer than 100 characters in <code class="docutils literal notranslate"><span class="pre">check.derivatives</span></code> examples in two lines to comply with new package rules.</p></li>
+<li><p>Moved vignettes from <code class="docutils literal notranslate"><span class="pre">inst/doc</span></code> to <code class="docutils literal notranslate"><span class="pre">vignettes</span></code> to comply with new package rules.</p></li>
+<li><p>Removed dependency on <code class="docutils literal notranslate"><span class="pre">apacite</span></code> in vignette as an update of <code class="docutils literal notranslate"><span class="pre">apacite</span></code> on CRAN resulted in errors.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nloptr-0-9-2-11-july-2013">
+<h1>nloptr 0.9.2 (11 July 2013)<a class="headerlink" href="#nloptr-0-9-2-11-july-2013" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Made changes in bibtex file of documentation.</p></li>
+<li><p>Removed <code class="docutils literal notranslate"><span class="pre">CFLAGS</span></code>, <code class="docutils literal notranslate"><span class="pre">CXXFLAGS</span></code> from <code class="docutils literal notranslate"><span class="pre">Makevars</span></code>.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nloptr-0-9-0">
+<h1>nloptr 0.9.0<a class="headerlink" href="#nloptr-0-9-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Introduced new <code class="docutils literal notranslate"><span class="pre">print_level</span> <span class="pre">=</span> <span class="pre">3</span></code>. Shows values of controls (16 April 2012 on R-Forge).</p></li>
+<li><p>Changed <code class="docutils literal notranslate"><span class="pre">Makevars</span></code> and <code class="docutils literal notranslate"><span class="pre">Makevars.win</span></code> to link to version 2.3 of NLopt compiled with <code class="docutils literal notranslate"><span class="pre">--with-cxx</span></code> option. This makes the StoGo algorithm available. (31 April 2013 on R-Forge).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nloptr-0-8-9-18-november-2011">
+<h1>nloptr 0.8.9 (18 November 2011)<a class="headerlink" href="#nloptr-0-8-9-18-november-2011" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Changed CRLF and CR line endings in <code class="docutils literal notranslate"><span class="pre">src/Makevars</span></code> to LF line endings to remove a warning from R CMD check.</p></li>
+<li><p>Adopted some changes proposed by Brian Ripley to <code class="docutils literal notranslate"><span class="pre">src/Makevars.win</span></code> in order for nloptr to work with his new toolchain.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nloptr-0-8-8-28-september-2011">
+<h1>nloptr 0.8.8 (28 September 2011)<a class="headerlink" href="#nloptr-0-8-8-28-september-2011" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Updated <code class="docutils literal notranslate"><span class="pre">src/Makevars</span></code> to compile on Solaris.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nloptr-0-8-7-24-september-2011">
+<h1>nloptr 0.8.7 (24 September 2011)<a class="headerlink" href="#nloptr-0-8-7-24-september-2011" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Updated <code class="docutils literal notranslate"><span class="pre">src/Makevars</span></code> to compile on Solaris.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nloptr-0-8-6-19-september-2011">
+<h1>nloptr 0.8.6 (19 September 2011)<a class="headerlink" href="#nloptr-0-8-6-19-september-2011" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Updated <code class="docutils literal notranslate"><span class="pre">src/Makevars</span></code> to compile on Solaris.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nloptr-0-8-5-03-september-2011">
+<h1>nloptr 0.8.5 (03 September 2011)<a class="headerlink" href="#nloptr-0-8-5-03-september-2011" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Updated <code class="docutils literal notranslate"><span class="pre">src/Makevars</span></code> to compile a working binary for MacOS.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="nloptr-0-8-4-12-august-2011">
+<h1>nloptr 0.8.4 (12 August 2011)<a class="headerlink" href="#nloptr-0-8-4-12-august-2011" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>added new options:</p>
+<ul>
+<li><p>data/nloptr.default.options.R: new file with a description of all options, mostly taken from the NLopt website (for internal use).</p></li>
+<li><p>R/nloptr.print.options.R: function to show the description for a specific (set of) option(s).
+E.g. nloptr.print.options( option=”maxeval” )
+nloptr.print.options() shows a description of all options if called without arguments.</p></li>
+<li><p>added option to print a description of all options and their values (‘print_options_doc’ = TRUE/FALSE).</p></li>
+<li><p>added option population to set the population of stochastic/global solvers (‘population’ = 1000).</p></li>
+<li><p>added option ranseed which sets the random seed for stochastic solvers (‘ranseed’ = 3141). A value of 0 uses a random seed generated by system time.</p></li>
+<li><p>option check_derivatives is no longer listed as a termination condition.</p></li>
+<li><p>documented the option to set the tolerance of (in)equality constraints (tol_constraints_eq, tol_constraints_ineq).</p></li>
+</ul>
+</li>
+<li><p>tests/banana_global.R: new test file that uses the algorithms (CRS, ISRES, MLSL) and options ranseed and population.</p></li>
+<li><p>src/nloptr.c: capture error codes from setting options.</p></li>
+<li><p>R/nloptr.print.R: output gives ‘optimal value of controls’ when status = -4 (some error code), this is changed to ‘current value of controls’.</p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./temporal/renv/library/R-4.1/aarch64-apple-darwin20/nloptr"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Quan Nguyen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
