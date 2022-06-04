@@ -28,9 +28,7 @@ Using renv, you can create and manage the R library environment for your project
 **Step 1: Clone the github repo and open the Rproject**
 
 In the Rstudio console, type
-```sh
-renv::restore()
-```
+
 * Open Terminal.
 * Change the current working directory to the location where you want the cloned directory.
 * Type in the terminal: 
