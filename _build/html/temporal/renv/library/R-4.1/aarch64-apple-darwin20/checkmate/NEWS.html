@@ -1,0 +1,809 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Version 2.1.0 &#8212; Temporal and sequential analysis - LASI 2022</title>
+    
+  <link href="../../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../_static/togglebutton.js"></script>
+    <script src="../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../../../_static/solar_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Temporal and sequential analysis - LASI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture1.html">
+   Lecture 1: Clustering of sequential data in education
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture2.html">
+   Lecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture3.html">
+   Lecture 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Labs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab1.html">
+   Lab 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab2.html">
+   Lab 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab3.html">
+   Lab 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Quan Nguyen<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../../_sources/temporal/renv/library/R-4.1/aarch64-apple-darwin20/checkmate/NEWS.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/quan3010/temporal_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/quan3010/temporal_analysis/issues/new?title=Issue%20on%20page%20%2Ftemporal/renv/library/R-4.1/aarch64-apple-darwin20/checkmate/NEWS.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Version 2.1.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-2-0-0">
+   Version 2.0.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-1-9-4">
+   Version 1.9.4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-1-9-3">
+   Version 1.9.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-1-9-2">
+   Version 1.9.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-1-9-1">
+   Version 1.9.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-1-9-0">
+   Version 1.9.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-1-8-5">
+   Version 1.8.5
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-1-8-4">
+   Version 1.8.4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-1-8-3">
+   Version 1.8.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-1-8-2">
+   Version 1.8.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-1-8-1">
+   Version 1.8.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-1-8-0">
+   Version 1.8.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-1-7-4">
+   Version 1.7.4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-1-7-3">
+   Version 1.7.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-1-7-2">
+   Version 1.7.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-1-7-1">
+   Version 1.7.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-1-7-0">
+   Version 1.7.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-1-6-3">
+   Version 1.6.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-1-6-2">
+   Version 1.6.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-1-6-1">
+   Version 1.6.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-1-6-0">
+   Version 1.6.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-1-5-3">
+   Version 1.5.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-1-5-2">
+   Version 1.5.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-1-5-1">
+   Version 1.5.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-1-5-0">
+   Version 1.5.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-1-4">
+   Version 1.4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-1-3">
+   Version 1.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-1-2">
+   Version 1.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-1-1">
+   Version 1.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-1-0">
+   Version 1.0
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="version-2-1-0">
+<h1>Version 2.1.0<a class="headerlink" href="#version-2-1-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>New arguments <code class="docutils literal notranslate"><span class="pre">n.chars</span></code> and <code class="docutils literal notranslate"><span class="pre">max.chars</span></code> for <code class="docutils literal notranslate"><span class="pre">checkCharacter()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">checkString()</span></code>.</p></li>
+<li><p>Checks for integerish now compare the tolerance with the difference to the
+nearest integer with <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> instead of <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> to allow specifying a tolerance of
+exactly <code class="docutils literal notranslate"><span class="pre">0</span></code> (#177).</p></li>
+<li><p>Checks for integerish now check for class <code class="docutils literal notranslate"><span class="pre">Date</span></code> an <code class="docutils literal notranslate"><span class="pre">POSIXt</span></code>.</p></li>
+<li><p>Coercion of double to integer in <code class="docutils literal notranslate"><span class="pre">assertInt()</span></code> and <code class="docutils literal notranslate"><span class="pre">assertIntegerish()</span></code> now
+round to the nearest integer instead of always rounding via <code class="docutils literal notranslate"><span class="pre">trunc()</span></code>.</p></li>
+<li><p>Fixed an error message where the wrong variable name was reported by
+<code class="docutils literal notranslate"><span class="pre">assert()</span></code> (#182).</p></li>
+<li><p>Checks on POSIXct dates with storage mode integer should now work instead of
+raising an exception (#175).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*Matrix()</span></code> and <code class="docutils literal notranslate"><span class="pre">*Array()</span></code> now allow different storage types than the one
+specified if all values are missing (#184).</p></li>
+<li><p>Function <code class="docutils literal notranslate"><span class="pre">assert()</span></code> now supports collecting assertions via <code class="docutils literal notranslate"><span class="pre">AssertCollection</span></code>
+(#112).</p></li>
+<li><p>New exported C function <code class="docutils literal notranslate"><span class="pre">qcheck()</span></code> (#180).</p></li>
+<li><p>Fixed a bug in <code class="docutils literal notranslate"><span class="pre">checkFunction(...,</span> <span class="pre">ordered</span> <span class="pre">=</span> <span class="pre">TRUE)</span></code> (#204).</p></li>
+<li><p>Removed deprecated S macro <code class="docutils literal notranslate"><span class="pre">DOUBLE_EPS</span></code> from C source.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-2-0-0">
+<h1>Version 2.0.0<a class="headerlink" href="#version-2-0-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Expectations now optionally support the package <code class="docutils literal notranslate"><span class="pre">tinytest</span></code>.
+<code class="docutils literal notranslate"><span class="pre">tinytest</span></code> is used as backend if it is attached, otherwise checkmate defaults
+to <code class="docutils literal notranslate"><span class="pre">testthat</span></code>.
+There is now also a vignette on how to setup <code class="docutils literal notranslate"><span class="pre">checkmate</span></code> for <code class="docutils literal notranslate"><span class="pre">tinytest</span></code>.</p></li>
+<li><p>Coercion now only affects double vectors.</p></li>
+<li><p>Improved error message for type detection in <code class="docutils literal notranslate"><span class="pre">*List</span></code>.</p></li>
+<li><p>Removed <code class="docutils literal notranslate"><span class="pre">*Bit</span></code>, the <code class="docutils literal notranslate"><span class="pre">bit</span></code> package is orphaned.</p></li>
+<li><p>Fixed documentation.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-1-9-4">
+<h1>Version 1.9.4<a class="headerlink" href="#version-1-9-4" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed factors being detected as integerish.</p></li>
+<li><p>Fixed error message for name checks of vectors.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-1-9-3">
+<h1>Version 1.9.3<a class="headerlink" href="#version-1-9-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>New argument <code class="docutils literal notranslate"><span class="pre">extension</span></code> for <code class="docutils literal notranslate"><span class="pre">checkPathForOutput()</span></code> (#162).</p></li>
+<li><p>Fixed handling of different NA types in all set functions (#158).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_vector</span></code> removed due to a nameclash with package <code class="docutils literal notranslate"><span class="pre">testthat</span></code>.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-1-9-2">
+<h1>Version 1.9.2<a class="headerlink" href="#version-1-9-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">assert*(...,</span> <span class="pre">coerce</span> <span class="pre">=</span> <span class="pre">TRUE)</span></code> does not drop names during conversion (#157),
+thanks to &#64;mb706.</p></li>
+<li><p>Fixed documentation in <code class="docutils literal notranslate"><span class="pre">checkDataFrame</span></code> (#159), thanks to &#64;harvey131.</p></li>
+<li><p>Changed heuristic in <code class="docutils literal notranslate"><span class="pre">vname()</span></code> to improve lookup of variable names.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-1-9-1">
+<h1>Version 1.9.1<a class="headerlink" href="#version-1-9-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix segfault on Solaris</p></li>
+<li><p>Fix warnings reported by rchk</p></li>
+<li><p>Fix checking private slots in <code class="docutils literal notranslate"><span class="pre">checkR6</span></code> (#156)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-1-9-0">
+<h1>Version 1.9.0<a class="headerlink" href="#version-1-9-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Error messages now provide more information about error locations, e.g., the
+position of the first missing element in a vector.</p></li>
+<li><p>If the object to check is missing, <code class="docutils literal notranslate"><span class="pre">assert</span></code>-functions now give a better error
+message, <code class="docutils literal notranslate"><span class="pre">test</span></code>-functions are always <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> and <code class="docutils literal notranslate"><span class="pre">expect</span></code>-functions always
+raise an exception.</p></li>
+<li><p>Checks for missingness and sort order optimized for ALTREPs.</p></li>
+<li><p>The calling frame reported in assertions is now identical to the calling
+frame reported by R’s <code class="docutils literal notranslate"><span class="pre">stop()</span></code> function (#117).</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">checkDouble</span></code> to explicitly check for non-integer numerics.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">checkRaw</span></code> to check raw vectors.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">checkFormula</span></code> to check formula objects.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">checkMultiClass</span></code> to check for inheritance from a set of candidates</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">checkDisjunct</span></code> to check sets for being disjunct.</p></li>
+<li><p>Added abbreviation <code class="docutils literal notranslate"><span class="pre">&quot;p&quot;</span></code> to qassert to check for POSIXct objects.</p></li>
+<li><p>Added argument <code class="docutils literal notranslate"><span class="pre">coerce</span></code> to <code class="docutils literal notranslate"><span class="pre">assertCount</span></code>/<code class="docutils literal notranslate"><span class="pre">assert_count</span></code>,
+<code class="docutils literal notranslate"><span class="pre">assertInt</span></code>/<code class="docutils literal notranslate"><span class="pre">assert_int</span></code> and <code class="docutils literal notranslate"><span class="pre">assertIntegerish</span></code>/<code class="docutils literal notranslate"><span class="pre">assert_integerish</span></code> which
+optionally coerces <code class="docutils literal notranslate"><span class="pre">x</span></code> to integer after an successful assertion.
+This supersedes the functions <code class="docutils literal notranslate"><span class="pre">asCount</span></code>, <code class="docutils literal notranslate"><span class="pre">asInt</span></code> and <code class="docutils literal notranslate"><span class="pre">asInteger</span></code> (#77).</p></li>
+<li><p>Added arguments <code class="docutils literal notranslate"><span class="pre">max.rows</span></code> and <code class="docutils literal notranslate"><span class="pre">max.cols</span></code> to check for maximum number
+of rows and columns for matrices, data.frames, tibbles and data.tables.</p></li>
+<li><p>Added argument <code class="docutils literal notranslate"><span class="pre">disjunct.from</span></code> to <code class="docutils literal notranslate"><span class="pre">*Names</span></code>.</p></li>
+<li><p>Fixed an error message in <code class="docutils literal notranslate"><span class="pre">checkChoice</span></code>.</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">*Function</span></code> to work properly with Primitives.</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">*List</span></code> where the check for missingness was broken.</p></li>
+<li><p>Workaround for  <code class="docutils literal notranslate"><span class="pre">*DataTable</span></code> for the detection of the number of rows of
+null data.tables: <a class="reference external" href="https://github.com/Rdatatable/data.table/issues/3149">https://github.com/Rdatatable/data.table/issues/3149</a></p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-1-8-5">
+<h1>Version 1.8.5<a class="headerlink" href="#version-1-8-5" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">*POSIXct</span></code> to check POSIXct data-time objects in POSIXct format.</p></li>
+<li><p>The set functions optionally support the package <code class="docutils literal notranslate"><span class="pre">fastmatch</span></code> now.</p></li>
+<li><p>Argument <code class="docutils literal notranslate"><span class="pre">sorted</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> is not passed to <code class="docutils literal notranslate"><span class="pre">ls()</span></code> anymore to support
+R versions prior to v3.2.0.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-1-8-4">
+<h1>Version 1.8.4<a class="headerlink" href="#version-1-8-4" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>New functions to test bit vectors implemented in package <code class="docutils literal notranslate"><span class="pre">bit</span></code>.</p></li>
+<li><p>New functions to test R6 classes implemented in package <code class="docutils literal notranslate"><span class="pre">R6</span></code>.</p></li>
+<li><p>Always load (not attach) the respective namespace if checking for objects of
+type <code class="docutils literal notranslate"><span class="pre">data.table</span></code>, <code class="docutils literal notranslate"><span class="pre">tibble</span></code>, <code class="docutils literal notranslate"><span class="pre">R6</span></code> or <code class="docutils literal notranslate"><span class="pre">bit</span></code>. This ensures that all operations
+work as expected after the check.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*Names</span></code> with <code class="docutils literal notranslate"><span class="pre">type=&quot;unnamed&quot;</span></code> now works with <code class="docutils literal notranslate"><span class="pre">NULL</span></code>.</p></li>
+<li><p>New argument <code class="docutils literal notranslate"><span class="pre">must.include</span></code> for <code class="docutils literal notranslate"><span class="pre">*Names</span></code>.</p></li>
+<li><p>Fixed possible protection stack imbalance as reported by <code class="docutils literal notranslate"><span class="pre">rchk</span></code>.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-1-8-3">
+<h1>Version 1.8.3<a class="headerlink" href="#version-1-8-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>New argument <code class="docutils literal notranslate"><span class="pre">sorted</span></code> (defaults to <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>) for <code class="docutils literal notranslate"><span class="pre">*Integer</span></code>, <code class="docutils literal notranslate"><span class="pre">*Integerish</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Numeric</span></code> to check for ascending order of vector elements.</p></li>
+<li><p>New argument <code class="docutils literal notranslate"><span class="pre">null.ok</span></code> (defaults to <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>) for <code class="docutils literal notranslate"><span class="pre">*Choice</span></code> and <code class="docutils literal notranslate"><span class="pre">*Class</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*Subset</span></code> now allows to pass empty vectors to <code class="docutils literal notranslate"><span class="pre">choices</span></code>.</p></li>
+<li><p>Improved error message for <code class="docutils literal notranslate"><span class="pre">*Choice</span></code>.</p></li>
+<li><p>The set family of functions is now more restrict regarding the class, e.g.
+they differentiate between factors and characters.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*Character</span></code> and <code class="docutils literal notranslate"><span class="pre">*String</span></code> now ignores missing values in regular expressions
+and for string length checks (using argument <code class="docutils literal notranslate"><span class="pre">min.chars</span></code>).
+To disallow missing values, set <code class="docutils literal notranslate"><span class="pre">any.missing</span></code> or <code class="docutils literal notranslate"><span class="pre">na.ok</span></code>, respectively.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*Date</span></code> now ignores missing values in for lower/upper bound checks.
+To disallow missing values, set <code class="docutils literal notranslate"><span class="pre">any.missing</span></code> to <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>.
+Thanks to Will Beasley (&#64;wibeasley) for the PR.</p></li>
+<li><p>Package <code class="docutils literal notranslate"><span class="pre">microbenchmark</span></code> is no longer strictly required to build the vignette.
+If not installed, some output and figures will be missing though.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-1-8-2">
+<h1>Version 1.8.2<a class="headerlink" href="#version-1-8-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">*Matrix</span></code> and <code class="docutils literal notranslate"><span class="pre">*Array</span></code> now additionally allow to check for integerish storage
+type via argument “mode”.</p></li>
+<li><p>Functions <code class="docutils literal notranslate"><span class="pre">*Count</span></code>, <code class="docutils literal notranslate"><span class="pre">*Int</span></code>, <code class="docutils literal notranslate"><span class="pre">*Number</span></code>, <code class="docutils literal notranslate"><span class="pre">*Integer</span></code>, <code class="docutils literal notranslate"><span class="pre">*Integerish</span></code> and
+<code class="docutils literal notranslate"><span class="pre">*Numeric</span></code> do not accept logical values any more.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">checkAtomicVector</span></code> is now more restrictive and prohibits a dimension symbol.
+Thus, a matrix is not considered an atomic vector any more.</p></li>
+<li><p>Dropped support for AssertCollections in convert functions (<code class="docutils literal notranslate"><span class="pre">asInt</span></code>,
+<code class="docutils literal notranslate"><span class="pre">asInteger</span></code> and <code class="docutils literal notranslate"><span class="pre">asCount</span></code>).</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">checkTibble</span></code>.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-1-8-1">
+<h1>Version 1.8.1<a class="headerlink" href="#version-1-8-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Function <code class="docutils literal notranslate"><span class="pre">test_file</span></code> is longer exported.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*Function</span></code> does not longer lookup functions with <code class="docutils literal notranslate"><span class="pre">match.fun</span></code>. As a result,
+passing functions via the string of the function name stopped working.</p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">qassert</span></code> using <code class="docutils literal notranslate"><span class="pre">f</span></code> as first char in a rule now specifies factor (before:
+function).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-1-8-0">
+<h1>Version 1.8.0<a class="headerlink" href="#version-1-8-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Most functions now support the handling of default arguments encoded as <code class="docutils literal notranslate"><span class="pre">NULL</span></code>
+via argument <code class="docutils literal notranslate"><span class="pre">null.ok</span></code>.</p></li>
+<li><p>Functions <code class="docutils literal notranslate"><span class="pre">*File</span></code> and <code class="docutils literal notranslate"><span class="pre">*Directory</span></code> are deprecated due to name clashes and will
+be removed in a future version. Please use <code class="docutils literal notranslate"><span class="pre">*FileExists</span></code> or <code class="docutils literal notranslate"><span class="pre">*DirectoryExists</span></code>
+instead.</p></li>
+<li><p>New helper function <code class="docutils literal notranslate"><span class="pre">matchArg</span></code> to provide a simple an easy way for partial
+argument matching in combination with an AssertCollection.</p></li>
+<li><p>Added alias functions for all check functions (<code class="docutils literal notranslate"><span class="pre">check_*</span></code>)
+to provide support for the underscore programming style in <code class="docutils literal notranslate"><span class="pre">assert()</span></code>.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-1-7-4">
+<h1>Version 1.7.4<a class="headerlink" href="#version-1-7-4" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Compatibility with the upcoming testthat version.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expect_</span></code> functions now return the checked object invisibly.</p></li>
+<li><p>Changed default of argument <code class="docutils literal notranslate"><span class="pre">.var.name</span></code> for assertions and <code class="docutils literal notranslate"><span class="pre">label</span></code> for
+expectations: They now default to the return value of the exported function
+<code class="docutils literal notranslate"><span class="pre">vname</span></code> (instead of missing which confuses some linters).</p></li>
+<li><p>Fixed error message in convert functions: Variable name was not properly
+looked up by the heuristic.</p></li>
+<li><p>Fixed a bug in <code class="docutils literal notranslate"><span class="pre">qassertr</span></code> and <code class="docutils literal notranslate"><span class="pre">qtestr</span></code> where the error message was not
+properly generated if multiple rules were provided.</p></li>
+<li><p>New argument <code class="docutils literal notranslate"><span class="pre">depth</span></code> for <code class="docutils literal notranslate"><span class="pre">qtestr</span></code> to control the recursion depth while
+checking nested lists.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-1-7-3">
+<h1>Version 1.7.3<a class="headerlink" href="#version-1-7-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">checkDate</span></code>.</p></li>
+<li><p>Argument <code class="docutils literal notranslate"><span class="pre">.var.name</span></code> of assert functions now has \code{NULL} as default value
+(instead of missing).</p></li>
+<li><p>Fixed a bug in <code class="docutils literal notranslate"><span class="pre">*OS</span></code> functions.</p></li>
+<li><p>Fixed a bug in <code class="docutils literal notranslate"><span class="pre">*Directory</span></code> functions.</p></li>
+<li><p>New argument <code class="docutils literal notranslate"><span class="pre">extension</span></code> for the <code class="docutils literal notranslate"><span class="pre">*File</span></code> family of functions.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-1-7-2">
+<h1>Version 1.7.2<a class="headerlink" href="#version-1-7-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">checkOS()</span></code>.</p></li>
+<li><p>Argument <code class="docutils literal notranslate"><span class="pre">fixed</span></code> for <code class="docutils literal notranslate"><span class="pre">*Character</span></code> functions now accepts a string instead of a
+boolean value and thus can directly be used for a substring search.</p></li>
+<li><p>New arguments <code class="docutils literal notranslate"><span class="pre">min.chars</span></code>, <code class="docutils literal notranslate"><span class="pre">pattern</span></code>, <code class="docutils literal notranslate"><span class="pre">fixed</span></code> and <code class="docutils literal notranslate"><span class="pre">ignore.case</span></code>  for the
+<code class="docutils literal notranslate"><span class="pre">*String</span></code> family of functions.</p></li>
+<li><p>Exported helper functions <code class="docutils literal notranslate"><span class="pre">wf</span></code> (which.first) and <code class="docutils literal notranslate"><span class="pre">wl</span></code> (which.last).</p></li>
+<li><p>Now importing the new backports package for functions <code class="docutils literal notranslate"><span class="pre">lengths()</span></code> and
+<code class="docutils literal notranslate"><span class="pre">dir.exists</span></code>.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-1-7-1">
+<h1>Version 1.7.1<a class="headerlink" href="#version-1-7-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed a segfault while checking an upper bound in qassert/qtest.</p></li>
+<li><p>Some minor speedups</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-1-7-0">
+<h1>Version 1.7.0<a class="headerlink" href="#version-1-7-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added alias functions for all functions to support the underscore style, e.g.
+<code class="docutils literal notranslate"><span class="pre">assert_numeric</span></code> is the new alias for <code class="docutils literal notranslate"><span class="pre">assertNumeric</span></code> and <code class="docutils literal notranslate"><span class="pre">test_matrix</span></code> is the
+alias for <code class="docutils literal notranslate"><span class="pre">test_matrix</span></code>.</p></li>
+<li><p>All assert functions now invisibly return the tested object instead of <code class="docutils literal notranslate"><span class="pre">TRUE</span></code>
+and thus can be used with magrittr pipes.</p></li>
+<li><p>Improved speed for most functions by reducing the .Call overhead (Thanks to
+Hadley Wickham).</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">*DataTable</span></code> functions to properly test primary and secondary keys of
+data tables.</p></li>
+<li><p>Removed <code class="docutils literal notranslate"><span class="pre">*Percentage</span></code> family of functions.</p></li>
+<li><p>Exported functions <code class="docutils literal notranslate"><span class="pre">makeAssertion</span></code>, <code class="docutils literal notranslate"><span class="pre">makeTest</span></code> and <code class="docutils literal notranslate"><span class="pre">makeExpectation</span></code> to assist
+expanding the package with user-generated checks.</p></li>
+<li><p>Added functions <code class="docutils literal notranslate"><span class="pre">makeAssertionFunction</span></code>, <code class="docutils literal notranslate"><span class="pre">makeTestFunction</span></code> and
+<code class="docutils literal notranslate"><span class="pre">makeExpectationFunction</span></code> to automatically create the respective functions
+based on a provided check function.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-1-6-3">
+<h1>Version 1.6.3<a class="headerlink" href="#version-1-6-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Assertions can now be collected (via <code class="docutils literal notranslate"><span class="pre">makeAssertCollection()</span></code>) and reported
+(via <code class="docutils literal notranslate"><span class="pre">reportAssertions()</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">qassert()</span></code> can now perform bound checks on strings.</p></li>
+<li><p>The default for the parameter “ordered” of the <code class="docutils literal notranslate"><span class="pre">*SetEqual</span></code> functions is now
+set to FALSE, as described in the documentation.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-1-6-2">
+<h1>Version 1.6.2<a class="headerlink" href="#version-1-6-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed a compile-time warning.</p></li>
+<li><p>checkmate does not import <code class="docutils literal notranslate"><span class="pre">testthat</span></code> anymore in order to speed up package
+loading times and to keep the dependencies at a minimum. The <code class="docutils literal notranslate"><span class="pre">expect_*</span></code>
+family of functions can still be used, the namespace will be loaded on
+demand.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-1-6-1">
+<h1>Version 1.6.1<a class="headerlink" href="#version-1-6-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>New family of functions: <code class="docutils literal notranslate"><span class="pre">expect_*</span></code> is intended to be used in combination
+with testthat. But note that functions <code class="docutils literal notranslate"><span class="pre">expect_null()</span></code> and <code class="docutils literal notranslate"><span class="pre">expect_named()</span></code>
+are not provided to avoid name clashes with testthat.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">qexpect()</span></code> and <code class="docutils literal notranslate"><span class="pre">qexpectr()</span></code>.</p></li>
+<li><p>Added argument <code class="docutils literal notranslate"><span class="pre">all.missing</span></code> for checks of matricies and data frames.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">anyNaN()</span></code>.</p></li>
+<li><p>Clarified documentation for <code class="docutils literal notranslate"><span class="pre">assert()</span></code> and <code class="docutils literal notranslate"><span class="pre">allMissing()</span></code>.</p></li>
+<li><p>Fixed a bug where bound checks were performed on missing values.</p></li>
+<li><p>Fixed a bug where missingness was not correctly detected in data frames.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-1-6-0">
+<h1>Version 1.6.0<a class="headerlink" href="#version-1-6-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Started to support long vectors.</p></li>
+<li><p>Added a short vignette.</p></li>
+<li><p>Improved documentation.</p></li>
+<li><p>New argument “combine” for <code class="docutils literal notranslate"><span class="pre">assert()</span></code> to allow combining check functions with
+an AND instead of an OR.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-1-5-3">
+<h1>Version 1.5.3<a class="headerlink" href="#version-1-5-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed a bug regarding the number of rows in zero-column data frames.</p></li>
+<li><p>Fixed a bug where the type of lists with dimension attribute where reported
+as “array” or “matrix”.</p></li>
+<li><p>Family *Array: new arguments “min.d” and “max.d”.</p></li>
+<li><p>Family *Array and *Matrix: Argument “mode” now additionally accepts strings
+“list” and “atomic”.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-1-5-2">
+<h1>Version 1.5.2<a class="headerlink" href="#version-1-5-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed: <code class="docutils literal notranslate"><span class="pre">(assert|check|test)Character(NA_character_,</span> <span class="pre">min.chars</span> <span class="pre">=</span> <span class="pre">1)</span></code> does not
+eval to TRUE anymore.</p></li>
+<li><p>New arguments for <code class="docutils literal notranslate"><span class="pre">*Factor</span></code> functions: <code class="docutils literal notranslate"><span class="pre">(n|min|max).levels</span></code>.</p></li>
+<li><p>Improved error messages for type and length checks.</p></li>
+<li><p>Improved error messages for missing arguments.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-1-5-1">
+<h1>Version 1.5.1<a class="headerlink" href="#version-1-5-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Included a workaround for R’s nrow and ncol to properly work with data frames.</p></li>
+<li><p>Fixed a bug handling complex number in checks for integerish values.</p></li>
+<li><p>Improved documentation.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-1-5-0">
+<h1>Version 1.5.0<a class="headerlink" href="#version-1-5-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">checkNames()</span></code>.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">checkPercentage()</span></code>.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">anyInfinite()</span></code>.</p></li>
+<li><p>Fixed error messages for some dimension checks.</p></li>
+<li><p>Fixed an error while checking numerics for finiteness.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-1-4">
+<h1>Version 1.4<a class="headerlink" href="#version-1-4" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed a bug where rownames and colnames of data.frames where not retrieved
+correctly.</p></li>
+<li><p>Fixed a bug in <code class="docutils literal notranslate"><span class="pre">checkVector()</span></code> (wrong order of arguments in call to C).</p></li>
+<li><p>Filesystem access: checks for write and executable rights are now disabled
+on windows.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-1-3">
+<h1>Version 1.3<a class="headerlink" href="#version-1-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed a bug where logical values passed a check for numerics in <code class="docutils literal notranslate"><span class="pre">qassert</span></code>.</p></li>
+<li><p>Family <code class="docutils literal notranslate"><span class="pre">*SetEqual</span></code>: new argument “ordered”.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">checkPathForOutput</span></code>: new argument “overwrite”.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-1-2">
+<h1>Version 1.2<a class="headerlink" href="#version-1-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed bug in checkList.</p></li>
+<li><p>Fixed dimnames check on empty matrices and data frames.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">*SetEqual</span></code> functions.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-1-1">
+<h1>Version 1.1<a class="headerlink" href="#version-1-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Improved error messages in <code class="docutils literal notranslate"><span class="pre">assert*</span></code> functions.</p></li>
+<li><p>New argument ‘empty.ok’ for <code class="docutils literal notranslate"><span class="pre">*Subset</span></code> functions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">assert()</span></code> now returns TRUE invisibly (as documented).</p></li>
+<li><p>Fixed handling of zero-length arguments in <code class="docutils literal notranslate"><span class="pre">checkFunction()</span></code>.</p></li>
+<li><p>Fixed error message if duplicated values where found.</p></li>
+<li><p>Fixed a missing check for row names in <code class="docutils literal notranslate"><span class="pre">checkMatrix</span></code> and <code class="docutils literal notranslate"><span class="pre">checkDataFrame</span></code>.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="version-1-0">
+<h1>Version 1.0<a class="headerlink" href="#version-1-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Initial release on CRAN.</p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./temporal/renv/library/R-4.1/aarch64-apple-darwin20/checkmate"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Quan Nguyen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

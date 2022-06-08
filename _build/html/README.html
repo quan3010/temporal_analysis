@@ -52,7 +52,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Lecture 1" href="Lecture1.html" />
+    <link rel="next" title="Lecture 1: Clustering of sequential data in education" href="Lecture1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -97,7 +97,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Lecture1.html">
-   Lecture 1
+   Lecture 1: Clustering of sequential data in education
   </a>
  </li>
  <li class="toctree-l1">
@@ -219,44 +219,30 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Workshop 5: Temporal and sequential analysis
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#environment-set-up">
+   Environment set up
   </a>
  </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dsci-574-spatial-and-temporal-models">
-   DSCI 574: Spatial and Temporal Models
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#about-instructor">
+   About instructor
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#license">
-     License
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#environment-set-up">
-     Environment set up
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#about-instructor">
-     About instructor
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#agenda">
-       Agenda
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#reference-material">
-     Reference Material
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#agenda">
+   Agenda
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reference-material">
+   Reference Material
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#license">
+   License
+  </a>
  </li>
 </ul>
 
@@ -272,48 +258,94 @@
   <p><img alt="" src="_images/solar_logo.png" /></p>
 <div class="tex2jax_ignore mathjax_ignore section" id="workshop-5-temporal-and-sequential-analysis">
 <h1>Workshop 5: Temporal and sequential analysis<a class="headerlink" href="#workshop-5-temporal-and-sequential-analysis" title="Permalink to this headline">¶</a></h1>
-<p><strong>Instructor</strong>: Quan Nguyen, Ph.D., Teaching Fellow, Master of Data Science
+<p><strong>Instructor</strong>: Quan Nguyen, Ph.D., Teaching Fellow, Master of Data Science<br />
 Department of Statistics, University of British Columbia</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/quan3010/temporal_analysis">GitHub Repository</a></p></li>
+<li><p><a class="reference external" href="https://quan3010.github.io/temporal_analysis/README.html">Course Jupyter Book</a></p></li>
+<li><p><a class="reference external" href="https://google.com">Zoom link</a></p></li>
+</ul>
+<p><strong>About the workshop</strong>:</p>
 <p>Data in learning analytics research (e.g. SIS, clickstream, log-files) are often rich in temporal features that could allow us to explore the dynamic changes in learning behavior at different time granularities (e.g. seconds, days, weeks, semesters). This workshop will introduce participants to several common temporal/sequential analysis methods and techniques using R. During the workshop, we will discuss how temporal analysis can be applied to answer RQs in learning analytics and which learning constructs are relevant to temporal analysis. Next, we will go through techniques to explore and visualize temporal/sequential data. Participants will learn and apply two types of temporal models: a) explanatory models using statistical techniques, such as Sequence Analysis with application to identify common patterns of learning activities from log data and b) association rule mining (apriori) with application to detect courses that are frequently taken together and create association rules for course recommendations.</p>
 <p><strong>Target Audience</strong>:</p>
 <p>This workshop is designed for anyone interested in temporal/sequential analysis. No experience in temporal and sequential analysis is required. To get the best learning experience, participants should familiarize themselves with basic statistics and machine learning concepts (e.g. regression, variance, autocorrelation, classification, cross-validation, overfitting).</p>
-<p>Bring a laptop with RStudio installed. More information on the packages will be provided before the workshop</p>
-<p><strong>Special issues worth checking out</strong>:</p>
-<ul class="simple">
-<li><p>Knight, S., Friend Wise, A., &amp; Chen, B. (2017). Time for Change: Why Learning Analytics Needs Temporal Analysis. Journal of Learning Analytics, 4(3), 7–17.
-<a class="reference external" href="https://doi.org/10.18608/jla.2017.43.2">https://doi.org/10.18608/jla.2017.43.2</a></p></li>
-<li><p>Chen, B., Knight, S., &amp; Wise, A. F. (2018). Critical Issues in Designing and Implementing Temporal Analytics. Journal of Learning Analytics, 5(1), 1–9. <a class="reference external" href="https://doi.org/10.18608/jla.2018.53.1">https://doi.org/10.18608/jla.2018.53.1</a></p></li>
-</ul>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="dsci-574-spatial-and-temporal-models">
-<h1>DSCI 574: Spatial and Temporal Models<a class="headerlink" href="#dsci-574-spatial-and-temporal-models" title="Permalink to this headline">¶</a></h1>
-<p>An introduction to modelling temporal and spatial data in Python. For time series data, covers decomposition, classical models like exponential smoothing and ARIMA, machine learning, anomaly detection, and more. For spatial data, covers geospatial basics, visualization tools, spatial models such as kriging, and more.</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.ubc.ca/MDS-2021-22/DSCI_574_spat-temp-mod_students">GitHub Repository</a></p></li>
-<li><p><a class="reference external" href="https://pages.github.ubc.ca/MDS-2021-22/DSCI_574_spat-temp-mod_students/README.html">Course Jupyter Book</a></p></li>
-<li><p>Zoom link</p></li>
-</ul>
-<div class="section" id="license">
-<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
-<p>© 2022 Quan Nguyen</p>
-<p>Software licensed under <a class="reference external" href="https://spdx.org/licenses/MIT.html">the MIT License</a>, non-software content licensed under <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a>.</p>
-</div>
 <div class="section" id="environment-set-up">
 <h2>Environment set up<a class="headerlink" href="#environment-set-up" title="Permalink to this headline">¶</a></h2>
-<p>The course will use Python and draw on packages such as <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">geopandas</span></code>, and <code class="docutils literal notranslate"><span class="pre">statsmodels</span></code>.</p>
-<p>You can install all the dependencies you need for the course using <code class="docutils literal notranslate"><span class="pre">conda</span></code>:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda env create -f mds574.yaml
+<p>The workshop will use R and draw on packages such as <code class="docutils literal notranslate"><span class="pre">tramineR</span></code>, <code class="docutils literal notranslate"><span class="pre">fpp3</span></code>, and <code class="docutils literal notranslate"><span class="pre">keras</span></code>.</p>
+<p>You can install all the dependencies you need for the workshop using <a class="reference external" href="https://rstudio.github.io/renv/articles/renv.html">renv</a>:
+Using renv, you can create and manage the R library environment for your project, save the state of these libraries to a lockfile, and later restore libraries as required. Together, these tools can help make projects more isolated, portable, and reproducible.</p>
+<p><strong>Step 1: Clone the github repo and open the Rproject</strong></p>
+<p>In the Rstudio console, type</p>
+<ul class="simple">
+<li><p>Open Terminal.</p></li>
+<li><p>Change the current working directory to the location where you want the cloned directory.</p></li>
+<li><p>Type in the terminal:</p></li>
+</ul>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/quan3010/temporal_analysis
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Navigate to the repo, in the <code class="docutils literal notranslate"><span class="pre">temporal</span></code> folder, open the <code class="docutils literal notranslate"><span class="pre">temporal.Rproj</span></code> to set up the Rproject for this workshop</p></li>
+</ul>
+<p><strong>Step 2: Load all dependencies &amp; required packages</strong></p>
+<p>In the Rstudio console, type</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>renv::restore<span class="o">()</span>
+</pre></div>
+</div>
+<p><strong>Step 3: Deactivate the virtual environment when you are finished</strong></p>
+<p>In the Rstudio console, type</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>renv::deactivate<span class="o">()</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="about-instructor">
 <h2>About instructor<a class="headerlink" href="#about-instructor" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="agenda">
-<h3>Agenda<a class="headerlink" href="#agenda" title="Permalink to this headline">¶</a></h3>
+<p>I am a Teaching Fellow at the UBC Master of Data Science where I develop and teach data science courses. Prior to UBC, I was a Postdoctoral Research Fellow in Learning Analytics at the School of Information, University of Michigan. My research focuses on analysing digital traces in educational settings to detect temporal discrepancies between course design and student engagement, and the subsequent effects on academic performance. My second research strand is to model peer interactions and peer influence on academic choices and performance. My work employed a wide range of statistical and computational techniques, such as multilevel modeling, network analysis, time-series/temporal analysis, and machine learning. My work has received multiple best paper awards at established conferences (e.g. LAK18 and HCI International 17).</p>
 </div>
+<div class="section" id="agenda">
+<h2>Agenda<a class="headerlink" href="#agenda" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Day</p></th>
+<th class="head"><p>Lecture</p></th>
+<th class="head"><p>Lab</p></th>
+<th class="head"><p>Readings</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>Sequential analysis with tramineR</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Time-series forecasting</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>Time-series classification</p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="reference-material">
 <h2>Reference Material<a class="headerlink" href="#reference-material" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://otexts.com/fpp3/">Forecasting Principles and Practice (FPP)</a>, Hyndman &amp; Athanasopoulos (2021)</p></li>
+<li><p><a class="reference external" href="https://link.springer.com/book/10.1007/978-1-4842-7150-6">Advanced Forecasting with Python With State-of-the-Art-Models Including LSTMs, Facebook’s Prophet, and Amazon’s DeepAR</a></p></li>
+<li><p><a class="reference external" href="https://www.stat.pitt.edu/stoffer/tsa4/">Time Series Analysis and its Application: With R Examples (TSAA)</a>, Shumway &amp; Stoffer (2017)</p></li>
+<li><p>Knight, S., Friend Wise, A., &amp; Chen, B. (2017). Time for Change: Why Learning Analytics Needs Temporal Analysis. Journal of Learning Analytics, 4(3), 7–17.
+<a class="reference external" href="https://doi.org/10.18608/jla.2017.43.2">https://doi.org/10.18608/jla.2017.43.2</a></p></li>
+<li><p>Chen, B., Knight, S., &amp; Wise, A. F. (2018). Critical Issues in Designing and Implementing Temporal Analytics. Journal of Learning Analytics, 5(1), 1–9. <a class="reference external" href="https://doi.org/10.18608/jla.2018.53.1">https://doi.org/10.18608/jla.2018.53.1</a></p></li>
+</ul>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<p>© 2022 Quan Nguyen</p>
+<p>Software licensed under <a class="reference external" href="https://spdx.org/licenses/MIT.html">the MIT License</a>, non-software content licensed under <a class="reference external" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a>.</p>
 </div>
 <div class="toctree-wrapper compound">
 </div>
@@ -349,7 +381,7 @@ Department of Statistics, University of British Columbia</p>
     <a class='right-next' id="next-link" href="Lecture1.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lecture 1</p>
+        <p class="prev-next-title">Lecture 1: Clustering of sequential data in education</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -35,7 +35,7 @@ In the Rstudio console, type
 ```sh
 git clone https://github.com/quan3010/temporal_analysis
 ```
-* Navigate to the repo, open the `temporal.Rproj` to set up the Rproject for this workshop
+* Navigate to the repo, in the `temporal` folder, open the `temporal.Rproj` to set up the Rproject for this workshop
 
 **Step 2: Load all dependencies & required packages**
 

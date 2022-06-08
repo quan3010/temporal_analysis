@@ -1,0 +1,1419 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>broom 0.8.0 &#8212; Temporal and sequential analysis - LASI 2022</title>
+    
+  <link href="../../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../_static/togglebutton.js"></script>
+    <script src="../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../../../_static/solar_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Temporal and sequential analysis - LASI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture1.html">
+   Lecture 1: Clustering of sequential data in education
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture2.html">
+   Lecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture3.html">
+   Lecture 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Labs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab1.html">
+   Lab 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab2.html">
+   Lab 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab3.html">
+   Lab 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Quan Nguyen<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../../_sources/temporal/renv/library/R-4.1/aarch64-apple-darwin20/broom/NEWS.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/quan3010/temporal_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/quan3010/temporal_analysis/issues/new?title=Issue%20on%20page%20%2Ftemporal/renv/library/R-4.1/aarch64-apple-darwin20/broom/NEWS.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   broom 0.8.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bug-fixes-and-other-improvements">
+     Bug fixes and other improvements
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-7-12">
+   broom 0.7.12
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-7-11">
+   broom 0.7.11
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-7-10">
+   broom 0.7.10
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-7-9">
+   broom 0.7.9
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-7-8">
+   broom 0.7.8
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-7-7">
+   broom 0.7.7
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-7-6">
+   broom 0.7.6
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-7-5">
+   broom 0.7.5
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-7-4">
+   broom 0.7.4
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-tidiers">
+     New Tidiers
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#improvements-to-existing-tidiers">
+     Improvements to existing tidiers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-7-3">
+   broom 0.7.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-7-2">
+   broom 0.7.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-7-1">
+   broom 0.7.1
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     New tidiers
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Improvements to existing tidiers
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bug-fixes">
+     Bug fixes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deprecations">
+     Deprecations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-7-0">
+   broom 0.7.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#big-picture-changes">
+     Big picture changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Deprecations
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minor-breaking-changes">
+     Minor breaking changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-refactoring-of-augment-methods">
+     A refactoring of
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       augment()
+      </span>
+     </code>
+     methods
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     New tidiers
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Improvements to existing tidiers
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#id6">
+       Bug fixes
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#other-changes">
+       Other changes
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#for-developers-and-contributors">
+     For developers and contributors
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-5-6">
+   broom 0.5.6
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-5-5">
+   broom 0.5.5
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-5-4">
+   broom 0.5.4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-5-3">
+   broom 0.5.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-5-2">
+   broom 0.5.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-5-1">
+   broom 0.5.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-5-0">
+   broom 0.5.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#breaking-changes">
+     Breaking changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-vignettes">
+     New vignettes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Deprecations
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Other changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#contributors">
+     Contributors
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-4-4">
+   broom 0.4.4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-4-3">
+   broom 0.4.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-4-2">
+   broom 0.4.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-4-1">
+   broom 0.4.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-4-0">
+   broom 0.4.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-3-7">
+   broom 0.3.7
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-3-6">
+   broom 0.3.6
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-3-5">
+   broom 0.3.5
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-3-4">
+   broom 0.3.4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-3">
+   broom 0.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#broom-0-2">
+   broom 0.2
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="broom-0-8-0">
+<h1>broom 0.8.0<a class="headerlink" href="#broom-0-8-0" title="Permalink to this headline">¶</a></h1>
+<p>This update makes significant improvements to documentation, fixes a number of bugs, and brings the development flow of the package up to date with other packages in the tidymodels.</p>
+<p>In the big picture, this release:</p>
+<ul class="simple">
+<li><p>Makes many improvements to documentation:</p>
+<ul>
+<li><p>All tidiers now have example code demonstrating usage in their documentation. Tidiers for base packages as well as selected others also include sample code for visualization of results with ggplot2.</p></li>
+<li><p>Code examples in the documentation largely now follow consistent style—these changes were made largely to reflect the tidyverse style guide, addressing spacing, object naming, and commenting, among other things.</p></li>
+<li><p>Examples previously marked with <code class="docutils literal notranslate"><span class="pre">\dontrun</span></code> or <code class="docutils literal notranslate"><span class="pre">\donttest</span></code> have been workshopped to run reliably.</p></li>
+</ul>
+</li>
+<li><p>Clarifies errors and warnings for deprecated and un-maintained tidiers.</p></li>
+<li><p>Ensures that tidiers are placed in files named according to the model-supplying package rather than the model object class for easier navigability of the source code.</p></li>
+</ul>
+<div class="section" id="bug-fixes-and-other-improvements">
+<h2>Bug fixes and other improvements<a class="headerlink" href="#bug-fixes-and-other-improvements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">glance.fixest</span></code> error when model includes only fixed effects and no regressors (<code class="docutils literal notranslate"><span class="pre">#1018</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;arcruz0</span></code>, <code class="docutils literal notranslate"><span class="pre">#1088</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;vincentarelbundock</span></code>).</p></li>
+<li><p>Address excessive messaging from <code class="docutils literal notranslate"><span class="pre">tidy.speedlm</span></code> (<code class="docutils literal notranslate"><span class="pre">#1084</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;cgoo4</span></code>, <code class="docutils literal notranslate"><span class="pre">#1087</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;vincentarelbundock</span></code>).</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">nobs</span></code> column to the output of <code class="docutils literal notranslate"><span class="pre">glance.svyglm</span></code> (<code class="docutils literal notranslate"><span class="pre">#1085</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;fschaffner</span></code>, <code class="docutils literal notranslate"><span class="pre">#1086</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;vincentarelbundock</span></code>).</p></li>
+<li><p>Ensure <code class="docutils literal notranslate"><span class="pre">tidy.prcomp</span></code> description entries use consistent punctuation (<code class="docutils literal notranslate"><span class="pre">#1072</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;PursuitOfDataScience</span></code>).</p></li>
+<li><p>Address breaking changes in <code class="docutils literal notranslate"><span class="pre">glance.fixest</span></code> and <code class="docutils literal notranslate"><span class="pre">tidy.btergm</span></code>.</p></li>
+<li><p>Simplify handling of <code class="docutils literal notranslate"><span class="pre">MASS::polr</span></code> output in the corresponding <code class="docutils literal notranslate"><span class="pre">tidy</span></code> and <code class="docutils literal notranslate"><span class="pre">augment</span></code> methods.</p></li>
+<li><p>Align continuous integration with current standards in tidymodels packages.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-7-12">
+<h1>broom 0.7.12<a class="headerlink" href="#broom-0-7-12" title="Permalink to this headline">¶</a></h1>
+<p>Nearly identical source to broom 0.7.11—updates the maintainer email address to an address listed in other CRAN packages maintained by the same person.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-7-11">
+<h1>broom 0.7.11<a class="headerlink" href="#broom-0-7-11" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Addressed issue with the ordering of original observations in <code class="docutils literal notranslate"><span class="pre">augment.rqs</span></code>. Now function preserves the original <code class="docutils literal notranslate"><span class="pre">data.frame</span></code> names also when the input <code class="docutils literal notranslate"><span class="pre">data.frame</span></code> only has one column (<code class="docutils literal notranslate"><span class="pre">#1052</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;ilapros</span></code>).</p></li>
+<li><p>Addressed warning from <code class="docutils literal notranslate"><span class="pre">tidy.rma</span></code> when <code class="docutils literal notranslate"><span class="pre">x$ddf</span></code> has length greater than 1 (<code class="docutils literal notranslate"><span class="pre">#1064</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;wviechtb</span></code>).</p></li>
+<li><p>Fix errors in <code class="docutils literal notranslate"><span class="pre">glance.lavaan</span></code> in anticipation of upcoming <code class="docutils literal notranslate"><span class="pre">tidyr</span></code> release (<code class="docutils literal notranslate"><span class="pre">#1067</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;DavisVaughan</span></code>).</p></li>
+<li><p>Corrected the confidence interval in <code class="docutils literal notranslate"><span class="pre">tidy.crr()</span></code>. The <code class="docutils literal notranslate"><span class="pre">tidy.crr(conf.level=)</span></code> argument was previously ignored (<code class="docutils literal notranslate"><span class="pre">#1068</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;ddsjoberg</span></code>).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-7-10">
+<h1>broom 0.7.10<a class="headerlink" href="#broom-0-7-10" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Clarifies error when <code class="docutils literal notranslate"><span class="pre">pysch::mediate</span></code> output is dispatched to <code class="docutils literal notranslate"><span class="pre">tidy.mediate</span></code> (<code class="docutils literal notranslate"><span class="pre">#1037</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;LukasWallrich</span></code>).</p></li>
+<li><p>Allows user to specify confidence level for <code class="docutils literal notranslate"><span class="pre">tidy.rma</span></code> (<code class="docutils literal notranslate"><span class="pre">#1041</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;TarenSanders</span></code>)</p></li>
+<li><p>Clarifies documentation related to usage of <code class="docutils literal notranslate"><span class="pre">augment_columns()</span></code>; most package users should use <code class="docutils literal notranslate"><span class="pre">augment()</span></code> in favor of <code class="docutils literal notranslate"><span class="pre">augment_columns()</span></code>. See <code class="docutils literal notranslate"><span class="pre">?augment_columns</span></code> for more details.</p></li>
+<li><p>Extends support for <code class="docutils literal notranslate"><span class="pre">emmeans</span></code> by fixing non-standard column names in case of asymptotically derived inferential statistics. (<code class="docutils literal notranslate"><span class="pre">#1046</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;crsh</span></code>)</p></li>
+<li><p>Fixes use of index columns in <code class="docutils literal notranslate"><span class="pre">augment.mlogit</span></code> and adds <code class="docutils literal notranslate"><span class="pre">.resid</span></code> column to
+output. (<code class="docutils literal notranslate"><span class="pre">#1045</span></code>, <code class="docutils literal notranslate"><span class="pre">#1053</span></code>, <code class="docutils literal notranslate"><span class="pre">#1055</span></code>, and <code class="docutils literal notranslate"><span class="pre">#1056</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;jamesrrae</span></code> and
+<code class="docutils literal notranslate"><span class="pre">&#64;gregmacfarlane</span></code>)</p></li>
+<li><p>Correct column naming of standard error measures in <code class="docutils literal notranslate"><span class="pre">glance.survfit()</span></code>.</p></li>
+<li><p>Various bug fixes and improvements to documentation.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-7-9">
+<h1>broom 0.7.9<a class="headerlink" href="#broom-0-7-9" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixes confidence intervals in <code class="docutils literal notranslate"><span class="pre">tidy.crr()</span></code>, which were previously exponentiated when <code class="docutils literal notranslate"><span class="pre">exponentiate</span> <span class="pre">=</span> <span class="pre">FALSE</span></code> (<code class="docutils literal notranslate"><span class="pre">#1023</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;leejasme</span></code>)</p></li>
+<li><p>Deprecates <code class="docutils literal notranslate"><span class="pre">Rchoice</span></code> tidiers, as the newest 0.3-3 release requires R 4.0+ and does not re-export needed generics.</p></li>
+<li><p>Updates to <code class="docutils literal notranslate"><span class="pre">ergm</span></code> tidiers in anticipation of changes in later releases. (<code class="docutils literal notranslate"><span class="pre">#1034</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;krivit</span></code>)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-7-8">
+<h1>broom 0.7.8<a class="headerlink" href="#broom-0-7-8" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed bug in <code class="docutils literal notranslate"><span class="pre">glance.ergm</span></code> related to handling of MCMC details.</p></li>
+<li><p>Address breakages in unit tests for {fixest} tidiers.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-7-7">
+<h1>broom 0.7.7<a class="headerlink" href="#broom-0-7-7" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed bug in <code class="docutils literal notranslate"><span class="pre">tidy.epi.2by2</span></code> that resulted in errors with new version of <code class="docutils literal notranslate"><span class="pre">epiR</span></code> (<code class="docutils literal notranslate"><span class="pre">#1028</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;nt-williams</span></code>)</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">exponentiate</span></code> argument to <code class="docutils literal notranslate"><span class="pre">tidy.gam()</span></code> tidier applicable for parametric terms (<code class="docutils literal notranslate"><span class="pre">#1013</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;ddsjoberg</span></code>)</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">exponentiate</span></code> argument to <code class="docutils literal notranslate"><span class="pre">tidy.negbin()</span></code> tidier (<code class="docutils literal notranslate"><span class="pre">#1011</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;ddsjoberg</span></code>)</p></li>
+<li><p>Fixed failures in <code class="docutils literal notranslate"><span class="pre">spdep</span></code> tidiers following breaking changes in the most recent release</p></li>
+<li><p>Various bug fixes and improvements to documentation</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-7-6">
+<h1>broom 0.7.6<a class="headerlink" href="#broom-0-7-6" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed bug in <code class="docutils literal notranslate"><span class="pre">augment</span></code> tidiers resulting in <code class="docutils literal notranslate"><span class="pre">.fitted</span></code> and <code class="docutils literal notranslate"><span class="pre">.se.fit</span></code> array columns.</p></li>
+<li><p>Fixed bug that made column <code class="docutils literal notranslate"><span class="pre">y</span></code> non-numeric after <code class="docutils literal notranslate"><span class="pre">tidy_xyz</span></code> (<code class="docutils literal notranslate"><span class="pre">#973</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;jiho</span></code>)</p></li>
+<li><p>Added tidiers for <code class="docutils literal notranslate"><span class="pre">MASS:glm.nb</span></code> (<code class="docutils literal notranslate"><span class="pre">#998</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;joshyam-k</span></code>)</p></li>
+<li><p>Fixed bug in <code class="docutils literal notranslate"><span class="pre">tidy.fixest</span></code> that sometimes prevented arguments like <code class="docutils literal notranslate"><span class="pre">se</span></code> from being used (<code class="docutils literal notranslate"><span class="pre">#1001</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;karldw</span></code>)</p></li>
+<li><p>Fixed bug in <code class="docutils literal notranslate"><span class="pre">tidy.fixest</span></code> that resulted in errors when columns with name
+<code class="docutils literal notranslate"><span class="pre">x</span></code> are present (<code class="docutils literal notranslate"><span class="pre">#1007</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;grantmcdermott</span></code>)</p></li>
+<li><p>Moved forward with planned deprecation of <code class="docutils literal notranslate"><span class="pre">gamlss</span></code> tidiers in favor of
+those provided in <code class="docutils literal notranslate"><span class="pre">broom.mixed</span></code></p></li>
+<li><p>Various bug fixes and improvements to documentation</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-7-5">
+<h1>broom 0.7.5<a class="headerlink" href="#broom-0-7-5" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed bug in the <code class="docutils literal notranslate"><span class="pre">nnet::multinom</span></code> tidier in the case that the response
+variable has only two levels (<code class="docutils literal notranslate"><span class="pre">#993</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;vincentarelbundock</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;hughjonesd</span></code>)</p></li>
+<li><p>Various bug fixes and improvements to documentation</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-7-4">
+<h1>broom 0.7.4<a class="headerlink" href="#broom-0-7-4" title="Permalink to this headline">¶</a></h1>
+<p>broom 0.7.4 introduces tidier support for a number of new model objects and
+improves functionality of many existing tidiers!</p>
+<div class="section" id="new-tidiers">
+<h2>New Tidiers<a class="headerlink" href="#new-tidiers" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Add tidiers for <code class="docutils literal notranslate"><span class="pre">Rchoice</span></code> objects (<code class="docutils literal notranslate"><span class="pre">#961</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;vincentarelbundock</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;Nateme16</span></code>)</p></li>
+<li><p>Add tidiers for objects produced by <code class="docutils literal notranslate"><span class="pre">car::leveneTest</span></code> (<code class="docutils literal notranslate"><span class="pre">#968</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;vincentarelbundock</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;mkirzon</span></code>)</p></li>
+<li><p>Add tidiers for objects produced by <code class="docutils literal notranslate"><span class="pre">cmprsk::crr</span></code> (<code class="docutils literal notranslate"><span class="pre">#971</span></code> and <code class="docutils literal notranslate"><span class="pre">#552</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;vincentarelbundock</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;margarethannum</span></code>)</p></li>
+<li><p>Add an <code class="docutils literal notranslate"><span class="pre">augment()</span></code> method for <code class="docutils literal notranslate"><span class="pre">gam</span></code> objects (<code class="docutils literal notranslate"><span class="pre">#975</span></code> and <code class="docutils literal notranslate"><span class="pre">#645</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;vincentarelbundock</span></code>)</p></li>
+<li><p>Add tidiers for <code class="docutils literal notranslate"><span class="pre">vars</span></code> objects (<code class="docutils literal notranslate"><span class="pre">#979</span></code> and <code class="docutils literal notranslate"><span class="pre">#161</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;vincentarelbundock</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;Diego-MX</span></code>)</p></li>
+</ul>
+<p>This release also restores tidiers for <code class="docutils literal notranslate"><span class="pre">felm</span></code> objects from the <code class="docutils literal notranslate"><span class="pre">lfe</span></code> package, which was recently unarchived from CRAN.</p>
+</div>
+<div class="section" id="improvements-to-existing-tidiers">
+<h2>Improvements to existing tidiers<a class="headerlink" href="#improvements-to-existing-tidiers" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tidy.emmGrid</span></code> can now return <code class="docutils literal notranslate"><span class="pre">std.error</span></code> and <code class="docutils literal notranslate"><span class="pre">conf.*</span></code> columns at the same time. (<code class="docutils literal notranslate"><span class="pre">#962</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;vincentarelbundock</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;jmbarbone</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tidy.garch</span></code> can now produce confidence intervals (<code class="docutils literal notranslate"><span class="pre">#964</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;vincentarelbundock</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;IndrajeetPatil</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tidy.coxph</span></code> can now report confidence intervals on models utilizing penalized/clustering terms (<code class="docutils literal notranslate"><span class="pre">#966</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;vincentarelbundock</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;matthieu-faron</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">augment.lm</span></code> now works when some regression weights are equal to zero (<code class="docutils literal notranslate"><span class="pre">#965</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;vincentarelbundock</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;vnijs</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tidy.coxph</span></code> can now handle models utilizing penalized/clustering terms (<code class="docutils literal notranslate"><span class="pre">#966</span></code> and <code class="docutils literal notranslate"><span class="pre">#969</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;vincentarelbundock</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;matthieu-faron</span></code>, and <code class="docutils literal notranslate"><span class="pre">&#64;KZARCA</span></code>)</p></li>
+<li><p>Fix bug in <code class="docutils literal notranslate"><span class="pre">tidy.speedglm</span></code> on R 4.0.0+ (<code class="docutils literal notranslate"><span class="pre">#974</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;uqzwang</span></code>)</p></li>
+<li><p>tidy.multinom works with matrix response (<code class="docutils literal notranslate"><span class="pre">#977</span></code> and <code class="docutils literal notranslate"><span class="pre">#666</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;vincentarelbundock</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;atyre2</span></code>)</p></li>
+<li><p>Various bug fixes and improvements to documentation and errors.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-7-3">
+<h1>broom 0.7.3<a class="headerlink" href="#broom-0-7-3" title="Permalink to this headline">¶</a></h1>
+<p>In broom <code class="docutils literal notranslate"><span class="pre">0.7.0</span></code>, we introduced an error for model objects that subclassed
+<code class="docutils literal notranslate"><span class="pre">lm</span></code> and relied on <code class="docutils literal notranslate"><span class="pre">tidy.lm()</span></code>, or similarly for <code class="docutils literal notranslate"><span class="pre">tidy.glm()</span></code>. Tidiers for
+these objects were supported unintentionally, and we worried that tidiers for
+these objects would silently report inaccurate results.</p>
+<p>In hindsight, this change was unnecessarily abrupt. We’ve decided to roll back
+this change, instead providing the following warning before allowing such
+objects to fall back to the <code class="docutils literal notranslate"><span class="pre">lm</span></code>/<code class="docutils literal notranslate"><span class="pre">glm</span></code> tidier methods:</p>
+<blockquote>
+<div><p>Tidiers for objects of class {subclass} are not maintained by the broom team, and are only supported through the {dispatched_method} tidier method. Please be cautious in interpreting and reporting broom output.”</p>
+</div></blockquote>
+<p>In addition,</p>
+<ul class="simple">
+<li><p>Restores tidiers for <code class="docutils literal notranslate"><span class="pre">summary.lm</span></code> objects (<code class="docutils literal notranslate"><span class="pre">#953</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;grantmcdermott</span></code>)</p></li>
+<li><p>Deprecate tidiers for the <code class="docutils literal notranslate"><span class="pre">lfe</span></code> package, which was archived from CRAN.</p></li>
+<li><p>Various bug fixes and improvements to documentation and errors.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-7-2">
+<h1>broom 0.7.2<a class="headerlink" href="#broom-0-7-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Various bug fixes and improvements to documentation and errors.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-7-1">
+<h1>broom 0.7.1<a class="headerlink" href="#broom-0-7-1" title="Permalink to this headline">¶</a></h1>
+<p>While broom 0.7.1 is a minor release, it includes a number of exciting new
+features and bug fixes!</p>
+<div class="section" id="id1">
+<h2>New tidiers<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Add tidiers for <code class="docutils literal notranslate"><span class="pre">margins</span></code> objects. (<code class="docutils literal notranslate"><span class="pre">#700</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;grantmcdermott</span></code>)</p></li>
+<li><p>Added tidier methods for <code class="docutils literal notranslate"><span class="pre">mlogit</span></code> objects (<code class="docutils literal notranslate"><span class="pre">#887</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;gregmacfarlane</span></code>)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">glance.coeftest()</span></code> method (<code class="docutils literal notranslate"><span class="pre">#932</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;grantmcdermott</span></code>)</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>Improvements to existing tidiers<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>One of the more major improvements in this release is the addition of the
+<code class="docutils literal notranslate"><span class="pre">interval</span></code> argument to some <code class="docutils literal notranslate"><span class="pre">augment</span></code> methods for confidence, prediction,
+and credible intervals. These columns will be consistently labeled <code class="docutils literal notranslate"><span class="pre">.lower</span></code>
+and <code class="docutils literal notranslate"><span class="pre">.upper</span></code>! (<code class="docutils literal notranslate"><span class="pre">#908</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;grantmcdermott</span></code>, <code class="docutils literal notranslate"><span class="pre">#925</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;bwiernik</span></code>)</p>
+<p>In addition…</p>
+<ul class="simple">
+<li><p>Extended the <code class="docutils literal notranslate"><span class="pre">glance.aov()</span></code> method to include an <code class="docutils literal notranslate"><span class="pre">r.squared</span></code> column!</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">glance.survfit()</span></code> now passes <code class="docutils literal notranslate"><span class="pre">...</span></code> to <code class="docutils literal notranslate"><span class="pre">summary.survfit()</span></code> to allow for
+adjustment of RMST and other measures (<code class="docutils literal notranslate"><span class="pre">#880</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;vincentarelbundock</span></code>)</p></li>
+<li><p>Several unsupported model objects that subclass <code class="docutils literal notranslate"><span class="pre">glm</span></code> and <code class="docutils literal notranslate"><span class="pre">lm</span></code> now error
+more informatively.</p></li>
+<li><p>A number of improvements to documentation throughout the package.</p></li>
+</ul>
+</div>
+<div class="section" id="bug-fixes">
+<h2>Bug fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">newdata</span></code> warning message in <code class="docutils literal notranslate"><span class="pre">augment.*()</span></code> output when the <code class="docutils literal notranslate"><span class="pre">newdata</span></code>
+didn’t contain the response variable—augment methods no longer expect the
+response variable in the supplied <code class="docutils literal notranslate"><span class="pre">newdata</span></code> argument. (<code class="docutils literal notranslate"><span class="pre">#897</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;rudeboybert</span></code>)</p></li>
+<li><p>Fixed a bug related to <code class="docutils literal notranslate"><span class="pre">tidy.geeglm()</span></code> not being sensitive to the
+<code class="docutils literal notranslate"><span class="pre">exponentiate</span></code> argument (<code class="docutils literal notranslate"><span class="pre">#867</span></code>)</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">augment.fixest()</span></code> returning residuals in the <code class="docutils literal notranslate"><span class="pre">.fitted</span></code> column. The
+method also now takes a <code class="docutils literal notranslate"><span class="pre">type.residuals</span></code> argument and defaults to the same
+<code class="docutils literal notranslate"><span class="pre">type.predict</span></code> argument as the <code class="docutils literal notranslate"><span class="pre">fixest</span></code> <code class="docutils literal notranslate"><span class="pre">predict()</span></code> method. (<code class="docutils literal notranslate"><span class="pre">#877</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;karldw</span></code>)</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">tidy.felm</span></code> confidence interval bug. Replaces “robust” argument with
+“se.type”. (<code class="docutils literal notranslate"><span class="pre">#919</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;grantmcdermott</span></code>; supersedes <code class="docutils literal notranslate"><span class="pre">#818</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;kuriwaki</span></code>)</p></li>
+<li><p>Fix a bug in <code class="docutils literal notranslate"><span class="pre">tidy.drc()</span></code> where some term labels would result
+in the overwriting of entries in the <code class="docutils literal notranslate"><span class="pre">curve</span></code> column (<code class="docutils literal notranslate"><span class="pre">#914</span></code>)</p></li>
+<li><p>Fixed bug related to univariate zoo series in <code class="docutils literal notranslate"><span class="pre">tidy.zoo()</span></code> (<code class="docutils literal notranslate"><span class="pre">#916</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;WillemVervoort</span></code>)</p></li>
+<li><p>Fixed a bug related to <code class="docutils literal notranslate"><span class="pre">tidy.prcomp()</span></code> assigning the wrong PC labels from “loadings”
+and “scores” matrices (<code class="docutils literal notranslate"><span class="pre">#910</span></code> by <code class="docutils literal notranslate"><span class="pre">&#64;tavareshugo</span></code>)</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">tidy.polr()</span></code> bug where p-values could only be returned if
+<code class="docutils literal notranslate"><span class="pre">exponentiate</span> <span class="pre">=</span> <span class="pre">FALSE</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="deprecations">
+<h2>Deprecations<a class="headerlink" href="#deprecations" title="Permalink to this headline">¶</a></h2>
+<p>We followed through with the planned deprecation of character vector tidiers
+in this release. Other vector tidiers that were soft-deprecated in 0.7.0 will
+be fully deprecated in a later release.</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-7-0">
+<h1>broom 0.7.0<a class="headerlink" href="#broom-0-7-0" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">broom</span> <span class="pre">0.7.0</span></code> is a major release with a large number of new tidiers,
+soft-deprecations, and planned hard-deprecations of functions and arguments.</p>
+<div class="section" id="big-picture-changes">
+<h2>Big picture changes<a class="headerlink" href="#big-picture-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>We have changed how we report degrees of freedom for <code class="docutils literal notranslate"><span class="pre">lm</span></code> objects
+(#212, #273). This is especially important for instructors in statistics
+courses. Previously the <code class="docutils literal notranslate"><span class="pre">df</span></code> column in <code class="docutils literal notranslate"><span class="pre">glance.lm()</span></code> reported the rank of the
+design matrix. Now it reports degrees of freedom of the numerator for the
+overall F-statistic. This is equal to the rank of the model matrix minus one
+(unless you omit an intercept column), so the new <code class="docutils literal notranslate"><span class="pre">df</span></code> should be the old
+<code class="docutils literal notranslate"><span class="pre">df</span></code> minus one.</p></li>
+<li><p>We are moving away from supporting <code class="docutils literal notranslate"><span class="pre">summary.*()</span></code> objects. In particular, we
+have removed <code class="docutils literal notranslate"><span class="pre">tidy.summary.lm()</span></code> as part of a major overhaul of internals.
+Instead of calling <code class="docutils literal notranslate"><span class="pre">tidy()</span></code> on <code class="docutils literal notranslate"><span class="pre">summary</span></code>-like objects, please call <code class="docutils literal notranslate"><span class="pre">tidy()</span></code>
+directly on model objects moving forward.</p></li>
+<li><p>We have removed all support for the <code class="docutils literal notranslate"><span class="pre">quick</span></code> argument in <code class="docutils literal notranslate"><span class="pre">tidy()</span></code> methods.
+This is to simplify internals and is for maintainability purposes. We anticipate
+this will not influence many users as few people seemed to use it. If this
+majorly cramps your style, let us know, as we are considering a new verb to
+return only model parameters. In the meantime, <code class="docutils literal notranslate"><span class="pre">stats::coef()</span></code> together with
+<code class="docutils literal notranslate"><span class="pre">tibble::enframe()</span></code> provides most of the functionality
+of <code class="docutils literal notranslate"><span class="pre">tidy(...,</span> <span class="pre">quick</span> <span class="pre">=</span> <span class="pre">TRUE)</span></code>.</p></li>
+<li><p>All <code class="docutils literal notranslate"><span class="pre">conf.int</span></code> arguments now default to <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>, and all <code class="docutils literal notranslate"><span class="pre">conf.level</span></code>
+arguments now default to <code class="docutils literal notranslate"><span class="pre">0.95</span></code>. This should primarily affect <code class="docutils literal notranslate"><span class="pre">tidy.survreg()</span></code>,
+which previously always returned confidence intervals, although there are
+some others.</p></li>
+<li><p>Tidiers for <code class="docutils literal notranslate"><span class="pre">emmeans</span></code>-objects use the arguments <code class="docutils literal notranslate"><span class="pre">conf.int</span></code> and <code class="docutils literal notranslate"><span class="pre">conf.level</span></code>
+instead of relying on the argument names native to
+the <code class="docutils literal notranslate"><span class="pre">emmeans::summary()</span></code>-methods (i.e., <code class="docutils literal notranslate"><span class="pre">infer</span></code> and <code class="docutils literal notranslate"><span class="pre">level</span></code>).
+Similarly, <code class="docutils literal notranslate"><span class="pre">multcomp</span></code>-tidiers now include a call to <code class="docutils literal notranslate"><span class="pre">summary()</span></code> as previous
+behavior was akin to setting the now removed argument <code class="docutils literal notranslate"><span class="pre">quick</span> <span class="pre">=</span> <span class="pre">TRUE</span></code>. Both
+families of tidiers now use the <code class="docutils literal notranslate"><span class="pre">adj.p.value</span></code> column name when appropriate.
+Finally, <code class="docutils literal notranslate"><span class="pre">emmeans</span></code>-, <code class="docutils literal notranslate"><span class="pre">multcomp</span></code>-, and <code class="docutils literal notranslate"><span class="pre">TukeyHSD</span></code>-tidiers now consistently
+use the column names <code class="docutils literal notranslate"><span class="pre">contrast</span></code> and <code class="docutils literal notranslate"><span class="pre">null.value</span></code> instead
+of <code class="docutils literal notranslate"><span class="pre">comparison</span></code>, <code class="docutils literal notranslate"><span class="pre">level1</span></code> and <code class="docutils literal notranslate"><span class="pre">level2</span></code>, or <code class="docutils literal notranslate"><span class="pre">lhs</span></code> and <code class="docutils literal notranslate"><span class="pre">rhs</span></code> (see #692).</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>Deprecations<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>This release of <code class="docutils literal notranslate"><span class="pre">broom</span></code> soft-deprecates the following functions and tidier
+methods:</p>
+<ul class="simple">
+<li><p>Tidier methods for data frames, rowwise data frames, vectors and matrices</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bootstrap()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">confint_tidy()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fix_data_frame()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">finish_glance()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">augment.glmRob()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tidy.table()</span></code> and <code class="docutils literal notranslate"><span class="pre">tidy.ftable()</span></code> have been deprecated in favor of
+<code class="docutils literal notranslate"><span class="pre">tibble::as_tibble()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tidy.summaryDefault()</span></code> and <code class="docutils literal notranslate"><span class="pre">glance.summaryDefault()</span></code> have been deprecated in
+favor of <code class="docutils literal notranslate"><span class="pre">skimr::skim()</span></code></p></li>
+</ul>
+<p>We have also gone forward with our planned mixed model deprecations, and have
+removed the following methods, which now live in <code class="docutils literal notranslate"><span class="pre">broom.mixed</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tidy.brmsfit()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tidy.merMod()</span></code>, <code class="docutils literal notranslate"><span class="pre">glance.merMod()</span></code>, <code class="docutils literal notranslate"><span class="pre">augment.merMod()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tidy.lme()</span></code>, <code class="docutils literal notranslate"><span class="pre">glance.lme()</span></code>, <code class="docutils literal notranslate"><span class="pre">augment.lme()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tidy.stanreg()</span></code>, <code class="docutils literal notranslate"><span class="pre">glance.stanreg()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tidyMCMC()</span></code>, <code class="docutils literal notranslate"><span class="pre">tidy.rjags()</span></code>, <code class="docutils literal notranslate"><span class="pre">tidy.stanfit()</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="minor-breaking-changes">
+<h2>Minor breaking changes<a class="headerlink" href="#minor-breaking-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">augment.factanal()</span></code> now returns a tibble with columns names <code class="docutils literal notranslate"><span class="pre">.fs1</span></code>, <code class="docutils literal notranslate"><span class="pre">.fs2</span></code>,
+…, instead of <code class="docutils literal notranslate"><span class="pre">factor1</span></code>, <code class="docutils literal notranslate"><span class="pre">factor2</span></code>, … (#650)</p></li>
+<li><p>We have renamed the output of <code class="docutils literal notranslate"><span class="pre">augment.htest()</span></code>. In particular, we have
+renamed the <code class="docutils literal notranslate"><span class="pre">.residuals</span></code> column to <code class="docutils literal notranslate"><span class="pre">.resid</span></code> and the <code class="docutils literal notranslate"><span class="pre">.stdres</span></code> to <code class="docutils literal notranslate"><span class="pre">.std.resid</span></code>
+for consistency. These changes will only affect chi-squared tests.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tidy.ridgelm()</span></code> now always return a <code class="docutils literal notranslate"><span class="pre">GCV</span></code> column and never returns an
+<code class="docutils literal notranslate"><span class="pre">xm</span></code> column. (#533 by &#64;jmuhlenkamp)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tidy.dist()</span></code> no longer supports the <code class="docutils literal notranslate"><span class="pre">upper</span></code> argument.</p></li>
+</ul>
+</div>
+<div class="section" id="a-refactoring-of-augment-methods">
+<h2>A refactoring of <code class="docutils literal notranslate"><span class="pre">augment()</span></code> methods<a class="headerlink" href="#a-refactoring-of-augment-methods" title="Permalink to this headline">¶</a></h2>
+<p>The internals of <code class="docutils literal notranslate"><span class="pre">augment.*()</span></code> methods have largely been overhauled.</p>
+<ul class="simple">
+<li><p>If you pass a dataset to <code class="docutils literal notranslate"><span class="pre">augment()</span></code> via the <code class="docutils literal notranslate"><span class="pre">data</span></code> or <code class="docutils literal notranslate"><span class="pre">newdata</span></code> arguments,
+you are now guaranteed that the augmented dataset will have exactly the same
+number of rows as the original dataset. This differs from previous behavior
+primarily when there are missing values. Previously <code class="docutils literal notranslate"><span class="pre">augment()</span></code> would drop
+rows containing <code class="docutils literal notranslate"><span class="pre">NA</span></code>. This should no longer be the case.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">augment.*()</span></code> methods no longer accept an <code class="docutils literal notranslate"><span class="pre">na.action</span></code> argument.</p></li>
+<li><p>In previous versions, several <code class="docutils literal notranslate"><span class="pre">augment.*()</span></code> methods inherited the
+<code class="docutils literal notranslate"><span class="pre">augment.lm()</span></code> method, but required additions to the <code class="docutils literal notranslate"><span class="pre">augment.lm()</span></code> method
+itself. We have shifted away from this approach in favor of re-implementing
+many <code class="docutils literal notranslate"><span class="pre">augment.*()</span></code> methods as standalone methods making use of internal
+helper functions. As a result, <code class="docutils literal notranslate"><span class="pre">augment.lm()</span></code> and some related methods have
+deprecated (previously unused) arguments.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">augment()</span></code> tries to give an informative error when <code class="docutils literal notranslate"><span class="pre">data</span></code> isn’t the original
+training data.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">.resid</span></code> column in the output of <code class="docutils literal notranslate"><span class="pre">augment().*</span></code> methods is now consistently
+defined as <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">-</span> <span class="pre">y_hat</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>New tidiers<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">anova</span></code> objects from the <code class="docutils literal notranslate"><span class="pre">car</span></code> package (#754)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pam</span></code> objects from the <code class="docutils literal notranslate"><span class="pre">cluster</span></code> package (#637 by &#64;abbylsmith)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">drm</span></code> objects from the <code class="docutils literal notranslate"><span class="pre">drc</span></code> package (#574 by &#64;edild)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">summary_emm</span></code> objects from the <code class="docutils literal notranslate"><span class="pre">emmeans</span></code> package (#691 by &#64;crsh)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">epi.2by2</span></code> objects from the <code class="docutils literal notranslate"><span class="pre">epiR</span></code> package (#711)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fixest</span></code> objects from the <code class="docutils literal notranslate"><span class="pre">fixest</span></code> package (#785 by &#64;karldw)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">regsubsets</span></code> objects from the <code class="docutils literal notranslate"><span class="pre">leaps</span></code> package (#535)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lm.beta</span></code> objects from the <code class="docutils literal notranslate"><span class="pre">lm.beta</span></code> package (#545 by &#64;mattle24)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rma</span></code> objects from the <code class="docutils literal notranslate"><span class="pre">metafor</span></code> package (#674 by &#64;malcolmbarrett, &#64;softloud)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mfx</span></code>, <code class="docutils literal notranslate"><span class="pre">logitmfx</span></code>, <code class="docutils literal notranslate"><span class="pre">negbinmfx</span></code>, <code class="docutils literal notranslate"><span class="pre">poissonmfx</span></code>, <code class="docutils literal notranslate"><span class="pre">probitmfx</span></code>, and <code class="docutils literal notranslate"><span class="pre">betamfx</span></code>
+objects from the<code class="docutils literal notranslate"><span class="pre">mfx</span></code> package (#700 by &#64;grantmcdermott)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lmrob</span></code> and <code class="docutils literal notranslate"><span class="pre">glmrob</span></code> objects from the <code class="docutils literal notranslate"><span class="pre">robustbase</span></code> package (#205, #505)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sarlm</span></code> objects from the <code class="docutils literal notranslate"><span class="pre">spatialreg</span></code> package (#847 by &#64;gregmacfarlane
+and &#64;petrhrobar)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">speedglm</span></code> objects from the <code class="docutils literal notranslate"><span class="pre">speedglm</span></code> package (#685)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">svyglm</span></code> objects from the <code class="docutils literal notranslate"><span class="pre">survey</span></code> package (#611)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">systemfit</span></code> objects from the <code class="docutils literal notranslate"><span class="pre">systemfit</span></code> package (by &#64;jaspercooper)</p></li>
+<li><p>We have restored a simplified version of <code class="docutils literal notranslate"><span class="pre">glance.aov()</span></code>, which used to inherit
+from the <code class="docutils literal notranslate"><span class="pre">glance.lm()</span></code> method and now contains only the following columns:
+<code class="docutils literal notranslate"><span class="pre">logLik</span></code>, <code class="docutils literal notranslate"><span class="pre">AIC</span></code>, <code class="docutils literal notranslate"><span class="pre">BIC,</span> <span class="pre">deviance</span></code>, <code class="docutils literal notranslate"><span class="pre">df.residual</span></code>, and <code class="docutils literal notranslate"><span class="pre">nobs</span></code>
+(see #212). Note that <code class="docutils literal notranslate"><span class="pre">tidy.aov()</span></code> gives more complete information about
+degrees of freedom in an <code class="docutils literal notranslate"><span class="pre">aov</span></code> object.</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>Improvements to existing tidiers<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tidy.felm()</span></code> now has a <code class="docutils literal notranslate"><span class="pre">robust</span> <span class="pre">=</span> <span class="pre">TRUE/FALSE</span></code> option that supports robust
+and cluster standard errors. (#781 by &#64;kuriwaki)</p></li>
+<li><p>Make <code class="docutils literal notranslate"><span class="pre">.fitted</span></code> values respect <code class="docutils literal notranslate"><span class="pre">type.predict</span></code> argument of <code class="docutils literal notranslate"><span class="pre">augment.clm()</span></code>.
+(#617)</p></li>
+<li><p>Return factor rather than numeric class predictions in <code class="docutils literal notranslate"><span class="pre">.fitted</span></code> of
+<code class="docutils literal notranslate"><span class="pre">augment.polr()</span></code>. (#619) Add an option to return <code class="docutils literal notranslate"><span class="pre">p.values</span></code> in <code class="docutils literal notranslate"><span class="pre">tidy.polr()</span></code>.
+(#833 by &#64;LukasWallrich)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tidy.kmeans()</span></code> now uses the names of the input variables in the output by
+default. Set <code class="docutils literal notranslate"><span class="pre">col.names</span> <span class="pre">=</span> <span class="pre">NULL</span></code> to recover the old behavior.</p></li>
+<li><p>Previously, F-statistics for weak instruments were returned through
+<code class="docutils literal notranslate"><span class="pre">glance.ivreg()</span></code>. F-statistics are now returned through
+<code class="docutils literal notranslate"><span class="pre">tidy.ivreg(instruments</span> <span class="pre">=</span> <span class="pre">TRUE)</span></code>. Default is <code class="docutils literal notranslate"><span class="pre">tidy.ivreg(instruments</span> <span class="pre">=</span> <span class="pre">FALSE)</span></code>.
+<code class="docutils literal notranslate"><span class="pre">glance.ivreg()</span></code> still returns Wu-Hausman and Sargan test statistics.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">glance.biglm()</span></code> now returns a <code class="docutils literal notranslate"><span class="pre">df.residual</span></code> column.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tidy.prcomp()</span></code> argument <code class="docutils literal notranslate"><span class="pre">matrix</span></code> gained new options <code class="docutils literal notranslate"><span class="pre">&quot;scores&quot;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&quot;loadings&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&quot;eigenvalues&quot;</span></code>. (#557 by &#64;GegznaV)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tidy_optim()</span></code> now provides the standard error if the Hessian is present.
+(#529 by &#64;billdenney)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tidy.htest()</span></code> column names are now run through <code class="docutils literal notranslate"><span class="pre">make.names()</span></code> to ensure
+syntactic correctness. (#549 by &#64;karissawhiting)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tidy.lmodel2()</span></code> now returns a <code class="docutils literal notranslate"><span class="pre">p.value</span></code> column. (#570)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tidy.lsmobj()</span></code> gained a <code class="docutils literal notranslate"><span class="pre">conf.int</span></code> argument for consistency with other
+tidiers.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tidy.polr()</span></code> now returns p-values if <code class="docutils literal notranslate"><span class="pre">p.values</span></code> is set to TRUE and the
+model does not contain factors with more than two levels.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tidy.zoo()</span></code> now doesn’t change column names that have spaces or other
+special characters (previously they were converted to <code class="docutils literal notranslate"><span class="pre">data.frame</span></code> friendly
+column names by <code class="docutils literal notranslate"><span class="pre">make.names</span></code>.)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">glance.lavaan()</span></code> now uses lavaan extractor functions instead of
+subsetting the fit object manually. (#835)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">glance.lm()</span></code> no longer errors when only an intercept is provided
+as an explanatory variable. (#865)</p></li>
+</ul>
+<div class="section" id="id6">
+<h3>Bug fixes<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Bug fix for <code class="docutils literal notranslate"><span class="pre">tidy.survreg()</span></code> when <code class="docutils literal notranslate"><span class="pre">robust</span></code> is set to <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> in model
+fitting (#842, #728)</p></li>
+<li><p>Bug fixes in <code class="docutils literal notranslate"><span class="pre">glance.lavaan()</span></code>: address confidence interval error
+(#577) and correct reported <code class="docutils literal notranslate"><span class="pre">nobs</span></code> and <code class="docutils literal notranslate"><span class="pre">norig</span></code> (#835)</p></li>
+<li><p>Bug fix in muhaz tidiers to ensure output is always a <code class="docutils literal notranslate"><span class="pre">tibble</span></code> (#824)</p></li>
+<li><p>Several <code class="docutils literal notranslate"><span class="pre">glance.*()</span></code> methods have been refactored in order to return
+a one-row tibble even when the model matrix is rank-deficient (#823)</p></li>
+<li><p>Bug fix to return confidence intervals correct in <code class="docutils literal notranslate"><span class="pre">tidy.drc()</span></code> (#798)</p></li>
+<li><p>Added default methods for objects that subclass <code class="docutils literal notranslate"><span class="pre">glm</span></code> and <code class="docutils literal notranslate"><span class="pre">lm</span></code> in order to
+error more informatively. (#749, #736, #708, #186)</p></li>
+<li><p>Bug fix to allow <code class="docutils literal notranslate"><span class="pre">augment.kmeans()</span></code> to work with masked data (#609)</p></li>
+<li><p>Bug fix to allow <code class="docutils literal notranslate"><span class="pre">augment.Mclust()</span></code> to work on univariate data (#490)</p></li>
+<li><p>Bug fix to allow <code class="docutils literal notranslate"><span class="pre">tidy.htest()</span></code> to supports equal variances (#608)</p></li>
+<li><p>Bug fix to better allow <code class="docutils literal notranslate"><span class="pre">tidy.boot()</span></code> to support confidence intervals (#581)</p></li>
+<li><p>Bug fix for <code class="docutils literal notranslate"><span class="pre">tidy.polr()</span></code> when passed <code class="docutils literal notranslate"><span class="pre">conf.int</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> (#498)</p></li>
+</ul>
+</div>
+<div class="section" id="other-changes">
+<h3>Other changes<a class="headerlink" href="#other-changes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Many <code class="docutils literal notranslate"><span class="pre">glance()</span></code> methods now return a <code class="docutils literal notranslate"><span class="pre">nobs</span></code> column, which contains the
+number of data points used to fit the model! (#597 by &#64;vincentarelbundock)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tidy()</span></code> no longer checks for a log or logit link when <code class="docutils literal notranslate"><span class="pre">exponentiate</span> <span class="pre">=</span> <span class="pre">TRUE</span></code>,
+and we have refactored to remove extraneous <code class="docutils literal notranslate"><span class="pre">exponentiate</span></code> arguments. If you
+set <code class="docutils literal notranslate"><span class="pre">exponentiate</span> <span class="pre">=</span> <span class="pre">TRUE</span></code>, we assume you know what you are doing and that you
+want exponentiated coefficients (and confidence intervals if <code class="docutils literal notranslate"><span class="pre">conf.int</span> <span class="pre">=</span> <span class="pre">TRUE</span></code>)
+regardless of link function.</p></li>
+<li><p>We now use <code class="docutils literal notranslate"><span class="pre">rlang::arg_match()</span></code> when possible instead of <code class="docutils literal notranslate"><span class="pre">arg.match()</span></code> to give
+more informative errors on argument mismatches.</p></li>
+<li><p>The package’s site has moved from <a class="reference external" href="https://broom.tidyverse.org/">https://broom.tidyverse.org/</a> to
+<a class="reference external" href="https://broom.tidymodels.org/">https://broom.tidymodels.org/</a>.</p></li>
+<li><p>Revised several vignettes and moved them to the <a class="reference external" href="http://tidymodels.org">tidymodels.org</a> website. The
+existing vignettes will now simply link to the revised versions.</p></li>
+<li><p>Many improvements to consistency and clarity of documentation.</p></li>
+<li><p>Various warnings resulting from changes to the tidyr API in v1.0.0 have
+been fixed. (#870)</p></li>
+<li><p>Removed dependencies on reshape2 and superseded functions in dplyr.</p></li>
+<li><p>All documentation now links to help files rather than topics.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="for-developers-and-contributors">
+<h2>For developers and contributors<a class="headerlink" href="#for-developers-and-contributors" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Moved core tests to the <code class="docutils literal notranslate"><span class="pre">modeltests</span></code> package.</p></li>
+<li><p>Generally, after this release, the broom dev team will first ask that
+attempts to add tidier methods supporting a model object are first
+directed to the model-owning package. An article describing best practices
+in doing so can be found on the {tidymodels} website at
+<a class="reference external" href="https://www.tidymodels.org/learn/develop/broom/">https://www.tidymodels.org/learn/develop/broom/</a>, and we will continue
+adding additional resources to that article as we develop them. In the case
+that the maintainer is uninterested in taking on the tidier methods, please
+note this in your issue or PR.</p></li>
+<li><p>Added a new vignette discussing how to implement new tidier methods in
+non-broom packages.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-5-6">
+<h1>broom 0.5.6<a class="headerlink" href="#broom-0-5-6" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix failing CRAN checks to due <code class="docutils literal notranslate"><span class="pre">tibble</span> <span class="pre">3.0.0</span></code> release. Removed
+<code class="docutils literal notranslate"><span class="pre">xergm</span></code> dependency.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-5-5">
+<h1>broom 0.5.5<a class="headerlink" href="#broom-0-5-5" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Remove tidiers for robust package and drop robust dependency (temporarily)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-5-4">
+<h1>broom 0.5.4<a class="headerlink" href="#broom-0-5-4" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixes failing CRAN checks as the joineRML package has been removed from CRAN</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-5-3">
+<h1>broom 0.5.3<a class="headerlink" href="#broom-0-5-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixes failing CRAN checks due to new matrix classing in R 4.0.0</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-5-2">
+<h1>broom 0.5.2<a class="headerlink" href="#broom-0-5-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixes failing CRAN checks</p></li>
+<li><p>Changes to accommodate ergm 3.10 release. <code class="docutils literal notranslate"><span class="pre">tidy.ergm()</span></code> no longer
+has a <code class="docutils literal notranslate"><span class="pre">quick</span></code> argument. The old default of <code class="docutils literal notranslate"><span class="pre">quick</span> <span class="pre">=</span> <span class="pre">FALSE</span></code> is
+now the only option.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-5-1">
+<h1>broom 0.5.1<a class="headerlink" href="#broom-0-5-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tidy()</span></code>, <code class="docutils literal notranslate"><span class="pre">glance()</span></code> and <code class="docutils literal notranslate"><span class="pre">augment()</span></code> are now re-exported from the
+<a class="reference external" href="https://github.com/r-lib/generics">generics</a> package.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-5-0">
+<h1>broom 0.5.0<a class="headerlink" href="#broom-0-5-0" title="Permalink to this headline">¶</a></h1>
+<p>Tidiers now return <code class="docutils literal notranslate"><span class="pre">tibble::tibble()</span></code>s. This release also includes several new
+tidiers, new vignettes and a large number of bug fixes. We’ve also begun to more
+rigorously define tidier specifications: we’ve laid part of the groundwork for
+stricter and more consistent tidying, but the new tidier specifications are not
+yet complete. These will appear in the next release.</p>
+<p>Additionally, users should note that we are in the process of migrating tidying
+methods for mixed models and Bayesian models to <code class="docutils literal notranslate"><span class="pre">broom.mixed</span></code>. <code class="docutils literal notranslate"><span class="pre">broom.mixed</span></code> is
+not on CRAN yet, but all mixed model and Bayesian tidiers will be deprecated
+once <code class="docutils literal notranslate"><span class="pre">broom.mixed</span></code> is on CRAN. No further development of mixed model tidiers
+will take place in <code class="docutils literal notranslate"><span class="pre">broom</span></code>.</p>
+<div class="section" id="breaking-changes">
+<h2>Breaking changes<a class="headerlink" href="#breaking-changes" title="Permalink to this headline">¶</a></h2>
+<p>Almost all tidiers should now return <code class="docutils literal notranslate"><span class="pre">tibble</span></code>s rather than <code class="docutils literal notranslate"><span class="pre">data.frame</span></code>s.
+Deprecated tidying methods, Bayesian and mixed model tidiers still return
+<code class="docutils literal notranslate"><span class="pre">data.frame</span></code>s.</p>
+<p><strong>Users</strong> are mostly to experience issues when using <code class="docutils literal notranslate"><span class="pre">augment</span></code> in situations
+where tibbles are stricter than data frames. For example, specifying model
+covariates as a matrix object will now error:</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">broom</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">quantreg</span><span class="p">)</span>
+
+<span class="n">fit</span> <span class="o">&lt;-</span> <span class="nf">rq</span><span class="p">(</span><span class="n">stack.loss</span> <span class="o">~</span> <span class="n">stack.x</span><span class="p">,</span> <span class="n">tau</span> <span class="o">=</span> <span class="n">.</span><span class="m">5</span><span class="p">)</span>
+<span class="n">broom</span><span class="o">::</span><span class="nf">augment</span><span class="p">(</span><span class="n">fit</span><span class="p">)</span>
+<span class="c1">#&gt; Error: Column `stack.x` must be a 1d atomic vector or a list</span>
+</pre></div>
+</div>
+<p>This is because the default <code class="docutils literal notranslate"><span class="pre">data</span></code> argument <code class="docutils literal notranslate"><span class="pre">data</span> <span class="pre">=</span> <span class="pre">model.frame(fit)</span></code> cannot be
+coerced to <code class="docutils literal notranslate"><span class="pre">tibble</span></code>.</p>
+<p>Another consequence of this is that <code class="docutils literal notranslate"><span class="pre">augment.survreg</span></code> and <code class="docutils literal notranslate"><span class="pre">augment.coxph</span></code> from
+the <code class="docutils literal notranslate"><span class="pre">survival</span></code> package now require that the user explicitly passes data to
+either the <code class="docutils literal notranslate"><span class="pre">data</span></code> or <code class="docutils literal notranslate"><span class="pre">newdata</span></code> arguments.</p>
+<p>These restrictions will be relaxed in an upcoming release of <code class="docutils literal notranslate"><span class="pre">broom</span></code> pending
+support for matrix-columns in tibbles.</p>
+<p><strong>Developers</strong> are likely to experience issues:</p>
+<ul class="simple">
+<li><p>subsetting tibbles with <code class="docutils literal notranslate"><span class="pre">[</span></code>, which returns a tibble rather than a vector.</p></li>
+<li><p>setting rownames on tibbles, which is deprecated.</p></li>
+<li><p>using matrix and vector tidiers, now deprecated.</p></li>
+<li><p>handling the additional tibble classes <code class="docutils literal notranslate"><span class="pre">tbl_df</span></code> and <code class="docutils literal notranslate"><span class="pre">tbl</span></code> beyond the
+<code class="docutils literal notranslate"><span class="pre">data.frame</span></code> class</p></li>
+<li><p>linking to defunct documentation files – broom recently moved all tidiers to
+a <code class="docutils literal notranslate"><span class="pre">roxygen2</span></code> template based documentation system.</p></li>
+</ul>
+</div>
+<div class="section" id="new-vignettes">
+<h2>New vignettes<a class="headerlink" href="#new-vignettes" title="Permalink to this headline">¶</a></h2>
+<p>This version of <code class="docutils literal notranslate"><span class="pre">broom</span></code> includes several new vignettes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">vignette(&quot;available-methods&quot;,</span> <span class="pre">package</span> <span class="pre">=</span> <span class="pre">&quot;broom&quot;)</span></code> contains a table detailing
+which tidying methods are available</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vignette(&quot;adding-tidiers&quot;,</span> <span class="pre">package</span> <span class="pre">=</span> <span class="pre">&quot;broom&quot;)</span></code> is an <em>in-progress</em> guide for
+contributors on how to add new tidiers to broom</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vignette(&quot;glossary&quot;,</span> <span class="pre">package</span> <span class="pre">=</span> <span class="pre">&quot;broom&quot;)</span></code> contains tables describing
+acceptable argument names and column names for the <em>in-progress</em> new
+specification.</p></li>
+</ul>
+<p>Several old vignettes have also been updated:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">vignette(&quot;bootstrapping&quot;,</span> <span class="pre">package</span> <span class="pre">=</span> <span class="pre">&quot;broom&quot;)</span></code> now relies on the <code class="docutils literal notranslate"><span class="pre">rsample</span></code>
+package and a <code class="docutils literal notranslate"><span class="pre">tidyr::nest</span></code>-<code class="docutils literal notranslate"><span class="pre">purrr::map</span></code>-<code class="docutils literal notranslate"><span class="pre">tidyr::unnest</span></code> workflow. This is now
+the recommended workflow for working with multiple models, as opposed to the
+old <code class="docutils literal notranslate"><span class="pre">dplyr::rowwise</span></code>-<code class="docutils literal notranslate"><span class="pre">dplyr::do</span></code> based workflow.</p></li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>Deprecations<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Matrix and vector tidiers have been deprecated in favor of <code class="docutils literal notranslate"><span class="pre">tibble::as_tibble</span></code>
+and <code class="docutils literal notranslate"><span class="pre">tibble::enframe</span></code></p></li>
+<li><p>Dataframe tidiers and rowwise dataframe tidiers have been deprecated</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bootstrap()</span></code> has been deprecated in favor of the
+<a class="reference external" href="https://rsample.tidymodels.org/"><code class="docutils literal notranslate"><span class="pre">rsample</span></code></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">inflate</span></code> has been removed from <code class="docutils literal notranslate"><span class="pre">broom</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h2>Other changes<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">alpha</span></code> argument has been removed from <code class="docutils literal notranslate"><span class="pre">quantreg</span></code> tidy methods</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">separate.levels</span></code> argument has been removed from <code class="docutils literal notranslate"><span class="pre">tidy.TukeyHSD</span></code>. To
+obtain the effect of <code class="docutils literal notranslate"><span class="pre">separate.levels</span> <span class="pre">=</span> <span class="pre">TRUE</span></code>, users may <code class="docutils literal notranslate"><span class="pre">tidyr::separate</span></code>
+after tidying. This is consistent with the <code class="docutils literal notranslate"><span class="pre">multcomp</span></code> tidier behavior.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">fe.error</span></code> argument was removed from <code class="docutils literal notranslate"><span class="pre">tidy.felm</span></code>. When fixed effects are
+tidier, their standard errors are now always included.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">diag</span></code> argument in <code class="docutils literal notranslate"><span class="pre">tidy.dist</span></code> has been renamed <code class="docutils literal notranslate"><span class="pre">diagonal</span></code></p></li>
+<li><p>Advice to help beginners make PRs (#397 by &#64;karldw)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">glance</span></code> support for <code class="docutils literal notranslate"><span class="pre">arima</span></code> objects fit with <code class="docutils literal notranslate"><span class="pre">method</span> <span class="pre">=</span> <span class="pre">&quot;CSS&quot;</span></code> (#396 by &#64;josue-rodriguez)</p></li>
+<li><p>A bug fix to re-enable tidying <code class="docutils literal notranslate"><span class="pre">glmnet</span></code> objects with <code class="docutils literal notranslate"><span class="pre">family</span> <span class="pre">=</span> <span class="pre">multinomial</span></code>
+(#395 by &#64;erleholgersen)</p></li>
+<li><p>A bug fix to allow tidying <code class="docutils literal notranslate"><span class="pre">quantreg</span></code> intercept only models (#378 by &#64;erleholgersen)</p></li>
+<li><p>A bug fix for <code class="docutils literal notranslate"><span class="pre">aovlist</span></code> objects (#377 by &#64;mvevans89)</p></li>
+<li><p>Support for <code class="docutils literal notranslate"><span class="pre">glmnetUtils</span></code> objects (#352 by &#64;Hong-Revo)</p></li>
+<li><p>A bug fix to allow <code class="docutils literal notranslate"><span class="pre">tidy_emmeans</span></code> to handle column names with dashes (#351 by &#64;bmannakee)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">augment.felm</span></code> no longer returns <code class="docutils literal notranslate"><span class="pre">.fe_</span></code> and <code class="docutils literal notranslate"><span class="pre">.comp</span></code> columns</p></li>
+<li><p>Support saved formulas in <code class="docutils literal notranslate"><span class="pre">augment.felm</span></code> (#347 by &#64;ShreyasSingh)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">confint_tidy</span></code> now drops rows of all <code class="docutils literal notranslate"><span class="pre">NA</span></code> (#345 by &#64;atyre2)</p></li>
+<li><p>A new tidier for <code class="docutils literal notranslate"><span class="pre">caret::confusionMatrix</span></code> objects (#344 by &#64;mkuehn10)</p></li>
+<li><p>Tidiers for <code class="docutils literal notranslate"><span class="pre">Kendall::Kendall</span></code> objects (#343 by &#64;cimentadaj)</p></li>
+<li><p>A new tidying method for <code class="docutils literal notranslate"><span class="pre">car::durbinWatsonTest</span></code> objects (#341 by &#64;mkuehn10)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">glance</span></code> throws an informative error for <code class="docutils literal notranslate"><span class="pre">quantreg:rq</span></code> models fit with
+multiple <code class="docutils literal notranslate"><span class="pre">tau</span></code> values (#338 by &#64;bfgray3)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tidy.glmnet</span></code> gains the ability to retain zero-valued coefficients with a
+<code class="docutils literal notranslate"><span class="pre">return_zeros</span></code> argument that defaults to <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> (#337 by &#64;bfgray3)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tidy.manova</span></code> now retains a <code class="docutils literal notranslate"><span class="pre">Residuals</span></code> row (#334 by &#64;jarvisc1)</p></li>
+<li><p>Tidiers for <code class="docutils literal notranslate"><span class="pre">ordinal::clm</span></code>, <code class="docutils literal notranslate"><span class="pre">ordinal::clmm</span></code>, <code class="docutils literal notranslate"><span class="pre">survey::svyolr</span></code> and <code class="docutils literal notranslate"><span class="pre">MASS::polr</span></code>
+ordinal model objects (#332 by &#64;larmarange)</p></li>
+<li><p>Support for <code class="docutils literal notranslate"><span class="pre">anova</span></code> objects from <code class="docutils literal notranslate"><span class="pre">car::Anova</span></code> (#325 by &#64;mariusbarth)</p></li>
+<li><p>Tidiers for <code class="docutils literal notranslate"><span class="pre">tseries::garch</span></code> models (#323 by &#64;wilsonfreitas)</p></li>
+<li><p>Removed dependency on <code class="docutils literal notranslate"><span class="pre">psych</span></code> package (#313 by &#64;nutterb)</p></li>
+<li><p>Improved error messages (#303 by &#64;michaelweylandt)</p></li>
+<li><p>Compatibility with new <code class="docutils literal notranslate"><span class="pre">rstanarm</span></code> and <code class="docutils literal notranslate"><span class="pre">loo</span></code> packages (#298 by &#64;jgabry)</p></li>
+<li><p>Support for tidying lists return by <code class="docutils literal notranslate"><span class="pre">irlba::irlba</span></code></p></li>
+<li><p>A truly huge increase in unit tests (#267 by &#64;dchiu911)</p></li>
+<li><p>Bug fix for <code class="docutils literal notranslate"><span class="pre">tidy.prcomp</span></code> when missing labels (#265 by &#64;corybrunson)</p></li>
+<li><p>Added a <code class="docutils literal notranslate"><span class="pre">pkgdown</span></code> site at <a class="reference external" href="https://broom.tidyverse.org/">https://broom.tidyverse.org/</a> (#260 by &#64;jayhesselberth)</p></li>
+<li><p>Added tidiers for <code class="docutils literal notranslate"><span class="pre">AER::ivreg</span></code> models (#247 by &#64;hughjonesd)</p></li>
+<li><p>Added tidiers for the <code class="docutils literal notranslate"><span class="pre">lavaan</span></code> package (#233 by &#64;puterleat)</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">conf.int</span></code> argument to <code class="docutils literal notranslate"><span class="pre">tidy.coxph</span></code> (#220 by &#64;larmarange)</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">augment</span></code> method for chi-squared tests (#138 by &#64;larmarange)</p></li>
+<li><p>changed default se.type for <code class="docutils literal notranslate"><span class="pre">tidy.rq</span></code> to match that of
+<code class="docutils literal notranslate"><span class="pre">quantreg::summary.rq()</span></code> (#404 by &#64;ethchr)</p></li>
+<li><p>Added argument <code class="docutils literal notranslate"><span class="pre">quick</span></code> for <code class="docutils literal notranslate"><span class="pre">tidy.plm</span></code> and <code class="docutils literal notranslate"><span class="pre">tidy.felm</span></code> (#502 and #509 by &#64;MatthieuStigler)</p></li>
+<li><p>Many small improvements throughout</p></li>
+</ul>
+</div>
+<div class="section" id="contributors">
+<h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h2>
+<p>Many many thanks to all the following for their thoughtful comments on design,
+bug reports and PRs! The community of broom contributors has been kind,
+supportive and insightful and I look forward to working you all again!</p>
+<p><a class="reference external" href="https://github.com/atyre2">&#64;atyre2</a>,
+<a class="reference external" href="https://github.com/batpigandme">&#64;batpigandme</a>,
+<a class="reference external" href="https://github.com/bfgray3">&#64;bfgray3</a>,
+<a class="reference external" href="https://github.com/bmannakee">&#64;bmannakee</a>,
+<a class="reference external" href="https://github.com/briatte">&#64;briatte</a>,
+<a class="reference external" href="https://github.com/cawoodjm">&#64;cawoodjm</a>,
+<a class="reference external" href="https://github.com/cimentadaj">&#64;cimentadaj</a>,
+<a class="reference external" href="https://github.com/dan87134">&#64;dan87134</a>, <a class="reference external" href="https://github.com/dgrtwo">&#64;dgrtwo</a>,
+<a class="reference external" href="https://github.com/dmenne">&#64;dmenne</a>, <a class="reference external" href="https://github.com/ekatko1">&#64;ekatko1</a>,
+<a class="reference external" href="https://github.com/ellessenne">&#64;ellessenne</a>,
+<a class="reference external" href="https://github.com/erleholgersen">&#64;erleholgersen</a>,
+<a class="reference external" href="https://github.com/ethchr">&#64;ethchr</a>,
+<a class="reference external" href="https://github.com/Hong-Revo">&#64;Hong-Revo</a>,
+<a class="reference external" href="https://github.com/huftis">&#64;huftis</a>,
+<a class="reference external" href="https://github.com/IndrajeetPatil">&#64;IndrajeetPatil</a>,
+<a class="reference external" href="https://github.com/jacob-long">&#64;jacob-long</a>,
+<a class="reference external" href="https://github.com/jarvisc1">&#64;jarvisc1</a>,
+<a class="reference external" href="https://github.com/jenzopr">&#64;jenzopr</a>, <a class="reference external" href="https://github.com/jgabry">&#64;jgabry</a>,
+<a class="reference external" href="https://github.com/jimhester">&#64;jimhester</a>,
+<a class="reference external" href="https://github.com/josue-rodriguez">&#64;josue-rodriguez</a>,
+<a class="reference external" href="https://github.com/karldw">&#64;karldw</a>, <a class="reference external" href="https://github.com/kfeilich">&#64;kfeilich</a>,
+<a class="reference external" href="https://github.com/larmarange">&#64;larmarange</a>,
+<a class="reference external" href="https://github.com/lboller">&#64;lboller</a>,
+<a class="reference external" href="https://github.com/mariusbarth">&#64;mariusbarth</a>,
+<a class="reference external" href="https://github.com/michaelweylandt">&#64;michaelweylandt</a>,
+<a class="reference external" href="https://github.com/mine-cetinkaya-rundel">&#64;mine-cetinkaya-rundel</a>,
+<a class="reference external" href="https://github.com/mkuehn10">&#64;mkuehn10</a>,
+<a class="reference external" href="https://github.com/mvevans89">&#64;mvevans89</a>,
+<a class="reference external" href="https://github.com/nutterb">&#64;nutterb</a>,
+<a class="reference external" href="https://github.com/ShreyasSingh">&#64;ShreyasSingh</a>,
+<a class="reference external" href="https://github.com/stephlocke">&#64;stephlocke</a>,
+<a class="reference external" href="https://github.com/strengejacke">&#64;strengejacke</a>,
+<a class="reference external" href="https://github.com/topepo">&#64;topepo</a>,
+<a class="reference external" href="https://github.com/willbowditch">&#64;willbowditch</a>,
+<a class="reference external" href="https://github.com/WillemSleegers">&#64;WillemSleegers</a>,
+<a class="reference external" href="https://github.com/wilsonfreitas">&#64;wilsonfreitas</a>, and
+<a class="reference external" href="https://github.com/MatthieuStigler">&#64;MatthieuStigler</a></p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-4-4">
+<h1>broom 0.4.4<a class="headerlink" href="#broom-0-4-4" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed gam tidiers to work with “Gam” objects, due to an update in gam 1.15.
+This fixes failing CRAN tests</p></li>
+<li><p>Improved test coverage (thanks to #267 from Derek Chiu)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-4-3">
+<h1>broom 0.4.3<a class="headerlink" href="#broom-0-4-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Changed the deprecated <code class="docutils literal notranslate"><span class="pre">dplyr::failwith</span></code> to <code class="docutils literal notranslate"><span class="pre">purrr::possibly</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">augment</span></code> and <code class="docutils literal notranslate"><span class="pre">glance</span></code> on NULLs now return an empty data frame</p></li>
+<li><p>Deprecated the <code class="docutils literal notranslate"><span class="pre">inflate()</span></code> function in favor of <code class="docutils literal notranslate"><span class="pre">tidyr::crossing</span></code></p></li>
+<li><p>Fixed confidence intervals in the gmm tidier (thanks to #242 from David
+Hugh-Jones)</p></li>
+<li><p>Fixed a bug in bootstrap tidiers (thanks to #167 from Jeremy Biesanz)</p></li>
+<li><p>Fixed tidy.lm with <code class="docutils literal notranslate"><span class="pre">quick</span> <span class="pre">=</span> <span class="pre">TRUE</span></code> to return terms as character rather than
+factor (thanks to #191 from Matteo Sostero)</p></li>
+<li><p>Added tidiers for <code class="docutils literal notranslate"><span class="pre">ivreg</span></code> objects from the AER package (thanks to #245 from
+David Hugh-Jones)</p></li>
+<li><p>Added tidiers for <code class="docutils literal notranslate"><span class="pre">survdiff</span></code> objects from the survival package (thanks to #147
+from Michał Bojanowski)</p></li>
+<li><p>Added tidiers for <code class="docutils literal notranslate"><span class="pre">emmeans</span></code> from the emmeans package (thanks to #252 from
+Matthew Kay)</p></li>
+<li><p>Added tidiers for <code class="docutils literal notranslate"><span class="pre">speedlm</span></code> and <code class="docutils literal notranslate"><span class="pre">speedglm</span></code> from the speedglm package (#685,
+thanks to #248 from David Hugh-Jones)</p></li>
+<li><p>Added tidiers for <code class="docutils literal notranslate"><span class="pre">muhaz</span></code> objects from the muhaz package (thanks to #251 from
+Andreas Bender)</p></li>
+<li><p>Added tidiers for <code class="docutils literal notranslate"><span class="pre">decompose</span></code> and <code class="docutils literal notranslate"><span class="pre">stl</span></code> objects from stats (thanks to #165
+from Aaron Jacobs)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-4-2">
+<h1>broom 0.4.2<a class="headerlink" href="#broom-0-4-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added tidiers for <code class="docutils literal notranslate"><span class="pre">lsmobj</span></code> and <code class="docutils literal notranslate"><span class="pre">ref.grid</span></code> objects from the lsmeans package</p></li>
+<li><p>Added tidiers for <code class="docutils literal notranslate"><span class="pre">betareg</span></code> objects from the betareg package</p></li>
+<li><p>Added tidiers for <code class="docutils literal notranslate"><span class="pre">lmRob</span></code> and <code class="docutils literal notranslate"><span class="pre">glmRob</span></code> objects from the robust package</p></li>
+<li><p>Added tidiers for <code class="docutils literal notranslate"><span class="pre">brms</span></code> objects from the brms package (thanks to #149 from
+Paul Buerkner)</p></li>
+<li><p>Fixed tidiers for orcutt 2.0</p></li>
+<li><p>Changed <code class="docutils literal notranslate"><span class="pre">tidy.glmnet</span></code> to filter out rows where estimate == 0.</p></li>
+<li><p>Updates to <code class="docutils literal notranslate"><span class="pre">rstanarm</span></code> tidiers (thanks to #177 from Jonah Gabry)</p></li>
+<li><p>Fixed issue with survival package 2.40-1 (thanks to #180 from Marcus Walz)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-4-1">
+<h1>broom 0.4.1<a class="headerlink" href="#broom-0-4-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added AppVeyor, <a class="reference external" href="http://codecov.io">codecov.io</a>, and code of conduct</p></li>
+<li><p>Changed name of “NA’s” column in summaryDefault output to “na”</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">tidy.TukeyHSD</span></code> to include <code class="docutils literal notranslate"><span class="pre">term</span></code> column. Also added <code class="docutils literal notranslate"><span class="pre">separate.levels</span></code>
+argument, with option to separate <code class="docutils literal notranslate"><span class="pre">comparison</span></code> into <code class="docutils literal notranslate"><span class="pre">level1</span></code> and <code class="docutils literal notranslate"><span class="pre">level2</span></code></p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">tidy.manova</span></code> to use correct column name for test (previously, always
+<code class="docutils literal notranslate"><span class="pre">pillai</span></code>)</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">kde_tidiers</span></code> to tidy kernel density estimates</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">orcutt_tidiers</span></code> to tidy the results of <code class="docutils literal notranslate"><span class="pre">cochrane.orcutt</span></code> orcutt
+package</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">tidy.dist</span></code> to tidy the distance matrix output of <code class="docutils literal notranslate"><span class="pre">dist</span></code> from the stats
+package</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">tidy</span></code> and <code class="docutils literal notranslate"><span class="pre">glance</span></code> for <code class="docutils literal notranslate"><span class="pre">lmodel2</span></code> objects from the lmodel2 package</p></li>
+<li><p>Added tidiers for <code class="docutils literal notranslate"><span class="pre">poLCA</span></code> objects from the poLCA package</p></li>
+<li><p>Added tidiers for sparse matrices from the Matrix package</p></li>
+<li><p>Added tidiers for <code class="docutils literal notranslate"><span class="pre">prcomp</span></code> objects</p></li>
+<li><p>Added tidiers for <code class="docutils literal notranslate"><span class="pre">Mclust</span></code> objects from the Mclust package</p></li>
+<li><p>Added tidiers for <code class="docutils literal notranslate"><span class="pre">acf</span></code> objects</p></li>
+<li><p>Fixed to be compatible with dplyr 0.5, which is being submitted to CRAN</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-4-0">
+<h1>broom 0.4.0<a class="headerlink" href="#broom-0-4-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added tidiers for geeglm, nlrq, roc, boot, bgterm, kappa, binWidth, binDesign,
+rcorr, stanfit, rjags, gamlss, and mle2 objects.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">tidy</span></code> methods for lists, including u, d, v lists from <code class="docutils literal notranslate"><span class="pre">svd</span></code>, and x, y,
+z lists used by <code class="docutils literal notranslate"><span class="pre">image</span></code> and <code class="docutils literal notranslate"><span class="pre">persp</span></code></p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">quick</span></code> argument to <code class="docutils literal notranslate"><span class="pre">tidy.lm</span></code>, <code class="docutils literal notranslate"><span class="pre">tidy.nls</span></code>, and <code class="docutils literal notranslate"><span class="pre">tidy.biglm</span></code>, to create a
+smaller and faster version of the output.</p></li>
+<li><p>Changed <code class="docutils literal notranslate"><span class="pre">rowwise_df_tidiers</span></code> to allow the original data to be saved as a list
+column, then provided as a column name to <code class="docutils literal notranslate"><span class="pre">augment</span></code>. This required removing
+<code class="docutils literal notranslate"><span class="pre">data</span></code> from the <code class="docutils literal notranslate"><span class="pre">augment</span></code> S3 signature. Also added <code class="docutils literal notranslate"><span class="pre">tests-rowwise.R</span></code></p></li>
+<li><p>Fixed various issues in ANOVA output</p></li>
+<li><p>Fixed various issues in lme4 output</p></li>
+<li><p>Fixed issues in tests caused by dev version of ggplot2</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-3-7">
+<h1>broom 0.3.7<a class="headerlink" href="#broom-0-3-7" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added tidiers for “plm” (panel linear model) objects from the plm package.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">tidy.coeftest</span></code> for coeftest objects from the lmtest package.</p></li>
+<li><p>Set up <code class="docutils literal notranslate"><span class="pre">tidy.lm</span></code> to work with “mlm” (multiple linear model) objects (those
+with multiple response columns).</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">tidy</span></code> and <code class="docutils literal notranslate"><span class="pre">glance</span></code> for “biglm” and “bigglm” objects from the biglm
+package.</p></li>
+<li><p>Fixed bug in <code class="docutils literal notranslate"><span class="pre">tidy.coxph</span></code> when one-row matrices are returned</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">tidy.power.htest</span></code></p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">tidy</span></code> and <code class="docutils literal notranslate"><span class="pre">glance</span></code> for <code class="docutils literal notranslate"><span class="pre">summaryDefault</span></code> objects</p></li>
+<li><p>Added tidiers for “lme” (linear mixed effects models) from the nlme package</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">tidy</span></code> and <code class="docutils literal notranslate"><span class="pre">glance</span></code> for <code class="docutils literal notranslate"><span class="pre">multinom</span></code> objects from the nnet package.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-3-6">
+<h1>broom 0.3.6<a class="headerlink" href="#broom-0-3-6" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed bug in <code class="docutils literal notranslate"><span class="pre">tidy.pairwise.htest</span></code>, which now can handle cases where the
+grouping variable is numeric.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">tidy.aovlist</span></code> method. This added <code class="docutils literal notranslate"><span class="pre">stringr</span></code> package to IMPORTS to trim
+whitespace from the beginning and end of the <code class="docutils literal notranslate"><span class="pre">term</span></code> and <code class="docutils literal notranslate"><span class="pre">stratum</span></code> columns.
+This also required adjusting <code class="docutils literal notranslate"><span class="pre">tidy.aov</span></code> so that it could handle strata that
+are missing p-values.</p></li>
+<li><p>Set up <code class="docutils literal notranslate"><span class="pre">glance.lm</span></code> to work with <code class="docutils literal notranslate"><span class="pre">aov</span></code> objects along with <code class="docutils literal notranslate"><span class="pre">lm</span></code> objects.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">tidy</span></code> and <code class="docutils literal notranslate"><span class="pre">glance</span></code> for matrix objects, with <code class="docutils literal notranslate"><span class="pre">tidy.matrix</span></code> converting a
+matrix to a data frame with rownames included, and <code class="docutils literal notranslate"><span class="pre">glance.matrix</span></code> returning
+the same result as <code class="docutils literal notranslate"><span class="pre">glance.data.frame</span></code>.</p></li>
+<li><p>Changed DESCRIPTION Authors&#64;R to new format</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-3-5">
+<h1>broom 0.3.5<a class="headerlink" href="#broom-0-3-5" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed small bug in <code class="docutils literal notranslate"><span class="pre">felm</span></code> where the <code class="docutils literal notranslate"><span class="pre">.fitted</span></code> and <code class="docutils literal notranslate"><span class="pre">.resid</span></code> columns were
+matrices rather than vectors.</p></li>
+<li><p>Added tidiers for <code class="docutils literal notranslate"><span class="pre">rlm</span></code> (robust linear model) and <code class="docutils literal notranslate"><span class="pre">gam</span></code> (generalized additive
+model) objects, including adjustments to “lm” tidiers in order to handle them.
+See <code class="docutils literal notranslate"><span class="pre">?rlm_tidiers</span></code> and <code class="docutils literal notranslate"><span class="pre">?gam_tidiers</span></code> for more.</p></li>
+<li><p>Removed rownames from <code class="docutils literal notranslate"><span class="pre">tidy.cv.glmnet</span></code> output</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-3-4">
+<h1>broom 0.3.4<a class="headerlink" href="#broom-0-3-4" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>The behavior of <code class="docutils literal notranslate"><span class="pre">augment</span></code>, particularly with regard to missing data and the
+<code class="docutils literal notranslate"><span class="pre">na.exclude</span></code> argument, has through the use of the <code class="docutils literal notranslate"><span class="pre">augment_columns</span></code> function
+been made consistent across the following models:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">lm</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">glm</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nls</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">merMod</span></code> (<code class="docutils literal notranslate"><span class="pre">lme4</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">survreg</span></code> (<code class="docutils literal notranslate"><span class="pre">survival</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">coxph</span></code> (<code class="docutils literal notranslate"><span class="pre">survival</span></code>)</p></li>
+</ul>
+</li>
+</ul>
+<p>Unit tests in <code class="docutils literal notranslate"><span class="pre">tests/testthat/test-augment.R</span></code> were added to ensure consistency
+across these models.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tidy</span></code>, <code class="docutils literal notranslate"><span class="pre">augment</span></code> and <code class="docutils literal notranslate"><span class="pre">glance</span></code> methods were added for <code class="docutils literal notranslate"><span class="pre">rowwise_df</span></code> objects,
+and are set up to apply across their rows. This allows for simple patterns
+such as:</p></li>
+</ul>
+<p>regressions &lt;- mtcars %&gt;% group_by(cyl) %&gt;% do(mod = lm(mpg ~ wt, .))
+regressions %&gt;% tidy(mod) regressions %&gt;% augment(mod)</p>
+<p>See <code class="docutils literal notranslate"><span class="pre">?rowwise_df_tidiers</span></code> for more.</p>
+<ul class="simple">
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">tidy</span></code> and <code class="docutils literal notranslate"><span class="pre">glance</span></code> methods for <code class="docutils literal notranslate"><span class="pre">Arima</span></code> objects, and <code class="docutils literal notranslate"><span class="pre">tidy</span></code> for
+<code class="docutils literal notranslate"><span class="pre">pairwise.htest</span></code> objects.</p></li>
+<li><p>Fixes for CRAN: change package description to title case, removed NOTES,
+mostly by adding <code class="docutils literal notranslate"><span class="pre">globals.R</span></code> to declare global variables.</p></li>
+<li><p>This is the original version published on CRAN.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-3">
+<h1>broom 0.3<a class="headerlink" href="#broom-0-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Tidiers have been added for S3 objects from the following packages:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">lme4</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">glmnet</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">survival</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">zoo</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">felm</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MASS</span></code> (<code class="docutils literal notranslate"><span class="pre">ridgelm</span></code> objects)</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tidy</span></code> and <code class="docutils literal notranslate"><span class="pre">glance</span></code> methods for data.frames have also been added, and
+<code class="docutils literal notranslate"><span class="pre">augment.data.frame</span></code> produces an error (rather than returning the same
+data.frame).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stderror</span></code> has been changed to <code class="docutils literal notranslate"><span class="pre">std.error</span></code> (affects many functions) to be
+consistent with broom’s naming conventions for columns.</p></li>
+<li><p>A function <code class="docutils literal notranslate"><span class="pre">bootstrap</span></code> has been added based on <a class="reference external" href="https://github.com/tidyverse/dplyr/issues/269">this
+example</a>, to perform the common
+use case of bootstrapping models.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="broom-0-2">
+<h1>broom 0.2<a class="headerlink" href="#broom-0-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added “augment” S3 generic and various implementations. “augment” does
+something different from tidy: it adds columns to the original dataset,
+including predictions, residuals, or cluster assignments. This was originally
+described as “fortify” in ggplot2.</p></li>
+<li><p>Added “glance” S3 generic and various implementations. “glance” produces a
+<em>one-row</em> data frame summary, which is necessary for tidy outputs with values
+like R^2 or F-statistics.</p></li>
+<li><p>Re-wrote intro broom vignette/README to introduce all three methods.</p></li>
+<li><p>Wrote a new kmeans vignette.</p></li>
+<li><p>Added tidying methods for multcomp, sp, and map objects (from
+fortify-multcomp, fortify-sp, and fortify-map from ggplot2).</p></li>
+<li><p>Because this integrates substantial amounts of ggplot2 code (with permission),
+added Hadley Wickham as an author in DESCRIPTION.</p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./temporal/renv/library/R-4.1/aarch64-apple-darwin20/broom"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Quan Nguyen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,620 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>callr 3.7.0 &#8212; Temporal and sequential analysis - LASI 2022</title>
+    
+  <link href="../../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../_static/togglebutton.js"></script>
+    <script src="../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../../../_static/solar_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Temporal and sequential analysis - LASI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture1.html">
+   Lecture 1: Clustering of sequential data in education
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture2.html">
+   Lecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture3.html">
+   Lecture 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Labs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab1.html">
+   Lab 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab2.html">
+   Lab 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab3.html">
+   Lab 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Quan Nguyen<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../../_sources/temporal/renv/library/R-4.1/aarch64-apple-darwin20/callr/NEWS.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/quan3010/temporal_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/quan3010/temporal_analysis/issues/new?title=Issue%20on%20page%20%2Ftemporal/renv/library/R-4.1/aarch64-apple-darwin20/callr/NEWS.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   callr 3.7.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#callr-3-6-0">
+   callr 3.6.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#callr-3-5-1">
+   callr 3.5.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#callr-3-5-0">
+   callr 3.5.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#callr-3-4-4">
+   callr 3.4.4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#callr-3-4-3">
+   callr 3.4.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#callr-3-4-2">
+   callr 3.4.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#callr-3-4-1">
+   callr 3.4.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#callr-3-4-0">
+   callr 3.4.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#callr-3-3-2">
+   callr 3.3.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#callr-3-3-1">
+   callr 3.3.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#callr-3-3-0">
+   callr 3.3.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#callr-3-2-0">
+   callr 3.2.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#callr-3-1-1">
+   callr 3.1.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#callr-3-1-0">
+   callr 3.1.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#callr-3-0-0">
+   callr 3.0.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#callr-2-0-4">
+   callr 2.0.4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#callr-2-0-3">
+   callr 2.0.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#callr-2-0-2">
+   callr 2.0.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#callr-2-0-1">
+   callr 2.0.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#callr-2-0-0">
+   callr 2.0.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#callr-1-0-0">
+   callr 1.0.0
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="callr-3-7-0">
+<h1>callr 3.7.0<a class="headerlink" href="#callr-3-7-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Reporting errors is much faster now (#185).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">user_profile</span></code> option of <code class="docutils literal notranslate"><span class="pre">r_vanilla()</span></code> defaults to <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> now (#194).</p></li>
+<li><p>It is now possible to set R environment variables (<code class="docutils literal notranslate"><span class="pre">R_ENVIRON_USER</span></code>,
+<code class="docutils literal notranslate"><span class="pre">R_PROFILE_USER</span></code>, etc.) via the <code class="docutils literal notranslate"><span class="pre">env</span></code> argument (#193).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="callr-3-6-0">
+<h1>callr 3.6.0<a class="headerlink" href="#callr-3-6-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>callr now supports starting an R process with a different architecture,
+so on Windows 64-bit R can start a 32-bit R background process, and
+vice-versa (#95).</p></li>
+<li><p>callr now handles symbolic arguments properly, and does not evaluate them.
+E.g. <code class="docutils literal notranslate"><span class="pre">callr::r(function(x)</span> <span class="pre">x,</span> <span class="pre">list(quote(foobar)))</span></code> works now (#175).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">callr::r_session</span></code> does not leak file descriptors now in the sub-process
+(#184).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="callr-3-5-1">
+<h1>callr 3.5.1<a class="headerlink" href="#callr-3-5-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">callr::r_session</span></code> now handles large messages from the subprocess
+well (#168).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="callr-3-5-0">
+<h1>callr 3.5.0<a class="headerlink" href="#callr-3-5-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>callr can now pass the environment of the function to the subprocess,
+optionally. This makes it easier to call an internal function of a
+package in a subprocess. See the <code class="docutils literal notranslate"><span class="pre">package</span></code> argument of <code class="docutils literal notranslate"><span class="pre">r()</span></code>, <code class="docutils literal notranslate"><span class="pre">r_bg()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">r_session$run()</span></code>, etc. (#147).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="callr-3-4-4">
+<h1>callr 3.4.4<a class="headerlink" href="#callr-3-4-4" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>An <code class="docutils literal notranslate"><span class="pre">r_session</span></code> now exits if the load hook errors. This generates an error
+if the session is started with <code class="docutils literal notranslate"><span class="pre">wait</span> <span class="pre">=</span> <span class="pre">TRUE</span></code>. For <code class="docutils literal notranslate"><span class="pre">wait</span> <span class="pre">=</span> <span class="pre">FALSE</span></code> the
+first <code class="docutils literal notranslate"><span class="pre">$read()</span></code> operation will return with an error (#162).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="callr-3-4-3">
+<h1>callr 3.4.3<a class="headerlink" href="#callr-3-4-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">default_repos()</span></code> now returns a list if <code class="docutils literal notranslate"><span class="pre">getOption(&quot;repos&quot;)</span></code> is a list,
+and a vector otherwise, on R 4.x.y as well.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="callr-3-4-2">
+<h1>callr 3.4.2<a class="headerlink" href="#callr-3-4-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Improved error messages. Error messages are now fully printed after
+an error. In non-interactive sessions, the stack trace is printed as well.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="callr-3-4-1">
+<h1>callr 3.4.1<a class="headerlink" href="#callr-3-4-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>callr is now more careful when loading the local <code class="docutils literal notranslate"><span class="pre">.Rprofile</span></code> in the
+subprocess. This fixes issues with packrat and renv that use <code class="docutils literal notranslate"><span class="pre">.Rprofile</span></code>
+for setup (#139).</p></li>
+<li><p>callr functions fail early if environment file is missing (#123, &#64;jdblischak)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="callr-3-4-0">
+<h1>callr 3.4.0<a class="headerlink" href="#callr-3-4-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>All callr functions and background processes properly clean up
+temporary files now (#104).</p></li>
+<li><p>callr now uses a more principled setup for the library path, and
+restores the related environment variables in the child process.
+This is a <strong>breaking change</strong> if you relied on having the library set
+in a <code class="docutils literal notranslate"><span class="pre">system()</span></code> subprocess of the callr subprocess (#114).</p></li>
+<li><p>Better printing of <code class="docutils literal notranslate"><span class="pre">rlang_error</span></code>s that happened in the subprocess.</p></li>
+<li><p>The stacking of error objects is slightly different now, as we keep the
+unmodified error from the subprocess in <code class="docutils literal notranslate"><span class="pre">$parent$error</span></code>.</p></li>
+<li><p>callr now loads <code class="docutils literal notranslate"><span class="pre">.Rprofile</span></code> files from the current working directory
+by default. This works better with packrat, renv, and other software
+that relies on a local profile for initialization (#131).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="callr-3-3-2">
+<h1>callr 3.3.2<a class="headerlink" href="#callr-3-3-2" title="Permalink to this headline">¶</a></h1>
+<p>No user visible changes in this version.</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="callr-3-3-1">
+<h1>callr 3.3.1<a class="headerlink" href="#callr-3-3-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">r_session</span></code> now avoids creating <code class="docutils literal notranslate"><span class="pre">data</span></code> and <code class="docutils literal notranslate"><span class="pre">env</span></code> objects in the global
+environment of the subprocess.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">$debug()</span></code> method for <code class="docutils literal notranslate"><span class="pre">r_session</span></code> to inspect the dumped frames
+in the subprocess, after an error.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="callr-3-3-0">
+<h1>callr 3.3.0<a class="headerlink" href="#callr-3-3-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>callr now sets the <code class="docutils literal notranslate"><span class="pre">.Last.error</span></code> variable for every uncaught callr
+error to the error condition, and also sets <code class="docutils literal notranslate"><span class="pre">.Last.error.trace</span></code> to its
+stack trace. If the error originates in the subprocess, then <code class="docutils literal notranslate"><span class="pre">.Last.error</span></code>
+is a hierarchical error object, and <code class="docutils literal notranslate"><span class="pre">.Last.error.trace</span></code> merges the
+traces from the two processes. See the <code class="docutils literal notranslate"><span class="pre">README.md</span></code> for an example.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">$traceback()</span></code> method for <code class="docutils literal notranslate"><span class="pre">r_session</span></code>, to run <code class="docutils literal notranslate"><span class="pre">traceback()</span></code> in the
+subprocess, after an error.</p></li>
+<li><p>A callr subprocess now does not load any R packages by default.</p></li>
+<li><p>New vignette, that showcases <code class="docutils literal notranslate"><span class="pre">r_session</span></code>.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="callr-3-2-0">
+<h1>callr 3.2.0<a class="headerlink" href="#callr-3-2-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">r()</span></code>, <code class="docutils literal notranslate"><span class="pre">rcmd()</span></code> and <code class="docutils literal notranslate"><span class="pre">rscript()</span></code> can now redirect the standard error of
+the subprocess its standard output. This allows to keep them correctly
+interleaved. For this, you need to either set the <code class="docutils literal notranslate"><span class="pre">stderr</span></code> argument to
+the special string <code class="docutils literal notranslate"><span class="pre">&quot;2&gt;&amp;1&quot;</span></code>, or to the same output file as specified
+for <code class="docutils literal notranslate"><span class="pre">stdout</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">r()</span></code>, <code class="docutils literal notranslate"><span class="pre">rcmd()</span></code> and <code class="docutils literal notranslate"><span class="pre">rscript()</span></code> now pass <code class="docutils literal notranslate"><span class="pre">...</span></code> arguments to
+<code class="docutils literal notranslate"><span class="pre">processx::run()</span></code>. <code class="docutils literal notranslate"><span class="pre">r_bg()</span></code> and <code class="docutils literal notranslate"><span class="pre">rcmd_bg()</span></code> pass <code class="docutils literal notranslate"><span class="pre">...</span></code> arguments to
+the <code class="docutils literal notranslate"><span class="pre">processx::process</span></code> constructor. For <code class="docutils literal notranslate"><span class="pre">r_process</span></code>, <code class="docutils literal notranslate"><span class="pre">rcmd_process</span></code>
+and <code class="docutils literal notranslate"><span class="pre">rscript_process</span></code> extra arguments can be specified as <code class="docutils literal notranslate"><span class="pre">options$extra</span></code>,
+these are also passed to the <code class="docutils literal notranslate"><span class="pre">processx::process</span></code> constructor (#100).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="callr-3-1-1">
+<h1>callr 3.1.1<a class="headerlink" href="#callr-3-1-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">r()</span></code>, <code class="docutils literal notranslate"><span class="pre">r_bg()</span></code>, etc. now handle messages from the cliapp package
+properly. They used to make the R session exit.</p></li>
+<li><p>Better default for the <code class="docutils literal notranslate"><span class="pre">repos</span></code> option in callr subprocesses. callr no
+longer creates duplicate “CRAN” entries. By default the new
+<code class="docutils literal notranslate"><span class="pre">default_repos()</span></code> function is used to set <code class="docutils literal notranslate"><span class="pre">repos</span></code> in the subprocess.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="callr-3-1-0">
+<h1>callr 3.1.0<a class="headerlink" href="#callr-3-1-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>New <code class="docutils literal notranslate"><span class="pre">rscript()</span></code> function and <code class="docutils literal notranslate"><span class="pre">rscript_process</span></code> class to execute
+R scripts via <code class="docutils literal notranslate"><span class="pre">Rscript</span></code> (#40, #81).</p></li>
+<li><p>Library paths are now correctly set up for <code class="docutils literal notranslate"><span class="pre">system()</span></code> (and similar)
+calls from the callr subprocesses (#83, #84).</p></li>
+<li><p>Pass <code class="docutils literal notranslate"><span class="pre">options(&quot;repos&quot;)</span></code> to the child process as is, without checking.
+Closes #82.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">r_session$run_with_output()</span></code> now returns an S3 object with class
+<code class="docutils literal notranslate"><span class="pre">callr_session_result</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">r_session$run*()</span></code> handle interrupts properly. It tries to interrupt
+the background process fist, kills it if it is not interruptible,
+and then re-throws the interrupt condition, going back to the top level
+prompt if the re-thrown condition is uncaught.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="callr-3-0-0">
+<h1>callr 3.0.0<a class="headerlink" href="#callr-3-0-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>New <code class="docutils literal notranslate"><span class="pre">r_session</span></code> class: a background R session you can send commands to
+(#56).</p></li>
+<li><p>Rewrote passing the library path to the subprocess (#73, #75)</p></li>
+<li><p>Retain names of the <code class="docutils literal notranslate"><span class="pre">repos</span></code> option (#67, &#64;jennybc)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="callr-2-0-4">
+<h1>callr 2.0.4<a class="headerlink" href="#callr-2-0-4" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>pkgdown web site at <a class="reference external" href="https://callr.r-lib.org">https://callr.r-lib.org</a>  (#52, #53).</p></li>
+<li><p>callr users <code class="docutils literal notranslate"><span class="pre">.Renviron</span></code> files now (and <code class="docutils literal notranslate"><span class="pre">R_ENVIRON_USER</span></code> as well),
+but overrides the library path, as requested in <code class="docutils literal notranslate"><span class="pre">r()</span></code>, etc. (#30).</p></li>
+<li><p>callr now handles the case when the subprocess calls <code class="docutils literal notranslate"><span class="pre">quit()</span></code>.</p></li>
+<li><p>callr now uses the processx package, instead of embedded code,
+to create and control processes.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="callr-2-0-3">
+<h1>callr 2.0.3<a class="headerlink" href="#callr-2-0-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>The default behavior on error can be set now with the <code class="docutils literal notranslate"><span class="pre">callr.error</span></code>
+option.</p></li>
+<li><p>Better error message if the child R process crashes or gets killed. (#41)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">r_bg</span></code> and <code class="docutils literal notranslate"><span class="pre">rcmd_bg</span></code> now have the <code class="docutils literal notranslate"><span class="pre">supervise</span></code> option (#45).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="callr-2-0-2">
+<h1>callr 2.0.2<a class="headerlink" href="#callr-2-0-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix a bug with R-devel, caused by the change on 2018-02-08:
+<a class="reference external" href="https://github.com/wch/r-source/commit/924582943706100e88a11d6bb0585d25779c91f5">https://github.com/wch/r-source/commit/924582943706100e88a11d6bb0585d25779c91f5</a>
+#37, #38</p></li>
+<li><p>Fix a race condition on Windows, when creating named pipes for <code class="docutils literal notranslate"><span class="pre">stdout</span></code>
+or <code class="docutils literal notranslate"><span class="pre">stderr</span></code>. The client sometimes didn’t wait for the server, and callr
+failed with ERROR_PIPE_BUSY (231, All pipe instances are busy).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="callr-2-0-1">
+<h1>callr 2.0.1<a class="headerlink" href="#callr-2-0-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix compilation issues on Solaris</p></li>
+<li><p>Fix a test failure on macOS</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="callr-2-0-0">
+<h1>callr 2.0.0<a class="headerlink" href="#callr-2-0-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Run R or <code class="docutils literal notranslate"><span class="pre">R</span> <span class="pre">CMD</span></code> in the background, see <code class="docutils literal notranslate"><span class="pre">r_bg()</span></code>, <code class="docutils literal notranslate"><span class="pre">rcmd_bg()</span></code>,
+and also <code class="docutils literal notranslate"><span class="pre">r_process</span></code> and <code class="docutils literal notranslate"><span class="pre">rcmd_process</span></code></p></li>
+<li><p>The defaults for <code class="docutils literal notranslate"><span class="pre">r()</span></code> are safer now, the match the defaults of
+<code class="docutils literal notranslate"><span class="pre">r_safe()</span></code>. <code class="docutils literal notranslate"><span class="pre">r_safe()</span></code> is kept for compatibility. <code class="docutils literal notranslate"><span class="pre">r_copycat()</span></code> has the
+old <code class="docutils literal notranslate"><span class="pre">r()</span></code> defaults.</p></li>
+<li><p>The defaults for <code class="docutils literal notranslate"><span class="pre">rcmd()</span></code> are safer now, the match the defaults of
+<code class="docutils literal notranslate"><span class="pre">rcmd_safe()</span></code>. <code class="docutils literal notranslate"><span class="pre">rcmd_safe()</span></code> is kept for compatibility. <code class="docutils literal notranslate"><span class="pre">rcmd_copycat()</span></code>
+has the old <code class="docutils literal notranslate"><span class="pre">rcmd()</span></code> defaults.</p></li>
+<li><p>Support block callbacks, in addition to line callbacks. Block callbacks
+are called for arbitrary chunks of output, even without a newline</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">spinner</span></code> argument to show a spinner in <code class="docutils literal notranslate"><span class="pre">r()</span></code> or <code class="docutils literal notranslate"><span class="pre">rcmd()</span></code></p></li>
+<li><p>Support timeouts, via the <code class="docutils literal notranslate"><span class="pre">timeout</span></code> argument</p></li>
+<li><p>Fix bug when <code class="docutils literal notranslate"><span class="pre">stdout</span></code> and <code class="docutils literal notranslate"><span class="pre">stderr</span></code> are redirected to the same file</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rcmd_safe_env()</span></code> to allow extending the environment variables set in
+safe mode</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rcmd()</span></code> gets a <code class="docutils literal notranslate"><span class="pre">fail_on_status</span></code> argument</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rcmd()</span></code> gets an <code class="docutils literal notranslate"><span class="pre">echo</span></code> argument to potentially show the command to be
+run on the screen (#15)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rcmd()</span></code> gets a <code class="docutils literal notranslate"><span class="pre">wd</span></code> argument to set the working directory</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="callr-1-0-0">
+<h1>callr 1.0.0<a class="headerlink" href="#callr-1-0-0" title="Permalink to this headline">¶</a></h1>
+<p>First public release.</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./temporal/renv/library/R-4.1/aarch64-apple-darwin20/callr"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Quan Nguyen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

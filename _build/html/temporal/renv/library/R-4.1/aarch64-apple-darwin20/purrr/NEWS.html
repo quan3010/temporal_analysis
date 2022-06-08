@@ -1,0 +1,1098 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>purrr 0.3.4 &#8212; Temporal and sequential analysis - LASI 2022</title>
+    
+  <link href="../../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../_static/togglebutton.js"></script>
+    <script src="../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../../../_static/solar_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Temporal and sequential analysis - LASI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture1.html">
+   Lecture 1: Clustering of sequential data in education
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture2.html">
+   Lecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture3.html">
+   Lecture 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Labs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab1.html">
+   Lab 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab2.html">
+   Lab 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab3.html">
+   Lab 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Quan Nguyen<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../../_sources/temporal/renv/library/R-4.1/aarch64-apple-darwin20/purrr/NEWS.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/quan3010/temporal_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/quan3010/temporal_analysis/issues/new?title=Issue%20on%20page%20%2Ftemporal/renv/library/R-4.1/aarch64-apple-darwin20/purrr/NEWS.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   purrr 0.3.4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#purrr-0-3-3">
+   purrr 0.3.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#purrr-0-3-2">
+   purrr 0.3.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#purrr-0-3-1">
+   purrr 0.3.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#purrr-0-3-0">
+   purrr 0.3.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#breaking-changes">
+     Breaking changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plucking">
+     Plucking
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mapping">
+     Mapping
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rates">
+     Rates
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#partial">
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       partial()
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minor-improvements-and-fixes">
+     Minor improvements and fixes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#life-cycle">
+     Life cycle
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dir-arguments">
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         .dir
+        </span>
+       </code>
+       arguments
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#simplification-of-partial">
+       Simplification of
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         partial()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#retirement-of-invoke">
+       Retirement of
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         invoke()
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#other-lifecycle-changes">
+       Other lifecycle changes
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#purrr-0-2-5">
+   purrr 0.2.5
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#purrr-0-2-4">
+   purrr 0.2.4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#purrr-0-2-3">
+   purrr 0.2.3
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Breaking changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dependencies">
+     Dependencies
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pluck">
+     pluck()
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#map-helpers">
+     Map helpers
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#map-functions">
+     Map functions
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modify-functions">
+     Modify functions
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-functions">
+     New functions
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minor-improvements-and-bug-fixes">
+     Minor improvements and bug fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#purrr-0-2-2-1">
+   purrr 0.2.2.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#purrr-0-2-2">
+   purrr 0.2.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#purrr-0-2-1">
+   purrr 0.2.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#purrr-0-2-0">
+   purrr 0.2.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     New functions
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#row-based-functionals">
+     Row based functionals
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bug-fixes-and-minor-changes">
+     Bug fixes and minor changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#deprecated-functions">
+     Deprecated functions
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="purrr-0-3-4">
+<h1>purrr 0.3.4<a class="headerlink" href="#purrr-0-3-4" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Added documentation for exporting functions created with purrr
+adverb (&#64;njtierney, #668). See <code class="docutils literal notranslate"><span class="pre">?faq-adverbs-export</span></code>.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">none()</span></code>, which tests that a predicate is false for all elements
+(the opposite of <code class="docutils literal notranslate"><span class="pre">every()</span></code>) (&#64;AliciaSchep, #735).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="purrr-0-3-3">
+<h1>purrr 0.3.3<a class="headerlink" href="#purrr-0-3-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Maintenance release.</p></li>
+<li><p>The documentation of <code class="docutils literal notranslate"><span class="pre">map()</span></code> and its variants has been improved by
+&#64;surdina as part of the Tidyverse Developer Day (&#64;surdina, #671).</p></li>
+<li><p>purrr now depends on R 3.2 or greater.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="purrr-0-3-2">
+<h1>purrr 0.3.2<a class="headerlink" href="#purrr-0-3-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix protection issues reported by rchk.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="purrr-0-3-1">
+<h1>purrr 0.3.1<a class="headerlink" href="#purrr-0-3-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">reduce()</span></code> now forces arguments (#643).</p></li>
+<li><p>Fixed an issue in <code class="docutils literal notranslate"><span class="pre">partial()</span></code> with generic functions (#647).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">negate()</span></code> now works with generic functions and functions with early
+returns.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compose()</span></code> now works with generic functions again (#629, #639). Its
+set of unit tests was expanded to cover many edge cases.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">prepend()</span></code> now works with empty lists (&#64;czeildi, #637)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="purrr-0-3-0">
+<h1>purrr 0.3.0<a class="headerlink" href="#purrr-0-3-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="breaking-changes">
+<h2>Breaking changes<a class="headerlink" href="#breaking-changes" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">modify()</span></code> and variants are now wrapping <code class="docutils literal notranslate"><span class="pre">[[&lt;-</span></code> instead of
+<code class="docutils literal notranslate"><span class="pre">[&lt;-</span></code>. This change increases the genericity of these functions but
+might cause different behaviour in some cases.</p>
+<p>For instance, the <code class="docutils literal notranslate"><span class="pre">[[&lt;-</span></code> for data frames is stricter than the <code class="docutils literal notranslate"><span class="pre">[&lt;-</span></code>
+method and might throw errors instead of warnings. This is the case
+when assigning a longer vector than the number of rows. <code class="docutils literal notranslate"><span class="pre">[&lt;-</span></code>
+truncates the vector with a warning, <code class="docutils literal notranslate"><span class="pre">[[&lt;-</span></code> fails with an error (as
+is appropriate).</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">modify()</span></code> and variants now return the same type as the input when
+the input is an atomic vector.</p></li>
+<li><p>All functionals taking predicate functions (like <code class="docutils literal notranslate"><span class="pre">keep()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">detect()</span></code>, <code class="docutils literal notranslate"><span class="pre">some()</span></code>) got stricter. Predicate functions must now
+return a single <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> or <code class="docutils literal notranslate"><span class="pre">FALSE</span></code>.</p>
+<p>This change is meant to detect problems early with a more meaningful
+error message.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="plucking">
+<h2>Plucking<a class="headerlink" href="#plucking" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>New <code class="docutils literal notranslate"><span class="pre">chuck()</span></code> function. This is a strict variant of <code class="docutils literal notranslate"><span class="pre">pluck()</span></code> that
+throws errors when an element does not exist instead of returning
+<code class="docutils literal notranslate"><span class="pre">NULL</span></code> (&#64;daniel-barnett, #482).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">assign_in()</span></code> and <code class="docutils literal notranslate"><span class="pre">pluck&lt;-</span></code> functions. They modify a data
+structure at an existing pluck location.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">modify_in()</span></code> function to map a function at a pluck location.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pluck()</span></code> now dispatches properly with S3 vectors. The vector class
+must implement a <code class="docutils literal notranslate"><span class="pre">length()</span></code> method for numeric indexing and a
+<code class="docutils literal notranslate"><span class="pre">names()</span></code> method for string indexing.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pluck()</span></code> now supports primitive functions (#404).</p></li>
+</ul>
+</div>
+<div class="section" id="mapping">
+<h2>Mapping<a class="headerlink" href="#mapping" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">.else</span></code> argument for <code class="docutils literal notranslate"><span class="pre">map_if()</span></code> and <code class="docutils literal notranslate"><span class="pre">modify_if()</span></code>. They take an
+alternative function that is mapped over elements of the input for
+which the predicate function returns <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> (#324).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reduce()</span></code>, <code class="docutils literal notranslate"><span class="pre">reduce2()</span></code>, <code class="docutils literal notranslate"><span class="pre">accumulate()</span></code>, and <code class="docutils literal notranslate"><span class="pre">accumulate2()</span></code> now
+terminate early when the function returns a value wrapped with
+<code class="docutils literal notranslate"><span class="pre">done()</span></code> (#253). When an empty <code class="docutils literal notranslate"><span class="pre">done()</span></code> is returned, the
+value at the last iteration is returned instead.</p></li>
+<li><p>Functions taking predicates (<code class="docutils literal notranslate"><span class="pre">map_if()</span></code>, <code class="docutils literal notranslate"><span class="pre">keep()</span></code>, <code class="docutils literal notranslate"><span class="pre">some()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">every()</span></code>, <code class="docutils literal notranslate"><span class="pre">keep()</span></code>, etc) now fail with an informative message when
+the return value is not <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> or <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> (#470).</p>
+<p>This is a breaking change for <code class="docutils literal notranslate"><span class="pre">every()</span></code> and <code class="docutils literal notranslate"><span class="pre">some()</span></code> which were
+documented to be more liberal in the values they accepted as logical
+(any vector was considered <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> if not a single <code class="docutils literal notranslate"><span class="pre">FALSE</span></code> value, no
+matter its length). These functions signal soft-deprecation warnings
+instead of a hard failure.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">modify()</span></code> and variants are now implemented using <code class="docutils literal notranslate"><span class="pre">length()</span></code>, <code class="docutils literal notranslate"><span class="pre">[[</span></code>,
+and <code class="docutils literal notranslate"><span class="pre">[[&lt;-</span></code> methods. This implementation should be compatible with
+most vector classes.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">modify2()</span></code> and <code class="docutils literal notranslate"><span class="pre">imodify()</span></code> functions. These work like <code class="docutils literal notranslate"><span class="pre">map()</span></code>
+and <code class="docutils literal notranslate"><span class="pre">imap()</span></code> but preserve the type of <code class="docutils literal notranslate"><span class="pre">.x</span></code> in the return value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pmap()</span></code> and <code class="docutils literal notranslate"><span class="pre">pwalk()</span></code> now preserve class for inputs of <code class="docutils literal notranslate"><span class="pre">factor</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Date</span></code>, <code class="docutils literal notranslate"><span class="pre">POSIXct</span></code> and other atomic S3 classes with an appropriate
+<code class="docutils literal notranslate"><span class="pre">[[</span></code> method (#358, &#64;mikmart).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">modify()</span></code>, <code class="docutils literal notranslate"><span class="pre">modify_if()</span></code> and <code class="docutils literal notranslate"><span class="pre">modify_at()</span></code> now preserve the class of atomic
+vectors instead of promoting them to lists. New S3 methods are provided for
+character, logical, double, and integer classes (&#64;t-kalinowski, #417).</p></li>
+<li><p>By popular request, <code class="docutils literal notranslate"><span class="pre">at_depth()</span></code> has been brought back as
+<code class="docutils literal notranslate"><span class="pre">map_depth()</span></code>. Like <code class="docutils literal notranslate"><span class="pre">modify_depth()</span></code>, it applies a function at a
+specified level of a data structure. However, it transforms all
+traversed vectors up to <code class="docutils literal notranslate"><span class="pre">.depth</span></code> to bare lists (#381).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">map_at()</span></code>, <code class="docutils literal notranslate"><span class="pre">modify_at()</span></code> and <code class="docutils literal notranslate"><span class="pre">lmap_at()</span></code> accept negative values for
+<code class="docutils literal notranslate"><span class="pre">.at</span></code>, ignoring elements at those positions.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">map()</span></code> and <code class="docutils literal notranslate"><span class="pre">modify()</span></code> now work with calls and pairlists (#412).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">modify_depth()</span></code> now modifies atomic leaves as well. This makes
+<code class="docutils literal notranslate"><span class="pre">modify_depth(x,</span> <span class="pre">1,</span> <span class="pre">fn)</span></code> equivalent to <code class="docutils literal notranslate"><span class="pre">modify(x,</span> <span class="pre">fn)</span></code> (#359).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">accumulate2()</span></code> function which is to <code class="docutils literal notranslate"><span class="pre">accumulate()</span></code> what
+<code class="docutils literal notranslate"><span class="pre">reduce2()</span></code> is to <code class="docutils literal notranslate"><span class="pre">reduce()</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="rates">
+<h2>Rates<a class="headerlink" href="#rates" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">rate_backoff()</span></code> and <code class="docutils literal notranslate"><span class="pre">rate_delay()</span></code> functions to create rate
+objects. You can pass rates to <code class="docutils literal notranslate"><span class="pre">insistently()</span></code>, <code class="docutils literal notranslate"><span class="pre">slowly()</span></code>, or the
+lower level function <code class="docutils literal notranslate"><span class="pre">rate_sleep()</span></code>. This will cause a function to
+wait for a given amount of time with exponential backoff
+(increasingly larger waiting times) or for a constant delay.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">insistently(f)</span></code> modifies a function, <code class="docutils literal notranslate"><span class="pre">f</span></code>, so that it is repeatedly
+called until it succeeds (&#64;richierocks, &#64;ijlyttle).</p>
+<p><code class="docutils literal notranslate"><span class="pre">slowly()</span></code> modifies a function so that it waits for a given amount
+of time between calls.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="partial">
+<h2><code class="docutils literal notranslate"><span class="pre">partial()</span></code><a class="headerlink" href="#partial" title="Permalink to this headline">¶</a></h2>
+<p>The interface of <code class="docutils literal notranslate"><span class="pre">partial()</span></code> has been simplified. It now supports
+quasiquotation to control the timing of evaluation, and the
+<code class="docutils literal notranslate"><span class="pre">rlang::call_modify()</span></code> syntax to control the position of partialised
+arguments.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">partial()</span></code> now supports empty <code class="docutils literal notranslate"><span class="pre">...</span> <span class="pre">=</span> </code> argument to specify the
+position of future arguments, relative to partialised ones. This
+syntax is borrowed from (and implemented with) <code class="docutils literal notranslate"><span class="pre">rlang::call_modify()</span></code>.</p>
+<p>To prevent partial matching of <code class="docutils literal notranslate"><span class="pre">...</span></code> on <code class="docutils literal notranslate"><span class="pre">...f</span></code>, the latter has been
+renamed to <code class="docutils literal notranslate"><span class="pre">.f</span></code>, which is more consistent with other purrr function
+signatures.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">partial()</span></code> now supports quasiquotation. When you unquote an
+argument, it is evaluated only once at function creation time. This
+is more flexible than the <code class="docutils literal notranslate"><span class="pre">.lazy</span></code> argument since you can control the
+timing of evaluation for each argument. Consequently, <code class="docutils literal notranslate"><span class="pre">.lazy</span></code> is
+soft-deprecated (#457).</p></li>
+<li><p>Fixed an infinite loop when partialised function is given the same
+name as the original function (#387).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">partial()</span></code> now calls <code class="docutils literal notranslate"><span class="pre">as_closure()</span></code> on primitive functions to
+ensure argument matching (#360).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">.lazy</span></code> argument of <code class="docutils literal notranslate"><span class="pre">partial()</span></code> is soft-deprecated in favour of
+quasiquotation:</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Before</span>
+<span class="nf">partial</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">u</span> <span class="o">=</span> <span class="nf">runif</span><span class="p">(</span><span class="m">1</span><span class="p">),</span> <span class="n">n</span> <span class="o">=</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1</span><span class="p">),</span> <span class="n">.lazy</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+
+<span class="c1"># After</span>
+<span class="nf">partial</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">u</span> <span class="o">=</span> <span class="o">!!</span><span class="nf">runif</span><span class="p">(</span><span class="m">1</span><span class="p">),</span> <span class="n">n</span> <span class="o">=</span> <span class="o">!!</span><span class="nf">rnorm</span><span class="p">(</span><span class="m">1</span><span class="p">))</span>  <span class="c1"># All constant</span>
+<span class="nf">partial</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">u</span> <span class="o">=</span> <span class="o">!!</span><span class="nf">runif</span><span class="p">(</span><span class="m">1</span><span class="p">),</span> <span class="n">n</span> <span class="o">=</span> <span class="nf">rnorm</span><span class="p">(</span><span class="m">1</span><span class="p">))</span>    <span class="c1"># First constant</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="minor-improvements-and-fixes">
+<h2>Minor improvements and fixes<a class="headerlink" href="#minor-improvements-and-fixes" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>The tibble package is now in Suggests rather than Imports. This
+brings the hard dependency of purrr to just rlang and magrittr.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compose()</span></code> now returns an identity function when called without
+inputs.</p></li>
+<li><p>Functions created with <code class="docutils literal notranslate"><span class="pre">compose()</span></code> now have the same formal
+parameters as the first function to be called. They also feature a
+more informative print method that prints all composed functions in
+turn (&#64;egnha, #366).</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">.dir</span></code> argument in <code class="docutils literal notranslate"><span class="pre">compose()</span></code>. When set to <code class="docutils literal notranslate"><span class="pre">&quot;forward&quot;</span></code>, the
+functions are composed from left to right rather than right to left.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list_modify()</span></code> now supports the <code class="docutils literal notranslate"><span class="pre">zap()</span></code> sentinel (reexported from
+rlang) to remove elements from lists. Consequently, removing
+elements with the ambiguous sentinel <code class="docutils literal notranslate"><span class="pre">NULL</span></code> is soft-deprecated.</p></li>
+<li><p>The requirements of <code class="docutils literal notranslate"><span class="pre">list_modify()</span></code> and <code class="docutils literal notranslate"><span class="pre">list_merge()</span></code> have been
+relaxed. Previously it required both the modified lists and the
+inputs to be either named or unnamed. This restriction now only
+applies to inputs in <code class="docutils literal notranslate"><span class="pre">...</span></code>. When inputs are all named, they are
+matched to the list by name. When they are all unnamed, they are
+matched positionally. Otherwise, this is an error.</p></li>
+<li><p>Fixed ordering of names returned by <code class="docutils literal notranslate"><span class="pre">accumulate_right()</span></code>
+output. They now correspond to the order of inputs.</p></li>
+<li><p>Fixed names of <code class="docutils literal notranslate"><span class="pre">accumulate()</span></code> output when <code class="docutils literal notranslate"><span class="pre">.init</span></code> is supplied.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compose()</span></code> now supports composition with lambdas (&#64;ColinFay, #556)</p></li>
+<li><p>Fixed a <code class="docutils literal notranslate"><span class="pre">pmap()</span></code> crash with empty lists on the Win32 platform (#565).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">modify_depth</span></code> now has <code class="docutils literal notranslate"><span class="pre">.ragged</span></code> argument evaluates correctly to
+<code class="docutils literal notranslate"><span class="pre">TRUE</span></code> by default when <code class="docutils literal notranslate"><span class="pre">.depth</span> <span class="pre">&lt;</span> <span class="pre">0</span></code> (&#64;cderv, #530).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">accumulate()</span></code> now inherits names from their first input (&#64;AshesITR, #446).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">attr_getter()</span></code> no longer uses partial matching. For example, if an
+<code class="docutils literal notranslate"><span class="pre">x</span></code> object has a <code class="docutils literal notranslate"><span class="pre">labels</span></code> attribute but no <code class="docutils literal notranslate"><span class="pre">label</span></code> attribute,
+<code class="docutils literal notranslate"><span class="pre">attr_getter(&quot;label&quot;)(x)</span></code> will no longer extract the <code class="docutils literal notranslate"><span class="pre">labels</span></code>
+attribute (#460, &#64;huftis).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flatten_dfr()</span></code> and <code class="docutils literal notranslate"><span class="pre">flatten_dfc()</span></code> now aborts if dplyr is not installed. (#454)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">imap_dfr()</span></code> now works with <code class="docutils literal notranslate"><span class="pre">.id</span></code> argument is provided (#429)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list_modify()</span></code>, <code class="docutils literal notranslate"><span class="pre">update_list()</span></code> and <code class="docutils literal notranslate"><span class="pre">list_merge()</span></code> now handle duplicate
+duplicate argument names correctly (#441, &#64;mgirlich).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">map_raw</span></code>, <code class="docutils literal notranslate"><span class="pre">imap_raw</span></code>, <code class="docutils literal notranslate"><span class="pre">flatten_raw</span></code>, <code class="docutils literal notranslate"><span class="pre">invoke_map_raw</span></code>, <code class="docutils literal notranslate"><span class="pre">map2_raw</span></code> and <code class="docutils literal notranslate"><span class="pre">pmap_raw</span></code>
+added to support raw vectors. (#455, &#64;romainfrancois)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flatten()</span></code> now supports raw and complex elements.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">array_branch()</span></code> and <code class="docutils literal notranslate"><span class="pre">array_tree()</span></code> now retain the <code class="docutils literal notranslate"><span class="pre">dimnames()</span></code> of the input
+array (#584, &#64;flying-sheep)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pluck()</span></code> no longer flattens lists of arguments. You can still do it
+manually with <code class="docutils literal notranslate"><span class="pre">!!!</span></code>. This change is for consistency with other
+dots-collecting functions of the tidyverse.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">map_at()</span></code>, <code class="docutils literal notranslate"><span class="pre">lmap_at()</span></code> and <code class="docutils literal notranslate"><span class="pre">modify_at()</span></code> now supports selection
+using <code class="docutils literal notranslate"><span class="pre">vars()</span></code> and <code class="docutils literal notranslate"><span class="pre">tidyselect</span></code> (&#64;ColinFay, #608).</p>
+<p>Note that for now you need to import <code class="docutils literal notranslate"><span class="pre">vars()</span></code> from dplyr or call it
+qualified like <code class="docutils literal notranslate"><span class="pre">dplyr::vars()</span></code>. It will be reexported from rlang in
+a future release.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">detect()</span></code> now has a .default argument to specify the value returned when
+nothing is detected (#622, &#64;ColinFay).</p></li>
+</ul>
+</div>
+<div class="section" id="life-cycle">
+<h2>Life cycle<a class="headerlink" href="#life-cycle" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="dir-arguments">
+<h3><code class="docutils literal notranslate"><span class="pre">.dir</span></code> arguments<a class="headerlink" href="#dir-arguments" title="Permalink to this headline">¶</a></h3>
+<p>We have standardised the purrr API for reverse iteration with a common
+<code class="docutils literal notranslate"><span class="pre">.dir</span></code> argument.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">reduce_right()</span></code> is soft-deprecated and replaced by a new <code class="docutils literal notranslate"><span class="pre">.dir</span></code>
+argument of <code class="docutils literal notranslate"><span class="pre">reduce()</span></code>:</p>
+<p>Note that the details of the computation have changed. Whereas
+<code class="docutils literal notranslate"><span class="pre">reduce_right()</span></code> computed <code class="docutils literal notranslate"><span class="pre">f(f(3,</span> <span class="pre">2),</span> <span class="pre">1)</span></code>, it now computes <code class="docutils literal notranslate"><span class="pre">f(1,</span> <span class="pre">f(2,</span> <span class="pre">3))</span></code>. This is the standard way of reducing from the right.</p>
+<p>To produce the exact same reduction as <code class="docutils literal notranslate"><span class="pre">reduce_right()</span></code>, simply
+reverse your vector and use a left reduction:</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reduce2_right()</span></code> is soft-deprecated without replacement. It is not
+clear what algorithmic properties should a right reduction have in
+this case. Please reach out if you know about a use case for a right
+reduction with a ternary function.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">accumulate_right()</span></code> is soft-deprecated and replaced by the new
+<code class="docutils literal notranslate"><span class="pre">.dir</span></code> argument of <code class="docutils literal notranslate"><span class="pre">accumulate()</span></code>. Note that the algorithm has
+slightly changed: the accumulated value is passed to the right
+rather than the left, which is consistent with a right reduction.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">.right</span></code> argument of <code class="docutils literal notranslate"><span class="pre">detect()</span></code> and <code class="docutils literal notranslate"><span class="pre">detect_index()</span></code> is
+soft-deprecated and renamed to <code class="docutils literal notranslate"><span class="pre">.dir</span></code> for consistency with other
+functions and clarity of the interface.</p></li>
+</ul>
+</div>
+<div class="section" id="simplification-of-partial">
+<h3>Simplification of <code class="docutils literal notranslate"><span class="pre">partial()</span></code><a class="headerlink" href="#simplification-of-partial" title="Permalink to this headline">¶</a></h3>
+<p>The interface of <code class="docutils literal notranslate"><span class="pre">partial()</span></code> has been simplified (see more about
+<code class="docutils literal notranslate"><span class="pre">partial()</span></code> below):</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">.lazy</span></code> argument of <code class="docutils literal notranslate"><span class="pre">partial()</span></code> is soft-deprecated in favour of
+quasiquotation.</p></li>
+<li><p>We had to rename <code class="docutils literal notranslate"><span class="pre">...f</span></code> to <code class="docutils literal notranslate"><span class="pre">.f</span></code> in <code class="docutils literal notranslate"><span class="pre">partial()</span></code> in order to support
+<code class="docutils literal notranslate"><span class="pre">...</span> <span class="pre">=</span> </code> argument (which would otherwise partial-match on
+<code class="docutils literal notranslate"><span class="pre">...f</span></code>). This also makes <code class="docutils literal notranslate"><span class="pre">partial()</span></code> more consistent with other
+purrr function signatures.</p></li>
+</ul>
+</div>
+<div class="section" id="retirement-of-invoke">
+<h3>Retirement of <code class="docutils literal notranslate"><span class="pre">invoke()</span></code><a class="headerlink" href="#retirement-of-invoke" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">invoke()</span></code> and <code class="docutils literal notranslate"><span class="pre">invoke_map()</span></code> are retired in favour of <code class="docutils literal notranslate"><span class="pre">exec()</span></code>. Note
+that retired functions are no longer under active development, but
+continue to be maintained undefinitely in the package.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">invoke()</span></code> is retired in favour of the <code class="docutils literal notranslate"><span class="pre">exec()</span></code> function, reexported
+from rlang. <code class="docutils literal notranslate"><span class="pre">exec()</span></code> evaluates a function call built from its inputs
+and supports tidy dots:</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Before:</span>
+<span class="nf">invoke</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="nf">list</span><span class="p">(</span><span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">),</span> <span class="n">x</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">)</span>
+
+<span class="c1"># After</span>
+<span class="nf">exec</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> <span class="o">!!!</span><span class="nf">list</span><span class="p">(</span><span class="n">na.rm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Note that retired functions are not removed from the package and
+will be maintained undefinitely.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">invoke_map()</span></code> is retired without replacement because it is more
+complex to understand than the corresponding code using <code class="docutils literal notranslate"><span class="pre">map()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">map2()</span></code> and <code class="docutils literal notranslate"><span class="pre">exec()</span></code>:</p>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Before:</span>
+<span class="nf">invoke_map</span><span class="p">(</span><span class="n">fns</span><span class="p">,</span> <span class="nf">list</span><span class="p">(</span><span class="n">args</span><span class="p">))</span>
+<span class="nf">invoke_map</span><span class="p">(</span><span class="n">fns</span><span class="p">,</span> <span class="nf">list</span><span class="p">(</span><span class="n">args1</span><span class="p">,</span> <span class="n">args2</span><span class="p">))</span>
+
+<span class="c1"># After:</span>
+<span class="nf">map</span><span class="p">(</span><span class="n">fns</span><span class="p">,</span> <span class="n">exec</span><span class="p">,</span> <span class="o">!!!</span><span class="n">args</span><span class="p">)</span>
+<span class="nf">map2</span><span class="p">(</span><span class="n">fns</span><span class="p">,</span> <span class="nf">list</span><span class="p">(</span><span class="n">args1</span><span class="p">,</span> <span class="n">args2</span><span class="p">),</span> <span class="nf">function</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">args</span><span class="p">)</span> <span class="nf">exec</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="o">!!!</span><span class="n">args</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="other-lifecycle-changes">
+<h3>Other lifecycle changes<a class="headerlink" href="#other-lifecycle-changes" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">%&#64;%</span></code> is soft-deprecated, please use the operator exported in rlang
+instead. The latter features an interface more consistent with <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>
+as it uses NSE, supports S4 fields, and has an assignment variant.</p></li>
+<li><p>Removing elements from lists using <code class="docutils literal notranslate"><span class="pre">NULL</span></code> in <code class="docutils literal notranslate"><span class="pre">list_modify()</span></code> is
+soft-deprecated. Please use the new <code class="docutils literal notranslate"><span class="pre">zap()</span></code> sentinel reexported from
+rlang instead:</p>
+<p>This change is motivated by the ambiguity of <code class="docutils literal notranslate"><span class="pre">NULL</span></code> as a deletion
+sentinel because <code class="docutils literal notranslate"><span class="pre">NULL</span></code> is also a valid value in lists. In the
+future, <code class="docutils literal notranslate"><span class="pre">NULL</span></code> will set an element to <code class="docutils literal notranslate"><span class="pre">NULL</span></code> rather than removing
+the element.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rerun()</span></code> is now in the questioning stage because we are no longer
+convinced NSE functions are a good fit for purrr. Also, <code class="docutils literal notranslate"><span class="pre">rerun(n,</span> <span class="pre">x)</span></code> can just as easily be expressed as <code class="docutils literal notranslate"><span class="pre">map(1:n,</span> <span class="pre">~</span> <span class="pre">x)</span></code> (with the
+added benefit of being passed the current index as argument to the
+lambda).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">map_call()</span></code> is defunct.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="purrr-0-2-5">
+<h1>purrr 0.2.5<a class="headerlink" href="#purrr-0-2-5" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>This is a maintenance release following the release of dplyr 0.7.5.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="purrr-0-2-4">
+<h1>purrr 0.2.4<a class="headerlink" href="#purrr-0-2-4" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixes for R 3.1.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="purrr-0-2-3">
+<h1>purrr 0.2.3<a class="headerlink" href="#purrr-0-2-3" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>Breaking changes<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>We noticed the following issues during reverse dependencies checks:</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">reduce()</span></code> fails with this message: <code class="docutils literal notranslate"><span class="pre">Error:</span> <span class="pre">`.x`</span> <span class="pre">is</span> <span class="pre">empty,</span> <span class="pre">and</span> <span class="pre">no</span> <span class="pre">`.init`</span> <span class="pre">supplied</span></code>, this is because <code class="docutils literal notranslate"><span class="pre">reduce()</span></code> now returns
+<code class="docutils literal notranslate"><span class="pre">.init</span></code> when <code class="docutils literal notranslate"><span class="pre">.x</span></code> is empty. Fix the problem by supplying an
+appropriate argument to <code class="docutils literal notranslate"><span class="pre">.init</span></code>, or by providing special behaviour
+when <code class="docutils literal notranslate"><span class="pre">.x</span></code> has length 0.</p></li>
+<li><p>The type predicates have been migrated to rlang. Consequently the
+<code class="docutils literal notranslate"><span class="pre">bare-type-predicates</span></code> documentation topic is no longer in purrr,
+which might cause a warning if you cross-reference it.</p></li>
+</ul>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<p>purrr no longer depends on lazyeval or Rcpp (or dplyr, as of the
+previous version). This makes the dependency graph of the tidyverse
+simpler, and makes purrr more suitable as a dependency of lower-level
+packages.</p>
+<p>There have also been two changes to eliminate name conflicts between
+purrr and dplyr:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">order_by()</span></code>, <code class="docutils literal notranslate"><span class="pre">sort_by()</span></code> and <code class="docutils literal notranslate"><span class="pre">split_by()</span></code> have been removed. <code class="docutils literal notranslate"><span class="pre">order_by()</span></code>
+conflicted with <code class="docutils literal notranslate"><span class="pre">dplyr::order_by()</span></code> and the complete family doesn’t feel that
+useful. Use tibbles instead (#217).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">contains()</span></code> has been renamed to <code class="docutils literal notranslate"><span class="pre">has_element()</span></code> to avoid conflicts with
+dplyr (#217).</p></li>
+</ul>
+</div>
+<div class="section" id="pluck">
+<h2>pluck()<a class="headerlink" href="#pluck" title="Permalink to this headline">¶</a></h2>
+<p>The plucking mechanism used for indexing into data structures with
+<code class="docutils literal notranslate"><span class="pre">map()</span></code> has been extracted into the function <code class="docutils literal notranslate"><span class="pre">pluck()</span></code>. Plucking is
+often more readable to extract an element buried in a deep data
+structure. Compare this syntax-heavy extraction which reads
+non-linearly:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>accessor(x[[1]])$foo
+</pre></div>
+</div>
+<p>to the equivalent pluck:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">%&gt;%</span> <span class="n">pluck</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">accessor</span><span class="p">,</span> <span class="s2">&quot;foo&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="map-helpers">
+<h2>Map helpers<a class="headerlink" href="#map-helpers" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">as_function()</span></code> is now <code class="docutils literal notranslate"><span class="pre">as_mapper()</span></code> because it is a tranformation that
+makes sense primarily for mapping functions, not in general (#298).
+<code class="docutils literal notranslate"><span class="pre">.null</span></code> has been renamed to <code class="docutils literal notranslate"><span class="pre">.default</span></code> to better reflect its intent (#298).
+<code class="docutils literal notranslate"><span class="pre">.default</span></code> is returned whenever an element is absent or empty (#231, #254).</p>
+<p><code class="docutils literal notranslate"><span class="pre">as_mapper()</span></code> sanitises primitive functions by transforming them to
+closures with standardised argument names (using <code class="docutils literal notranslate"><span class="pre">rlang::as_closure()</span></code>).
+For instance <code class="docutils literal notranslate"><span class="pre">+</span></code> is transformed to <code class="docutils literal notranslate"><span class="pre">function(.x,</span> <span class="pre">.y)</span> <span class="pre">.x</span> <span class="pre">+</span> <span class="pre">.y</span></code>. This
+results in proper argument matching so that <code class="docutils literal notranslate"><span class="pre">map(1:10,</span> <span class="pre">partial(</span></code>-<code class="docutils literal notranslate"><span class="pre">,</span> <span class="pre">.x</span> <span class="pre">=</span> <span class="pre">5))</span></code> produces <code class="docutils literal notranslate"><span class="pre">list(5</span> <span class="pre">-</span> <span class="pre">1,</span> <span class="pre">5</span> <span class="pre">-</span> <span class="pre">2,</span> <span class="pre">...)</span></code>.</p>
+</li>
+<li><p>Recursive indexing can now extract objects out of environments (#213) and
+S4 objects (#200), as well as lists.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">attr_getter()</span></code> makes it possible to extract from attributes
+like <code class="docutils literal notranslate"><span class="pre">map(list(iris,</span> <span class="pre">mtcars),</span> <span class="pre">attr_getter(&quot;row.names&quot;))</span></code>.</p></li>
+<li><p>The argument list for formula-functions has been tweaked so that you can
+refer to arguments by position with <code class="docutils literal notranslate"><span class="pre">..1</span></code>, <code class="docutils literal notranslate"><span class="pre">..2</span></code>, and so on. This makes it
+possible to use the formula shorthand for functions with more than two
+arguments (#289).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">possibly()</span></code>, <code class="docutils literal notranslate"><span class="pre">safely()</span></code> and friends no longer capture interrupts: this
+means that you can now terminate a mapper using one of these with
+Escape or Ctrl + C (#314)</p></li>
+</ul>
+</div>
+<div class="section" id="map-functions">
+<h2>Map functions<a class="headerlink" href="#map-functions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>All map functions now treat <code class="docutils literal notranslate"><span class="pre">NULL</span></code> the same way as an empty vector (#199),
+and return an empty vector if any input is an empty vector.</p></li>
+<li><p>All <code class="docutils literal notranslate"><span class="pre">map()</span></code> functions now force their arguments in the same way that base R
+does for <code class="docutils literal notranslate"><span class="pre">lapply()</span></code> (#191). This makes <code class="docutils literal notranslate"><span class="pre">map()</span></code> etc easier to use when
+generating functions.</p></li>
+<li><p>A new family of “indexed” map functions, <code class="docutils literal notranslate"><span class="pre">imap()</span></code>, <code class="docutils literal notranslate"><span class="pre">imap_lgl()</span></code> etc,
+provide a short-hand for <code class="docutils literal notranslate"><span class="pre">map2(x,</span> <span class="pre">names(x))</span></code> or <code class="docutils literal notranslate"><span class="pre">map2(x,</span> <span class="pre">seq_along(x))</span></code>
+(#240).</p></li>
+<li><p>The data frame suffix <code class="docutils literal notranslate"><span class="pre">_df</span></code> has been (soft) deprecated in favour of
+<code class="docutils literal notranslate"><span class="pre">_dfr</span></code> to more clearly indicate that it’s a row-bind. All variants now
+also have a <code class="docutils literal notranslate"><span class="pre">_dfc</span></code> for column binding (#167). (These will not be terribly
+useful until <code class="docutils literal notranslate"><span class="pre">dplyr::bind_rows()</span></code>/<code class="docutils literal notranslate"><span class="pre">dplyr::bind_cols()</span></code> have better
+semantics for vectors.)</p></li>
+</ul>
+</div>
+<div class="section" id="modify-functions">
+<h2>Modify functions<a class="headerlink" href="#modify-functions" title="Permalink to this headline">¶</a></h2>
+<p>A new <code class="docutils literal notranslate"><span class="pre">modify()</span></code> family returns the same output of the type as the
+input <code class="docutils literal notranslate"><span class="pre">.x</span></code>. This is in contrast to the <code class="docutils literal notranslate"><span class="pre">map()</span></code> family which always
+returns a list, regardless of the input type.</p>
+<p>The modify functions are S3 generics. However their default methods
+should be sufficient for most classes since they rely on the semantics
+of <code class="docutils literal notranslate"><span class="pre">[&lt;-</span></code>.  <code class="docutils literal notranslate"><span class="pre">modify.default()</span></code> is thus a shorthand for <code class="docutils literal notranslate"><span class="pre">x[]</span> <span class="pre">&lt;-</span> <span class="pre">map(x,</span> <span class="pre">f)</span></code>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">at_depth()</span></code> has been renamed to <code class="docutils literal notranslate"><span class="pre">modify_depth()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">modify_depth()</span></code> gains new <code class="docutils literal notranslate"><span class="pre">.ragged</span></code> argument, and negative depths are
+now computed relative to the deepest component of the list (#236).</p></li>
+</ul>
+</div>
+<div class="section" id="new-functions">
+<h2>New functions<a class="headerlink" href="#new-functions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">auto_browse(f)</span></code> returns a new function that automatically calls <code class="docutils literal notranslate"><span class="pre">browser()</span></code>
+if <code class="docutils literal notranslate"><span class="pre">f</span></code> throws an error (#281).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vec_depth()</span></code> computes the depth (i.e. the number of levels of indexing)
+or a vector (#243).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reduce2()</span></code> and <code class="docutils literal notranslate"><span class="pre">reduce2_right()</span></code> make it possible to reduce with a
+3 argument function where the first argument is the accumulated value, the
+second argument is <code class="docutils literal notranslate"><span class="pre">.x</span></code>, and the third argument is <code class="docutils literal notranslate"><span class="pre">.y</span></code> (#163).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list_modify()</span></code> extends <code class="docutils literal notranslate"><span class="pre">stats::modifyList()</span></code> to replace by position
+if the list is not named.(#201). <code class="docutils literal notranslate"><span class="pre">list_merge()</span></code> operates similarly
+to <code class="docutils literal notranslate"><span class="pre">list_modify()</span></code> but combines instead of replacing (#322).</p></li>
+<li><p>The legacy function <code class="docutils literal notranslate"><span class="pre">update_list()</span></code> is basically a version of
+<code class="docutils literal notranslate"><span class="pre">list_modify</span></code> that evaluates formulas within the list. It is likely
+to be deprecated in the future in favour of a tidyeval interface
+such as a list method for <code class="docutils literal notranslate"><span class="pre">dplyr::mutate()</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="minor-improvements-and-bug-fixes">
+<h2>Minor improvements and bug fixes<a class="headerlink" href="#minor-improvements-and-bug-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Thanks to &#64;dchiu911, the unit test coverage of purrr is now much greater.</p></li>
+<li><p>All predicate functions are re-exported from rlang (#124).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compact()</span></code> now works with standard mapper conventions (#282).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cross_n()</span></code> has been renamed to <code class="docutils literal notranslate"><span class="pre">cross()</span></code>. The <code class="docutils literal notranslate"><span class="pre">_n</span></code> suffix was
+removed for consistency with <code class="docutils literal notranslate"><span class="pre">pmap()</span></code> (originally called <code class="docutils literal notranslate"><span class="pre">map_n()</span></code>
+at the start of the project) and <code class="docutils literal notranslate"><span class="pre">transpose()</span></code> (originally called
+<code class="docutils literal notranslate"><span class="pre">zip_n()</span></code>). Similarly, <code class="docutils literal notranslate"><span class="pre">cross_d()</span></code> has been renamed to <code class="docutils literal notranslate"><span class="pre">cross_df()</span></code>
+for consistency with <code class="docutils literal notranslate"><span class="pre">map_df()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">every()</span></code> and <code class="docutils literal notranslate"><span class="pre">some()</span></code> now return <code class="docutils literal notranslate"><span class="pre">NA</span></code> if present in the input (#174).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">invoke()</span></code> uses a more robust approach to generate the argument list (#249)
+It no longer uses lazyeval to figure out which enviroment a character <code class="docutils literal notranslate"><span class="pre">f</span></code>
+comes from.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is_numeric()</span></code> and <code class="docutils literal notranslate"><span class="pre">is_scalar_numeric()</span></code> are deprecated because they
+don’t test for what you might expect at first sight.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reduce()</span></code> now throws an error if <code class="docutils literal notranslate"><span class="pre">.x</span></code> is empty and <code class="docutils literal notranslate"><span class="pre">.init</span></code> is not
+supplied.</p></li>
+<li><p>Deprecated functions <code class="docutils literal notranslate"><span class="pre">flatmap()</span></code>, <code class="docutils literal notranslate"><span class="pre">map3()</span></code>, <code class="docutils literal notranslate"><span class="pre">map_n()</span></code>, <code class="docutils literal notranslate"><span class="pre">walk3()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">walk_n()</span></code>, <code class="docutils literal notranslate"><span class="pre">zip2()</span></code>, <code class="docutils literal notranslate"><span class="pre">zip3()</span></code>, <code class="docutils literal notranslate"><span class="pre">zip_n()</span></code> have been removed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pmap()</span></code> coerces data frames to lists to avoid the expensive <code class="docutils literal notranslate"><span class="pre">[.data.frame</span></code>
+which provides security that is unneeded here (#220).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rdunif()</span></code> checks its inputs for validity (#211).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set_names()</span></code> can now take a function to tranform the names programmatically
+(#276), and you can supply names in <code class="docutils literal notranslate"><span class="pre">...</span></code> to reduce typing even more
+more (#316). <code class="docutils literal notranslate"><span class="pre">set_names()</span></code> is now powered by <code class="docutils literal notranslate"><span class="pre">rlang::set_names()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">safely()</span></code> now actually uses the <code class="docutils literal notranslate"><span class="pre">quiet</span></code> argument (#296).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">transpose()</span></code> now matches by name if available (#164). You can
+override the default choice with the new <code class="docutils literal notranslate"><span class="pre">.names</span></code> argument.</p></li>
+<li><p>The function argument of <code class="docutils literal notranslate"><span class="pre">detect()</span></code> and <code class="docutils literal notranslate"><span class="pre">detect_index()</span></code> have been
+renamed from <code class="docutils literal notranslate"><span class="pre">.p</span></code> to <code class="docutils literal notranslate"><span class="pre">.f</span></code>. This is because they have mapper
+semantics rather than predicate semantics.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="purrr-0-2-2-1">
+<h1>purrr 0.2.2.1<a class="headerlink" href="#purrr-0-2-2-1" title="Permalink to this headline">¶</a></h1>
+<p>This is a compatibility release with dplyr 0.6.0.</p>
+<ul class="simple">
+<li><p>All data-frame based mappers have been removed in favour of new
+functions and idioms in the tidyverse. <code class="docutils literal notranslate"><span class="pre">dmap()</span></code>, <code class="docutils literal notranslate"><span class="pre">dmap_at()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">dmap_if()</span></code>, <code class="docutils literal notranslate"><span class="pre">invoke_rows()</span></code>, <code class="docutils literal notranslate"><span class="pre">slice_rows()</span></code>, <code class="docutils literal notranslate"><span class="pre">map_rows()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">by_slice()</span></code>, <code class="docutils literal notranslate"><span class="pre">by_row()</span></code>, and <code class="docutils literal notranslate"><span class="pre">unslice()</span></code> have been moved to
+purrrlyr. This is a bit of an aggresive change but it allows us to
+make the dependencies much lighter.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="purrr-0-2-2">
+<h1>purrr 0.2.2<a class="headerlink" href="#purrr-0-2-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix for dev tibble support.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">as_function()</span></code> now supports list arguments which allow recursive indexing
+using either names or positions. They now always stop when encountering
+the first NULL (#173).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">accumulate</span></code> and <code class="docutils literal notranslate"><span class="pre">reduce</span></code> correctly pass extra arguments to the
+worker function.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="purrr-0-2-1">
+<h1>purrr 0.2.1<a class="headerlink" href="#purrr-0-2-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">as_function()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">.null</span></code> argument that for character and numeric
+values allows you to specify what to return for null/absent elements (#110).
+This can be used with any map function, e.g. <code class="docutils literal notranslate"><span class="pre">map_int(x,</span> <span class="pre">1,</span> <span class="pre">.null</span> <span class="pre">=</span> <span class="pre">NA)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">as_function()</span></code> is now generic.</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">is_function()</span></code> that returns <code class="docutils literal notranslate"><span class="pre">TRUE</span></code> only for regular functions.</p></li>
+<li><p>Fix crash on GCC triggered by <code class="docutils literal notranslate"><span class="pre">invoke_rows()</span></code>.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="purrr-0-2-0">
+<h1>purrr 0.2.0<a class="headerlink" href="#purrr-0-2-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>New functions<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>There are two handy infix functions:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%||%</span> <span class="pre">y</span></code> is shorthand for <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">(is.null(x))</span> <span class="pre">y</span> <span class="pre">else</span> <span class="pre">x</span></code> (#109).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%&#64;%</span> <span class="pre">&quot;a&quot;</span></code> is shorthand for <code class="docutils literal notranslate"><span class="pre">attr(x,</span> <span class="pre">&quot;a&quot;,</span> <span class="pre">exact</span> <span class="pre">=</span> <span class="pre">TRUE)</span></code> (#69).</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">accumulate()</span></code> has been added to handle recursive folding. It is shortand
+for <code class="docutils literal notranslate"><span class="pre">Reduce(f,</span> <span class="pre">.x,</span> <span class="pre">accumulate</span> <span class="pre">=</span> <span class="pre">TRUE)</span></code> and follows a similar syntax to
+<code class="docutils literal notranslate"><span class="pre">reduce()</span></code> (#145). A right-hand version <code class="docutils literal notranslate"><span class="pre">accumulate_right()</span></code> was also added.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">map_df()</span></code> row-binds output together. It’s the equivalent of <code class="docutils literal notranslate"><span class="pre">plyr::ldply()</span></code>
+(#127)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flatten()</span></code> is now type-stable and always returns a list. To return a simpler
+vector, use <code class="docutils literal notranslate"><span class="pre">flatten_lgl()</span></code>, <code class="docutils literal notranslate"><span class="pre">flatten_int()</span></code>, <code class="docutils literal notranslate"><span class="pre">flatten_dbl()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">flatten_chr()</span></code>, or <code class="docutils literal notranslate"><span class="pre">flatten_df()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">invoke()</span></code> has been overhauled to be more useful: it now works similarly
+to <code class="docutils literal notranslate"><span class="pre">map_call()</span></code> when <code class="docutils literal notranslate"><span class="pre">.x</span></code> is NULL, and hence <code class="docutils literal notranslate"><span class="pre">map_call()</span></code> has been
+deprecated. <code class="docutils literal notranslate"><span class="pre">invoke_map()</span></code> is a vectorised complement to <code class="docutils literal notranslate"><span class="pre">invoke()</span></code> (#125),
+and comes with typed variants <code class="docutils literal notranslate"><span class="pre">invoke_map_lgl()</span></code>, <code class="docutils literal notranslate"><span class="pre">invoke_map_int()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">invoke_map_dbl()</span></code>, <code class="docutils literal notranslate"><span class="pre">invoke_map_chr()</span></code>, and <code class="docutils literal notranslate"><span class="pre">invoke_map_df()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">transpose()</span></code> replaces <code class="docutils literal notranslate"><span class="pre">zip2()</span></code>, <code class="docutils literal notranslate"><span class="pre">zip3()</span></code>, and <code class="docutils literal notranslate"><span class="pre">zip_n()</span></code> (#128).
+The name more clearly reflects the intent (transposing the first and second
+levels of list). It no longer has fields argument or the <code class="docutils literal notranslate"><span class="pre">.simplify</span></code> argument;
+instead use the new <code class="docutils literal notranslate"><span class="pre">simplify_all()</span></code> function.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">safely()</span></code>, <code class="docutils literal notranslate"><span class="pre">quietly()</span></code>, and <code class="docutils literal notranslate"><span class="pre">possibly()</span></code> are experimental functions
+for working with functions with side-effects (e.g. printed output,
+messages, warnings, and errors) (#120). <code class="docutils literal notranslate"><span class="pre">safely()</span></code> is a version of <code class="docutils literal notranslate"><span class="pre">try()</span></code>
+that modifies a function (rather than an expression), and always returns a
+list with two components, <code class="docutils literal notranslate"><span class="pre">result</span></code> and <code class="docutils literal notranslate"><span class="pre">error</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list_along()</span></code> and <code class="docutils literal notranslate"><span class="pre">rep_along()</span></code> generalise the idea of <code class="docutils literal notranslate"><span class="pre">seq_along()</span></code>.
+(#122).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is_null()</span></code> is the snake-case version of <code class="docutils literal notranslate"><span class="pre">is.null()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pmap()</span></code> (parallel map) replaces <code class="docutils literal notranslate"><span class="pre">map_n()</span></code> (#132), and has typed-variants
+suffixed <code class="docutils literal notranslate"><span class="pre">pmap_lgl()</span></code>, <code class="docutils literal notranslate"><span class="pre">pmap_int()</span></code>, <code class="docutils literal notranslate"><span class="pre">pmap_dbl()</span></code>, <code class="docutils literal notranslate"><span class="pre">pmap_chr()</span></code>, and
+<code class="docutils literal notranslate"><span class="pre">pmap_df()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set_names()</span></code> is a snake-case alternative to <code class="docutils literal notranslate"><span class="pre">setNames()</span></code> with stricter
+equality checking, and more convenient defaults for pipes:
+<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%&gt;%</span> <span class="pre">set_names()</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">setNames(x,</span> <span class="pre">x)</span></code> (#119).</p></li>
+</ul>
+</div>
+<div class="section" id="row-based-functionals">
+<h2>Row based functionals<a class="headerlink" href="#row-based-functionals" title="Permalink to this headline">¶</a></h2>
+<p>We are still figuring out what belongs in dplyr and what belongs in
+purrr. Expect much experimentation and many changes with these
+functions.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">map()</span></code> now always returns a list. Data frame support has been moved
+to <code class="docutils literal notranslate"><span class="pre">map_df()</span></code> and <code class="docutils literal notranslate"><span class="pre">dmap()</span></code>. The latter supports sliced data frames
+as a shortcut for the combination of <code class="docutils literal notranslate"><span class="pre">by_slice()</span></code> and <code class="docutils literal notranslate"><span class="pre">dmap()</span></code>:
+<code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">%&gt;%</span> <span class="pre">by_slice(dmap,</span> <span class="pre">fun,</span> <span class="pre">.collate</span> <span class="pre">=</span> <span class="pre">&quot;rows&quot;)</span></code>. The conditional
+variants <code class="docutils literal notranslate"><span class="pre">dmap_at()</span></code> and <code class="docutils literal notranslate"><span class="pre">dmap_if()</span></code> also support sliced data frames
+and will recycle scalar results to the slice size.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">map_rows()</span></code> has been renamed to <code class="docutils literal notranslate"><span class="pre">invoke_rows()</span></code>. As other
+rows-based functionals, it collates results inside lists by default,
+but with column collation this function is equivalent to
+<code class="docutils literal notranslate"><span class="pre">plyr::mdply()</span></code>.</p></li>
+<li><p>The rows-based functionals gain a <code class="docutils literal notranslate"><span class="pre">.to</span></code> option to name the output
+column as well as a <code class="docutils literal notranslate"><span class="pre">.collate</span></code> argument. The latter allows to
+collate the output in lists (by default), on columns or on
+rows. This makes these functions more flexible and more predictable.</p></li>
+</ul>
+</div>
+<div class="section" id="bug-fixes-and-minor-changes">
+<h2>Bug fixes and minor changes<a class="headerlink" href="#bug-fixes-and-minor-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">as_function()</span></code>, which converts formulas etc to functions, is now
+exported (#123).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rerun()</span></code> is correctly scoped (#95)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">update_list()</span></code> can now modify an element called <code class="docutils literal notranslate"><span class="pre">x</span></code> (#98).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">map*()</span></code> now use custom C code, rather than relying on <code class="docutils literal notranslate"><span class="pre">lapply()</span></code>, <code class="docutils literal notranslate"><span class="pre">mapply()</span></code>
+etc. The performance characteristcs are very similar, but it allows us greater
+control over the output (#118).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">map_lgl()</span></code> now has second argument <code class="docutils literal notranslate"><span class="pre">.f</span></code>, not <code class="docutils literal notranslate"><span class="pre">.p</span></code> (#134).</p></li>
+</ul>
+</div>
+<div class="section" id="deprecated-functions">
+<h2>Deprecated functions<a class="headerlink" href="#deprecated-functions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">flatmap()</span></code> -&gt; use <code class="docutils literal notranslate"><span class="pre">map()</span></code> followed by the appropriate <code class="docutils literal notranslate"><span class="pre">flatten()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">map_call()</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">invoke()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">map_n()</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">pmap()</span></code>; <code class="docutils literal notranslate"><span class="pre">walk_n()</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">pwalk()</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">map3(x,</span> <span class="pre">y,</span> <span class="pre">z)</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">map_n(list(x,</span> <span class="pre">y,</span> <span class="pre">z))</span></code>; <code class="docutils literal notranslate"><span class="pre">walk3(x,</span> <span class="pre">y,</span> <span class="pre">z)</span> <span class="pre">-&gt;</span> </code>pwalk(list(x, y, z))`</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./temporal/renv/library/R-4.1/aarch64-apple-darwin20/purrr"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Quan Nguyen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

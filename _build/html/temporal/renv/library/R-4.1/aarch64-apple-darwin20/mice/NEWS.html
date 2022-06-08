@@ -1,0 +1,1534 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mice 3.14.0 &#8212; Temporal and sequential analysis - LASI 2022</title>
+    
+  <link href="../../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../_static/togglebutton.js"></script>
+    <script src="../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../../../_static/solar_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Temporal and sequential analysis - LASI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture1.html">
+   Lecture 1: Clustering of sequential data in education
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture2.html">
+   Lecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture3.html">
+   Lecture 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Labs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab1.html">
+   Lab 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab2.html">
+   Lab 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab3.html">
+   Lab 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Quan Nguyen<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../../_sources/temporal/renv/library/R-4.1/aarch64-apple-darwin20/mice/NEWS.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/quan3010/temporal_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/quan3010/temporal_analysis/issues/new?title=Issue%20on%20page%20%2Ftemporal/renv/library/R-4.1/aarch64-apple-darwin20/mice/NEWS.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   mice 3.14.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#major-changes">
+     Major changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#bug-fixes">
+     Bug fixes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minor-changes">
+     Minor changes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-3-13-0">
+   mice 3.13.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Major changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Minor changes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-3-12-0">
+   mice 3.12.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#much-faster-predictive-mean-matching">
+     Much faster predictive mean matching
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-ignore-argument-to-mice">
+     New
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       ignore
+      </span>
+     </code>
+     argument to
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       mice
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-filter-function-for-mids-objects">
+     New
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       filter()
+      </span>
+     </code>
+     function for
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       mids
+      </span>
+     </code>
+     objects
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#changes-affecting-reproducibility">
+     Changes affecting reproducibility
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id3">
+     Minor changes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-3-11-0">
+   mice 3.11.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id4">
+     Major changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id5">
+     Minor changes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-3-10-0">
+   mice 3.10.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id6">
+     Major changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id7">
+     Minor changes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-3-9-0">
+   mice 3.9.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id8">
+     Major changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id9">
+     Minor changes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-3-8-0">
+   mice 3.8.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id10">
+     Major changes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id11">
+     Bug fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-3-7-0">
+   mice 3.7.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-3-6-0">
+   mice 3.6.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-3-5-0">
+   mice 3.5.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-3-4-0">
+   mice 3.4.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-3-3-0">
+   mice 3.3.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-3-2-0">
+   mice 3.2.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-3-1-0">
+   mice 3.1.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-3-0-0">
+   mice 3.0.0
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-46-9-2017-12-08">
+   mice 2.46.9 (2017-12-08)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-46-2017-10-22">
+   mice 2.46 (2017-10-22)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-45-2017-10-21">
+   mice 2.45 (2017-10-21)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-44-2017-10-18">
+   mice 2.44 (2017-10-18)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-43-2017-07-20">
+   mice 2.43 (2017-07-20)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-42-2017-07-11">
+   mice 2.42 (2017-07-11)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-41-2017-07-10">
+   mice 2.41 (2017-07-10)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-40-2017-07-07">
+   mice 2.40 (2017-07-07)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-34-2017-04-24">
+   mice 2.34 (2017-04-24)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-31-2017-02-23">
+   mice 2.31 (2017-02-23)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-29-2016-10-05">
+   mice 2.29 (2016-10-05)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-28-2016-10-05">
+   mice 2.28 (2016-10-05)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-27-2016-07-27">
+   mice 2.27 (2016-07-27)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-25-2015-11-09">
+   mice 2.25 (2015-11-09)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-23-2015-11-04">
+   mice 2.23 (2015-11-04)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-22-2014-06-11">
+   mice 2.22 (2014-06-11)
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-21-02-05-2014-svb">
+   mice 2.21    02-05-2014 SvB
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-20-02-02-2014-svb">
+   mice 2.20    02-02-2014 SvB
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-19-21-01-2014-svb">
+   mice 2.19    21-01-2014 SvB
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-18-31-07-2013-svb">
+   mice 2.18    31-07-2013 SvB
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-17-10-05-2013-svb">
+   mice 2.17    10-05-2013 SvB
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-16-27-04-2013-svb">
+   mice 2.16    27-04-2013 SvB
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-15-02-04-2013-svb">
+   mice 2.15 - 02-04-2013 SvB
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-14-11-03-2013-svb">
+   mice 2.14 - 11-03-2013 / SvB
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-13-03-07-2012-svb">
+   mice 2.13 - 03-07-2012 / SvB
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-12-25-03-2012-svb">
+   mice 2.12 - 25-03-2012 / SvB
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-11-21-11-2011-svb">
+   mice 2.11 - 21-11-2011 / SvB
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-10-14-09-2011-svb">
+   mice 2.10 - 14-09-2011 / SvB
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-9-31-08-2011-svb">
+   mice 2.9 - 31-08-2011 / SvB
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-8-24-03-2011-svb">
+   mice 2.8 - 24-03-2011 / SvB
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-7-16-03-2011-svb">
+   mice 2.7 - 16-03-2011 / SvB
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-6-03-03-2011-svb">
+   mice 2.6 - 03-03-2011 / SvB
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-5-06-01-2011-svb">
+   mice 2.5 - 06-01-2011 / SvB
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-4-17-10-2010-svb">
+   mice 2.4 - 17-10-2010 / SvB
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-3-14-02-2010-svb">
+   mice 2.3 - 14-02-2010 / SvB
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-2-13-01-2010-svb">
+   mice 2.2 - 13-01-2010 / SvB
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-1-14-09-2009-svb">
+   mice 2.1 - 14-09-2009 / SvB
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-2-0-26-08-2009-svb-ko-major-upgrade-for-jss-manuscript">
+   mice 2.0 - 26-08-2009 / SvB, KO 	Major upgrade for JSS manuscript
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-1-21-15-3-2009-svb-maintainance-release">
+   mice 1.21 - 15/3/2009 SvB  Maintainance release
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-1-16-6-25-2007">
+   mice 1.16 - 6/25/2007
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-1-15-01-09-2006">
+   mice 1.15 - 01/09/2006
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-1-14r-9-26-2005-11-44am">
+   mice 1.14R - 9/26/2005 11:44AM
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-1-13">
+   mice 1.13
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-1-12">
+   mice 1.12
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-1-1">
+   mice 1.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mice-1-0">
+   mice 1.0
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="mice-3-14-0">
+<h1>mice 3.14.0<a class="headerlink" href="#mice-3-14-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="major-changes">
+<h2>Major changes<a class="headerlink" href="#major-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Adds four new univariate functions using the lasso for automatic variable selection:</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mice.impute.lasso.norm()</span></code></p></td>
+<td><p>Lasso linear regression</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mice.impute.lasso.logreg()</span></code></p></td>
+<td><p>Lasso logistic regression</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mice.impute.lasso.select.norm()</span></code></p></td>
+<td><p>Lasso selector + linear regression</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">mice.impute.lasso.select.logreg()</span></code></p></td>
+<td><p>Lasso selector + logistic regression</p></td>
+</tr>
+</tbody>
+</table>
+<p>Contributed by &#64;EdoardoCostantini (#438).</p>
+<ul class="simple">
+<li><p>Adds Jamshidian &amp;&amp; Jalal’s non-parametric MCAR test, <code class="docutils literal notranslate"><span class="pre">mice::MCAR()</span></code> and associated plot method. Contributed by &#64;cjvanlissa (#423).</p></li>
+<li><p>Adds two new functions <code class="docutils literal notranslate"><span class="pre">pool.syn()</span></code> and <code class="docutils literal notranslate"><span class="pre">pool.scalar.syn()</span></code> that specialise pooling estimates from synthetic data. The <code class="docutils literal notranslate"><span class="pre">&quot;reiter2003&quot;</span></code> pooling rule assumes that synthetic data were created from complete data. Thanks Thom Volker (#436).</p></li>
+<li><p>Avoids changing the global <code class="docutils literal notranslate"><span class="pre">.Random.seed</span></code> (#426, #432) by implementing <code class="docutils literal notranslate"><span class="pre">withr::local_preserve_seed()</span></code> and <code class="docutils literal notranslate"><span class="pre">withr::local_seed()</span></code>. This change provides stabler behavior in complex scripts. The change does not appear to break reproducibility when <code class="docutils literal notranslate"><span class="pre">mice()</span></code> was run with a seed. Nevertheless, if you run into a reproducibility problem, install <code class="docutils literal notranslate"><span class="pre">mice</span> <span class="pre">3.13.12</span></code> or before.</p></li>
+<li><p>Improves the imputation of parabolic data in <code class="docutils literal notranslate"><span class="pre">mice.impute.quadratic()</span></code>, adds a parameter <code class="docutils literal notranslate"><span class="pre">quad.outcome</span></code> containing the name of the outcome variable in the complete-data model. Contributed &#64;Mingyang-Cai, &#64;gerkovink (#408)</p></li>
+<li><p>By default, <code class="docutils literal notranslate"><span class="pre">mice.impute.rf()</span></code> now uses the faster <code class="docutils literal notranslate"><span class="pre">ranger</span></code> package as back-end instead of <code class="docutils literal notranslate"><span class="pre">randomForest</span></code> package. If you want the old behaviour specify the <code class="docutils literal notranslate"><span class="pre">rfPackage</span> <span class="pre">=</span> <span class="pre">&quot;randomForest&quot;</span></code> argument to the <code class="docutils literal notranslate"><span class="pre">mice(...)</span></code> call. Contributed &#64;prockenschaub (#431).</p></li>
+<li><p>Generalises <code class="docutils literal notranslate"><span class="pre">pool()</span></code> so that it processes the parameters from all <code class="docutils literal notranslate"><span class="pre">gamlss</span></code> sub-models. Thanks Marcio Augusto Diniz (#406, #405)</p></li>
+<li><p>Uses the robust standard error estimate for pooling when <code class="docutils literal notranslate"><span class="pre">pool()</span></code> can extract <code class="docutils literal notranslate"><span class="pre">robust.se</span></code> from the object returned by <code class="docutils literal notranslate"><span class="pre">broom::tidy()</span></code> (#310)</p></li>
+</ul>
+</div>
+<div class="section" id="bug-fixes">
+<h2>Bug fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Contains an emergency solution as <code class="docutils literal notranslate"><span class="pre">install.on.demand()</span></code> broke the standard CRAN workflow. mice 3.14.0 does not call <code class="docutils literal notranslate"><span class="pre">install.on.demand()</span></code> anymore for recommended packages. Also, <code class="docutils literal notranslate"><span class="pre">install.on.demand()</span></code> will not run anymore in non-interactive mode.</p></li>
+<li><p>Repairs an error in the <code class="docutils literal notranslate"><span class="pre">mice:::barnard.rubin()</span></code> function for infinite <code class="docutils literal notranslate"><span class="pre">dfcom</span></code>. Thanks &#64;huftis (#441).</p></li>
+<li><p>Solves problem with <code class="docutils literal notranslate"><span class="pre">Xi</span> <span class="pre">&lt;-</span> <span class="pre">as.matrix(...)</span></code> in <code class="docutils literal notranslate"><span class="pre">mice.impute.2l.lmer()</span></code> that occurred when a cluster contains only one observation (#384)</p></li>
+<li><p>Edits the <code class="docutils literal notranslate"><span class="pre">predictorMatrix</span></code> to a monotone pattern if <code class="docutils literal notranslate"><span class="pre">visitSequence</span> <span class="pre">=</span> <span class="pre">&quot;monotone&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">maxit</span> <span class="pre">=</span> <span class="pre">1</span></code> (#316)</p></li>
+<li><p>Solves a problem with the plot produced by <code class="docutils literal notranslate"><span class="pre">md.pattern()</span></code> (#318, #323)</p></li>
+<li><p>Fixes the intercept in <code class="docutils literal notranslate"><span class="pre">make.formulas()</span></code> (#305, #324)</p></li>
+<li><p>Fixes seed when using <code class="docutils literal notranslate"><span class="pre">newdata</span></code> in <code class="docutils literal notranslate"><span class="pre">mice.mids()</span></code> (#313, #325)</p></li>
+<li><p>Solves a problem with row names of the <code class="docutils literal notranslate"><span class="pre">where</span></code> element created in <code class="docutils literal notranslate"><span class="pre">rbind()</span></code> (#319)</p></li>
+<li><p>Solves a bug in mnar imputation routine. Contributed by Margarita Moreno Betancur.</p></li>
+</ul>
+</div>
+<div class="section" id="minor-changes">
+<h2>Minor changes<a class="headerlink" href="#minor-changes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Replaces URL to jstatsoft with DOI</p></li>
+<li><p>Update reference to literature (#442)</p></li>
+<li><p>Informs the user that <code class="docutils literal notranslate"><span class="pre">pool()</span></code> cannot take a <code class="docutils literal notranslate"><span class="pre">mids</span></code> object (#433)</p></li>
+<li><p>Updates documentation for post-processing functionality (#387)</p></li>
+<li><p>Adds Rcpp necessities</p></li>
+<li><p>Solves a problem with “last resort” initialisation of factors (#410)</p></li>
+<li><p>Documents the “flat-line behaviour” of <code class="docutils literal notranslate"><span class="pre">mice.impute.2l.lmer()</span></code> to indicate a problem in fitting the imputation model (#385)</p></li>
+<li><p>Add reprex to test (#326)</p></li>
+<li><p>Documents that multivariate imputation methods do not support the <code class="docutils literal notranslate"><span class="pre">post</span></code> parameter (#326)</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-3-13-0">
+<h1>mice 3.13.0<a class="headerlink" href="#mice-3-13-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>Major changes<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Updated <code class="docutils literal notranslate"><span class="pre">mids2spss()</span></code> replaces the <code class="docutils literal notranslate"><span class="pre">foreign</span></code> by <code class="docutils literal notranslate"><span class="pre">haven</span></code> package. Contributed Gerko Vink (#291)</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>Minor changes<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Repairs an error in <code class="docutils literal notranslate"><span class="pre">tests\testhat\test-D1.R</span></code> that failed on <code class="docutils literal notranslate"><span class="pre">mitml</span> <span class="pre">0.4-0</span></code></p></li>
+<li><p>Reverts <code class="docutils literal notranslate"><span class="pre">with.mids()</span></code> function to old version because the change in commit 4634094 broke downstream package <code class="docutils literal notranslate"><span class="pre">metafor</span></code> (#292)</p></li>
+<li><p>Solves a glitch in <code class="docutils literal notranslate"><span class="pre">mice.impute.rf()</span></code> in finding candidate donors (#288, #289)</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-3-12-0">
+<h1>mice 3.12.0<a class="headerlink" href="#mice-3-12-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="much-faster-predictive-mean-matching">
+<h2>Much faster predictive mean matching<a class="headerlink" href="#much-faster-predictive-mean-matching" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The new <code class="docutils literal notranslate"><span class="pre">matchindex</span></code> C function makes predictive mean matching <strong>50 to 600 times faster</strong>.
+The speed of <code class="docutils literal notranslate"><span class="pre">pmm</span></code> is now on par with normal imputation (<code class="docutils literal notranslate"><span class="pre">mice.impute.norm()</span></code>)
+and with the <code class="docutils literal notranslate"><span class="pre">miceFast</span></code> package, without compromising on the statistical quality of
+the imputations. Thanks to Polkas <a class="reference external" href="https://github.com/Polkas/miceFast/issues/10">https://github.com/Polkas/miceFast/issues/10</a> and
+suggestions by Alexander Robitzsch. See #236 for more details.</p></li>
+</ul>
+</div>
+<div class="section" id="new-ignore-argument-to-mice">
+<h2>New <code class="docutils literal notranslate"><span class="pre">ignore</span></code> argument to <code class="docutils literal notranslate"><span class="pre">mice</span></code><a class="headerlink" href="#new-ignore-argument-to-mice" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>New <code class="docutils literal notranslate"><span class="pre">ignore</span></code> argument to <code class="docutils literal notranslate"><span class="pre">mice()</span></code>. This argument is a logical vector
+of <code class="docutils literal notranslate"><span class="pre">nrow(data)</span></code> elements indicating which rows are ignored when creating
+the imputation model. We may use the <code class="docutils literal notranslate"><span class="pre">ignore</span></code> argument to split the data
+into a training set (on which the imputation model is built) and a test
+set (that does not influence the imputation model estimates). The argument
+is based on the suggestion in
+<a class="reference external" href="https://github.com/amices/mice/issues/32#issuecomment-355600365">https://github.com/amices/mice/issues/32#issuecomment-355600365</a>. See #32 for
+more background and techniques. Crafted by Patrick Rockenschaub</p></li>
+</ul>
+</div>
+<div class="section" id="new-filter-function-for-mids-objects">
+<h2>New <code class="docutils literal notranslate"><span class="pre">filter()</span></code> function for <code class="docutils literal notranslate"><span class="pre">mids</span></code> objects<a class="headerlink" href="#new-filter-function-for-mids-objects" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>New <code class="docutils literal notranslate"><span class="pre">filter()</span></code> method that subsets a <code class="docutils literal notranslate"><span class="pre">mids</span></code> object (multiply-imputed data set).
+The method accepts a logical vector of length <code class="docutils literal notranslate"><span class="pre">nrow(data)</span></code>, or an expression
+to construct such a vector from the incomplete data. (#269).
+Crafted by Patrick Rockenschaub.</p></li>
+</ul>
+</div>
+<div class="section" id="changes-affecting-reproducibility">
+<h2>Changes affecting reproducibility<a class="headerlink" href="#changes-affecting-reproducibility" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><strong>Breaking change:</strong> The <code class="docutils literal notranslate"><span class="pre">matcher</span></code> algorithm in <code class="docutils literal notranslate"><span class="pre">pmm</span></code> has changed to <code class="docutils literal notranslate"><span class="pre">matchindex</span></code>
+for speed improvements. If you want the old behavior, specify <code class="docutils literal notranslate"><span class="pre">mice(...,</span> <span class="pre">use.matcher</span> <span class="pre">=</span> <span class="pre">TRUE)</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>Minor changes<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Corrected installation problem related to <code class="docutils literal notranslate"><span class="pre">cpp11</span></code> package (#286)</p></li>
+<li><p>Simplifies <code class="docutils literal notranslate"><span class="pre">with.mids()</span></code> by calling <code class="docutils literal notranslate"><span class="pre">eval_tidy()</span></code> on a quosure. Does not yet solve #265.</p></li>
+<li><p>Improve documentation for <code class="docutils literal notranslate"><span class="pre">pool()</span></code> and <code class="docutils literal notranslate"><span class="pre">pool.scalar()</span></code> (#142, #106, #190 and others)</p></li>
+<li><p>Makes <code class="docutils literal notranslate"><span class="pre">tidy.mipo</span></code> more flexible (#276)</p></li>
+<li><p>Solves a problem if <code class="docutils literal notranslate"><span class="pre">nelsonaalen()</span></code> gets a <code class="docutils literal notranslate"><span class="pre">tibble</span></code> (#272)</p></li>
+<li><p>Add explanation to how <code class="docutils literal notranslate"><span class="pre">NA</span></code>s can appear in the imputed data (#267)</p></li>
+<li><p>Add warning to <code class="docutils literal notranslate"><span class="pre">quickpred()</span></code> documentation (#268)</p></li>
+<li><p>Styles all sources files with styler</p></li>
+<li><p>Improves consistency in code and documentation</p></li>
+<li><p>Moves internally defined functions to global namespace</p></li>
+<li><p>Solves bug in internal <code class="docutils literal notranslate"><span class="pre">sum.scores()</span></code></p></li>
+<li><p>Adds deprecated messages to <code class="docutils literal notranslate"><span class="pre">lm.mids()</span></code>, <code class="docutils literal notranslate"><span class="pre">glm.mids()</span></code>, <code class="docutils literal notranslate"><span class="pre">pool.compare()</span></code></p></li>
+<li><p>Removes <code class="docutils literal notranslate"><span class="pre">.pmm.match()</span></code> and <code class="docutils literal notranslate"><span class="pre">expandcov()</span></code></p></li>
+<li><p>Strips out all <code class="docutils literal notranslate"><span class="pre">return()</span></code> calls placed just before end-of-function</p></li>
+<li><p>Remove all trailing spaces</p></li>
+<li><p>Repairs a bug in the routine for finding the <code class="docutils literal notranslate"><span class="pre">printFlag</span></code> value (#258)</p></li>
+<li><p>Update URL’s after transfer to organisation <code class="docutils literal notranslate"><span class="pre">amices</span></code></p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-3-11-0">
+<h1>mice 3.11.0<a class="headerlink" href="#mice-3-11-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id4">
+<h2>Major changes<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The Cox model does not return <code class="docutils literal notranslate"><span class="pre">df.residual</span></code>, which caused problematic behavior in the <code class="docutils literal notranslate"><span class="pre">D1()</span></code>, <code class="docutils literal notranslate"><span class="pre">D2()</span></code>, <code class="docutils literal notranslate"><span class="pre">D3()</span></code>, <code class="docutils literal notranslate"><span class="pre">anova()</span></code> and <code class="docutils literal notranslate"><span class="pre">pool()</span></code>. <code class="docutils literal notranslate"><span class="pre">mice</span></code> now extracts the relevant information from other parts of the objects returned by <code class="docutils literal notranslate"><span class="pre">survival::coxph()</span></code>, which solves long-standing issues with the integration of the Cox model (#246).</p></li>
+<li><p>Adds missing <code class="docutils literal notranslate"><span class="pre">Rccp</span></code> dependency to work with <code class="docutils literal notranslate"><span class="pre">tidyr</span> <span class="pre">1.1.1</span></code> (#248).</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>Minor changes<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Addresses warnings: <code class="docutils literal notranslate"><span class="pre">Non-file</span> <span class="pre">package-anchored</span> <span class="pre">link(s)</span> <span class="pre">in</span> <span class="pre">documentation</span> <span class="pre">object</span></code>.</p></li>
+<li><p>Updates on <code class="docutils literal notranslate"><span class="pre">ampute</span></code> documentation (#251).</p></li>
+<li><p>Ask user permission before installing a package from <code class="docutils literal notranslate"><span class="pre">suggests</span></code>.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-3-10-0">
+<h1>mice 3.10.0<a class="headerlink" href="#mice-3-10-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id6">
+<h2>Major changes<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>New functions <code class="docutils literal notranslate"><span class="pre">tidy.mipo()</span></code> and <code class="docutils literal notranslate"><span class="pre">glance.mipo()</span></code> return standardized output that conforms to <code class="docutils literal notranslate"><span class="pre">broom</span></code> specifications. Kindly contributed by Vincent Arel Bundock (#240).</p></li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>Minor changes<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Solves a problem with the <code class="docutils literal notranslate"><span class="pre">D3</span></code> testing script that produced an error on CRAN (#244).</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-3-9-0">
+<h1>mice 3.9.0<a class="headerlink" href="#mice-3-9-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id8">
+<h2>Major changes<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">D3()</span></code> function in <code class="docutils literal notranslate"><span class="pre">mice</span></code> gave incorrect results. This version solves a problem in the calculation of the <code class="docutils literal notranslate"><span class="pre">D3</span></code>-statistic. See #226 and #228 for more details. The documentation explains why results from <code class="docutils literal notranslate"><span class="pre">mice::D3()</span></code> and <code class="docutils literal notranslate"><span class="pre">mitml::testModels()</span></code> may differ.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">pool()</span></code> function is now more forgiving when there is no <code class="docutils literal notranslate"><span class="pre">glance()</span></code> function (#233)</p></li>
+<li><p>It is possible to bypass <code class="docutils literal notranslate"><span class="pre">remove.lindep()</span></code> by setting <code class="docutils literal notranslate"><span class="pre">eps</span> <span class="pre">=</span> <span class="pre">0</span></code> (#225)</p></li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h2>Minor changes<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Adds reference to Leacy’s thesis</p></li>
+<li><p>Adds an example to the <code class="docutils literal notranslate"><span class="pre">plot.mids()</span></code> documentation</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-3-8-0">
+<h1>mice 3.8.0<a class="headerlink" href="#mice-3-8-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id10">
+<h2>Major changes<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>This version adds two new NARFCS methods for imputing data under the <em>Missing Not at Random (MNAR)</em> assumption. NARFCS is generalised version of the so-called <span class="math notranslate nohighlight">\(\delta\)</span>-adjustment method. Margarita Moreno-Betancur and Ian White kindly contributes the functions <code class="docutils literal notranslate"><span class="pre">mice.impute.mnar.norm()</span></code> and <code class="docutils literal notranslate"><span class="pre">mice.impute.mnar.logreg()</span></code>. These functions aid in performing sensitivity analysis to investigate the impact of different MNAR assumptions on the conclusion of the study. An alternative for MNAR is the older <code class="docutils literal notranslate"><span class="pre">mice.impute.ri()</span></code> function.</p></li>
+<li><p>Installation of <code class="docutils literal notranslate"><span class="pre">mice</span></code> is faster. External packages needed for imputation and analyses are now installed on demand. The number of dependencies as estimated by <code class="docutils literal notranslate"><span class="pre">rsconnect::appDepencies()</span></code> decreased from 132 to 83.</p></li>
+<li><p>The name clash with the <code class="docutils literal notranslate"><span class="pre">complete()</span></code> function of <code class="docutils literal notranslate"><span class="pre">tidyr</span></code> should no longer be a problem.</p></li>
+<li><p>There is now a more flexible <code class="docutils literal notranslate"><span class="pre">pool()</span></code> function that integrates better with the <code class="docutils literal notranslate"><span class="pre">broom</span></code> and <code class="docutils literal notranslate"><span class="pre">broom.mixed</span></code> packages.</p></li>
+</ul>
+</div>
+<div class="section" id="id11">
+<h2>Bug fixes<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Deprecates <code class="docutils literal notranslate"><span class="pre">pool.compare()</span></code>. Use <code class="docutils literal notranslate"><span class="pre">D1()</span></code> instead (#220)</p></li>
+<li><p>Removes everything in <code class="docutils literal notranslate"><span class="pre">utils::globalVariables()</span></code></p></li>
+<li><p>Prevents name clashes with <code class="docutils literal notranslate"><span class="pre">tidyr</span></code> by defining <code class="docutils literal notranslate"><span class="pre">complete.mids()</span></code> as an S3 method for the <code class="docutils literal notranslate"><span class="pre">tidyr::complete()</span></code> generic (#212)</p></li>
+<li><p>Extends the <code class="docutils literal notranslate"><span class="pre">pool()</span></code> function to deal with multiple sets of parameters. Currently supported keywords are: <code class="docutils literal notranslate"><span class="pre">term</span></code> (all <code class="docutils literal notranslate"><span class="pre">broom</span></code> functions), <code class="docutils literal notranslate"><span class="pre">component</span></code> (some <code class="docutils literal notranslate"><span class="pre">broom.mixed</span></code> functions) and <code class="docutils literal notranslate"><span class="pre">y.values</span></code> (for <code class="docutils literal notranslate"><span class="pre">multinom()</span></code> model) (#219)</p></li>
+<li><p>Adds a new <code class="docutils literal notranslate"><span class="pre">install.on.demand()</span></code> function for lighter installation</p></li>
+<li><p>Adds <code class="docutils literal notranslate"><span class="pre">toenail2</span></code> and remove dependency on <code class="docutils literal notranslate"><span class="pre">HSAUR3</span></code></p></li>
+<li><p>Solves problem with <code class="docutils literal notranslate"><span class="pre">ampute</span></code> in extreme cases (#216)</p></li>
+<li><p>Solves problem with <code class="docutils literal notranslate"><span class="pre">pool</span></code> with <code class="docutils literal notranslate"><span class="pre">mgcv::gam</span></code> (#218)</p></li>
+<li><p>Adds <code class="docutils literal notranslate"><span class="pre">.gitattributes</span></code> for consistent line endings</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-3-7-0">
+<h1>mice 3.7.0<a class="headerlink" href="#mice-3-7-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Solves a bug that made <code class="docutils literal notranslate"><span class="pre">polr()</span></code> always fail (#206)</p></li>
+<li><p>Aborts if one or more columns are a <code class="docutils literal notranslate"><span class="pre">data.frame</span></code> (#208)</p></li>
+<li><p>Update <code class="docutils literal notranslate"><span class="pre">mira-class</span></code> documentation (#207)</p></li>
+<li><p>Remove links to deprecated package <code class="docutils literal notranslate"><span class="pre">CALIBERrfimpute</span></code></p></li>
+<li><p>Adds check on partial missing level-2 data to <code class="docutils literal notranslate"><span class="pre">2lonly.norm</span></code> and <code class="docutils literal notranslate"><span class="pre">2lonly.pmm</span></code></p></li>
+<li><p>Change calculation of <code class="docutils literal notranslate"><span class="pre">a2</span></code> to elementwise division by a matrix of observations</p></li>
+<li><p>Extend documentation for <code class="docutils literal notranslate"><span class="pre">2lonly.norm</span></code> and <code class="docutils literal notranslate"><span class="pre">2lonly.pmm</span></code></p></li>
+<li><p>Repair return value from <code class="docutils literal notranslate"><span class="pre">2lonly.pmm</span></code></p></li>
+<li><p>Imputation method <code class="docutils literal notranslate"><span class="pre">2lonly.mean</span></code> now also works with factors</p></li>
+<li><p>Replace deprecated <code class="docutils literal notranslate"><span class="pre">imputationMethod</span></code> argument in examples by <code class="docutils literal notranslate"><span class="pre">method</span></code></p></li>
+<li><p>More informative error message when stopped after pre-processing (#194)</p></li>
+<li><p>Updated URL’s in DESCRIPTION</p></li>
+<li><p>Fix string matching in <code class="docutils literal notranslate"><span class="pre">check.predictorMatrix()</span></code> (#191)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-3-6-0">
+<h1>mice 3.6.0<a class="headerlink" href="#mice-3-6-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Copy <code class="docutils literal notranslate"><span class="pre">toenail</span></code> data from orphaned <code class="docutils literal notranslate"><span class="pre">DPpackage</span></code> package</p></li>
+<li><p>Remove <code class="docutils literal notranslate"><span class="pre">DPpackage</span></code>  from <code class="docutils literal notranslate"><span class="pre">Suggests</span></code> field in <code class="docutils literal notranslate"><span class="pre">DESCRIPTION</span></code></p></li>
+<li><p>Adds support for rotated names in <code class="docutils literal notranslate"><span class="pre">md.pattern()</span></code> (#170, #177)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-3-5-0">
+<h1>mice 3.5.0<a class="headerlink" href="#mice-3-5-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>This version has some error fixes</p></li>
+<li><p>Fixes a bug in the sampler that ignored imputed values in variables outside the active block (#175, &#64;alexanderrobitzsch)</p></li>
+<li><p>Adds a note to the documenation of <code class="docutils literal notranslate"><span class="pre">as.mids</span></code>() (#173)</p></li>
+<li><p>Removes a superfluous warning from process_mipo() (#92)</p></li>
+<li><p>Fixes an error in the degrees of freedom of the P-value calculation (#171)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-3-4-0">
+<h1>mice 3.4.0<a class="headerlink" href="#mice-3-4-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Add a hex sticker to the mice package. Designed by Jaden M. Walters.</p></li>
+<li><p>Specify the R3.5.0 random generator in order to pass CRAN tests</p></li>
+<li><p>Remove test-fix.coef.R from tests</p></li>
+<li><p>Adds a rotate.names argument to md.pattern() (#154, #160)</p></li>
+<li><p>Fix to solve the name-matching problem (#156, #149, #147)</p></li>
+<li><p>Fix that removes the pre-check for existence of <code class="docutils literal notranslate"><span class="pre">mice.impute.xxx()</span></code> so that <code class="docutils literal notranslate"><span class="pre">mice::mice()</span></code> works as expected (#55)</p></li>
+<li><p>Solves a bug that crashed <code class="docutils literal notranslate"><span class="pre">mids2spss()</span></code>, thanks Edgar Schoreit (#149)</p></li>
+<li><p>Solves a problem in the routing logic (#149) causing that passive
+imputation was not done when no predictors were specified. No passive
+imputation correctly will ignore any the specification of
+<code class="docutils literal notranslate"><span class="pre">predictorMatrix</span></code>.</p></li>
+<li><p>Implements an alternative solution for #93 and #96. Instead of skipping
+imputation of variables without predictors, <code class="docutils literal notranslate"><span class="pre">mice</span> <span class="pre">3.3.1</span></code> will impute
+those variables using the intercept only</p></li>
+<li><p>Adds a routine contributed by Simon Grund that checks for deprecated
+arguments #137</p></li>
+<li><p>Improves the <code class="docutils literal notranslate"><span class="pre">nelsonaalen()</span></code> function for data where variables
+<code class="docutils literal notranslate"><span class="pre">time</span></code> or <code class="docutils literal notranslate"><span class="pre">status</span></code> have already been defined (#140), thanks matthieu-faron</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-3-3-0">
+<h1>mice 3.3.0<a class="headerlink" href="#mice-3-3-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Solves bug in passive imputation (#130). <em>Warning: This bug may
+have caused invalid imputations in <code class="docutils literal notranslate"><span class="pre">mice</span> <span class="pre">3.0.0</span></code> - <code class="docutils literal notranslate"><span class="pre">mice</span> <span class="pre">3.2.0</span></code> under
+passive imputation.</em></p></li>
+<li><p>Updates code to <code class="docutils literal notranslate"><span class="pre">broom</span> <span class="pre">0.5.0</span></code> (#128)</p></li>
+<li><p>Solves problem with <code class="docutils literal notranslate"><span class="pre">mice.impute.2l.norm()</span></code> (#129)</p></li>
+<li><p>Use explicit foreign function calls in tests</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-3-2-0">
+<h1>mice 3.2.0<a class="headerlink" href="#mice-3-2-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Skip tests for <code class="docutils literal notranslate"><span class="pre">mice.impute.2l.norm()</span></code> (#129)</p></li>
+<li><p>Skip tests for <code class="docutils literal notranslate"><span class="pre">D1()</span></code> (#128)</p></li>
+<li><p>Solve problem with <code class="docutils literal notranslate"><span class="pre">md.pattern</span></code> (#126)</p></li>
+<li><p>Evades warning in <code class="docutils literal notranslate"><span class="pre">rbind</span></code> and <code class="docutils literal notranslate"><span class="pre">cbind</span></code> (#114)</p></li>
+<li><p>Solves <code class="docutils literal notranslate"><span class="pre">rbind</span></code> problem when <code class="docutils literal notranslate"><span class="pre">method</span></code> is a list (#113)</p></li>
+<li><p>More efficient use of <code class="docutils literal notranslate"><span class="pre">parlmice</span></code> (#109)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">dfcom</span></code> argument to <code class="docutils literal notranslate"><span class="pre">pool()</span></code> (#105, #110)</p></li>
+<li><p>Updates to <code class="docutils literal notranslate"><span class="pre">parlmice</span></code> + bugfix (#107)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-3-1-0">
+<h1>mice 3.1.0<a class="headerlink" href="#mice-3-1-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>New parallel functionality: <code class="docutils literal notranslate"><span class="pre">parlmice</span></code> (#104)</p></li>
+<li><p>Incorporate suggestion of &#64;JoergMBeyer to <code class="docutils literal notranslate"><span class="pre">flux</span></code> (#102)</p></li>
+<li><p>Replace duplicate code by <code class="docutils literal notranslate"><span class="pre">estimice</span></code> (#101)</p></li>
+<li><p>Better checking for empty methods (#99)</p></li>
+<li><p>Remove problem with <code class="docutils literal notranslate"><span class="pre">parent.frame</span></code> (#98)</p></li>
+<li><p>Set empty method for complete data (#93)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">NEWS.md</span></code>, <code class="docutils literal notranslate"><span class="pre">index.Rmd</span></code> and online package documentation</p></li>
+<li><p>Track <code class="docutils literal notranslate"><span class="pre">.R</span></code> instead of <code class="docutils literal notranslate"><span class="pre">.r</span></code></p></li>
+<li><p>Patch issue with <code class="docutils literal notranslate"><span class="pre">updateLog</span></code> (#8, &#64;alexanderrobitzsch)</p></li>
+<li><p>Extend README</p></li>
+<li><p>Repair issue <code class="docutils literal notranslate"><span class="pre">md.pattern</span></code> (#90)</p></li>
+<li><p>Repair check on <code class="docutils literal notranslate"><span class="pre">m</span></code> (#89)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-3-0-0">
+<h1>mice 3.0.0<a class="headerlink" href="#mice-3-0-0" title="Permalink to this headline">¶</a></h1>
+<p>Version 3.0 represents a major update that implements the
+following features:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">blocks</span></code>: The main algorithm iterates over blocks. A block is
+simply a collection of variables. In the common MICE algorithm each
+block was equivalent to one variable, which - of course - is
+the default; The <code class="docutils literal notranslate"><span class="pre">blocks</span></code> argument allows mixing univariate
+imputation method multivariate imputation methods. The <code class="docutils literal notranslate"><span class="pre">blocks</span></code>
+feature bridges two seemingly disparate approaches, joint modeling
+and fully conditional specification, into one framework;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">where</span></code>: The <code class="docutils literal notranslate"><span class="pre">where</span></code> argument is a logical matrix of the same size
+of <code class="docutils literal notranslate"><span class="pre">data</span></code> that specifies which cells should be imputed. This opens
+up some new analytic possibilities;</p></li>
+<li><p>Multivariate tests: There are new functions <code class="docutils literal notranslate"><span class="pre">D1()</span></code>, <code class="docutils literal notranslate"><span class="pre">D2()</span></code>, <code class="docutils literal notranslate"><span class="pre">D3()</span></code>
+and <code class="docutils literal notranslate"><span class="pre">anova()</span></code> that perform multivariate parameter tests on the
+repeated analysis from on multiply-imputed data;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">formulas</span></code>: The old <code class="docutils literal notranslate"><span class="pre">form</span></code> argument has been redesign and is now
+renamed to <code class="docutils literal notranslate"><span class="pre">formulas</span></code>. This provides an alternative way to specify
+imputation models that exploits the full power of R’s native
+formula’s.</p></li>
+<li><p>Better integration with the <code class="docutils literal notranslate"><span class="pre">tidyverse</span></code> framework, especially
+for packages <code class="docutils literal notranslate"><span class="pre">dplyr</span></code>, <code class="docutils literal notranslate"><span class="pre">tibble</span></code> and  <code class="docutils literal notranslate"><span class="pre">broom</span></code>;</p></li>
+<li><p>Improved numerical algorithms for low-level imputation function.
+Better handling of duplicate variables.</p></li>
+<li><p>Last but not least: A brand new edition AND online version of
+<a class="reference external" href="https://stefvanbuuren.name/fimd/">Flexible Imputation of Missing Data. Second Edition.</a></p></li>
+</ol>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-46-9-2017-12-08">
+<h1>mice 2.46.9 (2017-12-08)<a class="headerlink" href="#mice-2-46-9-2017-12-08" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>simplify code for <code class="docutils literal notranslate"><span class="pre">mids</span></code> object in <code class="docutils literal notranslate"><span class="pre">mice</span></code> (thanks stephematician) (#61)</p></li>
+<li><p>simplify code in <code class="docutils literal notranslate"><span class="pre">rbind.mids</span></code> (thanks stephematician) (#59)</p></li>
+<li><p>repair bug in <code class="docutils literal notranslate"><span class="pre">pool.compare()</span></code> in handling factors (#60)</p></li>
+<li><p>fixed bug in <code class="docutils literal notranslate"><span class="pre">rbind.mids</span></code> in handling <code class="docutils literal notranslate"><span class="pre">where</span></code> (#59)</p></li>
+<li><p>add new arguments to <code class="docutils literal notranslate"><span class="pre">as.mids()</span></code>, add <code class="docutils literal notranslate"><span class="pre">as()</span></code></p></li>
+<li><p>update contact info</p></li>
+<li><p>resolved problem <code class="docutils literal notranslate"><span class="pre">cart</span></code> not accepting a matrix (thanks Joerg Drechsler)</p></li>
+<li><p>Adds generalized <code class="docutils literal notranslate"><span class="pre">pool()</span></code> to list of models</p></li>
+<li><p>Switch to 3-digit versioning</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-46-2017-10-22">
+<h1>mice 2.46 (2017-10-22)<a class="headerlink" href="#mice-2-46-2017-10-22" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Allow for capitals in imputation methods</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-45-2017-10-21">
+<h1>mice 2.45 (2017-10-21)<a class="headerlink" href="#mice-2-45-2017-10-21" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Reorganized vignettes to land on GitHUB pages</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-44-2017-10-18">
+<h1>mice 2.44 (2017-10-18)<a class="headerlink" href="#mice-2-44-2017-10-18" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Code changes for robustness, style and efficiency (Bernie Gray)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-43-2017-07-20">
+<h1>mice 2.43 (2017-07-20)<a class="headerlink" href="#mice-2-43-2017-07-20" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Updates the <code class="docutils literal notranslate"><span class="pre">ampute</span></code> function and vignettes (Rianne Schouten)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-42-2017-07-11">
+<h1>mice 2.42 (2017-07-11)<a class="headerlink" href="#mice-2-42-2017-07-11" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Rename <code class="docutils literal notranslate"><span class="pre">mice.impute.2l.sys</span></code> to <code class="docutils literal notranslate"><span class="pre">mice.impute.2l.lmer</span></code></p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-41-2017-07-10">
+<h1>mice 2.41 (2017-07-10)<a class="headerlink" href="#mice-2-41-2017-07-10" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Add new feature: <code class="docutils literal notranslate"><span class="pre">where</span></code>argument to mice</p></li>
+<li><p>Add new <code class="docutils literal notranslate"><span class="pre">wy</span></code> argument to imputation functions</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">mice.impute.2l.sys()</span></code>, author Shahab Jolani</p></li>
+<li><p>Update with many simplifications and code enhancements</p></li>
+<li><p>Fixed broken <code class="docutils literal notranslate"><span class="pre">cbind()</span></code> function</p></li>
+<li><p>Fixed Bug that made the pad element disappear from <code class="docutils literal notranslate"><span class="pre">mids</span></code> object</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-40-2017-07-07">
+<h1>mice 2.40 (2017-07-07)<a class="headerlink" href="#mice-2-40-2017-07-07" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fixed integration with <code class="docutils literal notranslate"><span class="pre">lattice</span></code> package</p></li>
+<li><p>Updates colors in <code class="docutils literal notranslate"><span class="pre">xyplot.mads</span></code></p></li>
+<li><p>Add support for factors in <code class="docutils literal notranslate"><span class="pre">mice.impute.2lonly.pmm()</span></code></p></li>
+<li><p>Create more robust version of as.mids()</p></li>
+<li><p>Update of <code class="docutils literal notranslate"><span class="pre">ampute()</span></code> by Rianne Schouten</p></li>
+<li><p>Fix timestamp problem by rebuilding vignette using R 3.4.0.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-34-2017-04-24">
+<h1>mice 2.34 (2017-04-24)<a class="headerlink" href="#mice-2-34-2017-04-24" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Update to roxygen 6.0.1</p></li>
+<li><p>Stylistic changes to <code class="docutils literal notranslate"><span class="pre">mice</span></code> function (thanks Ben Ogorek)</p></li>
+<li><p>Calls to <code class="docutils literal notranslate"><span class="pre">cbind.mids()</span></code> replaced by calls to <code class="docutils literal notranslate"><span class="pre">cbind()</span></code></p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-31-2017-02-23">
+<h1>mice 2.31 (2017-02-23)<a class="headerlink" href="#mice-2-31-2017-02-23" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Add link to <code class="docutils literal notranslate"><span class="pre">miceVignettes</span></code> on github (thanks Gerko Vink)</p></li>
+<li><p>Add package documentation</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">README</span></code> for GitHub</p></li>
+<li><p>Add new ampute functions and vignette (thanks Rianne Schouten)</p></li>
+<li><p>Rename <code class="docutils literal notranslate"><span class="pre">ccn</span></code> –&gt; <code class="docutils literal notranslate"><span class="pre">ncc</span></code>, <code class="docutils literal notranslate"><span class="pre">icn</span></code> –&gt; <code class="docutils literal notranslate"><span class="pre">nic</span></code></p></li>
+<li><p>Change helpers <code class="docutils literal notranslate"><span class="pre">cc()</span></code>, <code class="docutils literal notranslate"><span class="pre">ncc()</span></code>, <code class="docutils literal notranslate"><span class="pre">cci()</span></code>, <code class="docutils literal notranslate"><span class="pre">ic()</span></code>, <code class="docutils literal notranslate"><span class="pre">nic()</span></code> and <code class="docutils literal notranslate"><span class="pre">ici()</span></code> use <code class="docutils literal notranslate"><span class="pre">S3</span></code> dispatch</p></li>
+<li><p>Change issues tracker on Github - add BugReports URL #21</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">multinom</span></code> MaxNWts type fix in <code class="docutils literal notranslate"><span class="pre">polyreg</span></code> and <code class="docutils literal notranslate"><span class="pre">polr</span></code> #9</p></li>
+<li><p>Fix checking of nested models in <code class="docutils literal notranslate"><span class="pre">pool.compare</span></code> #12</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">as.mids</span></code> if names not same as all columns #11</p></li>
+<li><p>Fix extension for <code class="docutils literal notranslate"><span class="pre">glmer</span></code> models #5</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-29-2016-10-05">
+<h1>mice 2.29 (2016-10-05)<a class="headerlink" href="#mice-2-29-2016-10-05" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">midastouch</span></code>: predictive mean matching for small samples (thanks Philip Gaffert, Florian Meinfelder)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-28-2016-10-05">
+<h1>mice 2.28 (2016-10-05)<a class="headerlink" href="#mice-2-28-2016-10-05" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Repaired dots problem in <code class="docutils literal notranslate"><span class="pre">rpart</span></code> call</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-27-2016-07-27">
+<h1>mice 2.27 (2016-07-27)<a class="headerlink" href="#mice-2-27-2016-07-27" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">ridge</span></code> to <code class="docutils literal notranslate"><span class="pre">2l.norm()</span></code></p></li>
+<li><p>Remove <code class="docutils literal notranslate"><span class="pre">.o</span></code> files</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-25-2015-11-09">
+<h1>mice 2.25 (2015-11-09)<a class="headerlink" href="#mice-2-25-2015-11-09" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">as.mids()</span></code> bug that crashed <code class="docutils literal notranslate"><span class="pre">miceadds::mice.1chain()</span></code></p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-23-2015-11-04">
+<h1>mice 2.23 (2015-11-04)<a class="headerlink" href="#mice-2-23-2015-11-04" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Update of example code on /doc</p></li>
+<li><p>Remove lots of dependencies, general cleanup</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">impute.polyreg()</span></code> bug that bombed if there were no predictors (thanks Jan Graffelman)</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">as.mids()</span></code> bug that gave incorrect <span class="math notranslate nohighlight">\(m\)</span> (several users)</p></li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">pool.compare()</span></code> error for <code class="docutils literal notranslate"><span class="pre">lmer</span></code> object (thanks Claudio Bustos)</p></li>
+<li><p>Fix error in <code class="docutils literal notranslate"><span class="pre">mice.impute.2l.norm()</span></code> if just one <code class="docutils literal notranslate"><span class="pre">NA</span></code> (thanks Jeroen Hoogland)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-22-2014-06-11">
+<h1>mice 2.22 (2014-06-11)<a class="headerlink" href="#mice-2-22-2014-06-11" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Add about six times faster predictive mean matching</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pool.scalar()</span></code> now can do Barnard-Rubin adjustment</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pool()</span></code> now handles class <code class="docutils literal notranslate"><span class="pre">lmerMod</span></code> from the <code class="docutils literal notranslate"><span class="pre">lme4</span></code> package</p></li>
+<li><p>Added automatic bounds on donors in <code class="docutils literal notranslate"><span class="pre">.pmm.match()</span></code> for safety</p></li>
+<li><p>Added donors argument to <code class="docutils literal notranslate"><span class="pre">mice.impute.pmm()</span></code> for increased visibility</p></li>
+<li><p>Changes default number of trees in <code class="docutils literal notranslate"><span class="pre">mice.impute.rf()</span></code> from 100 to 10 (thanks Anoop Shah)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">long2mids()</span></code> deprecated. Use <code class="docutils literal notranslate"><span class="pre">as.mids()</span></code> instead</p></li>
+<li><p>Put <code class="docutils literal notranslate"><span class="pre">lattice</span></code> back into DEPENDS to find generic <code class="docutils literal notranslate"><span class="pre">xyplot()</span></code> and friends</p></li>
+<li><p>Fix error in <code class="docutils literal notranslate"><span class="pre">2lonly.pmm</span></code> (thanks Alexander Robitzsch, Gerko Vink, Judith Godin)</p></li>
+<li><p>Fix number of imputations in <code class="docutils literal notranslate"><span class="pre">as.mids()</span></code> (thanks Tommy Nyberg, Gerko Vink)</p></li>
+<li><p>Fix colors to <code class="docutils literal notranslate"><span class="pre">mdc()</span></code> in example <code class="docutils literal notranslate"><span class="pre">mice.impute.quadratic()</span></code></p></li>
+<li><p>Fix error in <code class="docutils literal notranslate"><span class="pre">mice.impute.rf()</span></code> if just one <code class="docutils literal notranslate"><span class="pre">NA</span></code> (thanks Anoop Shah)</p></li>
+<li><p>Fix error in <code class="docutils literal notranslate"><span class="pre">summary.mipo()</span></code> when <code class="docutils literal notranslate"><span class="pre">names(x$qbar)</span></code> equals <code class="docutils literal notranslate"><span class="pre">NULL</span></code> (thanks Aiko Kuhn)</p></li>
+<li><p>Fix improper testing in <code class="docutils literal notranslate"><span class="pre">ncol()</span></code> in <code class="docutils literal notranslate"><span class="pre">mice.impute.2lonly.mean()</span></code></p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-21-02-05-2014-svb">
+<h1>mice 2.21    02-05-2014 SvB<a class="headerlink" href="#mice-2-21-02-05-2014-svb" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>FIXED:     compilation problem in match.cpp on solaris CC</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-20-02-02-2014-svb">
+<h1>mice 2.20    02-02-2014 SvB<a class="headerlink" href="#mice-2-20-02-02-2014-svb" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>ADDED:     experimental fastpmm() function using Rcpp</p></li>
+<li><p>FIXED:     fixes to mice.impute.cart() and mice.impute.rf() (thanks Anoop Shah)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-19-21-01-2014-svb">
+<h1>mice 2.19    21-01-2014 SvB<a class="headerlink" href="#mice-2-19-21-01-2014-svb" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>ADDED:     mice.impute.rf() for random forest imputation (thanks Lisa Doove)</p></li>
+<li><p>CHANGED:  default number of donors in mice.impute.pmm() changed from 3 to 5.
+Use mice(…, donors = 3) to get the old behavior.</p></li>
+<li><p>CHANGED:  speedup in .norm.draw() by using crossprod() (thanks Alexander Robitzsch)</p></li>
+<li><p>CHANGED:  speedup in .imputation.level2() (thanks Alexander Robitzsch)</p></li>
+<li><p>FIXED:     define MASS, nnet, lattice as imports instead of depends</p></li>
+<li><p>FIXED:     proper handling of rare case in remove.lindep() that removed all predictors (thanks Jaap Brand)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-18-31-07-2013-svb">
+<h1>mice 2.18    31-07-2013 SvB<a class="headerlink" href="#mice-2-18-31-07-2013-svb" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>ADDED:     as.mids() for converting long format in a mids object (thanks Gerko Vink)</p></li>
+<li><p>FIXED:     mice.impute.logreg.boot() now properly exported (thanks Suresh Pujar)</p></li>
+<li><p>FIXED:     two bugs in rbind.mids() (thanks Gerko Vink)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-17-10-05-2013-svb">
+<h1>mice 2.17    10-05-2013 SvB<a class="headerlink" href="#mice-2-17-10-05-2013-svb" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>ADDED:     new form argument to mice() to specify imputation models using forms (contributed Ross Boylan)</p></li>
+<li><p>FIXED:     with.mids(), is.mids(), is.mira() and is.mipo() exported</p></li>
+<li><p>FIXED:     eliminated errors in the documentation of pool.scalar()</p></li>
+<li><p>FIXED:     error in mice.impute.ri() (thanks Shahab Jolani)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-16-27-04-2013-svb">
+<h1>mice 2.16    27-04-2013 SvB<a class="headerlink" href="#mice-2-16-27-04-2013-svb" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>ADDED:     random indicator imputation by mice.impute.ri() for nonignorable models (thanks Shahab Jolani)</p></li>
+<li><p>ADDED:     workhorse functions .norm.draw() and .pmm.match() are exported</p></li>
+<li><p>FIXED:     bug in 2.14 and 2.15 in mice.impute.pmm() that produced an error on factors</p></li>
+<li><p>FIXED:     bug that crashed R when the class variable was incomplete (thanks Robert Long)</p></li>
+<li><p>FIXED:     bug in 2l.pan and 2l.norm by convert a class factor to integer (thanks Robert Long)</p></li>
+<li><p>FIXED:     warning eliminated caused by character variables (thanks Robert Long)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-15-02-04-2013-svb">
+<h1>mice 2.15 - 02-04-2013 SvB<a class="headerlink" href="#mice-2-15-02-04-2013-svb" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>CHANGED:  complete reorganization of documentation and source files</p></li>
+<li><p>ADDED:     source published on <a class="reference external" href="http://GitHub.com">GitHub.com</a></p></li>
+<li><p>ADDED:     new imputation method mice.impute.cart() (thanks Lisa Doove)</p></li>
+<li><p>FIXED:     calculation of degrees of freedom in pool.compare() (thanks Lorenz Uhlmann)</p></li>
+<li><p>FIXED:     error in DESCRIPTION file (thanks Kurt Hornik)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-14-11-03-2013-svb">
+<h1>mice 2.14 - 11-03-2013 / SvB<a class="headerlink" href="#mice-2-14-11-03-2013-svb" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>ADDED:     mice.impute.2l.mean() for imputing class means at level 2</p></li>
+<li><p>ADDED:     sampler(): new checks of degrees of freedom per variable at iteration 1</p></li>
+<li><p>ADDED:     function check.df() to throw a warning about low degrees of freedom</p></li>
+<li><p>FIXED:     tolower() added in “2l” test in sampler()</p></li>
+<li><p>FIXED:     conversion of factors that have other roles (multilevel) in padModel()</p></li>
+<li><p>FIXED:     family argument in call to glm() in glm.mids() (thanks Nicholas Horton)</p></li>
+<li><p>FIXED:     .norm.draw(): evading NaN imputed values by setting df in rchisq() to a minimum of 1</p></li>
+<li><p>FIXED:     bug in mice.df() that prevented the classic Rubin df calculation (thanks Jean-Batiste Pingaul)</p></li>
+<li><p>FIXED:     bug fixed in mice.impute.2l.norm() (thanks Robert Long)</p></li>
+<li><p>CHANGED:  faster .pmm.match2() from version 2.12 renamed to default .pmm.match()</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-13-03-07-2012-svb">
+<h1>mice 2.13 - 03-07-2012 / SvB<a class="headerlink" href="#mice-2-13-03-07-2012-svb" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>ADDED:     new multilevel functions 2l.pan(), 2lonly.norm(), 2lonly.pmm() (contributed by Alexander Robitzsch)</p></li>
+<li><p>ADDED:     new quadratic imputation function: quadratic() (contributed by Gerko Vink)</p></li>
+<li><p>ADDED:     pmm2(), five times faster than pmm()</p></li>
+<li><p>ADDED:     new argument data.init in mice() for initialization (suggested by Alexander Robitzsch)</p></li>
+<li><p>ADDED:     mice() now accepts pmm as method for (ordered) factors</p></li>
+<li><p>ADDED:     warning and a note to 2l.norm() that advises to use type=2 for the predictors</p></li>
+<li><p>FIXED:     bug that chrashed plot.mids() if there was only one incomplete variable (thanks Dennis Prangle)</p></li>
+<li><p>FIXED:     bug in sample() in .pmm.match() when donor=1 (thanks Alexander Robitzsch)</p></li>
+<li><p>FIXED:     bug in sample() in mice.impute.sample()</p></li>
+<li><p>FIXED:     fixed ‘?data’ bug in check.method()</p></li>
+<li><p>REMOVED: 	 wp.twin(). Now available from the AGD package</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-12-25-03-2012-svb">
+<h1>mice 2.12 - 25-03-2012 / SvB<a class="headerlink" href="#mice-2-12-25-03-2012-svb" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>UPDATE:    version for launch of Flexible Imputation of Missing Data (FIMD)</p></li>
+<li><p>ADDED:     code fimd1.r-fim9.r to inst/doc for calculating solutions in FIMD</p></li>
+<li><p>FIXED:     more robust version of supports.transparent() (thanks Brian Ripley)</p></li>
+<li><p>ADDED:     auxiliary functions ifdo(), long2mids(), appendbreak(), extractBS(), wp.twin()</p></li>
+<li><p>ADDED:     getfit() function</p></li>
+<li><p>ADDED:     datasets: tbc, potthoffroy, selfreport, walking, fdd, fdgs, pattern1-pattern4, mammalsleep</p></li>
+<li><p>FIXED:     as.mira() added to namespace</p></li>
+<li><p>ADDED:  	 functions flux(), fluxplot() and fico() for missing data patterns</p></li>
+<li><p>ADDED:     function nelsonaalen() for imputing survival data</p></li>
+<li><p>CHANGED:  rm.whitespace() shortened</p></li>
+<li><p>FIXED:     bug in pool() that crashed on nonstandard behavior of survreg() (thanks Erich Studerus)</p></li>
+<li><p>CHANGED:  pool() streamlined, warnings about incompatibility in lengths of coef() and vcov()</p></li>
+<li><p>FIXED:     mdc() bug that ignored transparent=FALSE argument, now made visible</p></li>
+<li><p>FIXED:     bug in md.pattern() for &gt;32 variables (thanks Sascha Vieweg, Joshua Wiley)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-11-21-11-2011-svb">
+<h1>mice 2.11 - 21-11-2011 / SvB<a class="headerlink" href="#mice-2-11-21-11-2011-svb" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>UPDATE: definite reference to JSS paper</p></li>
+<li><p>ADDED:     rm.whitespace() to do string manipulation (thanks Gerko Vink)</p></li>
+<li><p>ADDED:     function mids2mplus() to export data to Mplus (thanks Gerko Vink)</p></li>
+<li><p>CHANGED:  plot.mids() changed into trellis version</p></li>
+<li><p>ADDED:     code used in JSS-paper</p></li>
+<li><p>FIXED:     bug in check.method() (thanks Gerko Vink)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-10-14-09-2011-svb">
+<h1>mice 2.10 - 14-09-2011 / SvB<a class="headerlink" href="#mice-2-10-14-09-2011-svb" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>FIXED:  arguments dec and sep in mids2spss (thanks Nicole Haag)</p></li>
+<li><p>FIXED:  bug in keyword “monotone” in mice() (thanks Alain D)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-9-31-08-2011-svb">
+<h1>mice 2.9 - 31-08-2011 / SvB<a class="headerlink" href="#mice-2-9-31-08-2011-svb" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>FIXED:   appropriate trimming of ynames and xnames in Trellis plots</p></li>
+<li><p>FIXED:   exported: spss2mids(), mice.impute.2L.norm()</p></li>
+<li><p>ADDED:   mice.impute.norm.predict(), mice.impute.norm.boot(), mice.impute.logreg.boot()</p></li>
+<li><p>ADDED:   supports.transparent() to detect whether .Device can do semi-transparent colors</p></li>
+<li><p>FIXED:   stringr package is now properly loaded</p></li>
+<li><p>ADDED:   trellis version of plot.mids()</p></li>
+<li><p>ADDED:   automatic semi-transparancy detection in mdc()</p></li>
+<li><p>FIXED:   documentation of mira class (thanks Sandro Tsang)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-8-24-03-2011-svb">
+<h1>mice 2.8 - 24-03-2011 / SvB<a class="headerlink" href="#mice-2-8-24-03-2011-svb" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>FIXED:   bug fixed in find.collinear() that bombed when only one variable was left</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-7-16-03-2011-svb">
+<h1>mice 2.7 - 16-03-2011 / SvB<a class="headerlink" href="#mice-2-7-16-03-2011-svb" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>CHANGED: check.data(), remove.lindep(): fully missing variables are imputed if allow.na=TRUE (Alexander Robitzsch)</p></li>
+<li><p>FIXED:   bug in check.data(). Now checks collinearity in predictors only (Alexander Robitzsch)</p></li>
+<li><p>CHANGED: abbreviations of arguments eliminated to evade linux warnings</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-6-03-03-2011-svb">
+<h1>mice 2.6 - 03-03-2011 / SvB<a class="headerlink" href="#mice-2-6-03-03-2011-svb" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>ADDED:   bwplot(), stripplot(), densityplot() and xyplot() for creating Trellis graphs</p></li>
+<li><p>ADDED:   function mdc() and mice.theme() for graphical parameters</p></li>
+<li><p>ADDED:   argument passing from mice() to lower-level functions (requested by Juned Siddique)</p></li>
+<li><p>FIXED:   erroneous rgamma() replaced by rchisq() in .norm.draw, lowers variance a bit for small n</p></li>
+<li><p>ADDED:   with.mids() extended to handle expression objects</p></li>
+<li><p>FIXED:   reporting bug in summary.mipo()</p></li>
+<li><p>CHANGED: df calculation in pool(), intervals may become slightly wider</p></li>
+<li><p>ADDED:   internal functions mice.df() and df.residual()</p></li>
+<li><p>FIXED:   error in rm calculation for “likelihood” in pool.compare()</p></li>
+<li><p>CHANGED: default ridge parameter changed</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-5-06-01-2011-svb">
+<h1>mice 2.5 - 06-01-2011 / SvB<a class="headerlink" href="#mice-2-5-06-01-2011-svb" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>ADDED:   various stability enhancements and code clean-up</p></li>
+<li><p>ADDED:   find.collinear() function</p></li>
+<li><p>CHANGED: automatic removal of constant and collinear variables</p></li>
+<li><p>ADDED:   ridge parameter in .norm.draw() and .norm.fix()</p></li>
+<li><p>ADDED:   mice.impute.polr() for ordered factors</p></li>
+<li><p>FIXED:   chainMean and chainVar in mice.mids()</p></li>
+<li><p>FIXED:   iteration counter for mice.mids and sampler()</p></li>
+<li><p>ADDED:   component ‘loggedEvents’ to mids-object for logging actions</p></li>
+<li><p>REMOVED: annoying warnings about removed predictors</p></li>
+<li><p>ADDED:   updateLog() function</p></li>
+<li><p>CHANGED: smarter handling of model setup in mice()</p></li>
+<li><p>CHANGED: .pmm.match() now draws from the three closest donors</p></li>
+<li><p>ADDED:   mids2spss() for shipping a mids-object to SPSS</p></li>
+<li><p>FIXED:   change in summary.mipo() to work with as.mira()</p></li>
+<li><p>ADDED:   function mice.impute.2L.norm.noint()</p></li>
+<li><p>ADDED:   function as.mira()</p></li>
+<li><p>FIXED:   global assign() removed from mice.impute.polyreg()</p></li>
+<li><p>FIXED:   improved handling of factors by complete()</p></li>
+<li><p>FIXED:   improved labeling of nhanes2 data</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-4-17-10-2010-svb">
+<h1>mice 2.4 - 17-10-2010 / SvB<a class="headerlink" href="#mice-2-4-17-10-2010-svb" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>ADDED:   pool() now supports class ‘polr’ (Jean-Baptiste Pingault)</p></li>
+<li><p>FIXED:   solved problem in mice.impute.polyreg when one of the variables was named y or x</p></li>
+<li><p>FIXED:   remove.lindep: intercept prediction bug</p></li>
+<li><p>ADDED:   version() function</p></li>
+<li><p>ADDED:   cc(), cci() and ccn() convenience functions</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-3-14-02-2010-svb">
+<h1>mice 2.3 - 14-02-2010 / SvB<a class="headerlink" href="#mice-2-3-14-02-2010-svb" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>FIXED:   check.method: logicals are now treated as binary variables (Emmanuel Charpentier)</p></li>
+<li><p>FIXED:   complete: the NULL imputation case is now properly handled</p></li>
+<li><p>FIXED:   mice.impute.pmm: now creates between imputation variability for univariate predictor</p></li>
+<li><p>FIXED:   remove.lindep: returns ‘keep’ vector instead of data</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-2-13-01-2010-svb">
+<h1>mice 2.2 - 13-01-2010 / SvB<a class="headerlink" href="#mice-2-2-13-01-2010-svb" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>ADDED:   pool() now supports class ‘multinom’ (Jean-Baptiste Pingault)</p></li>
+<li><p>FIXED:   bug fixed in check.data for data consisting of two columns (Rogier Donders, Thomas Koepsell)</p></li>
+<li><p>ADDED:   new function remove.lindep() that removes predictors that are (almost) linearly dependent</p></li>
+<li><p>FIXED:   bug fixed in pool() that produced an (innocent) warning message (Qi Zheng)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-1-14-09-2009-svb">
+<h1>mice 2.1 - 14-09-2009 / SvB<a class="headerlink" href="#mice-2-1-14-09-2009-svb" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>ADDED:   pool() now also supports class ‘mer’</p></li>
+<li><p>CHANGED: nlme and lme4 are now only loaded if needed (by pool())</p></li>
+<li><p>FIXED:   bug fixed in mice.impute.polyreg() when there was one missing entry (Emmanuel Charpentier)</p></li>
+<li><p>FIXED:   bug fixed in plot.mids() when there was one missing entry (Emmanuel Charpentier)</p></li>
+<li><p>CHANGED: NAMESPACE expanded to allow easy access to function code</p></li>
+<li><p>FIXED:   mice() can now find <a class="reference external" href="http://mice.impute.xxx">mice.impute.xxx</a>() functions in the .GlobalEnv</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-2-0-26-08-2009-svb-ko-major-upgrade-for-jss-manuscript">
+<h1>mice 2.0 - 26-08-2009 / SvB, KO 	Major upgrade for JSS manuscript<a class="headerlink" href="#mice-2-0-26-08-2009-svb-ko-major-upgrade-for-jss-manuscript" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>ADDED:   new functions cbind.mids(), rbind.mids(), ibind()</p></li>
+<li><p>ADDED:   new argument in mice(): ‘post’ in post-processing imputations</p></li>
+<li><p>ADDED:   new functions: pool.scaler(), pool.compare(), pool.r.squared()</p></li>
+<li><p>ADDED:	 new data: boys, popmis, windspeed</p></li>
+<li><p>FIXED:	 function summary.mipo all(object$df) command fixed</p></li>
+<li><p>REMOVED: data.frame.to.matrix replaced by the internal data.matrix function</p></li>
+<li><p>ADDED:   new imputation method mice.impute.2l.norm() for multilevel data</p></li>
+<li><p>CHANGED: pool now works for any class having a vcov() method</p></li>
+<li><p>ADDED:   with.mids() provides a general complete-data analysis</p></li>
+<li><p>ADDED:   type checking in mice() to ensure appropriate imputation methods</p></li>
+<li><p>ADDED:   warning added in mice() for constant predictors</p></li>
+<li><p>ADDED:   prevention of perfect prediction in mice.impute.logreg() and mice.impute.polyreg()</p></li>
+<li><p>CHANGED: mice.impute.norm.improper() changed into mice.impute.norm.nob()</p></li>
+<li><p>REMOVED: mice.impute.polyreg2() deleted</p></li>
+<li><p>ADDED:    new ‘include’ argument in complete()</p></li>
+<li><p>ADDED:    support for the empty imputation method in mice()</p></li>
+<li><p>ADDED:    new function md.pairs()</p></li>
+<li><p>ADDED:    support for intercept imputation</p></li>
+<li><p>ADDED:    new function quickpred()</p></li>
+<li><p>FIXED:   plot.mids() bug fix when number of variables &gt; 5</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-1-21-15-3-2009-svb-maintainance-release">
+<h1>mice 1.21 - 15/3/2009 SvB  Maintainance release<a class="headerlink" href="#mice-1-21-15-3-2009-svb-maintainance-release" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>FIXED:   Stricter type checking on logicals in mice() to evade warnings.</p></li>
+<li><p>CHANGED: Modernization of all help files.</p></li>
+<li><p>FIXED:   padModel: treatment changed to contr.treatment</p></li>
+<li><p>CHANGED: Functions check.visitSequence, check.predictorMatrix, check.imputationMethod are now coded as local to mice()</p></li>
+<li><p>FIXED:   existsFunction in check.imputationMethod now works both under S-Plus and R</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-1-16-6-25-2007">
+<h1>mice 1.16 - 6/25/2007<a class="headerlink" href="#mice-1-16-6-25-2007" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>FIXED: The impution function impute.logreg used convergence criteria that were too optimistic when fitting a GLM with glm.fit. Thanks to Ulrike Gromping.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-1-15-01-09-2006">
+<h1>mice 1.15 - 01/09/2006<a class="headerlink" href="#mice-1-15-01-09-2006" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>FIXED: In the lm.mids and glm.mids functions, parameters were not passed through to glm and lm.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-1-14r-9-26-2005-11-44am">
+<h1>mice 1.14R - 9/26/2005 11:44AM<a class="headerlink" href="#mice-1-14r-9-26-2005-11-44am" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>FIXED: Passive imputation works again. (Roel de Jong)</p></li>
+<li><p>CHANGED: Random seed is now left alone, UNLESS the argument “seed” is specified. This means that unless you
+specify identical seed values, imputations of the same dataset will be different for multiple calls to mice. (Roel de Jong)</p></li>
+<li><p>FIXED:  (docs): Documentation for “impute.mean” (Roel de Jong)</p></li>
+<li><p>FIXED: Function ‘summary.mids’ now works (Roel de Jong)</p></li>
+<li><p>FIXED: Imputation function ‘impute.polyreg’ and ‘impute.lda’ should now work under R</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-1-13">
+<h1>mice 1.13<a class="headerlink" href="#mice-1-13" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Changed function checkImputationMethod, Feb 6, 2004</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-1-12">
+<h1>mice 1.12<a class="headerlink" href="#mice-1-12" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Maintainance, S-Plus 6.1 and R 1.8 unicode, January 2004</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-1-1">
+<h1>mice 1.1<a class="headerlink" href="#mice-1-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>R version (with help of Peter Malewski and Frank Harrell), Feb 2001</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="mice-1-0">
+<h1>mice 1.0<a class="headerlink" href="#mice-1-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Original S-PLUS release, June 14 2000</p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./temporal/renv/library/R-4.1/aarch64-apple-darwin20/mice"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Quan Nguyen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

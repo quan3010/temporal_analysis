@@ -1,0 +1,553 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cpp11 0.4.2 &#8212; Temporal and sequential analysis - LASI 2022</title>
+    
+  <link href="../../../../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../../../../" id="documentation_options" src="../../../../../../_static/documentation_options.js"></script>
+    <script src="../../../../../../_static/jquery.js"></script>
+    <script src="../../../../../../_static/underscore.js"></script>
+    <script src="../../../../../../_static/doctools.js"></script>
+    <script src="../../../../../../_static/togglebutton.js"></script>
+    <script src="../../../../../../_static/clipboard.min.js"></script>
+    <script src="../../../../../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../../../../_static/solar_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Temporal and sequential analysis - LASI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture1.html">
+   Lecture 1: Clustering of sequential data in education
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture2.html">
+   Lecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lecture3.html">
+   Lecture 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Labs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab1.html">
+   Lab 1
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab2.html">
+   Lab 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../../../../Lab3.html">
+   Lab 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Quan Nguyen<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../../../../_sources/temporal/renv/library/R-4.1/aarch64-apple-darwin20/cpp11/NEWS.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/quan3010/temporal_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/quan3010/temporal_analysis/issues/new?title=Issue%20on%20page%20%2Ftemporal/renv/library/R-4.1/aarch64-apple-darwin20/cpp11/NEWS.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   cpp11 0.4.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cpp11-0-4-1">
+   cpp11 0.4.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cpp11-0-4-0">
+   cpp11 0.4.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-features">
+     New Features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#improvements-and-fixes">
+     Improvements and fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cpp11-0-3-1">
+   cpp11 0.3.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cpp11-0-3-0">
+   cpp11 0.3.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#new-functions-and-features">
+     New functions and features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#major-fixes">
+     Major fixes
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#minor-improvements-and-fixes">
+     Minor improvements and fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cpp11-0-2-7">
+   cpp11 0.2.7
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cpp11-0-2-6">
+   cpp11 0.2.6
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cpp11-0-2-5">
+   cpp11 0.2.5
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cpp11-0-2-4">
+   cpp11 0.2.4
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cpp11-0-2-3">
+   cpp11 0.2.3
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cpp11-0-2-2">
+   cpp11 0.2.2
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cpp11-0-2-1">
+   cpp11 0.2.1
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cpp11-0-2-0">
+   cpp11 0.2.0
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     New features
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Minor improvements and fixes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cpp11-0-1-0">
+   cpp11 0.1.0
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="cpp11-0-4-2">
+<h1>cpp11 0.4.2<a class="headerlink" href="#cpp11-0-4-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Romain François is now the maintainer.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cpp11-0-4-1">
+<h1>cpp11 0.4.1<a class="headerlink" href="#cpp11-0-4-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix crash related to unwind protect optimization (#244)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cpp11-0-4-0">
+<h1>cpp11 0.4.0<a class="headerlink" href="#cpp11-0-4-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="new-features">
+<h2>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>New opt-in message formatting with the {fmt} C++ library for <code class="docutils literal notranslate"><span class="pre">cpp11::messages()</span></code> <code class="docutils literal notranslate"><span class="pre">cpp11::stop()</span></code> and <code class="docutils literal notranslate"><span class="pre">cpp11::warning()</span></code>.
+Set the <code class="docutils literal notranslate"><span class="pre">CPP11_USE_FMT</span></code> macro to use this feature in your package. (&#64;sbearrows, #169, #208)</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">as_double()</span></code> and <code class="docutils literal notranslate"><span class="pre">as_integer()</span></code> methods to coerce integers to doubles and doubles to integers to doubles (&#64;sbearrows, #46)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cpp11::matrix</span></code> iterators can now be used either row-wise or column-wise (the default) depending on the user’s choice (&#64;alyst, #229)</p></li>
+</ul>
+</div>
+<div class="section" id="improvements-and-fixes">
+<h2>Improvements and fixes<a class="headerlink" href="#improvements-and-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Read-only matrix accessors are now marked const (#234)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">writable::r_vector</span></code> default constructors now return a 0 length vector when converted to <code class="docutils literal notranslate"><span class="pre">SEXP</span></code> (#166)</p></li>
+<li><p>Read-only <code class="docutils literal notranslate"><span class="pre">r_vector</span></code> constructors now disallow implicit construction with named arguments (#237)</p></li>
+<li><p>Read-only <code class="docutils literal notranslate"><span class="pre">r_vector.attr()</span></code> methods now return const objects, so it is a compile time error to try to assign to them (#237)</p></li>
+<li><p>Fixed <code class="docutils literal notranslate"><span class="pre">+</span></code> and <code class="docutils literal notranslate"><span class="pre">+=</span></code> operators of <code class="docutils literal notranslate"><span class="pre">r_vector::[const_]iterator</span></code> to conform the <em>iterators</em> concept:
+<code class="docutils literal notranslate"><span class="pre">+=</span></code> updates the iterator, and <code class="docutils literal notranslate"><span class="pre">+</span></code> returns the updated copy, while keeping the original unchanged (&#64;alyst, #231)</p></li>
+<li><p>Remove undefined behavior when constructing global <code class="docutils literal notranslate"><span class="pre">cpp11::sexp</span></code>s (#224)</p></li>
+<li><p>Removed redundant <code class="docutils literal notranslate"><span class="pre">.Call</span> <span class="pre">calls</span></code> in cpp11.cpp file (&#64;sbearrows, #170)</p></li>
+<li><p>Error messages now output original file name rather than the temporary file name (&#64;sbearrows, #194)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cpp_register()</span></code> now includes <code class="docutils literal notranslate"><span class="pre">attribute_visible</span></code> in the init function, so packages compiled with <code class="docutils literal notranslate"><span class="pre">C_VISIBILITY</span></code> will find the init function.</p></li>
+<li><p>Fixed bug when running <code class="docutils literal notranslate"><span class="pre">cpp_source()</span></code> on the same file more than once (&#64;sbearrows, #202)</p></li>
+<li><p>Allow cpp11 decorators of the form <code class="docutils literal notranslate"><span class="pre">cpp11::linking_to</span></code> (&#64;sbearrows, #193)</p></li>
+<li><p>Removed internal instances of <code class="docutils literal notranslate"><span class="pre">cpp11::stop()</span></code> and replaced with C++ exceptions (&#64;sbearrows, #203)</p></li>
+<li><p>Names of named lists are now resized along with the list elements (&#64;sbearrows, #206)</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cpp11-0-3-1">
+<h1>cpp11 0.3.1<a class="headerlink" href="#cpp11-0-3-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix stringop-truncation warning from generated wrapping code.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cpp11-0-3-0">
+<h1>cpp11 0.3.0<a class="headerlink" href="#cpp11-0-3-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="new-functions-and-features">
+<h2>New functions and features<a class="headerlink" href="#new-functions-and-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>New <code class="docutils literal notranslate"><span class="pre">x.empty()</span></code> method to check if a vector is empty (&#64;sbearrows, #182)</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">x.named()</span></code> method to check if a vector is named (&#64;sbearrows, #186)</p></li>
+<li><p>New <code class="docutils literal notranslate"><span class="pre">na()</span></code> free function to return the NA sentinels for R objects (&#64;sbearrows, #179)</p></li>
+</ul>
+</div>
+<div class="section" id="major-fixes">
+<h2>Major fixes<a class="headerlink" href="#major-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Memory no longer inadvertently leaks when move constructing vectors (#173)</p></li>
+</ul>
+</div>
+<div class="section" id="minor-improvements-and-fixes">
+<h2>Minor improvements and fixes<a class="headerlink" href="#minor-improvements-and-fixes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Incorrectly formatted cpp11 decorators now output a more informative error message (&#64;sbearrows, #127)</p></li>
+<li><p>Generated registration code now uses C collation to avoid spurious changes from <code class="docutils literal notranslate"><span class="pre">tools::package_native_routine_registration_skeleton()</span></code> (&#64;sbearrows, #171)</p></li>
+<li><p>Makevars files which include filenames now handle spaces in paths properly (&#64;klmr, #160)</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cpp11-0-2-7">
+<h1>cpp11 0.2.7<a class="headerlink" href="#cpp11-0-2-7" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Fix a transient memory leak for functions that return values from <code class="docutils literal notranslate"><span class="pre">cpp11::unwind_protect()</span></code> and <code class="docutils literal notranslate"><span class="pre">cpp11::safe</span></code> (#154)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cpp_source()</span></code> now gets an argument <code class="docutils literal notranslate"><span class="pre">dir</span></code> to allow customized temporary directory to store generated source files.
+It makes it easier to debug C++ source files in non-package project via source mapping. (&#64;renkun-ken, #156)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cpp11-0-2-6">
+<h1>cpp11 0.2.6<a class="headerlink" href="#cpp11-0-2-6" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cpp_register()</span></code> now uses symbols exclusively in the <code class="docutils literal notranslate"><span class="pre">.Call()</span></code> interface. This allows it to be more robust in interactive use with the pkgload package.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cpp11-0-2-5">
+<h1>cpp11 0.2.5<a class="headerlink" href="#cpp11-0-2-5" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cpp_source()</span></code> gains a <code class="docutils literal notranslate"><span class="pre">cxx_std</span></code> argument to control which C++ standard is used.
+This allows you to use code from <code class="docutils literal notranslate"><span class="pre">C++14</span></code> and later standards with cpp_source(). (#100)</p></li>
+<li><p>The cpp11 knitr engine now allows you to set the <code class="docutils literal notranslate"><span class="pre">cxx_std</span></code> chunk option to control the C++ standard used.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cpp_source()</span></code> now has much more informative error messages when compilation fails (#125, #139)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cpp_source()</span></code> now uses a unique name for the DLL, so works when run multiple times on the same source file on Windows (#143)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">writable::list_of&lt;T&gt;</span></code> now supports modification of vectors as intended (#131).</p></li>
+<li><p>Errors when running <code class="docutils literal notranslate"><span class="pre">tools::package_native_routine_registration_skeleton()</span></code> are no longer swallowed (#134)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cpp_source()</span></code> can now accept a source file called <code class="docutils literal notranslate"><span class="pre">cpp11.cpp</span></code> (#133)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">named_arg</span></code> now explicitly protect their values, avoiding protection issues when using large inputs. <a class="reference external" href="https://github.com/tidyverse/readr/issues/1145">tidyverse/readr#1145</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">r_string(std::string)</span></code> now uses <code class="docutils literal notranslate"><span class="pre">Rf_mkCharLenCE()</span></code> instead of <code class="docutils literal notranslate"><span class="pre">Rf_mkChar()</span></code>, which avoids the performance cost of checking the string length.</p></li>
+<li><p>Writable vector classes now properly set their lengths as intended when being copied to a read only class (#128).</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cpp11-0-2-4">
+<h1>cpp11 0.2.4<a class="headerlink" href="#cpp11-0-2-4" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>The preserve list is now more robust to invalid values, such as when the XPtr has no address or if non-xptr’s are stored in the option. This fixes errors when reloading packages using cpp11 and RStudio’s session restores.</p></li>
+<li><p>The preserve list is now more robust to invalid values, such as null pointers when the XPtr is serialized. This situation occurs during ‘Install and Restart’ in RStudio (#121)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cpp11-0-2-3">
+<h1>cpp11 0.2.3<a class="headerlink" href="#cpp11-0-2-3" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">r_vector::const_iterator::operator*</span></code> is now a const method (#113, &#64;bkietz, &#64;xhochy)</p></li>
+<li><p>The preserve list is now stored in an XPtr, rather than an environment, to avoid issues when serializing the preserve environment, which happens implicitly when RStudio or RStudio Cloud saves all options when resuming a session (#116)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cpp11-0-2-2">
+<h1>cpp11 0.2.2<a class="headerlink" href="#cpp11-0-2-2" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">r_bool</span></code> added as an adapter between <code class="docutils literal notranslate"><span class="pre">bool</span></code> and <code class="docutils literal notranslate"><span class="pre">Rboolean</span></code> values (#57, &#64;bkietz)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data_frame()</span></code> objects now have the number of rows correctly set as real length, not the reserved length (#91)</p></li>
+<li><p>Fixed potential memory leak in cpp11::writable classes.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cpp11-0-2-1">
+<h1>cpp11 0.2.1<a class="headerlink" href="#cpp11-0-2-1" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Ensures backwards compatibility with code generation from cpp11 0.1.0 (#88)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">push_back()</span></code> now works more consistently with named arguments (#86)</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cpp11-0-2-0">
+<h1>cpp11 0.2.0<a class="headerlink" href="#cpp11-0-2-0" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2>New features<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>cpp11 is now able to compile on gcc 4.8.5 (#69, &#64;bkietz)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cpp_source()</span></code>, <code class="docutils literal notranslate"><span class="pre">cpp_function()</span></code> and <code class="docutils literal notranslate"><span class="pre">cpp_eval()</span></code> now support <code class="docutils literal notranslate"><span class="pre">[[cpp11::linking_to()]]</span></code> syntax to link to third party packages with C++ headers. (#48)</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>Minor improvements and fixes<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">as_cpp&lt;E&gt;()</span></code> now works with enumeration types (#52, &#64;bkietz)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">as_cpp&lt;int&gt;()</span></code> and <code class="docutils literal notranslate"><span class="pre">as_cpp&lt;double&gt;()</span></code> now implicitly coerce between all 3 types of single NA values (#53).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list::const_iterator::operator*()</span></code> added so iterators could be used on list objects (#60, &#64;romainfrancois)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">safe[]</span></code> can now work with functions that return any type (#70, &#64;bkietz)</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">END_CPP</span></code> macro now includes a <code class="docutils literal notranslate"><span class="pre">catch(...)</span></code> block to catch all C++ exceptions that do not inherit from <code class="docutils literal notranslate"><span class="pre">std::exception</span></code> (#47).</p></li>
+<li><p>Improve consistency of inserting NA values in r_string objects (#45)</p></li>
+<li><p>Added a <code class="docutils literal notranslate"><span class="pre">NEWS.md</span></code> file to track changes to the package.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="cpp11-0-1-0">
+<h1>cpp11 0.1.0<a class="headerlink" href="#cpp11-0-1-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Initial release</p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./temporal/renv/library/R-4.1/aarch64-apple-darwin20/cpp11"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Quan Nguyen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
