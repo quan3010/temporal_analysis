@@ -1,0 +1,35 @@
+Traceback (most recent call last):
+  File "/Users/quannguyen/opt/miniconda3/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/Users/quannguyen/opt/miniconda3/lib/python3.8/site-packages/nbclient/client.py", line 1112, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/quannguyen/opt/miniconda3/lib/python3.8/site-packages/nbclient/util.py", line 74, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/Users/quannguyen/opt/miniconda3/lib/python3.8/site-packages/nbclient/util.py", line 53, in just_run
+    return loop.run_until_complete(coro)
+  File "/Users/quannguyen/opt/miniconda3/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/Users/quannguyen/opt/miniconda3/lib/python3.8/site-packages/nbclient/client.py", line 553, in async_execute
+    await self.async_execute_cell(
+  File "/Users/quannguyen/opt/miniconda3/lib/python3.8/site-packages/nbclient/client.py", line 857, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "/Users/quannguyen/opt/miniconda3/lib/python3.8/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+ient.group <- cut(seqient(log_sts.seq[,1:100]), ient.quant, labels = c("50th or lower", "50th-90th", "above 90th"), include.lowest = T)
+ient.group <- factor(ient.group, levels = c("50th or lower", "50th-90th", "above 90th"))
+table(ient.group)
+------------------
+
+Error in cut.default(seqient(log_sts.seq[, 1:100]), ient.quant, labels = c("50th or lower", : 'breaks' are not unique
+Traceback:
+
+1. cut(seqient(log_sts.seq[, 1:100]), ient.quant, labels = c("50th or lower", 
+ .     "50th-90th", "above 90th"), include.lowest = T)
+2. cut.default(seqient(log_sts.seq[, 1:100]), ient.quant, labels = c("50th or lower", 
+ .     "50th-90th", "above 90th"), include.lowest = T)
+3. stop("'breaks' are not unique")
+ERROR: Error in cut.default(seqient(log_sts.seq[, 1:100]), ient.quant, labels = c("50th or lower", : 'breaks' are not unique
+
+

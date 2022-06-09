@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lecture 1 &#8212; Temporal and sequential analysis - LASI 2022</title>
+    <title>Lecture 1: Clustering of sequential data in education &#8212; Temporal and sequential analysis - LASI 2022</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -42,6 +42,8 @@
     <script src="_static/copybutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -98,7 +100,7 @@
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Lecture 1
+   Lecture 1: Clustering of sequential data in education
   </a>
  </li>
  <li class="toctree-l1">
@@ -232,6 +234,139 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#learning-objectives">
+   Learning objectives:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#why-do-we-want-to-perform-cluster-analysis-on-sequential-data-in-education">
+   1. Why do we want to perform cluster analysis on sequential data in education?
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-types-of-temporal-sequential-data-exist-in-education">
+     What types of temporal/sequential data exist in education?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-type-of-research-questions-that-are-temporal-sequential-specific">
+     What type of research questions that are temporal/sequential specific?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#introduction-to-the-traminer-package">
+     Introduction to the TramineR package
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#some-terminologies">
+     Some terminologies
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#states-vs-events">
+       States vs events
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-manipulation-with-sequences">
+   2. Data manipulation with sequences
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#data-format">
+     Data format
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-states-sequence-sts-format">
+       The ‘states-sequence’ (STS) format
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-state-permanence-sequence-sps-format">
+       The ‘state-permanence-sequence’ (SPS) format
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#the-vertical-time-stamped-event-tse-format">
+       The vertical ‘time-stamped-event’ (TSE) format
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-spell-spell-format">
+     The spell (SPELL) format
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#converting-between-format">
+     Converting between format
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-a-sequence-object-from-data">
+     Create a sequence object from data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#truncations-gaps-and-missing-values">
+     Truncations, gaps and missing values
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exploratory-analysis-of-sequences">
+   3. Exploratory analysis of sequences
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sequence-index-plot">
+     Sequence index plot
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#state-distribution-plot">
+     State distribution plot
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sequence-frequency-plot">
+     Sequence frequency plot
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#transition-rates">
+     Transition rates
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#average-time-spent-in-each-state">
+     Average time spent in each state
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#descriptive-statisitics-of-sequences">
+     Descriptive statisitics of sequences
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -240,8 +375,1374 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="lecture-1">
-<h1>Lecture 1<a class="headerlink" href="#lecture-1" title="Permalink to this headline">¶</a></h1>
+  <p><img alt="" src="_images/solar_logo.png" /></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="lecture-1-clustering-of-sequential-data-in-education">
+<h1>Lecture 1: Clustering of sequential data in education<a class="headerlink" href="#lecture-1-clustering-of-sequential-data-in-education" title="Permalink to this headline">¶</a></h1>
+<p>Quan Nguyen, Department of Statistics, University of British Columbia</p>
+<div class="section" id="learning-objectives">
+<h2>Learning objectives:<a class="headerlink" href="#learning-objectives" title="Permalink to this headline">¶</a></h2>
+<p>By the end of this lecture, workshop participants should be able to:</p>
+<ul class="simple">
+<li><p>Understand the type of questions that are relevant to clustering of sequential data</p></li>
+<li><p>Understand different types of sequence data format and convert between formats</p></li>
+<li><p>Create a sequence object from an existing dataset using the <code class="docutils literal notranslate"><span class="pre">TraMineR</span></code> package</p></li>
+<li><p>Manipulate sequence object to deal with missing values and misaligned sequences</p></li>
+<li><p>Visualize and compute descriptive statitsics to explore sequential data</p></li>
+</ul>
+</div>
+<div class="section" id="why-do-we-want-to-perform-cluster-analysis-on-sequential-data-in-education">
+<h2>1. Why do we want to perform cluster analysis on sequential data in education?<a class="headerlink" href="#why-do-we-want-to-perform-cluster-analysis-on-sequential-data-in-education" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-types-of-temporal-sequential-data-exist-in-education">
+<h3>What types of temporal/sequential data exist in education?<a class="headerlink" href="#what-types-of-temporal-sequential-data-exist-in-education" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Data source</p></th>
+<th class="head"><p>Time granularity</p></th>
+<th class="head"><p>Questions</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SIS records</p></td>
+<td><p>Semester/Year</p></td>
+<td><p>What are the common study paths taken by students based on their course enrolment?</p></td>
+</tr>
+<tr class="row-odd"><td><p>LMS log files</p></td>
+<td><p>Seconds/Daily/Semester</p></td>
+<td><p>What are the common learning patterns of students during a course?</p></td>
+</tr>
+<tr class="row-even"><td><p>Eye-tracking</p></td>
+<td><p>Miliseconds/Seconds/Minutes</p></td>
+<td><p>What are the common thought process when students engage in an exercise?</p></td>
+</tr>
+<tr class="row-odd"><td><p>Videos</p></td>
+<td><p>Frames/Seconds/Minutes</p></td>
+<td><p>What are the common interaction patterns of students during collaborative activities?</p></td>
+</tr>
+<tr class="row-even"><td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="what-type-of-research-questions-that-are-temporal-sequential-specific">
+<h3>What type of research questions that are temporal/sequential specific?<a class="headerlink" href="#what-type-of-research-questions-that-are-temporal-sequential-specific" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Exploratory: What are the common patterns exist in the data?</p></li>
+<li><p>Predictive: Can we classifiy an existing sequence? Can we predict the next activity/outcome given a sequence?</p></li>
+<li><p>Causal: Does X cause Y?</p></li>
+</ul>
+</div>
+<div class="section" id="introduction-to-the-traminer-package">
+<h3>Introduction to the TramineR package<a class="headerlink" href="#introduction-to-the-traminer-package" title="Permalink to this headline">¶</a></h3>
+<p>TraMineR is a R-package for mining, describing and visualizing sequences of states or events, and more generally discrete sequence data</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://cran.r-project.org/web/packages/TraMineR/TraMineR.pdf">Reference manual here</a></p></li>
+<li><p><a class="reference external" href="http://mephisto.unige.ch/pub/TraMineR/doc/TraMineR-Users-Guide.pdf">Tutorial here</a></p></li>
+<li><p><a class="reference external" href="http://traminer.unige.ch/preview-main.shtml">Example here</a></p></li>
+</ul>
+<p>Some common usage of TramineR includes:</p>
+<ul class="simple">
+<li><p>Visualize sequences</p></li>
+<li><p>Explore sequences with descriptive statistics (e.g., frequencies, transitional probabilities, entropy)</p></li>
+<li><p>Cluster analysis of sequences (e.g., Optimal matching/Edit distances)</p></li>
+<li><p>Run discrepancy analyses to study how sequences are related to covariates</p></li>
+</ul>
+<p>Installation in R:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>install.packages<span class="o">(</span><span class="s2">&quot;TraMineR&quot;</span>, <span class="nv">dependencies</span><span class="o">=</span>TRUE<span class="o">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># install.packages(&quot;TraMineR&quot;)</span>
+<span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span><span class="o">=</span><span class="m">15</span><span class="p">,</span> <span class="n">repr.plot.height</span><span class="o">=</span><span class="m">8</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="s">&quot;TraMineR&quot;</span><span class="p">)</span>
+<span class="nf">packageVersion</span><span class="p">(</span><span class="s">&quot;TraMineR&quot;</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">readr</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
+“package ‘TraMineR’ was built under R version 4.1.1”
+
+TraMineR stable version 2.2-3 (Built: 2022-01-26)
+
+Website: http://traminer.unige.ch
+
+Please type &#39;citation(&quot;TraMineR&quot;)&#39; for citation information.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] ‘2.2.3’
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
+“package ‘readr’ was built under R version 4.1.1”
+── <span class=" -Color -Color-Bold">Attaching packages</span> ─────────────────────────────────────────────────────────── tidyverse 1.3.1 ──
+
+<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">ggplot2</span> 3.3.5     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">dplyr  </span> 1.0.7
+<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">tibble </span> 3.1.5     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">stringr</span> 1.4.0
+<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">tidyr  </span> 1.1.3     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">forcats</span> 0.5.1
+<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">purrr  </span> 0.3.4     
+
+Warning message:
+“package ‘tibble’ was built under R version 4.1.1”
+── <span class=" -Color -Color-Bold">Conflicts</span> ────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">filter()</span> masks <span class=" -Color -Color-Blue">stats</span>::filter()
+<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">lag()</span>    masks <span class=" -Color -Color-Blue">stats</span>::lag()
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="some-terminologies">
+<h3>Some terminologies<a class="headerlink" href="#some-terminologies" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="states-vs-events">
+<h4>States vs events<a class="headerlink" href="#states-vs-events" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>States: Read, write, discuss, review</p></li>
+<li><p>Events: Read -&gt; Write, Write -&gt; Discuss (each change of state is an event)</p></li>
+</ul>
+<p>As see in the example below, the sequences 7,8,9,10 no event occurred during the observation period since the respondent stays in the same state during the whole sequence</p>
+<p>In sequence 2, two events occurred: <code class="docutils literal notranslate"><span class="pre">Practice</span> <span class="pre">-&gt;</span> <span class="pre">Read</span></code>, and <code class="docutils literal notranslate"><span class="pre">Read</span> <span class="pre">-&gt;</span> <span class="pre">Practice</span></code></p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">data</span><span class="p">(</span><span class="n">actcal</span><span class="p">)</span>
+<span class="n">actcal</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="nf">lapply</span><span class="p">(</span><span class="n">actcal</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="nf">gsub</span><span class="p">(</span><span class="s">&quot;^A\\b&quot;</span><span class="p">,</span> <span class="s">&quot;Read&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)}))</span>
+<span class="n">actcal</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="nf">lapply</span><span class="p">(</span><span class="n">actcal</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="nf">gsub</span><span class="p">(</span><span class="s">&quot;^B\\b&quot;</span><span class="p">,</span> <span class="s">&quot;Watch&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)}))</span>
+<span class="n">actcal</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="nf">lapply</span><span class="p">(</span><span class="n">actcal</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="nf">gsub</span><span class="p">(</span><span class="s">&quot;^C\\b&quot;</span><span class="p">,</span> <span class="s">&quot;Discuss&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)}))</span>
+<span class="n">actcal</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="nf">lapply</span><span class="p">(</span><span class="n">actcal</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="nf">gsub</span><span class="p">(</span><span class="s">&quot;^D\\b&quot;</span><span class="p">,</span> <span class="s">&quot;Practice&quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">)}))</span>
+<span class="n">actcal.seq</span> <span class="o">&lt;-</span> <span class="nf">seqdef</span><span class="p">(</span><span class="n">actcal</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="m">13</span><span class="o">:</span><span class="m">24</span><span class="p">)</span>
+<span class="c1"># actcal.seq</span>
+<span class="nf">seqiplot</span><span class="p">(</span><span class="n">actcal.seq</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;Index plot (first 10 sequences)&quot;</span><span class="p">,</span><span class="n">with.legend</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 4 distinct states appear in the data: 
+
+     1 = Discuss
+
+     2 = Practice
+
+     3 = Read
+
+     4 = Watch
+
+ [&gt;] state coding:
+
+       [alphabet]  [label]  [long label] 
+
+     1  Discuss     Discuss  Discuss
+
+     2  Practice    Practice Practice
+
+     3  Read        Read     Read
+
+     4  Watch       Watch    Watch
+
+ [&gt;] 2000 sequences in the data set
+
+ [&gt;] min/max sequence length: 12/12
+</pre></div>
+</div>
+<img alt="_images/Lecture1_8_1.png" src="_images/Lecture1_8_1.png" />
+</div>
+</div>
+<p>The <strong>alphabet</strong> is the number of unique states (or events) in the data. In the example above, we have four unique states (i.e., Read, Discuss, Practice, Watch) so the <strong>alphabet</strong> = 4</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">alphabet</span><span class="p">(</span><span class="n">actcal.seq</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>'Discuss'</li><li>'Practice'</li><li>'Read'</li><li>'Watch'</li></ol>
+</div></div>
+</div>
+<p><strong>Time reference: Internal and external clocks</strong></p>
+<ul class="simple">
+<li><p>Internal: Year 1, Year 2, Year 3 or Semester 1, Semester 2, Semester 3</p></li>
+<li><p>External: June 17th, 2022, or 14:30:00 PST</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="data-manipulation-with-sequences">
+<h2>2. Data manipulation with sequences<a class="headerlink" href="#data-manipulation-with-sequences" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="data-format">
+<h3>Data format<a class="headerlink" href="#data-format" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="the-states-sequence-sts-format">
+<h4>The ‘states-sequence’ (STS) format<a class="headerlink" href="#the-states-sequence-sts-format" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Each row is an individual</p></li>
+<li><p>In this format, the successive states (statuses) of an individual are given in consecutive columns. Each column is supposed to correspond to a predetermined time unit</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="n">actcal.seq</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A stslist: 6 × 12</caption>
+<thead>
+	<tr><th></th><th scope=col>jan00</th><th scope=col>feb00</th><th scope=col>mar00</th><th scope=col>apr00</th><th scope=col>may00</th><th scope=col>jun00</th><th scope=col>jul00</th><th scope=col>aug00</th><th scope=col>sep00</th><th scope=col>oct00</th><th scope=col>nov00</th><th scope=col>dec00</th></tr>
+	<tr><th></th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>Watch   </td><td>Watch   </td><td>Watch   </td><td>Watch   </td><td>Watch  </td><td>Watch  </td><td>Watch  </td><td>Watch  </td><td>Watch  </td><td>Watch</td><td>Watch</td><td>Watch   </td></tr>
+	<tr><th scope=row>2</th><td>Practice</td><td>Practice</td><td>Practice</td><td>Practice</td><td>Read   </td><td>Read   </td><td>Read   </td><td>Read   </td><td>Read   </td><td>Read </td><td>Read </td><td>Practice</td></tr>
+	<tr><th scope=row>3</th><td>Watch   </td><td>Watch   </td><td>Watch   </td><td>Watch   </td><td>Watch  </td><td>Watch  </td><td>Watch  </td><td>Watch  </td><td>Watch  </td><td>Watch</td><td>Watch</td><td>Watch   </td></tr>
+	<tr><th scope=row>4</th><td>Discuss </td><td>Discuss </td><td>Discuss </td><td>Discuss </td><td>Discuss</td><td>Discuss</td><td>Discuss</td><td>Discuss</td><td>Discuss</td><td>Watch</td><td>Watch</td><td>Watch   </td></tr>
+	<tr><th scope=row>5</th><td>Read    </td><td>Read    </td><td>Read    </td><td>Read    </td><td>Read   </td><td>Read   </td><td>Read   </td><td>Read   </td><td>Read   </td><td>Read </td><td>Read </td><td>Read    </td></tr>
+	<tr><th scope=row>6</th><td>Practice</td><td>Watch   </td><td>Watch   </td><td>Watch   </td><td>Watch  </td><td>Watch  </td><td>Watch  </td><td>Watch  </td><td>Watch  </td><td>Watch</td><td>Watch</td><td>Watch   </td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+<div class="section" id="the-state-permanence-sequence-sps-format">
+<h4>The ‘state-permanence-sequence’ (SPS) format<a class="headerlink" href="#the-state-permanence-sequence-sps-format" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Each row is an individual</p></li>
+<li><p>Each successive distinct state in the sequence is given together with its duration</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># print(head(actcal.seq), format=&#39;SPS&#39;)</span>
+<span class="n">actcal.sps</span> <span class="o">&lt;-</span> <span class="nf">seqformat</span><span class="p">(</span><span class="n">actcal</span><span class="p">,</span> <span class="m">13</span><span class="o">:</span><span class="m">24</span><span class="p">,</span> <span class="n">from</span> <span class="o">=</span> <span class="s">&quot;STS&quot;</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="s">&quot;SPS&quot;</span><span class="p">,</span> <span class="n">compress</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">actcal.sps</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] converting STS sequences to 2000 SPS sequences
+
+ [&gt;] compressing SPS sequences
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A matrix: 6 × 1 of type chr</caption>
+<thead>
+	<tr><th></th><th scope=col>Sequence</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>(Watch,12)                        </td></tr>
+	<tr><th scope=row>2</th><td>(Practice,4)-(Read,7)-(Practice,1)</td></tr>
+	<tr><th scope=row>3</th><td>(Watch,12)                        </td></tr>
+	<tr><th scope=row>4</th><td>(Discuss,9)-(Watch,3)             </td></tr>
+	<tr><th scope=row>5</th><td>(Read,12)                         </td></tr>
+	<tr><th scope=row>6</th><td>(Practice,1)-(Watch,11)           </td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+<div class="section" id="the-vertical-time-stamped-event-tse-format">
+<h4>The vertical ‘time-stamped-event’ (TSE) format<a class="headerlink" href="#the-vertical-time-stamped-event-tse-format" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Each row is an <strong>event</strong></p></li>
+<li><p>Each record of the TSE representation usually contains a case identifier, a time stamp and codes identifying the event occurring</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">tstate</span> <span class="o">&lt;-</span> <span class="nf">seqetm</span><span class="p">(</span><span class="n">actcal.seq</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s">&#39;state&#39;</span><span class="p">)</span>
+<span class="n">actcal.tse</span> <span class="o">&lt;-</span> <span class="nf">seqformat</span><span class="p">(</span><span class="n">actcal</span><span class="p">,</span> <span class="m">13</span><span class="o">:</span><span class="m">24</span><span class="p">,</span> <span class="n">from</span> <span class="o">=</span> <span class="s">&quot;STS&quot;</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="s">&quot;TSE&quot;</span><span class="p">,</span> <span class="n">tevent</span><span class="o">=</span><span class="n">tstate</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">actcal.tse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [!!] &#39;id&#39; set to NULL as it is not specified (backward compatibility with TraMineR 1.8)
+
+ [!!] replacing original IDs in the output by the sequence indexes
+
+ [&gt;] converting STS sequences to 2579 TSE sequences
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 6 × 3</caption>
+<thead>
+	<tr><th></th><th scope=col>id</th><th scope=col>time</th><th scope=col>event</th></tr>
+	<tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>1</td><td> 0</td><td>Watch   </td></tr>
+	<tr><th scope=row>2</th><td>2</td><td> 0</td><td>Practice</td></tr>
+	<tr><th scope=row>3</th><td>2</td><td> 4</td><td>Read    </td></tr>
+	<tr><th scope=row>4</th><td>2</td><td>11</td><td>Practice</td></tr>
+	<tr><th scope=row>5</th><td>3</td><td> 0</td><td>Watch   </td></tr>
+	<tr><th scope=row>6</th><td>4</td><td> 0</td><td>Discuss </td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</div>
+<div class="section" id="the-spell-spell-format">
+<h3>The spell (SPELL) format<a class="headerlink" href="#the-spell-spell-format" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Each row is a <strong>state</strong></p></li>
+<li><p>Each record of SPELL contains an ID, start time, end time, and the state</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">actcal.spell</span> <span class="o">&lt;-</span> <span class="nf">seqformat</span><span class="p">(</span><span class="n">actcal</span><span class="p">,</span> <span class="m">13</span><span class="o">:</span><span class="m">24</span><span class="p">,</span> <span class="n">from</span> <span class="o">=</span> <span class="s">&quot;STS&quot;</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="s">&quot;SPELL&quot;</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">actcal.spell</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] converting STS sequences to 2579 spells
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 6 × 4</caption>
+<thead>
+	<tr><th></th><th scope=col>id</th><th scope=col>begin</th><th scope=col>end</th><th scope=col>states</th></tr>
+	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>1</td><td> 1</td><td>12</td><td>Watch   </td></tr>
+	<tr><th scope=row>2</th><td>2</td><td> 1</td><td> 4</td><td>Practice</td></tr>
+	<tr><th scope=row>3</th><td>2</td><td> 5</td><td>11</td><td>Read    </td></tr>
+	<tr><th scope=row>4</th><td>2</td><td>12</td><td>12</td><td>Practice</td></tr>
+	<tr><th scope=row>5</th><td>3</td><td> 1</td><td>12</td><td>Watch   </td></tr>
+	<tr><th scope=row>6</th><td>4</td><td> 1</td><td> 9</td><td>Discuss </td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+<div class="section" id="converting-between-format">
+<h3>Converting between format<a class="headerlink" href="#converting-between-format" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>seqformat<span class="o">(</span>data, <span class="nv">var</span> <span class="o">=</span> ..., <span class="nv">from</span> <span class="o">=</span> <span class="s2">&quot;...&quot;</span>, <span class="nv">to</span> <span class="o">=</span> <span class="s2">&quot;,,,&quot;</span>, <span class="nv">compress</span> <span class="o">=</span> FALSE/TRUE<span class="o">)</span>
+</pre></div>
+</div>
+<p>Examples:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">seqformat(actcal,</span> <span class="pre">13:24,</span> <span class="pre">from</span> <span class="pre">=</span> <span class="pre">&quot;STS&quot;,</span> <span class="pre">to</span> <span class="pre">=</span> <span class="pre">&quot;SPELL&quot;)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">seqformat(actcal,</span> <span class="pre">13:24,</span> <span class="pre">from</span> <span class="pre">=</span> <span class="pre">&quot;STS&quot;,</span> <span class="pre">to</span> <span class="pre">=</span> <span class="pre">&quot;SPS&quot;,</span> <span class="pre">compress</span> <span class="pre">=</span> <span class="pre">TRUE)</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="create-a-sequence-object-from-data">
+<h3>Create a sequence object from data<a class="headerlink" href="#create-a-sequence-object-from-data" title="Permalink to this headline">¶</a></h3>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">seqdef</span></code> function to create a sequence object from an existing dataframe.</p>
+<p>In the dataset <code class="docutils literal notranslate"><span class="pre">actcal</span></code> below, it consists of:</p>
+<ul class="simple">
+<li><p>The sequence data were collected on a monthly basis on each participant in columns: “jan00”, “feb00”, “mar00”, “apr00”, “may00”, “jun00”, “jul00”, “aug00”, “sep00”, “oct00”, “nov00”, “dec00”</p></li>
+<li><p>The covariates such as age, education, region, etc…</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="n">actcal</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 6 × 24</caption>
+<thead>
+	<tr><th></th><th scope=col>idhous00</th><th scope=col>age00</th><th scope=col>educat00</th><th scope=col>civsta00</th><th scope=col>nbadul00</th><th scope=col>nbkid00</th><th scope=col>aoldki00</th><th scope=col>ayouki00</th><th scope=col>region00</th><th scope=col>com2.00</th><th scope=col>⋯</th><th scope=col>mar00</th><th scope=col>apr00</th><th scope=col>may00</th><th scope=col>jun00</th><th scope=col>jul00</th><th scope=col>aug00</th><th scope=col>sep00</th><th scope=col>oct00</th><th scope=col>nov00</th><th scope=col>dec00</th></tr>
+	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>⋯</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>60671 </td><td>47</td><td>maturity                             </td><td>married              </td><td>3</td><td>2</td><td>17</td><td>14</td><td>Middleland (BE, FR, SO, NE, JU)              </td><td>Industrial and tertiary sector communes</td><td>⋯</td><td>Watch   </td><td>Watch   </td><td>Watch  </td><td>Watch  </td><td>Watch  </td><td>Watch  </td><td>Watch  </td><td>Watch</td><td>Watch</td><td>Watch   </td></tr>
+	<tr><th scope=row>2</th><td>25321 </td><td>21</td><td>maturity                             </td><td>single, never married</td><td>2</td><td>0</td><td>-3</td><td>-3</td><td>Zurich                                       </td><td>Suburban communes                      </td><td>⋯</td><td>Practice</td><td>Practice</td><td>Read   </td><td>Read   </td><td>Read   </td><td>Read   </td><td>Read   </td><td>Read </td><td>Read </td><td>Practice</td></tr>
+	<tr><th scope=row>3</th><td>53221 </td><td>50</td><td>full-time vocational school          </td><td>married              </td><td>2</td><td>0</td><td>-3</td><td>-3</td><td>Lake Geneva (VD, VS, GE)                     </td><td>Peripheral urban communes              </td><td>⋯</td><td>Watch   </td><td>Watch   </td><td>Watch  </td><td>Watch  </td><td>Watch  </td><td>Watch  </td><td>Watch  </td><td>Watch</td><td>Watch</td><td>Watch   </td></tr>
+	<tr><th scope=row>4</th><td>13911 </td><td>37</td><td>maturity                             </td><td>single, never married</td><td>1</td><td>0</td><td>-3</td><td>-3</td><td>Middleland (BE, FR, SO, NE, JU)              </td><td>Centres                                </td><td>⋯</td><td>Discuss </td><td>Discuss </td><td>Discuss</td><td>Discuss</td><td>Discuss</td><td>Discuss</td><td>Discuss</td><td>Watch</td><td>Watch</td><td>Watch   </td></tr>
+	<tr><th scope=row>5</th><td>145301</td><td>20</td><td>apprenticeship                       </td><td>single, never married</td><td>3</td><td>0</td><td>-3</td><td>-3</td><td>North-west Switzerland  (BS, BL, AG)         </td><td>Rural commuter communes                </td><td>⋯</td><td>Read    </td><td>Read    </td><td>Read   </td><td>Read   </td><td>Read   </td><td>Read   </td><td>Read   </td><td>Read </td><td>Read </td><td>Read    </td></tr>
+	<tr><th scope=row>6</th><td>40022 </td><td>27</td><td>university, higher specialized school</td><td>single, never married</td><td>2</td><td>0</td><td>-3</td><td>-3</td><td>Central Switzerland  (LU, UR, SZ, OW, NW, ZG)</td><td>Suburban communes                      </td><td>⋯</td><td>Watch   </td><td>Watch   </td><td>Watch  </td><td>Watch  </td><td>Watch  </td><td>Watch  </td><td>Watch  </td><td>Watch</td><td>Watch</td><td>Watch   </td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>To create the sequence, we can use the <code class="docutils literal notranslate"><span class="pre">seqdef()</span></code> function.</p>
+<p>We can see that there were 2000 sequences, with the length of 12, and consists of 4 states</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">actcal.seq</span> <span class="o">&lt;-</span> <span class="nf">seqdef</span><span class="p">(</span><span class="n">actcal</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;jan00&quot;</span><span class="p">,</span> <span class="s">&quot;feb00&quot;</span><span class="p">,</span> <span class="s">&quot;mar00&quot;</span><span class="p">,</span>
+         <span class="s">&quot;apr00&quot;</span><span class="p">,</span> <span class="s">&quot;may00&quot;</span><span class="p">,</span> <span class="s">&quot;jun00&quot;</span><span class="p">,</span> <span class="s">&quot;jul00&quot;</span><span class="p">,</span> <span class="s">&quot;aug00&quot;</span><span class="p">,</span> <span class="s">&quot;sep00&quot;</span><span class="p">,</span> <span class="s">&quot;oct00&quot;</span><span class="p">,</span>
+         <span class="s">&quot;nov00&quot;</span><span class="p">,</span> <span class="s">&quot;dec00&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 4 distinct states appear in the data: 
+
+     1 = Discuss
+
+     2 = Practice
+
+     3 = Read
+
+     4 = Watch
+
+ [&gt;] state coding:
+
+       [alphabet]  [label]  [long label] 
+
+     1  Discuss     Discuss  Discuss
+
+     2  Practice    Practice Practice
+
+     3  Read        Read     Read
+
+     4  Watch       Watch    Watch
+
+ [&gt;] 2000 sequences in the data set
+
+ [&gt;] min/max sequence length: 12/12
+</pre></div>
+</div>
+</div>
+</div>
+<p>But this is a relatively clean data set, because it has defined a time unit (monthly). There were also no missing value or no misalignment in the timing of data collection (everyone started and ended at the same time).</p>
+<p><strong>Import a log file</strong></p>
+<p>Let’s try to process a more messy example of a log file <code class="docutils literal notranslate"><span class="pre">lasi21_logdata.csv</span></code>. The dataset consists of 852,458 records and 9 columns</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> refers to anonymized student ID</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sas_id_site</span></code> refers to the id of the site that students visited</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">site_type</span></code> refers to the type of content (e.g., resource, homepage, forumng, …)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">date_time</span></code> referes to the timestamp</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">spent_time</span></code> refers to the estimated dwell time in miliseconds</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">action</span></code> refers to the type of action took place (e.g., view, download, etc..)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">instancename</span></code> refers to the type of content (e.g., chapter 1, chapter 2, assignment 1, etc..)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">avg</span> <span class="pre">score</span></code> refers to the final score</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PassFlag</span></code> refers to a binary class of whether students passed or failed the course</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">lasi21_logdata</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="s">&quot;~/Downloads/lasi21_logdata.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Rows: </span><span class=" -Color -Color-Blue">852458</span> <span class=" -Color -Color-Bold">Columns: </span><span class=" -Color -Color-Blue">9</span>
+
+<span class=" -Color -Color-Cyan">──</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">────────────────────────────────────────────────────────────────────────────</span>
+<span class=" -Color -Color-Bold">Delimiter:</span> &quot;,&quot;
+<span class=" -Color -Color-Red">chr</span>  (3): site_type, action, instancename
+<span class=" -Color -Color-Green">dbl</span>  (5): id, sas_id_site, spent_time, avg score, PassFlag
+<span class=" -Color -Color-Blue">dttm</span> (1): date_time
+
+
+<span class=" -Color -Color-Cyan">ℹ</span> Use <span class=" -Color -Color-Black -Color-Black-BGWhite">`spec()`</span> to retrieve the full column specification for this data.
+<span class=" -Color -Color-Cyan">ℹ</span> Specify the column types or set <span class=" -Color -Color-Black -Color-Black-BGWhite">`show_col_types = FALSE`</span> to quiet this message.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Fixing some typos</span>
+<span class="n">lasi21_logdata</span><span class="o">$</span><span class="n">site_type</span> <span class="o">&lt;-</span> <span class="nf">ifelse</span><span class="p">(</span><span class="nf">grepl</span><span class="p">(</span><span class="s">&quot;ssignment&quot;</span><span class="p">,</span> <span class="n">lasi21_logdata</span><span class="o">$</span><span class="n">instancename</span><span class="p">),</span> <span class="s">&quot;assignment&quot;</span><span class="p">,</span><span class="n">lasi21_logdata</span><span class="o">$</span><span class="n">site_type</span> <span class="p">)</span>
+<span class="n">lasi21_logdata</span><span class="o">$</span><span class="n">site_type</span> <span class="o">&lt;-</span> <span class="nf">ifelse</span><span class="p">(</span><span class="nf">grepl</span><span class="p">(</span><span class="s">&quot;exam&quot;</span><span class="p">,</span> <span class="n">lasi21_logdata</span><span class="o">$</span><span class="n">instancename</span><span class="p">),</span> <span class="s">&quot;assignment&quot;</span><span class="p">,</span><span class="n">lasi21_logdata</span><span class="o">$</span><span class="n">site_type</span> <span class="p">)</span>
+
+<span class="c1"># Convert dataframe to data.table for faster processing</span>
+<span class="n">lasi21_logdata</span> <span class="o">&lt;-</span> <span class="n">lasi21_logdata</span> <span class="o">%&gt;%</span> <span class="nf">select</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="n">date_time</span><span class="p">,</span><span class="n">spent_time</span><span class="p">,</span><span class="n">site_type</span><span class="p">)</span>
+
+<span class="nf">head</span><span class="p">(</span><span class="n">lasi21_logdata</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A tibble: 6 × 4</caption>
+<thead>
+	<tr><th scope=col>id</th><th scope=col>date_time</th><th scope=col>spent_time</th><th scope=col>site_type</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dttm&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>1</td><td>2017-01-22 02:16:00</td><td> 1000</td><td>content</td></tr>
+	<tr><td>1</td><td>2017-02-15 14:47:00</td><td>12000</td><td>content</td></tr>
+	<tr><td>1</td><td>2017-01-22 01:58:00</td><td> 1000</td><td>content</td></tr>
+	<tr><td>1</td><td>2017-01-22 02:16:00</td><td> 1000</td><td>content</td></tr>
+	<tr><td>1</td><td>2016-12-01 20:23:00</td><td>58000</td><td>studio </td></tr>
+	<tr><td>1</td><td>2017-03-14 14:59:00</td><td> 2000</td><td>forumng</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>Now we need to make some decisions:</p>
+<ul class="simple">
+<li><p>What is a sequence in our data? (i.e., what each row will represent)</p>
+<ul>
+<li><p>Each sequence could be a student</p></li>
+<li><p>Each sequence could be a learning session (defined as consecutive learning activities of at least 60s with no more than 30 minutes break between activities)</p></li>
+</ul>
+</li>
+<li><p>What is the time unit in our data?</p>
+<ul>
+<li><p>Every minute?</p></li>
+<li><p>Every 5 mins?</p></li>
+<li><p>Every hour?</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert ms to minutes</span>
+<span class="n">lasi21_logdata</span><span class="o">$</span><span class="n">spent_time_m</span> <span class="o">&lt;-</span> <span class="nf">round</span><span class="p">(</span><span class="n">lasi21_logdata</span><span class="o">$</span><span class="n">spent_time</span><span class="o">/</span><span class="m">60000</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="m">1</span><span class="p">)</span>
+
+<span class="c1"># create a flag for session break (aka where time spent &gt; 30 minutes)</span>
+<span class="n">lasi21_logdata</span><span class="o">$</span><span class="n">session_flag</span> <span class="o">&lt;-</span> <span class="m">0</span>
+<span class="n">lasi21_logdata</span><span class="o">$</span><span class="n">session_flag</span> <span class="o">&lt;-</span> <span class="nf">ifelse</span><span class="p">(</span><span class="n">lasi21_logdata</span><span class="o">$</span><span class="n">spent_time_m</span><span class="o">&gt;</span><span class="m">30</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="n">lasi21_logdata</span><span class="o">$</span><span class="n">session_flag</span><span class="p">)</span>
+
+<span class="c1"># filter out all spent_time &lt; 90s</span>
+<span class="n">lasi21_logdata2</span> <span class="o">&lt;-</span> <span class="n">lasi21_logdata</span> <span class="o">%&gt;%</span>  <span class="nf">filter</span><span class="p">(</span><span class="n">spent_time</span><span class="o">&gt;=</span><span class="m">90000</span><span class="p">)</span>
+
+
+<span class="c1"># create session number </span>
+<span class="n">lasi21_logdata2</span> <span class="o">&lt;-</span> <span class="n">lasi21_logdata2</span> <span class="o">%&gt;%</span> 
+                        <span class="nf">arrange</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="n">date_time</span><span class="p">,</span><span class="n">spent_time</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+                        <span class="nf">mutate</span><span class="p">(</span><span class="n">session_num</span> <span class="o">=</span> <span class="nf">cumsum</span><span class="p">(</span><span class="n">session_flag</span><span class="p">))</span>
+
+<span class="c1"># remove session break</span>
+<span class="n">lasi21_logdata2</span> <span class="o">&lt;-</span> <span class="n">lasi21_logdata2</span> <span class="o">%&gt;%</span>  <span class="nf">filter</span><span class="p">(</span><span class="n">session_flag</span><span class="o">==</span><span class="m">0</span><span class="p">)</span>
+
+<span class="c1"># for each learning session, calculate the cummulative time spent</span>
+<span class="n">lasi21_logdata2</span> <span class="o">&lt;-</span> <span class="n">lasi21_logdata2</span> <span class="o">%&gt;%</span> 
+                        <span class="nf">arrange</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="n">date_time</span><span class="p">,</span><span class="n">spent_time</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+                        <span class="nf">group_by</span><span class="p">(</span><span class="n">session_num</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+                        <span class="nf">mutate</span><span class="p">(</span><span class="n">spent_time_m_cum</span> <span class="o">=</span> <span class="nf">cumsum</span><span class="p">(</span><span class="n">spent_time_m</span><span class="p">))</span>
+
+<span class="c1"># create time unit as 1 minute (60s)</span>
+<span class="n">lasi21_logdata2</span><span class="o">$</span><span class="n">time_unit</span> <span class="o">&lt;-</span> <span class="nf">round</span><span class="p">(</span><span class="n">lasi21_logdata2</span><span class="o">$</span><span class="n">spent_time_m_cum</span><span class="p">,</span><span class="n">digits</span><span class="o">=</span><span class="m">0</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">lasi21_logdata2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A grouped_df: 6 × 9</caption>
+<thead>
+	<tr><th scope=col>id</th><th scope=col>date_time</th><th scope=col>spent_time</th><th scope=col>site_type</th><th scope=col>spent_time_m</th><th scope=col>session_flag</th><th scope=col>session_num</th><th scope=col>spent_time_m_cum</th><th scope=col>time_unit</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dttm&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>1</td><td>2016-09-06 18:19:00</td><td>217000</td><td>content</td><td>3.6</td><td>0</td><td>1</td><td> 3.6</td><td> 4</td></tr>
+	<tr><td>1</td><td>2016-09-06 18:22:00</td><td>397000</td><td>content</td><td>6.6</td><td>0</td><td>1</td><td>10.2</td><td>10</td></tr>
+	<tr><td>1</td><td>2016-09-06 18:29:00</td><td>337000</td><td>content</td><td>5.6</td><td>0</td><td>1</td><td>15.8</td><td>16</td></tr>
+	<tr><td>1</td><td>2016-09-06 18:34:00</td><td>182000</td><td>content</td><td>3.0</td><td>0</td><td>1</td><td>18.8</td><td>19</td></tr>
+	<tr><td>1</td><td>2016-09-06 18:38:00</td><td>178000</td><td>content</td><td>3.0</td><td>0</td><td>1</td><td>21.8</td><td>22</td></tr>
+	<tr><td>1</td><td>2016-09-07 13:43:00</td><td>323000</td><td>content</td><td>5.4</td><td>0</td><td>3</td><td> 5.4</td><td> 5</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p><strong>Prepare data in SPELL format</strong></p>
+<p>Since the log data can capture the start time and end time of each visit, it makes it suitable to prepare the data in a SPELL format.</p>
+<p>To recall, the structure of a SPELL data format should look like this</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Position</p></th>
+<th class="head"><p>Varible</p></th>
+<th class="head"><p>Option name</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>ID</p></td>
+<td><p>id</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>Start time</p></td>
+<td><p>begin</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>End time</p></td>
+<td><p>end</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>Status</p></td>
+<td><p>status</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">log_spell</span> <span class="o">&lt;-</span> <span class="n">lasi21_logdata2</span> <span class="o">%&gt;%</span> 
+            <span class="nf">group_by</span><span class="p">(</span><span class="n">session_num</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+            <span class="nf">mutate</span><span class="p">(</span><span class="n">start</span> <span class="o">=</span> <span class="nf">lag</span><span class="p">(</span><span class="n">time_unit</span><span class="p">),</span> <span class="n">start</span><span class="o">=</span><span class="nf">replace_na</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="m">1</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="n">time_unit</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+            <span class="nf">select</span><span class="p">(</span><span class="n">session_num</span><span class="p">,</span><span class="n">start</span><span class="p">,</span><span class="n">end</span><span class="p">,</span><span class="n">site_type</span><span class="p">)</span>
+<span class="n">log_spell</span> <span class="o">%&gt;%</span> <span class="nf">filter</span><span class="p">(</span><span class="n">session_num</span><span class="o">==</span><span class="m">22</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A grouped_df: 4 × 4</caption>
+<thead>
+	<tr><th scope=col>session_num</th><th scope=col>start</th><th scope=col>end</th><th scope=col>site_type</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>22</td><td> 1</td><td>19</td><td>content </td></tr>
+	<tr><td>22</td><td>19</td><td>29</td><td>resource</td></tr>
+	<tr><td>22</td><td>29</td><td>53</td><td>content </td></tr>
+	<tr><td>22</td><td>53</td><td>58</td><td>content </td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p><strong>Create sequence data from SPELL format</strong></p>
+<p>We can use the <code class="docutils literal notranslate"><span class="pre">seqdef()</span></code> function to convert the SPELL data into STS format, which will be used for subsequent analyses.</p>
+<p>Note:</p>
+<ul class="simple">
+<li><p>For some reasons, <code class="docutils literal notranslate"><span class="pre">seqdef()</span></code> does not play well with tibble format or any other formats than data.frame, so make sure to convert your data using the <code class="docutils literal notranslate"><span class="pre">as.data.frame()</span></code> function</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">log_spell</span> <span class="o">&lt;-</span> <span class="nf">as.data.frame</span><span class="p">(</span><span class="n">log_spell</span><span class="p">)</span>
+<span class="n">log_sts.seq</span> <span class="o">&lt;-</span> <span class="nf">seqdef</span><span class="p">(</span><span class="n">log_spell</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="n">id</span><span class="o">=</span><span class="s">&quot;session_num&quot;</span><span class="p">,</span> <span class="n">begin</span><span class="o">=</span><span class="s">&quot;start&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s">&quot;end&quot;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s">&quot;site_type&quot;</span><span class="p">),</span> 
+                   <span class="n">informat</span> <span class="o">=</span> <span class="s">&quot;SPELL&quot;</span><span class="p">,</span>  <span class="n">process</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] time axis: 1 -&gt; 429
+
+ [&gt;] converting SPELL data into 21418 STS sequences (internal format)
+
+ [&gt;] found missing values (&#39;NA&#39;) in sequence data
+
+ [&gt;] preparing 21418 sequences
+
+ [&gt;] coding void elements with &#39;%&#39; and missing values with &#39;*&#39;
+
+ [&gt;] 12 distinct states appear in the data: 
+
+     1 = assignment
+
+     2 = collaborate
+
+     3 = content
+
+     4 = forumng
+
+     5 = glossary
+
+     6 = homepage
+
+     7 = questionnaire
+
+     8 = resource
+
+     9 = studio
+
+     10 = subpage
+
+     11 = url
+
+     12 = wiki
+
+ [&gt;] state coding:
+
+       [alphabet]    [label]       [long label] 
+
+     1  assignment    assignment    assignment
+
+     2  collaborate   collaborate   collaborate
+
+     3  content       content       content
+
+     4  forumng       forumng       forumng
+
+     5  glossary      glossary      glossary
+
+     6  homepage      homepage      homepage
+
+     7  questionnaire questionnaire questionnaire
+
+     8  resource      resource      resource
+
+     9  studio        studio        studio
+
+     10  subpage       subpage       subpage
+
+     11  url           url           url
+
+     12  wiki          wiki          wiki
+
+ [&gt;] 21418 sequences in the data set
+
+ [&gt;] min/max sequence length: 2/429
+</pre></div>
+</div>
+</div>
+</div>
+<p>What can we observe from the output above?</p>
+<ul class="simple">
+<li><p>There were 21,418 sequences in the data set</p></li>
+<li><p>min/max sequence length: 2/429</p></li>
+<li><p>12 distinct states</p></li>
+<li><p>coding void elements with ‘%’ and missing values with ‘*’</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">head</span><span class="p">(</span><span class="n">log_sts.seq</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A stslist: 6 × 429</caption>
+<thead>
+	<tr><th></th><th scope=col>y1</th><th scope=col>y2</th><th scope=col>y3</th><th scope=col>y4</th><th scope=col>y5</th><th scope=col>y6</th><th scope=col>y7</th><th scope=col>y8</th><th scope=col>y9</th><th scope=col>y10</th><th scope=col>⋯</th><th scope=col>y420</th><th scope=col>y421</th><th scope=col>y422</th><th scope=col>y423</th><th scope=col>y424</th><th scope=col>y425</th><th scope=col>y426</th><th scope=col>y427</th><th scope=col>y428</th><th scope=col>y429</th></tr>
+	<tr><th></th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>⋯</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>content</td><td>content</td><td>content</td><td>content</td><td>content</td><td>content</td><td>content</td><td>content</td><td>content</td><td>content</td><td>⋯</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td></tr>
+	<tr><th scope=row>3</th><td>content</td><td>content</td><td>content</td><td>content</td><td>content</td><td>content</td><td>content</td><td>content</td><td>content</td><td>content</td><td>⋯</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td></tr>
+	<tr><th scope=row>4</th><td>content</td><td>content</td><td>content</td><td>content</td><td>content</td><td>content</td><td>content</td><td>content</td><td>content</td><td>content</td><td>⋯</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td></tr>
+	<tr><th scope=row>5</th><td>content</td><td>content</td><td>content</td><td>content</td><td>content</td><td>content</td><td>content</td><td>content</td><td>content</td><td>content</td><td>⋯</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td></tr>
+	<tr><th scope=row>8</th><td>content</td><td>content</td><td>%      </td><td>%      </td><td>%      </td><td>%      </td><td>%      </td><td>%      </td><td>%      </td><td>%      </td><td>⋯</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td></tr>
+	<tr><th scope=row>9</th><td>forumng</td><td>forumng</td><td>%      </td><td>%      </td><td>%      </td><td>%      </td><td>%      </td><td>%      </td><td>%      </td><td>%      </td><td>⋯</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>We can also print out some sequences using the SPS format for easy observations</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="n">log_sts.seq</span><span class="p">[</span><span class="m">31</span><span class="o">:</span><span class="m">41</span><span class="p">,],</span> <span class="n">format</span><span class="o">=</span><span class="s">&quot;SPS&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Sequence                                                                  
+45 (assignment,1)-(studio,22)-(assignment,7)-(studio,4)                      
+46 (assignment,28)                                                           
+48 (forumng,2)                                                               
+50 (homepage,4)-(assignment,43)                                              
+51 (assignment,8)                                                            
+54 (assignment,3)                                                            
+55 (homepage,13)-(assignment,8)-(content,3)                                  
+56 (assignment,16)                                                           
+57 (assignment,14)-(content,28)-(assignment,11)-(resource,18)-(assignment,17)
+59 (assignment,19)-(resource,16)-(forumng,2)                                 
+61 (content,13)                                                              
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s plot these example sequences using the <code class="docutils literal notranslate"><span class="pre">seqiplot()</span></code> function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">seqiplot</span><span class="p">(</span><span class="n">log_sts.seq</span><span class="p">[</span><span class="m">31</span><span class="o">:</span><span class="m">41</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">],</span> <span class="n">with.legend</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;Index plot (10 first sequences)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Lecture1_40_0.png" src="_images/Lecture1_40_0.png" />
+</div>
+</div>
+<p>As a final note, there is not a single approach to pre-process your data. In practice, there are a few ‘nobs’ that you could adjust when pre-processing your data:</p>
+<ul class="simple">
+<li><p>What is the time granularity of your sequence (e.g., every second, every minute, every 5 mins)</p></li>
+<li><p>What is a sequence in your study? (e.g., each person is a sequence, or each learing session - however you define a learning session)</p></li>
+<li><p>What is a status? (e.g., read, write, discuss, practice)</p></li>
+</ul>
+</div>
+<div class="section" id="truncations-gaps-and-missing-values">
+<h3>Truncations, gaps and missing values<a class="headerlink" href="#truncations-gaps-and-missing-values" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Sequences defined as the list of successive states without duration information are typically of varying length.</p></li>
+<li><p>In event sequences, the number of events experienced by each individual differs from one individual to the other.</p></li>
+<li><p>The length of the follow up is not the same for all individuals or sequences may be right or left censored.</p></li>
+<li><p>Sequences may not be left aligned depending on the time axis on which they are defined.</p></li>
+<li><p>Data may not be available for all measuring points yielding internal gaps in the sequences.</p></li>
+</ul>
+<p>Let’s simulate an example of data when sequences are not aligned. In this example, three sequences (s1,s2,s3) have different start and end date. Participant b also have a gap in 1993. If the respondents entered the study at different points in time and we represent the data on a calendar time axis, the data could look like this</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="s">&quot;c&quot;</span><span class="p">,</span><span class="s">&quot;d&quot;</span><span class="p">,</span><span class="kc">NA</span><span class="p">,</span><span class="kc">NA</span><span class="p">)</span>
+<span class="n">s2</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="kc">NA</span><span class="p">,</span><span class="s">&quot;c&quot;</span><span class="p">,</span><span class="s">&quot;d&quot;</span><span class="p">)</span>
+<span class="n">s3</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span><span class="kc">NA</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="s">&quot;c&quot;</span><span class="p">,</span><span class="s">&quot;d&quot;</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="nf">rbind</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">,</span><span class="n">s3</span><span class="p">))</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1990</span><span class="o">:</span><span class="m">1995</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 3 × 6</caption>
+<thead>
+	<tr><th></th><th scope=col>1990</th><th scope=col>1991</th><th scope=col>1992</th><th scope=col>1993</th><th scope=col>1994</th><th scope=col>1995</th></tr>
+	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>s1</th><td>a </td><td>b </td><td>c</td><td>d </td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>s2</th><td>NA</td><td>a </td><td>b</td><td>NA</td><td>c </td><td>d </td></tr>
+	<tr><th scope=row>s3</th><td>NA</td><td>NA</td><td>a</td><td>b </td><td>c </td><td>d </td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>Let’s create a sequence object from <code class="docutils literal notranslate"><span class="pre">df</span></code>.
+The default values of the <code class="docutils literal notranslate"><span class="pre">seqdef()</span></code> function are <code class="docutils literal notranslate"><span class="pre">left=NA</span></code>, <code class="docutils literal notranslate"><span class="pre">gaps=NA</span></code> and <code class="docutils literal notranslate"><span class="pre">right=&quot;DEL&quot;</span></code>. We will see what these options mean in a moment</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">seqdef</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] found missing values (&#39;NA&#39;) in sequence data
+
+ [&gt;] preparing 3 sequences
+
+ [&gt;] coding void elements with &#39;%&#39; and missing values with &#39;*&#39;
+
+ [&gt;] 4 distinct states appear in the data: 
+
+     1 = a
+
+     2 = b
+
+     3 = c
+
+     4 = d
+
+ [&gt;] state coding:
+
+       [alphabet]  [label]  [long label] 
+
+     1  a           a        a
+
+     2  b           b        b
+
+     3  c           c        c
+
+     4  d           d        d
+
+ [&gt;] 3 sequences in the data set
+
+ [&gt;] min/max sequence length: 4/6
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A stslist: 3 × 6</caption>
+<thead>
+	<tr><th></th><th scope=col>1990</th><th scope=col>1991</th><th scope=col>1992</th><th scope=col>1993</th><th scope=col>1994</th><th scope=col>1995</th></tr>
+	<tr><th></th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>s1</th><td>a</td><td>b</td><td>c</td><td>d</td><td>%</td><td>%</td></tr>
+	<tr><th scope=row>s2</th><td>*</td><td>a</td><td>b</td><td>*</td><td>c</td><td>d</td></tr>
+	<tr><th scope=row>s3</th><td>*</td><td>*</td><td>a</td><td>b</td><td>c</td><td>d</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>In this case it may be more appropriate to represent the data on a process time axis where all sequences would be left aligned, meaning that their common origin is not a specific year but the beginning of the observed 4 year duration.</p>
+<p>The left part of sequences s2 and s3 which do not begin in the first column of the matrix, has been considered as part of them. To remedy to this problem, we could use the left=”DEL” option.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">seqdef</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">left</span><span class="o">=</span><span class="s">&quot;DEL&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] found missing values (&#39;NA&#39;) in sequence data
+
+ [&gt;] preparing 3 sequences
+
+ [&gt;] coding void elements with &#39;%&#39; and missing values with &#39;*&#39;
+
+ [&gt;] 4 distinct states appear in the data: 
+
+     1 = a
+
+     2 = b
+
+     3 = c
+
+     4 = d
+
+ [&gt;] state coding:
+
+       [alphabet]  [label]  [long label] 
+
+     1  a           a        a
+
+     2  b           b        b
+
+     3  c           c        c
+
+     4  d           d        d
+
+ [&gt;] 3 sequences in the data set
+
+ [&gt;] min/max sequence length: 4/5
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A stslist: 3 × 6</caption>
+<thead>
+	<tr><th></th><th scope=col>1990</th><th scope=col>1991</th><th scope=col>1992</th><th scope=col>1993</th><th scope=col>1994</th><th scope=col>1995</th></tr>
+	<tr><th></th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>s1</th><td>a</td><td>b</td><td>c</td><td>d</td><td>%</td><td>%</td></tr>
+	<tr><th scope=row>s2</th><td>a</td><td>b</td><td>*</td><td>c</td><td>d</td><td>%</td></tr>
+	<tr><th scope=row>s3</th><td>a</td><td>b</td><td>c</td><td>d</td><td>%</td><td>%</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>Now that all the 3 sequences have been left aligned. But sequence s2 has a gap in the data. Each missing value is left as an explicit missing element. We could also delete the missing values encountered in the center part of the sequence by setting <code class="docutils literal notranslate"><span class="pre">gaps=&quot;DEL&quot;</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">seqdef</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">left</span><span class="o">=</span><span class="s">&quot;DEL&quot;</span><span class="p">,</span> <span class="n">gaps</span><span class="o">=</span><span class="s">&quot;DEL&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] found missing values (&#39;NA&#39;) in sequence data
+
+ [&gt;] preparing 3 sequences
+
+ [&gt;] coding void elements with &#39;%&#39; and missing values with &#39;*&#39;
+
+ [&gt;] 4 distinct states appear in the data: 
+
+     1 = a
+
+     2 = b
+
+     3 = c
+
+     4 = d
+
+ [&gt;] state coding:
+
+       [alphabet]  [label]  [long label] 
+
+     1  a           a        a
+
+     2  b           b        b
+
+     3  c           c        c
+
+     4  d           d        d
+
+ [&gt;] 3 sequences in the data set
+
+ [&gt;] min/max sequence length: 4/4
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A stslist: 3 × 6</caption>
+<thead>
+	<tr><th></th><th scope=col>1990</th><th scope=col>1991</th><th scope=col>1992</th><th scope=col>1993</th><th scope=col>1994</th><th scope=col>1995</th></tr>
+	<tr><th></th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>s1</th><td>a</td><td>b</td><td>c</td><td>d</td><td>%</td><td>%</td></tr>
+	<tr><th scope=row>s2</th><td>a</td><td>b</td><td>c</td><td>d</td><td>%</td><td>%</td></tr>
+	<tr><th scope=row>s3</th><td>a</td><td>b</td><td>c</td><td>d</td><td>%</td><td>%</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</div>
+<div class="section" id="exploratory-analysis-of-sequences">
+<h2>3. Exploratory analysis of sequences<a class="headerlink" href="#exploratory-analysis-of-sequences" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="sequence-index-plot">
+<h3>Sequence index plot<a class="headerlink" href="#sequence-index-plot" title="Permalink to this headline">¶</a></h3>
+<p>We can easily plot the top 20 sequences using the <code class="docutils literal notranslate"><span class="pre">seqiplot()</span></code> function.
+Index plot (first 20 sequences)</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>seqiplot<span class="o">(</span>data, <span class="nv">main</span> <span class="o">=</span> <span class="s2">&quot;Index plot (first 20 sequences)&quot;</span>, <span class="nv">idxs</span> <span class="o">=</span> <span class="m">1</span>:20<span class="o">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot data during the first 100 minutes only</span>
+
+<span class="nf">seqiplot</span><span class="p">(</span><span class="n">log_sts.seq</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">],</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;Index plot (first 20 sequences)&quot;</span><span class="p">,</span> <span class="n">idxs</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Lecture1_53_0.png" src="_images/Lecture1_53_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="state-distribution-plot">
+<h3>State distribution plot<a class="headerlink" href="#state-distribution-plot" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">seqdplot()</span></code> function plots a graphic showing the state distribution at each time point</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>seqdplot<span class="o">(</span>data, <span class="nv">main</span> <span class="o">=</span> <span class="s2">&quot;State distribution plot&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">seqdplot</span><span class="p">(</span><span class="n">log_sts.seq</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">],</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;State distribution plot&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Lecture1_55_0.png" src="_images/Lecture1_55_0.png" />
+</div>
+</div>
+<p>Beside plotting the distribution of the states at each time point, you may want to get the figures of the distribution. The <code class="docutils literal notranslate"><span class="pre">seqstatd()</span></code> function returns the table of the state distributions together with the number of valid states and an entropy measure for each time unit. We will explain what entropy means later.</p>
+<p>Here’s I am going to return a table of state distributions of 5 time units as an example</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="nf">seqstatd</span><span class="p">(</span><span class="n">log_sts.seq</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                          [State frequencies]
+                  y1     y2     y3     y4     y5
+assignment    0.0733 0.0732 0.0732 0.0723 0.0716
+collaborate   0.0275 0.0285 0.0292 0.0291 0.0286
+content       0.3562 0.3674 0.3821 0.3907 0.3981
+forumng       0.2497 0.2442 0.2292 0.2217 0.2159
+glossary      0.0120 0.0130 0.0144 0.0146 0.0144
+homepage      0.1275 0.1142 0.1063 0.0997 0.0965
+questionnaire 0.0028 0.0026 0.0023 0.0024 0.0022
+resource      0.0256 0.0291 0.0325 0.0348 0.0371
+studio        0.0763 0.0774 0.0788 0.0809 0.0802
+subpage       0.0282 0.0286 0.0290 0.0299 0.0308
+url           0.0016 0.0016 0.0017 0.0018 0.0017
+wiki          0.0191 0.0203 0.0212 0.0221 0.0229
+
+                           [Valid states]
+                 y1    y2    y3    y4    y5
+N             21418 21418 19605 18808 17864
+
+                           [Entropy index]
+                y1   y2   y3   y4   y5
+H             0.73 0.73 0.73 0.73 0.73
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sequence-frequency-plot">
+<h3>Sequence frequency plot<a class="headerlink" href="#sequence-frequency-plot" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">seqfplot()</span></code> function plots the most frequent sequences. By default, the 10 most frequent sequences are plotted. You can adjust this with the <code class="docutils literal notranslate"><span class="pre">idxs</span></code> option. The sequences are ordered by decreasing frequency from bottom up and the bar widths are set proportional to the sequence frequency (<code class="docutils literal notranslate"><span class="pre">pbarw</span> <span class="pre">=</span> <span class="pre">TRUE</span></code>)</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>seqfplot<span class="o">(</span>data, <span class="nv">main</span> <span class="o">=</span> <span class="s2">&quot;Sequence frequency plot&quot;</span>, <span class="nv">idxs</span> <span class="o">=</span> <span class="m">1</span>:10<span class="o">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">seqfplot</span><span class="p">(</span><span class="n">log_sts.seq</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">],</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;Sequence frequency plot&quot;</span><span class="p">,</span> <span class="n">pbarw</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">idxs</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Lecture1_59_0.png" src="_images/Lecture1_59_0.png" />
+</div>
+</div>
+<p>You can also return the frequency table using <code class="docutils literal notranslate"><span class="pre">seqtab()</span></code> function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="nf">seqtab</span><span class="p">(</span><span class="n">log_sts.seq</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>           Freq Percent
+forumng/2   660    3.08
+content/2   440    2.05
+homepage/2  273    1.27
+forumng/4   270    1.26
+forumng/3   256    1.20
+content/4   229    1.07
+content/3   207    0.97
+content/6   198    0.92
+forumng/5   192    0.90
+content/5   177    0.83
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="transition-rates">
+<h3>Transition rates<a class="headerlink" href="#transition-rates" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">seqtrate()</span></code> function computes the transition rates between states or events. The outcome is a matrix where each rows gives a transition distribution from associated originating state (or event) in t to the states in t + 1 (the figures sum to one in each row).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">seqtrate</span><span class="p">(</span><span class="n">log_sts.seq</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] computing transition probabilities for states assignment/collaborate/content/forumng/glossary/homepage/questionnaire/resource/studio/subpage/url/wiki ...
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A matrix: 12 × 12 of type dbl</caption>
+<thead>
+	<tr><th></th><th scope=col>[-&gt; assignment]</th><th scope=col>[-&gt; collaborate]</th><th scope=col>[-&gt; content]</th><th scope=col>[-&gt; forumng]</th><th scope=col>[-&gt; glossary]</th><th scope=col>[-&gt; homepage]</th><th scope=col>[-&gt; questionnaire]</th><th scope=col>[-&gt; resource]</th><th scope=col>[-&gt; studio]</th><th scope=col>[-&gt; subpage]</th><th scope=col>[-&gt; url]</th><th scope=col>[-&gt; wiki]</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>[assignment -&gt;]</th><td>0.954221302</td><td>0.0009489303</td><td>0.018403497</td><td>0.006728778</td><td>0.0031055901</td><td>0.007677709</td><td>2.012882e-04</td><td>0.0027317690</td><td>0.004083276</td><td>0.0007476421</td><td>2.012882e-04</td><td>0.0009489303</td></tr>
+	<tr><th scope=row>[collaborate -&gt;]</th><td>0.003000692</td><td>0.9543740863</td><td>0.010694776</td><td>0.016157575</td><td>0.0002308225</td><td>0.007078557</td><td>0.000000e+00</td><td>0.0006155267</td><td>0.002846811</td><td>0.0020004616</td><td>7.694083e-05</td><td>0.0029237516</td></tr>
+	<tr><th scope=row>[content -&gt;]</th><td>0.002204010</td><td>0.0003986776</td><td>0.975496372</td><td>0.004769087</td><td>0.0022378601</td><td>0.003148049</td><td>1.955777e-04</td><td>0.0052128976</td><td>0.004915770</td><td>0.0004663776</td><td>4.513331e-05</td><td>0.0009101885</td></tr>
+	<tr><th scope=row>[forumng -&gt;]</th><td>0.001849363</td><td>0.0021626429</td><td>0.015087971</td><td>0.955200954</td><td>0.0007276182</td><td>0.007933059</td><td>1.616929e-04</td><td>0.0011419563</td><td>0.007185229</td><td>0.0035471385</td><td>1.313755e-04</td><td>0.0048709994</td></tr>
+	<tr><th scope=row>[glossary -&gt;]</th><td>0.009110397</td><td>0.0005359057</td><td>0.061414791</td><td>0.007395498</td><td>0.9061093248</td><td>0.003429796</td><td>1.071811e-04</td><td>0.0048231511</td><td>0.005680600</td><td>0.0004287245</td><td>1.071811e-04</td><td>0.0008574491</td></tr>
+	<tr><th scope=row>[homepage -&gt;]</th><td>0.008770458</td><td>0.0025161151</td><td>0.035824687</td><td>0.017277324</td><td>0.0012221131</td><td>0.920682466</td><td>5.271860e-04</td><td>0.0020368551</td><td>0.006086602</td><td>0.0030672641</td><td>1.917040e-04</td><td>0.0017972251</td></tr>
+	<tr><th scope=row>[questionnaire -&gt;]</th><td>0.011677282</td><td>0.0000000000</td><td>0.058386412</td><td>0.016985138</td><td>0.0010615711</td><td>0.027600849</td><td>8.811040e-01</td><td>0.0000000000</td><td>0.002123142</td><td>0.0000000000</td><td>0.000000e+00</td><td>0.0010615711</td></tr>
+	<tr><th scope=row>[resource -&gt;]</th><td>0.002954587</td><td>0.0006930512</td><td>0.043188036</td><td>0.004741930</td><td>0.0009848623</td><td>0.003136969</td><td>2.918111e-04</td><td>0.9363487142</td><td>0.004741930</td><td>0.0010213387</td><td>2.553347e-04</td><td>0.0016414372</td></tr>
+	<tr><th scope=row>[studio -&gt;]</th><td>0.002443336</td><td>0.0007747164</td><td>0.025069029</td><td>0.012971534</td><td>0.0008541745</td><td>0.004270873</td><td>5.959357e-05</td><td>0.0020659105</td><td>0.948074134</td><td>0.0010726843</td><td>7.945810e-05</td><td>0.0022645557</td></tr>
+	<tr><th scope=row>[subpage -&gt;]</th><td>0.001477833</td><td>0.0024630542</td><td>0.007991242</td><td>0.014012042</td><td>0.0001094691</td><td>0.006185003</td><td>5.473454e-05</td><td>0.0023535851</td><td>0.003612479</td><td>0.9599890531</td><td>1.094691e-04</td><td>0.0016420361</td></tr>
+	<tr><th scope=row>[url -&gt;]</th><td>0.006339144</td><td>0.0000000000</td><td>0.031695721</td><td>0.017432647</td><td>0.0000000000</td><td>0.009508716</td><td>0.000000e+00</td><td>0.0110935024</td><td>0.004754358</td><td>0.0063391442</td><td>9.064976e-01</td><td>0.0063391442</td></tr>
+	<tr><th scope=row>[wiki -&gt;]</th><td>0.001951805</td><td>0.0030778470</td><td>0.015614443</td><td>0.032880414</td><td>0.0010509721</td><td>0.005104722</td><td>0.000000e+00</td><td>0.0032279859</td><td>0.009008333</td><td>0.0020268749</td><td>0.000000e+00</td><td>0.9260566024</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+<div class="section" id="average-time-spent-in-each-state">
+<h3>Average time spent in each state<a class="headerlink" href="#average-time-spent-in-each-state" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">seqmtplot()</span></code> function to visualize the mean time spent in each state. You can also create multiple plots by group using the <code class="docutils literal notranslate"><span class="pre">group</span></code> option.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">seqmtplot</span><span class="p">(</span><span class="n">log_sts.seq</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">],</span> <span class="n">group</span> <span class="o">=</span> <span class="kc">NULL</span><span class="p">,</span> <span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Mean time&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [!!] In IRkernel::main() : title is deprecated, use main instead.
+</pre></div>
+</div>
+<img alt="_images/Lecture1_65_1.png" src="_images/Lecture1_65_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="descriptive-statisitics-of-sequences">
+<h3>Descriptive statisitics of sequences<a class="headerlink" href="#descriptive-statisitics-of-sequences" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Sequence length using the <code class="docutils literal notranslate"><span class="pre">seqlength()</span></code> function</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">hist</span><span class="p">(</span><span class="nf">seqlength</span><span class="p">(</span><span class="n">log_sts.seq</span><span class="p">),</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&#39;Histogram of sequence length&#39;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&quot;Sequence length in minutes&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Lecture1_67_0.png" src="_images/Lecture1_67_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Distinct states sequence (DSS) using the <code class="docutils literal notranslate"><span class="pre">seqdss()</span></code> function</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="nf">seqdss</span><span class="p">(</span><span class="n">log_sts.seq</span><span class="p">[</span><span class="m">31</span><span class="o">:</span><span class="m">41</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Sequence                                         
+45 assignment-studio-assignment-studio              
+46 assignment                                       
+48 forumng                                          
+50 homepage-assignment                              
+51 assignment                                       
+54 assignment                                       
+55 homepage-assignment-content                      
+56 assignment                                       
+57 assignment-content-assignment-resource-assignment
+59 assignment-resource-forumng                      
+61 content                                          
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Shanon’s entropy is calculated as:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[h = -\sum^s_i{\pi_i log{\pi_i}}\]</div>
+<ul class="simple">
+<li><p>where s is the size of the alphabet</p></li>
+<li><p><span class="math notranslate nohighlight">\(\pi_i\)</span> the proportion of occurrences of the ith state in the considered sequence</p></li>
+</ul>
+<p>The entropy can be interpreted as the ‘uncertainty’ of predicting the states in a given sequence. If all states in the sequence are the same, the entropy is equal to 0. It is maximum when the cases are equally distributed between the states</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">seqient()</span></code> function returns by default a normalized Shanon’s entropy</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">seqiplot</span><span class="p">(</span><span class="n">log_sts.seq</span><span class="p">[</span><span class="m">31</span><span class="o">:</span><span class="m">41</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">])</span>
+<span class="nf">seqient</span><span class="p">(</span><span class="n">log_sts.seq</span><span class="p">[</span><span class="m">31</span><span class="o">:</span><span class="m">41</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">],</span> <span class="n">norm</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A matrix: 11 × 1 of type dbl</caption>
+<thead>
+	<tr><th></th><th scope=col>Entropy</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>45</th><td>0.2195634</td></tr>
+	<tr><th scope=row>46</th><td>0.0000000</td></tr>
+	<tr><th scope=row>48</th><td>0.0000000</td></tr>
+	<tr><th scope=row>50</th><td>0.1171340</td></tr>
+	<tr><th scope=row>51</th><td>0.0000000</td></tr>
+	<tr><th scope=row>54</th><td>0.0000000</td></tr>
+	<tr><th scope=row>55</th><td>0.3856211</td></tr>
+	<tr><th scope=row>56</th><td>0.0000000</td></tr>
+	<tr><th scope=row>57</th><td>0.4193275</td></tr>
+	<tr><th scope=row>59</th><td>0.3470891</td></tr>
+	<tr><th scope=row>61</th><td>0.0000000</td></tr>
+</tbody>
+</table>
+</div><img alt="_images/Lecture1_71_1.png" src="_images/Lecture1_71_1.png" />
+</div>
+</div>
+<p>Let’s plot a histogram of entropy for the whole dataset</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">hist</span><span class="p">(</span><span class="nf">seqient</span><span class="p">(</span><span class="n">log_sts.seq</span><span class="p">),</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&#39;Histogram of sequence entropy&#39;</span><span class="p">,</span> <span class="n">xlab</span><span class="o">=</span><span class="s">&quot;Normalized Shannon&#39;s entropy&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Lecture1_73_0.png" src="_images/Lecture1_73_0.png" />
+</div>
+</div>
+<p>Let us have a look at the sequences near the minimum, median and maximum entropy. For that, we draw sets of sequences having an entropy lower or equal to the 55th percentile, an entropy 50-90th percentile, and an entropy greater than the 90th percentile.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">ient.quant</span> <span class="o">&lt;-</span> <span class="nf">quantile</span><span class="p">(</span><span class="nf">seqient</span><span class="p">(</span><span class="n">log_sts.seq</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">]),</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0.55</span><span class="p">,</span> <span class="m">0.9</span><span class="p">,</span> <span class="m">1</span><span class="p">))</span>
+<span class="n">ient.quant</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style><dl class=dl-inline><dt>0%</dt><dd>0</dd><dt>55%</dt><dd>0.0533989559934544</dd><dt>90%</dt><dd>0.372804151486808</dd><dt>100%</dt><dd>0.775849600937639</dd></dl>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">ient.group</span> <span class="o">&lt;-</span> <span class="nf">cut</span><span class="p">(</span><span class="nf">seqient</span><span class="p">(</span><span class="n">log_sts.seq</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">]),</span> <span class="n">ient.quant</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;55th or lower&quot;</span><span class="p">,</span> <span class="s">&quot;55th-90th&quot;</span><span class="p">,</span> <span class="s">&quot;above 90th&quot;</span><span class="p">),</span> <span class="n">include.lowest</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+<span class="n">ient.group</span> <span class="o">&lt;-</span> <span class="nf">factor</span><span class="p">(</span><span class="n">ient.group</span><span class="p">,</span> <span class="n">levels</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;55th or lower&quot;</span><span class="p">,</span> <span class="s">&quot;55th-90th&quot;</span><span class="p">,</span> <span class="s">&quot;above 90th&quot;</span><span class="p">))</span>
+<span class="nf">table</span><span class="p">(</span><span class="n">ient.group</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ient.group
+55th or lower     55th-90th    above 90th 
+        11783          7493          2142 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span><span class="o">=</span><span class="m">15</span><span class="p">,</span> <span class="n">repr.plot.height</span><span class="o">=</span><span class="m">8</span><span class="p">)</span>
+<span class="nf">seqfplot</span><span class="p">(</span><span class="n">log_sts.seq</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">],</span> <span class="n">group</span> <span class="o">=</span> <span class="n">ient.group</span><span class="p">,</span> <span class="n">pbarw</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/Lecture1_77_0.png" src="_images/Lecture1_77_0.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>Turbulence</p></li>
+</ul>
+<p>The Turbulence depends on the length of the sequence. The Turbulence is based on the number <span class="math notranslate nohighlight">\(\phi\)</span>(x) of distinct subsequences that can be extracted from the distinct state sequence and the variance of the consecutive times ti spent in the distinct states.</p>
+<div class="math notranslate nohighlight">
+\[some math\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">seqiplot</span><span class="p">(</span><span class="n">log_sts.seq</span><span class="p">[</span><span class="m">31</span><span class="o">:</span><span class="m">401</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">])</span>
+<span class="nf">cbind</span><span class="p">(</span><span class="nf">seqST</span><span class="p">(</span><span class="n">log_sts.seq</span><span class="p">[</span><span class="m">31</span><span class="o">:</span><span class="m">41</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">]),</span><span class="nf">seqient</span><span class="p">(</span><span class="n">log_sts.seq</span><span class="p">[</span><span class="m">31</span><span class="o">:</span><span class="m">41</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A matrix: 11 × 2 of type dbl</caption>
+<thead>
+	<tr><th></th><th scope=col>Turbulence</th><th scope=col>Entropy</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>45</th><td>4.942382</td><td>0.2195634</td></tr>
+	<tr><th scope=row>46</th><td>1.000000</td><td>0.0000000</td></tr>
+	<tr><th scope=row>48</th><td>1.000000</td><td>0.0000000</td></tr>
+	<tr><th scope=row>50</th><td>2.411960</td><td>0.1171340</td></tr>
+	<tr><th scope=row>51</th><td>1.000000</td><td>0.0000000</td></tr>
+	<tr><th scope=row>54</th><td>1.000000</td><td>0.0000000</td></tr>
+	<tr><th scope=row>55</th><td>5.486399</td><td>0.3856211</td></tr>
+	<tr><th scope=row>56</th><td>1.000000</td><td>0.0000000</td></tr>
+	<tr><th scope=row>57</th><td>9.603334</td><td>0.4193275</td></tr>
+	<tr><th scope=row>59</th><td>5.206116</td><td>0.3470891</td></tr>
+	<tr><th scope=row>61</th><td>1.000000</td><td>0.0000000</td></tr>
+</tbody>
+</table>
+</div><img alt="_images/Lecture1_79_1.png" src="_images/Lecture1_79_1.png" />
+</div>
+</div>
+<p>Finally, we can use a single function <code class="docutils literal notranslate"><span class="pre">seqindic</span></code> to produce multiple descriptive statistics of the sequences. Here’s a few examples</p>
+<ul class="simple">
+<li><p>“lgth” (sequence length)</p></li>
+<li><p>“trans” (number of state changes)</p></li>
+<li><p>“entr” (longitudinal normalized entropy)</p></li>
+<li><p>“cplx” (complexity index)</p></li>
+<li><p>“turb” (turbulence)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">seqindic</span><span class="p">(</span><span class="n">log_sts.seq</span><span class="p">[</span><span class="m">31</span><span class="o">:</span><span class="m">41</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">],</span> <span class="n">indic</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;lgth&quot;</span><span class="p">,</span><span class="s">&quot;trans&quot;</span><span class="p">,</span><span class="s">&quot;entr&quot;</span><span class="p">,</span><span class="s">&quot;turbn&quot;</span><span class="p">,</span><span class="s">&quot;cplx&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A data.frame: 11 × 5</caption>
+<thead>
+	<tr><th></th><th scope=col>Lgth</th><th scope=col>Trans</th><th scope=col>Entr</th><th scope=col>Cplx</th><th scope=col>Turbn</th></tr>
+	<tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>45</th><td>34</td><td>3</td><td>0.2195634</td><td>0.14128096</td><td>0.04532171</td></tr>
+	<tr><th scope=row>46</th><td>28</td><td>0</td><td>0.0000000</td><td>0.00000000</td><td>0.00000000</td></tr>
+	<tr><th scope=row>48</th><td> 2</td><td>0</td><td>0.0000000</td><td>0.00000000</td><td>0.00000000</td></tr>
+	<tr><th scope=row>50</th><td>47</td><td>1</td><td>0.1171340</td><td>0.05046179</td><td>0.01623192</td></tr>
+	<tr><th scope=row>51</th><td> 8</td><td>0</td><td>0.0000000</td><td>0.00000000</td><td>0.00000000</td></tr>
+	<tr><th scope=row>54</th><td> 3</td><td>0</td><td>0.0000000</td><td>0.00000000</td><td>0.00000000</td></tr>
+	<tr><th scope=row>55</th><td>24</td><td>2</td><td>0.3856211</td><td>0.18311820</td><td>0.05157575</td></tr>
+	<tr><th scope=row>56</th><td>16</td><td>0</td><td>0.0000000</td><td>0.00000000</td><td>0.00000000</td></tr>
+	<tr><th scope=row>57</th><td>88</td><td>4</td><td>0.4193275</td><td>0.13885037</td><td>0.09890414</td></tr>
+	<tr><th scope=row>59</th><td>37</td><td>2</td><td>0.3470891</td><td>0.13886226</td><td>0.04835361</td></tr>
+	<tr><th scope=row>61</th><td>13</td><td>0</td><td>0.0000000</td><td>0.00000000</td><td>0.00000000</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p><img alt="" src="_images/science.png" /></p>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
