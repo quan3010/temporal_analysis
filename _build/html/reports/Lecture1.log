@@ -17,23 +17,19 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# options(warn=-1)
-
-# actcal <- data.frame(lapply(actcal, function(x) { gsub("^A\\b", "Read", x)}))
-# actcal <- data.frame(lapply(actcal, function(x) { gsub("^B\\b", "Watch", x)}))
-# actcal <- data.frame(lapply(actcal, function(x) { gsub("^C\\b", "Discuss", x)}))
-# actcal <- data.frame(lapply(actcal, function(x) { gsub("^D\\b", "Practice", x)}))
-# actcal.seq <- seqdef(actcal, var = 13:24)
-# actcal.seq
-seqiplot(actcal.seq, main = "Index plot (first 10 sequences)",with.legend = TRUE)
+ient.group <- cut(seqient(log_sts.seq[,1:100]), ient.quant, labels = c("50th or lower", "50th-90th", "above 90th"), include.lowest = T)
+ient.group <- factor(ient.group, levels = c("50th or lower", "50th-90th", "above 90th"))
+table(ient.group)
 ------------------
 
-Error in seqplot(seqdata, group = group, type = "i", main = main, ...): object 'actcal.seq' not found
+Error in cut.default(seqient(log_sts.seq[, 1:100]), ient.quant, labels = c("50th or lower", : 'breaks' are not unique
 Traceback:
 
-1. seqiplot(actcal.seq, main = "Index plot (first 10 sequences)", 
- .     with.legend = TRUE)
-2. seqplot(seqdata, group = group, type = "i", main = main, ...)
-ERROR: Error in seqplot(seqdata, group = group, type = "i", main = main, ...): object 'actcal.seq' not found
+1. cut(seqient(log_sts.seq[, 1:100]), ient.quant, labels = c("50th or lower", 
+ .     "50th-90th", "above 90th"), include.lowest = T)
+2. cut.default(seqient(log_sts.seq[, 1:100]), ient.quant, labels = c("50th or lower", 
+ .     "50th-90th", "above 90th"), include.lowest = T)
+3. stop("'breaks' are not unique")
+ERROR: Error in cut.default(seqient(log_sts.seq[, 1:100]), ient.quant, labels = c("50th or lower", : 'breaks' are not unique
 
 

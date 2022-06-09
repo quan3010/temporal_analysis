@@ -1,10 +1,10 @@
 # install.packages("TraMineR")
+options(repr.plot.width=15, repr.plot.height=8)
 library("TraMineR")
 packageVersion("TraMineR")
 library(readr)
 library(tidyverse)
 
-# options(warn=-1)
 data(actcal)
 actcal <- data.frame(lapply(actcal, function(x) { gsub("^A\\b", "Read", x)}))
 actcal <- data.frame(lapply(actcal, function(x) { gsub("^B\\b", "Watch", x)}))
@@ -83,14 +83,14 @@ log_spell <- lasi21_logdata2 %>%
 log_spell %>% filter(session_num==22)
 
 log_spell <- as.data.frame(log_spell)
-log_spell.seq <- seqdef(log_spell, var = c(id="session_num", begin="start", end="end", status="site_type"), 
+log_sts.seq <- seqdef(log_spell, var = c(id="session_num", begin="start", end="end", status="site_type"), 
                    informat = "SPELL",  process = FALSE)
 
-head(log_spell.seq)
+head(log_sts.seq)
 
-print(log_spell.seq[31:41,], format="SPS")
+print(log_sts.seq[31:41,], format="SPS")
 
-seqiplot(log_spell.seq[31:41,1:100], with.legend = T, main = "Index plot (10 first sequences)")
+seqiplot(log_sts.seq[31:41,1:100], with.legend = T, main = "Index plot (10 first sequences)")
 
 s1 <- c("a","b","c","d",NA,NA)
 s2 <- c(NA,"a","b",NA,"c","d")
@@ -106,4 +106,42 @@ seqdef(df,left="DEL")
 
 seqdef(df,left="DEL", gaps="DEL")
 
+# Plot data during the first 100 minutes only
 
+seqiplot(log_sts.seq[,1:100], main = "Index plot (first 20 sequences)", idxs = 1:20)
+
+seqdplot(log_sts.seq[,1:100], main = "State distribution plot")
+
+print(seqstatd(log_sts.seq[,1:5]))
+
+seqfplot(log_sts.seq[,1:100], main = "Sequence frequency plot", pbarw = TRUE, idxs = 1:10)
+
+print(seqtab(log_sts.seq[,1:100]))
+
+seqtrate(log_sts.seq[,1:100])
+
+seqmtplot(log_sts.seq[,1:100], group = NULL, title = "Mean time")
+
+hist(seqlength(log_sts.seq), main = 'Histogram of sequence length', xlab="Sequence length in minutes")
+
+print(seqdss(log_sts.seq[31:41,1:100]))
+
+seqiplot(log_sts.seq[31:41,1:100])
+seqient(log_sts.seq[31:41,1:100], norm = TRUE)
+
+hist(seqient(log_sts.seq), main = 'Histogram of sequence entropy', xlab="Normalized Shannon's entropy")
+
+ient.quant <- quantile(seqient(log_sts.seq[,1:100]), c(0, 0.55, 0.9, 1))
+ient.quant
+
+ient.group <- cut(seqient(log_sts.seq[,1:100]), ient.quant, labels = c("55th or lower", "55th-90th", "above 90th"), include.lowest = T)
+ient.group <- factor(ient.group, levels = c("55th or lower", "55th-90th", "above 90th"))
+table(ient.group)
+
+options(repr.plot.width=15, repr.plot.height=8)
+seqfplot(log_sts.seq[,1:100], group = ient.group, pbarw = TRUE)
+
+seqiplot(log_sts.seq[31:401,1:100])
+cbind(seqST(log_sts.seq[31:41,1:100]),seqient(log_sts.seq[31:41,1:100]))
+
+seqindic(log_sts.seq[31:41,1:100], indic=c("lgth","trans","entr","turbn","cplx"))
