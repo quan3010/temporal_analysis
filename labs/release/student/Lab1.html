@@ -1,0 +1,668 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 1: Clustering of sequential data in education &#8212; Temporal and sequential analysis - LASI 2022</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/solar_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Temporal and sequential analysis - LASI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Lecture1.html">
+   Lecture 1: Clustering of sequential data in education
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Lecture2.html">
+   Lecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../../Lecture3.html">
+   Lecture 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Labs
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Lab1.html">
+   Lab 1: Clustering of sequential data in education
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Lab2.html">
+   Lab 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../Lab3.html">
+   Lab 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Quan Nguyen<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/labs/release/student/Lab1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/quan3010/temporal_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/quan3010/temporal_analysis/issues/new?title=Issue%20on%20page%20%2Flabs/release/student/Lab1.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/quan3010/temporal_analysis/master?urlpath=tree/labs/release/student/Lab1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#about-the-dataset">
+   About the dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-1-data-manipulation">
+   Part 1: Data manipulation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q1-import-the-following-dataset-and-create-a-sequence-object-using-the-seqdef-function-in-the-traminer-package">
+     Q1: Import the following dataset and create a sequence object using the
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       seqdef()
+      </span>
+     </code>
+     function in the
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       TraMineR
+      </span>
+     </code>
+     package.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q2-convert-the-sequence-object-from-sts-to-sps-format-using-the-seqformat-function">
+     Q2: Convert the sequence object from ‘STS’ to ‘SPS’ format using the
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       seqformat()
+      </span>
+     </code>
+     function
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-2-exploratory-data-analysis">
+   Part 2: Exploratory data analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q3-plot-the-first-15-sequences">
+     Q3 Plot the first 15 sequences
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q4-plot-the-state-distribution">
+     Q4 Plot the state distribution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q5-plot-the-top-10-most-frequent-sequences">
+     Q5 Plot the top 10 most frequent sequences
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q6-what-are-the-distinct-states-sequence-dss-in-the-sequence-objects">
+     Q6 What are the distinct states sequence (DSS) in the sequence objects?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q7-how-many-sequences-are-there-in-the-data">
+     Q7 How many sequences are there in the data?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q8-what-is-the-min-max-median-length-of-the-sequences">
+     Q8 What is the min/max/median length of the sequences
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q9-which-state-is-the-most-likely-to-follow-left-hint-transition-rates">
+     Q9 Which state is the most likely to follow ‘Left’ (hint: transition rates)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q10-what-are-the-top-10-most-diverse-sequences-hint-entropy-turbulence">
+     Q10 What are the top 10 most diverse sequences (hint: entropy, turbulence)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q-11-what-is-the-average-time-spent-in-each-state">
+     Q.11 What is the average time spent in each state?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="lab-1-clustering-of-sequential-data-in-education">
+<h1>Lab 1: Clustering of sequential data in education<a class="headerlink" href="#lab-1-clustering-of-sequential-data-in-education" title="Permalink to this headline">¶</a></h1>
+<p>Quan Nguyen, Department of Statistics, University of British Columbia</p>
+<div class="section" id="about-the-dataset">
+<h2>About the dataset<a class="headerlink" href="#about-the-dataset" title="Permalink to this headline">¶</a></h2>
+<p>In this lab, we are going to use the built-in <code class="docutils literal notranslate"><span class="pre">biofam</span></code> data set from the <code class="docutils literal notranslate"><span class="pre">TraMineR</span></code> package. See more details <a class="reference external" href="http://traminer.unige.ch/doc/biofam.html">here</a></p>
+<p>This data consists information about the Family life states from the Swiss Household Panel biographical survey. 16 year-long family life sequences built from the retrospective biographical survey carried out by the Swiss Household Panel (SHP) in 2002.</p>
+<p>A data frame with 2000 rows, 16 state variables, 1 id variable and 7 covariates and 2 weights variables.</p>
+<p>The data set contains (in columns 10 to 25) sequences of family life states from age 15 to 30 (sequence length is 16) and a series of covariates. The sequences are a sample of 2000 sequences of those created from the SHP biographical survey. It includes only individuals who were at least 30 years old at the time of the survey. The biofam data set describes family life courses of 2000 individuals born between 1909 and 1972.</p>
+<p>The states numbered from 0 to 7 are defined from the combination of five basic states, namely Living with parents (Parent), Left home (Left), Married (Marr), Having Children (Child), Divorced:</p>
+<p>0 = “Parent”<br />
+1 = “Left”<br />
+2 = “Married”<br />
+3 = “Left+Marr”<br />
+4 = “Child”<br />
+5 = “Left+Child”<br />
+6 = “Left+Marr+Child”<br />
+7 = “Divorced”</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p>Label</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>idhous</p></td>
+<td><p>ID</p></td>
+</tr>
+<tr class="row-odd"><td><p>sex</p></td>
+<td><p>sex</p></td>
+</tr>
+<tr class="row-even"><td><p>birthy</p></td>
+<td><p>birth year</p></td>
+</tr>
+<tr class="row-odd"><td><p>nat102</p></td>
+<td><p>nationality</p></td>
+</tr>
+<tr class="row-even"><td><p>plingu02</p></td>
+<td><p>interview language</p></td>
+</tr>
+<tr class="row-odd"><td><p>p02r01</p></td>
+<td><p>confession or religion</p></td>
+</tr>
+<tr class="row-even"><td><p>p02r04</p></td>
+<td><p>participation in religious services: frequency</p></td>
+</tr>
+<tr class="row-odd"><td><p>cspfaj</p></td>
+<td><p>Swiss socio-professional category: Fathers job</p></td>
+</tr>
+<tr class="row-even"><td><p>cspmoj</p></td>
+<td><p>Swiss socio-professional category: Mothers job</p></td>
+</tr>
+<tr class="row-odd"><td><p>a15</p></td>
+<td><p>family status at age 15</p></td>
+</tr>
+<tr class="row-even"><td><p>…</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>a30</p></td>
+<td><p>family status at age 30</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">TraMineR</span><span class="p">)</span>
+<span class="nf">data</span><span class="p">(</span><span class="n">biofam</span><span class="p">)</span>
+<span class="nf">str</span><span class="p">(</span><span class="n">biofam</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>── <span class=" -Color -Color-Bold">Attaching packages</span> ──────────────────────────────────────────────────────────── tidyverse 1.3.1 ──
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">ggplot2</span> 3.3.5     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">purrr  </span> 0.3.4
+<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">tibble </span> 3.1.5     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">dplyr  </span> 1.0.7
+<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">tidyr  </span> 1.1.3     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">stringr</span> 1.4.0
+<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">readr  </span> 2.0.1     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">forcats</span> 0.5.1
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
+“package ‘tibble’ was built under R version 4.1.1”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
+“package ‘readr’ was built under R version 4.1.1”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>── <span class=" -Color -Color-Bold">Conflicts</span> ─────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">filter()</span> masks <span class=" -Color -Color-Blue">stats</span>::filter()
+<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">lag()</span>    masks <span class=" -Color -Color-Blue">stats</span>::lag()
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
+“package ‘TraMineR’ was built under R version 4.1.1”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TraMineR stable version 2.2-3 (Built: 2022-01-26)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Website: http://traminer.unige.ch
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please type &#39;citation(&quot;TraMineR&quot;)&#39; for citation information.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	2000 obs. of  27 variables:
+ $ idhous  : num  66891 28621 57711 17501 147701 ...
+ $ sex     : Factor w/ 2 levels &quot;man&quot;,&quot;woman&quot;: 1 1 2 1 1 1 1 1 1 2 ...
+ $ birthyr : num  1943 1935 1946 1918 1946 ...
+ $ nat_1_02: Factor w/ 200 levels &quot;other error&quot;,..: 6 6 6 6 6 6 6 6 6 6 ...
+ $ plingu02: Factor w/ 3 levels &quot;french&quot;,&quot;german&quot;,..: 2 2 1 2 2 3 2 1 1 2 ...
+ $ p02r01  : Factor w/ 13 levels &quot;other error&quot;,..: 6 7 13 7 7 7 6 9 6 7 ...
+ $ p02r04  : Factor w/ 14 levels &quot;other error&quot;,..: 9 13 7 13 7 6 7 14 9 13 ...
+ $ cspfaj  : Factor w/ 12 levels &quot;active occupied but not classified&quot;,..: 7 7 7 5 NA 12 NA 11 7 7 ...
+ $ cspmoj  : Factor w/ 12 levels &quot;active occupied but not classified&quot;,..: 7 NA 9 NA NA NA NA NA 7 NA ...
+ $ a15     : num  0 0 0 0 0 0 0 0 0 1 ...
+ $ a16     : num  0 1 0 0 0 0 0 0 0 1 ...
+ $ a17     : num  0 1 0 0 0 0 0 0 0 1 ...
+ $ a18     : num  0 1 0 0 0 0 0 0 0 1 ...
+ $ a19     : num  0 1 0 0 0 0 0 0 0 1 ...
+ $ a20     : num  0 1 0 1 1 0 0 0 0 1 ...
+ $ a21     : num  0 1 0 1 1 0 0 1 0 1 ...
+ $ a22     : num  0 1 1 1 1 0 0 1 0 1 ...
+ $ a23     : num  0 1 1 1 1 0 0 1 0 1 ...
+ $ a24     : num  3 1 1 1 1 0 2 1 0 6 ...
+ $ a25     : num  6 1 1 1 1 0 2 1 0 6 ...
+ $ a26     : num  6 3 1 1 1 0 2 3 6 6 ...
+ $ a27     : num  6 6 3 1 1 0 2 3 6 6 ...
+ $ a28     : num  6 6 6 1 6 0 2 3 6 6 ...
+ $ a29     : num  6 6 6 1 6 0 2 6 6 6 ...
+ $ a30     : num  6 6 6 1 6 0 2 6 6 6 ...
+ $ wp00tbgp: num  1053 855 575 1527 796 ...
+ $ wp00tbgs: num  0.935 0.759 0.51 1.356 0.707 ...
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-1-data-manipulation">
+<h2>Part 1: Data manipulation<a class="headerlink" href="#part-1-data-manipulation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="q1-import-the-following-dataset-and-create-a-sequence-object-using-the-seqdef-function-in-the-traminer-package">
+<h3>Q1: Import the following dataset and create a sequence object using the <code class="docutils literal notranslate"><span class="pre">seqdef()</span></code> function in the <code class="docutils literal notranslate"><span class="pre">TraMineR</span></code> package.<a class="headerlink" href="#q1-import-the-following-dataset-and-create-a-sequence-object-using-the-seqdef-function-in-the-traminer-package" title="Permalink to this headline">¶</a></h3>
+<p>Hint: You can use the option <code class="docutils literal notranslate"><span class="pre">states</span></code> in <code class="docutils literal notranslate"><span class="pre">seqdef()</span></code> to assign the short state labels for each state</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># state labels</span>
+<span class="n">bfstates</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Parent&quot;</span><span class="p">,</span> <span class="s">&quot;Left&quot;</span><span class="p">,</span> <span class="s">&quot;Married&quot;</span><span class="p">,</span> <span class="s">&quot;Left+Marr&quot;</span><span class="p">,</span> <span class="s">&quot;Child&quot;</span><span class="p">,</span> <span class="s">&quot;Left+Child&quot;</span><span class="p">,</span> <span class="s">&quot;Left+Marr+Child&quot;</span><span class="p">,</span> <span class="s">&quot;Divorced&quot;</span><span class="p">)</span>
+
+<span class="kc">...</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="nb">eval</span><span class="p">(</span><span class="n">expr</span><span class="p">,</span> <span class="n">envir</span><span class="p">,</span> <span class="n">enclos</span><span class="p">):</span> <span class="s1">&#39;...&#39;</span> <span class="n">used</span> <span class="ow">in</span> <span class="n">an</span> <span class="n">incorrect</span> <span class="n">context</span>
+<span class="ne">Traceback</span>:
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q2-convert-the-sequence-object-from-sts-to-sps-format-using-the-seqformat-function">
+<h3>Q2: Convert the sequence object from ‘STS’ to ‘SPS’ format using the <code class="docutils literal notranslate"><span class="pre">seqformat()</span></code> function<a class="headerlink" href="#q2-convert-the-sequence-object-from-sts-to-sps-format-using-the-seqformat-function" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="kc">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-2-exploratory-data-analysis">
+<h2>Part 2: Exploratory data analysis<a class="headerlink" href="#part-2-exploratory-data-analysis" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="q3-plot-the-first-15-sequences">
+<h3>Q3 Plot the first 15 sequences<a class="headerlink" href="#q3-plot-the-first-15-sequences" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hint: seqiplot()</span>
+
+<span class="kc">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q4-plot-the-state-distribution">
+<h3>Q4 Plot the state distribution<a class="headerlink" href="#q4-plot-the-state-distribution" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hint: seqdplot()</span>
+
+<span class="kc">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q5-plot-the-top-10-most-frequent-sequences">
+<h3>Q5 Plot the top 10 most frequent sequences<a class="headerlink" href="#q5-plot-the-top-10-most-frequent-sequences" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hint: seqfplot()</span>
+
+<span class="kc">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q6-what-are-the-distinct-states-sequence-dss-in-the-sequence-objects">
+<h3>Q6 What are the distinct states sequence (DSS) in the sequence objects?<a class="headerlink" href="#q6-what-are-the-distinct-states-sequence-dss-in-the-sequence-objects" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hint: seqdss()</span>
+
+<span class="kc">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q7-how-many-sequences-are-there-in-the-data">
+<h3>Q7 How many sequences are there in the data?<a class="headerlink" href="#q7-how-many-sequences-are-there-in-the-data" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">seq_num</span> <span class="o">&lt;-</span> <span class="kc">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q8-what-is-the-min-max-median-length-of-the-sequences">
+<h3>Q8 What is the min/max/median length of the sequences<a class="headerlink" href="#q8-what-is-the-min-max-median-length-of-the-sequences" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># YOUR CODE HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q9-which-state-is-the-most-likely-to-follow-left-hint-transition-rates">
+<h3>Q9 Which state is the most likely to follow ‘Left’ (hint: transition rates)<a class="headerlink" href="#q9-which-state-is-the-most-likely-to-follow-left-hint-transition-rates" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hint: seqtrate()</span>
+
+<span class="kc">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q10-what-are-the-top-10-most-diverse-sequences-hint-entropy-turbulence">
+<h3>Q10 What are the top 10 most diverse sequences (hint: entropy, turbulence)<a class="headerlink" href="#q10-what-are-the-top-10-most-diverse-sequences-hint-entropy-turbulence" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="kc">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q-11-what-is-the-average-time-spent-in-each-state">
+<h3>Q.11 What is the average time spent in each state?<a class="headerlink" href="#q-11-what-is-the-average-time-spent-in-each-state" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="kc">...</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./labs/release/student"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Quan Nguyen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

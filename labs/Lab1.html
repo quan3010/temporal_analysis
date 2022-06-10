@@ -1,0 +1,849 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 1: Clustering of sequential data in education &#8212; Temporal and sequential analysis - LASI 2022</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lab 2" href="Lab2.html" />
+    <link rel="prev" title="Lecture 3" href="../Lecture3.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/solar_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Temporal and sequential analysis - LASI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture1.html">
+   Lecture 1: Clustering of sequential data in education
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture2.html">
+   Lecture 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../Lecture3.html">
+   Lecture 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Labs
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Lab 1: Clustering of sequential data in education
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lab2.html">
+   Lab 2
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lab3.html">
+   Lab 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Quan Nguyen<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/labs/Lab1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/quan3010/temporal_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/quan3010/temporal_analysis/issues/new?title=Issue%20on%20page%20%2Flabs/Lab1.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/quan3010/temporal_analysis/master?urlpath=tree/labs/Lab1.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#about-the-dataset">
+   About the dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-1-data-manipulation">
+   Part 1: Data manipulation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q1-import-the-following-dataset-and-create-a-sequence-object-using-the-seqdef-function-in-the-traminer-package">
+     Q1: Import the following dataset and create a sequence object using the
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       seqdef()
+      </span>
+     </code>
+     function in the
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       TraMineR
+      </span>
+     </code>
+     package.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q2-convert-the-sequence-object-from-sts-to-sps-format-using-the-seqformat-function">
+     Q2: Convert the sequence object from ‘STS’ to ‘SPS’ format using the
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       seqformat()
+      </span>
+     </code>
+     function
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#part-2-exploratory-data-analysis">
+   Part 2: Exploratory data analysis
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q3-plot-the-first-15-sequences">
+     Q3 Plot the first 15 sequences
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q4-plot-the-state-distribution">
+     Q4 Plot the state distribution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q5-plot-the-top-10-most-frequent-sequences">
+     Q5 Plot the top 10 most frequent sequences
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q6-what-are-the-distinct-states-sequence-dss-in-the-sequence-objects">
+     Q6 What are the distinct states sequence (DSS) in the sequence objects?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q7-how-many-sequences-are-there-in-the-data">
+     Q7 How many sequences are there in the data?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q8-what-is-the-min-max-median-length-of-the-sequences">
+     Q8 What is the min/max/median length of the sequences
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q9-which-state-is-the-most-likely-to-follow-left-hint-transition-rates">
+     Q9 Which state is the most likely to follow ‘Left’ (hint: transition rates)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q10-what-are-the-top-10-most-diverse-sequences-hint-entropy-turbulence">
+     Q10 What are the top 10 most diverse sequences (hint: entropy, turbulence)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#q-11-what-is-the-average-time-spent-in-each-state">
+     Q.11 What is the average time spent in each state?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="lab-1-clustering-of-sequential-data-in-education">
+<h1>Lab 1: Clustering of sequential data in education<a class="headerlink" href="#lab-1-clustering-of-sequential-data-in-education" title="Permalink to this headline">¶</a></h1>
+<p>Quan Nguyen, Department of Statistics, University of British Columbia</p>
+<div class="section" id="about-the-dataset">
+<h2>About the dataset<a class="headerlink" href="#about-the-dataset" title="Permalink to this headline">¶</a></h2>
+<p>In this lab, we are going to use the built-in <code class="docutils literal notranslate"><span class="pre">biofam</span></code> data set from the <code class="docutils literal notranslate"><span class="pre">TraMineR</span></code> package. See more details <a class="reference external" href="http://traminer.unige.ch/doc/biofam.html">here</a></p>
+<p>This data consists information about the Family life states from the Swiss Household Panel biographical survey. 16 year-long family life sequences built from the retrospective biographical survey carried out by the Swiss Household Panel (SHP) in 2002.</p>
+<p>A data frame with 2000 rows, 16 state variables, 1 id variable and 7 covariates and 2 weights variables.</p>
+<p>The data set contains (in columns 10 to 25) sequences of family life states from age 15 to 30 (sequence length is 16) and a series of covariates. The sequences are a sample of 2000 sequences of those created from the SHP biographical survey. It includes only individuals who were at least 30 years old at the time of the survey. The biofam data set describes family life courses of 2000 individuals born between 1909 and 1972.</p>
+<p>The states numbered from 0 to 7 are defined from the combination of five basic states, namely Living with parents (Parent), Left home (Left), Married (Marr), Having Children (Child), Divorced:</p>
+<p>0 = “Parent”<br />
+1 = “Left”<br />
+2 = “Married”<br />
+3 = “Left+Marr”<br />
+4 = “Child”<br />
+5 = “Left+Child”<br />
+6 = “Left+Marr+Child”<br />
+7 = “Divorced”</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p>Label</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>idhous</p></td>
+<td><p>ID</p></td>
+</tr>
+<tr class="row-odd"><td><p>sex</p></td>
+<td><p>sex</p></td>
+</tr>
+<tr class="row-even"><td><p>birthy</p></td>
+<td><p>birth year</p></td>
+</tr>
+<tr class="row-odd"><td><p>nat102</p></td>
+<td><p>nationality</p></td>
+</tr>
+<tr class="row-even"><td><p>plingu02</p></td>
+<td><p>interview language</p></td>
+</tr>
+<tr class="row-odd"><td><p>p02r01</p></td>
+<td><p>confession or religion</p></td>
+</tr>
+<tr class="row-even"><td><p>p02r04</p></td>
+<td><p>participation in religious services: frequency</p></td>
+</tr>
+<tr class="row-odd"><td><p>cspfaj</p></td>
+<td><p>Swiss socio-professional category: Fathers job</p></td>
+</tr>
+<tr class="row-even"><td><p>cspmoj</p></td>
+<td><p>Swiss socio-professional category: Mothers job</p></td>
+</tr>
+<tr class="row-odd"><td><p>a15</p></td>
+<td><p>family status at age 15</p></td>
+</tr>
+<tr class="row-even"><td><p>…</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>a30</p></td>
+<td><p>family status at age 30</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">TraMineR</span><span class="p">)</span>
+<span class="nf">data</span><span class="p">(</span><span class="n">biofam</span><span class="p">)</span>
+<span class="nf">str</span><span class="p">(</span><span class="n">biofam</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	2000 obs. of  27 variables:
+ $ idhous  : num  66891 28621 57711 17501 147701 ...
+ $ sex     : Factor w/ 2 levels &quot;man&quot;,&quot;woman&quot;: 1 1 2 1 1 1 1 1 1 2 ...
+ $ birthyr : num  1943 1935 1946 1918 1946 ...
+ $ nat_1_02: Factor w/ 200 levels &quot;other error&quot;,..: 6 6 6 6 6 6 6 6 6 6 ...
+ $ plingu02: Factor w/ 3 levels &quot;french&quot;,&quot;german&quot;,..: 2 2 1 2 2 3 2 1 1 2 ...
+ $ p02r01  : Factor w/ 13 levels &quot;other error&quot;,..: 6 7 13 7 7 7 6 9 6 7 ...
+ $ p02r04  : Factor w/ 14 levels &quot;other error&quot;,..: 9 13 7 13 7 6 7 14 9 13 ...
+ $ cspfaj  : Factor w/ 12 levels &quot;active occupied but not classified&quot;,..: 7 7 7 5 NA 12 NA 11 7 7 ...
+ $ cspmoj  : Factor w/ 12 levels &quot;active occupied but not classified&quot;,..: 7 NA 9 NA NA NA NA NA 7 NA ...
+ $ a15     : num  0 0 0 0 0 0 0 0 0 1 ...
+ $ a16     : num  0 1 0 0 0 0 0 0 0 1 ...
+ $ a17     : num  0 1 0 0 0 0 0 0 0 1 ...
+ $ a18     : num  0 1 0 0 0 0 0 0 0 1 ...
+ $ a19     : num  0 1 0 0 0 0 0 0 0 1 ...
+ $ a20     : num  0 1 0 1 1 0 0 0 0 1 ...
+ $ a21     : num  0 1 0 1 1 0 0 1 0 1 ...
+ $ a22     : num  0 1 1 1 1 0 0 1 0 1 ...
+ $ a23     : num  0 1 1 1 1 0 0 1 0 1 ...
+ $ a24     : num  3 1 1 1 1 0 2 1 0 6 ...
+ $ a25     : num  6 1 1 1 1 0 2 1 0 6 ...
+ $ a26     : num  6 3 1 1 1 0 2 3 6 6 ...
+ $ a27     : num  6 6 3 1 1 0 2 3 6 6 ...
+ $ a28     : num  6 6 6 1 6 0 2 3 6 6 ...
+ $ a29     : num  6 6 6 1 6 0 2 6 6 6 ...
+ $ a30     : num  6 6 6 1 6 0 2 6 6 6 ...
+ $ wp00tbgp: num  1053 855 575 1527 796 ...
+ $ wp00tbgs: num  0.935 0.759 0.51 1.356 0.707 ...
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="part-1-data-manipulation">
+<h2>Part 1: Data manipulation<a class="headerlink" href="#part-1-data-manipulation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="q1-import-the-following-dataset-and-create-a-sequence-object-using-the-seqdef-function-in-the-traminer-package">
+<h3>Q1: Import the following dataset and create a sequence object using the <code class="docutils literal notranslate"><span class="pre">seqdef()</span></code> function in the <code class="docutils literal notranslate"><span class="pre">TraMineR</span></code> package.<a class="headerlink" href="#q1-import-the-following-dataset-and-create-a-sequence-object-using-the-seqdef-function-in-the-traminer-package" title="Permalink to this headline">¶</a></h3>
+<p>Hint: You can use the option <code class="docutils literal notranslate"><span class="pre">states</span></code> in <code class="docutils literal notranslate"><span class="pre">seqdef()</span></code> to assign the short state labels for each state</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># state labels</span>
+<span class="n">bfstates</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Parent&quot;</span><span class="p">,</span> <span class="s">&quot;Left&quot;</span><span class="p">,</span> <span class="s">&quot;Married&quot;</span><span class="p">,</span> <span class="s">&quot;Left+Marr&quot;</span><span class="p">,</span> <span class="s">&quot;Child&quot;</span><span class="p">,</span> <span class="s">&quot;Left+Child&quot;</span><span class="p">,</span> <span class="s">&quot;Left+Marr+Child&quot;</span><span class="p">,</span> <span class="s">&quot;Divorced&quot;</span><span class="p">)</span>
+
+<span class="c1"># BEGIN SOLUTION</span>
+<span class="n">biofam.seq</span> <span class="o">&lt;-</span> <span class="nf">seqdef</span><span class="p">(</span><span class="n">biofam</span><span class="p">,</span> <span class="m">10</span><span class="o">:</span><span class="m">25</span><span class="p">,</span> <span class="n">states</span> <span class="o">=</span> <span class="n">bfstates</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">bfstates</span><span class="p">)</span>
+<span class="c1"># END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] state coding:
+
+       [alphabet]  [label]         [long label] 
+
+     1  0           Parent          Parent
+
+     2  1           Left            Left
+
+     3  2           Married         Married
+
+     4  3           Left+Marr       Left+Marr
+
+     5  4           Child           Child
+
+     6  5           Left+Child      Left+Child
+
+     7  6           Left+Marr+Child Left+Marr+Child
+
+     8  7           Divorced        Divorced
+
+ [&gt;] 2000 sequences in the data set
+
+ [&gt;] min/max sequence length: 16/16
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q2-convert-the-sequence-object-from-sts-to-sps-format-using-the-seqformat-function">
+<h3>Q2: Convert the sequence object from ‘STS’ to ‘SPS’ format using the <code class="docutils literal notranslate"><span class="pre">seqformat()</span></code> function<a class="headerlink" href="#q2-convert-the-sequence-object-from-sts-to-sps-format-using-the-seqformat-function" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># BEGIN SOLUTION</span>
+<span class="nf">seqformat</span><span class="p">(</span><span class="n">biofam.seq</span><span class="p">,</span> <span class="n">from</span> <span class="o">=</span><span class="s">&#39;STS&#39;</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="s">&#39;SPS&#39;</span><span class="p">)</span>
+<span class="c1"># END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [!!] &#39;missing&#39; set as &quot;c(&#39;*&#39;,&#39;%&#39;)&quot;, the &#39;nr&#39; and &#39;void&#39; code from the &#39;data&#39; state sequence object
+
+ [&gt;] converting STS sequences to 2000 SPS sequences
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A matrix: 2000 × 16 of type chr</caption>
+<thead>
+	<tr><th></th><th scope=col>[1]</th><th scope=col>[2]</th><th scope=col>[3]</th><th scope=col>[4]</th><th scope=col>[5]</th><th scope=col>[6]</th><th scope=col>[7]</th><th scope=col>[8]</th><th scope=col>[9]</th><th scope=col>[10]</th><th scope=col>[11]</th><th scope=col>[12]</th><th scope=col>[13]</th><th scope=col>[14]</th><th scope=col>[15]</th><th scope=col>[16]</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1167</th><td>(Parent,9) </td><td>(Left+Marr,1)       </td><td>(Left+Marr+Child,6) </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>514</th><td>(Parent,1) </td><td>(Left,10)           </td><td>(Left+Marr,1)       </td><td>(Left+Marr+Child,4)</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>1013</th><td>(Parent,7) </td><td>(Left,5)            </td><td>(Left+Marr,1)       </td><td>(Left+Marr+Child,3)</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>275</th><td>(Parent,5) </td><td>(Left,11)           </td><td>NA                  </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>2580</th><td>(Parent,5) </td><td>(Left,8)            </td><td>(Left+Marr+Child,3) </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>773</th><td>(Parent,16)</td><td>NA                  </td><td>NA                  </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>1187</th><td>(Parent,9) </td><td>(Married,7)         </td><td>NA                  </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>47</th><td>(Parent,6) </td><td>(Left,5)            </td><td>(Left+Marr,3)       </td><td>(Left+Marr+Child,2)</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>2091</th><td>(Parent,11)</td><td>(Left+Marr+Child,5) </td><td>NA                  </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>1846</th><td>(Left,9)   </td><td>(Left+Marr+Child,7) </td><td>NA                  </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>1990</th><td>(Parent,8) </td><td>(Left+Marr,8)       </td><td>NA                  </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>2088</th><td>(Parent,16)</td><td>NA                  </td><td>NA                  </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>867</th><td>(Parent,5) </td><td>(Left,4)            </td><td>(Left+Marr,1)       </td><td>(Left+Marr+Child,6)</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>1616</th><td>(Parent,6) </td><td>(Left+Marr+Child,10)</td><td>NA                  </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>2136</th><td>(Parent,8) </td><td>(Left+Marr,3)       </td><td>(Divorced,5)        </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>2031</th><td>(Parent,6) </td><td>(Married,2)         </td><td>(Left+Marr+Child,4) </td><td>(Divorced,4)       </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>2459</th><td>(Parent,16)</td><td>NA                  </td><td>NA                  </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>222</th><td>(Parent,16)</td><td>NA                  </td><td>NA                  </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>2193</th><td>(Parent,13)</td><td>(Left+Marr,3)       </td><td>NA                  </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>1571</th><td>(Parent,4) </td><td>(Left,3)            </td><td>(Left+Marr,1)       </td><td>(Left+Marr+Child,8)</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>2592</th><td>(Parent,8) </td><td>(Left+Marr+Child,8) </td><td>NA                  </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>1989</th><td>(Parent,4) </td><td>(Left+Marr,2)       </td><td>(Left+Marr+Child,10)</td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>1917</th><td>(Parent,8) </td><td>(Left+Marr,3)       </td><td>(Left+Marr+Child,5) </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>630</th><td>(Parent,1) </td><td>(Left,2)            </td><td>(Left+Marr+Child,13)</td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>532</th><td>(Parent,6) </td><td>(Left+Marr+Child,10)</td><td>NA                  </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>863</th><td>(Parent,6) </td><td>(Left+Marr,2)       </td><td>(Left+Marr+Child,8) </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>1102</th><td>(Parent,1) </td><td>(Left,4)            </td><td>(Left+Marr+Child,11)</td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>1454</th><td>(Parent,16)</td><td>NA                  </td><td>NA                  </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>1174</th><td>(Parent,5) </td><td>(Left,7)            </td><td>(Left+Marr,1)       </td><td>(Left+Marr+Child,3)</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>227</th><td>(Parent,5) </td><td>(Left+Marr+Child,11)</td><td>NA                  </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>⋮</th><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td></tr>
+	<tr><th scope=row>81</th><td>(Parent,7) </td><td>(Left,9)            </td><td>NA                 </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>1805</th><td>(Parent,11)</td><td>(Left+Child,1)      </td><td>(Left+Marr+Child,4)</td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>789</th><td>(Parent,1) </td><td>(Left,15)           </td><td>NA                 </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>2361</th><td>(Parent,7) </td><td>(Married,9)         </td><td>NA                 </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>56</th><td>(Parent,8) </td><td>(Left+Marr,2)       </td><td>(Left+Marr+Child,6)</td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>645</th><td>(Parent,7) </td><td>(Left,2)            </td><td>(Left+Marr+Child,7)</td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>1721</th><td>(Parent,9) </td><td>(Left,2)            </td><td>(Left+Marr,2)      </td><td>(Left+Marr+Child,3)</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>1419</th><td>(Parent,14)</td><td>(Married,2)         </td><td>NA                 </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>1207</th><td>(Parent,5) </td><td>(Left,11)           </td><td>NA                 </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>259</th><td>(Parent,9) </td><td>(Married,7)         </td><td>NA                 </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>2413</th><td>(Parent,2) </td><td>(Left,5)            </td><td>(Left+Marr,3)      </td><td>(Left+Marr+Child,6)</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>2090</th><td>(Parent,5) </td><td>(Left,11)           </td><td>NA                 </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>1337</th><td>(Parent,9) </td><td>(Left+Marr,2)       </td><td>(Left+Marr+Child,5)</td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>1826</th><td>(Parent,5) </td><td>(Left,2)            </td><td>(Left+Marr,2)      </td><td>(Left+Marr+Child,7)</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>2503</th><td>(Parent,10)</td><td>(Left+Marr,6)       </td><td>NA                 </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>106</th><td>(Parent,9) </td><td>(Left+Marr+Child,7) </td><td>NA                 </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>1181</th><td>(Parent,9) </td><td>(Left,6)            </td><td>(Left+Marr,1)      </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>1848</th><td>(Parent,8) </td><td>(Left+Marr,8)       </td><td>NA                 </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>2203</th><td>(Parent,6) </td><td>(Left,10)           </td><td>NA                 </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>1745</th><td>(Parent,1) </td><td>(Left,11)           </td><td>(Left+Marr+Child,4)</td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>278</th><td>(Parent,16)</td><td>NA                  </td><td>NA                 </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>1980</th><td>(Parent,5) </td><td>(Left,11)           </td><td>NA                 </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>787</th><td>(Parent,14)</td><td>(Left,2)            </td><td>NA                 </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>1120</th><td>(Parent,15)</td><td>(Left+Marr+Child,1) </td><td>NA                 </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>59</th><td>(Parent,13)</td><td>(Married,3)         </td><td>NA                 </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>629</th><td>(Parent,6) </td><td>(Left,3)            </td><td>(Left+Marr+Child,7)</td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>2297</th><td>(Parent,2) </td><td>(Left,6)            </td><td>(Left+Marr,4)      </td><td>(Left+Marr+Child,4)</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>775</th><td>(Parent,16)</td><td>NA                  </td><td>NA                 </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>2522</th><td>(Parent,3) </td><td>(Married,13)        </td><td>NA                 </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+	<tr><th scope=row>719</th><td>(Parent,6) </td><td>(Left+Marr+Child,10)</td><td>NA                 </td><td>NA                 </td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td><td>NA</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</div>
+<div class="section" id="part-2-exploratory-data-analysis">
+<h2>Part 2: Exploratory data analysis<a class="headerlink" href="#part-2-exploratory-data-analysis" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="q3-plot-the-first-15-sequences">
+<h3>Q3 Plot the first 15 sequences<a class="headerlink" href="#q3-plot-the-first-15-sequences" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hint: seqiplot()</span>
+
+<span class="c1"># BEGIN SOLUTION</span>
+<span class="nf">seqiplot</span><span class="p">(</span><span class="n">biofam.seq</span><span class="p">,</span> <span class="p">,</span> <span class="n">idxs</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">15</span><span class="p">)</span>
+<span class="c1"># END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Lab1_16_0.png" src="../_images/Lab1_16_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="q4-plot-the-state-distribution">
+<h3>Q4 Plot the state distribution<a class="headerlink" href="#q4-plot-the-state-distribution" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hint: seqdplot()</span>
+
+<span class="c1"># BEGIN SOLUTION</span>
+<span class="nf">seqdplot</span><span class="p">(</span><span class="n">biofam.seq</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;State distribution plot&quot;</span><span class="p">)</span>
+<span class="c1"># END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Lab1_20_0.png" src="../_images/Lab1_20_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="q5-plot-the-top-10-most-frequent-sequences">
+<h3>Q5 Plot the top 10 most frequent sequences<a class="headerlink" href="#q5-plot-the-top-10-most-frequent-sequences" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hint: seqfplot()</span>
+
+<span class="c1"># BEGIN SOLUTION</span>
+<span class="nf">seqfplot</span><span class="p">(</span><span class="n">biofam.seq</span><span class="p">,</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;Sequence frequency plot&quot;</span><span class="p">,</span> <span class="n">idxs</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">)</span>
+<span class="c1"># END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Lab1_24_0.png" src="../_images/Lab1_24_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="q6-what-are-the-distinct-states-sequence-dss-in-the-sequence-objects">
+<h3>Q6 What are the distinct states sequence (DSS) in the sequence objects?<a class="headerlink" href="#q6-what-are-the-distinct-states-sequence-dss-in-the-sequence-objects" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hint: seqdss()</span>
+
+<span class="c1"># BEGIN SOLUTION</span>
+<span class="nf">print</span><span class="p">(</span><span class="nf">head</span><span class="p">(</span><span class="nf">seqdss</span><span class="p">(</span><span class="n">biofam.seq</span><span class="p">)))</span>
+<span class="c1"># END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     Sequence                             
+1167 Parent-Left+Marr-Left+Marr+Child     
+514  Parent-Left-Left+Marr-Left+Marr+Child
+1013 Parent-Left-Left+Marr-Left+Marr+Child
+275  Parent-Left                          
+2580 Parent-Left-Left+Marr+Child          
+773  Parent                               
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q7-how-many-sequences-are-there-in-the-data">
+<h3>Q7 How many sequences are there in the data?<a class="headerlink" href="#q7-how-many-sequences-are-there-in-the-data" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">seq_num</span> <span class="o">&lt;-</span> <span class="nf">nrow</span><span class="p">(</span><span class="n">biofam.seq</span><span class="p">)</span> <span class="c1"># SOLUTION</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">2000</div></div>
+</div>
+</div>
+<div class="section" id="q8-what-is-the-min-max-median-length-of-the-sequences">
+<h3>Q8 What is the min/max/median length of the sequences<a class="headerlink" href="#q8-what-is-the-min-max-median-length-of-the-sequences" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">summary</span><span class="p">(</span><span class="nf">seqlength</span><span class="p">(</span><span class="n">biofam.seq</span><span class="p">))</span> <span class="c1"># SOLUTION</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     Length  
+ Min.   :17  
+ 1st Qu.:17  
+ Median :17  
+ Mean   :17  
+ 3rd Qu.:17  
+ Max.   :17  
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q9-which-state-is-the-most-likely-to-follow-left-hint-transition-rates">
+<h3>Q9 Which state is the most likely to follow ‘Left’ (hint: transition rates)<a class="headerlink" href="#q9-which-state-is-the-most-likely-to-follow-left-hint-transition-rates" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hint: seqtrate()</span>
+
+<span class="c1"># BEGIN SOLUTION</span>
+<span class="nf">seqtrate</span><span class="p">(</span><span class="n">biofam.seq</span><span class="p">)</span>
+<span class="c1"># END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] computing transition probabilities for states Parent/Left/Married/Left+Marr/Child/Left+Child/Left+Marr+Child/Divorced ...
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A matrix: 8 × 8 of type dbl</caption>
+<thead>
+	<tr><th></th><th scope=col>[-&gt; Parent]</th><th scope=col>[-&gt; Left]</th><th scope=col>[-&gt; Married]</th><th scope=col>[-&gt; Left+Marr]</th><th scope=col>[-&gt; Child]</th><th scope=col>[-&gt; Left+Child]</th><th scope=col>[-&gt; Left+Marr+Child]</th><th scope=col>[-&gt; Divorced]</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>[Parent -&gt;]</th><td>0.8856748</td><td>0.05458433</td><td>0.01534398</td><td>0.03181990</td><td>0.000377311</td><td>0.001069048</td><td>0.01113068</td><td>0.0000000000</td></tr>
+	<tr><th scope=row>[Left -&gt;]</th><td>0.0000000</td><td>0.88983957</td><td>0.00000000</td><td>0.08342246</td><td>0.000000000</td><td>0.003921569</td><td>0.02263815</td><td>0.0001782531</td></tr>
+	<tr><th scope=row>[Married -&gt;]</th><td>0.0000000</td><td>0.00000000</td><td>0.96902303</td><td>0.01032566</td><td>0.000000000</td><td>0.000000000</td><td>0.01111994</td><td>0.0095313741</td></tr>
+	<tr><th scope=row>[Left+Marr -&gt;]</th><td>0.0000000</td><td>0.00000000</td><td>0.00000000</td><td>0.78695955</td><td>0.000000000</td><td>0.000000000</td><td>0.19944212</td><td>0.0135983264</td></tr>
+	<tr><th scope=row>[Child -&gt;]</th><td>0.0000000</td><td>0.00000000</td><td>0.12500000</td><td>0.00000000</td><td>0.812500000</td><td>0.062500000</td><td>0.00000000</td><td>0.0000000000</td></tr>
+	<tr><th scope=row>[Left+Child -&gt;]</th><td>0.0000000</td><td>0.00000000</td><td>0.00000000</td><td>0.00000000</td><td>0.000000000</td><td>0.881944444</td><td>0.11805556</td><td>0.0000000000</td></tr>
+	<tr><th scope=row>[Left+Marr+Child -&gt;]</th><td>0.0000000</td><td>0.00000000</td><td>0.00000000</td><td>0.00000000</td><td>0.000000000</td><td>0.000000000</td><td>0.99393173</td><td>0.0060682680</td></tr>
+	<tr><th scope=row>[Divorced -&gt;]</th><td>0.0000000</td><td>0.00000000</td><td>0.00000000</td><td>0.00000000</td><td>0.000000000</td><td>0.000000000</td><td>0.00000000</td><td>1.0000000000</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+<div class="section" id="q10-what-are-the-top-10-most-diverse-sequences-hint-entropy-turbulence">
+<h3>Q10 What are the top 10 most diverse sequences (hint: entropy, turbulence)<a class="headerlink" href="#q10-what-are-the-top-10-most-diverse-sequences-hint-entropy-turbulence" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># BEGIN SOLUTION</span>
+<span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">as.tibble</span><span class="p">(</span><span class="nf">seqindic</span><span class="p">(</span><span class="n">biofam.seq</span><span class="p">,</span> <span class="n">indic</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;entr&quot;</span><span class="p">,</span><span class="s">&quot;turbn&quot;</span><span class="p">,</span><span class="s">&quot;cplx&quot;</span><span class="p">)))</span>
+<span class="n">df</span><span class="o">$</span><span class="n">index</span> <span class="o">&lt;-</span> <span class="nf">rownames</span><span class="p">(</span><span class="nf">seqindic</span><span class="p">(</span><span class="n">biofam.seq</span><span class="p">,</span> <span class="n">indic</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;entr&quot;</span><span class="p">,</span><span class="s">&quot;turbn&quot;</span><span class="p">,</span><span class="s">&quot;cplx&quot;</span><span class="p">)))</span>
+<span class="n">top10</span> <span class="o">&lt;-</span> <span class="n">df</span> <span class="o">%&gt;%</span> <span class="nf">arrange</span><span class="p">(</span><span class="nf">desc</span><span class="p">(</span><span class="n">Entr</span><span class="p">))</span> <span class="o">%&gt;%</span> <span class="nf">head</span><span class="p">(</span><span class="m">10</span><span class="p">)</span>
+<span class="n">top10</span>
+
+<span class="n">biofam.seq</span><span class="o">$</span><span class="n">index</span> <span class="o">&lt;-</span> <span class="nf">rownames</span><span class="p">(</span><span class="n">biofam.seq</span><span class="p">)</span>
+<span class="nf">seqiplot</span><span class="p">(</span><span class="n">biofam.seq</span> <span class="o">%&gt;%</span> <span class="nf">filter</span><span class="p">(</span><span class="n">index</span> <span class="o">%in%</span> <span class="n">top10</span><span class="o">$</span><span class="n">index</span><span class="p">))</span>
+<span class="c1"># END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A tibble: 10 × 4</caption>
+<thead>
+	<tr><th scope=col>Entr</th><th scope=col>Cplx</th><th scope=col>Turbn</th><th scope=col>index</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>0.7028195</td><td>0.4191717</td><td>0.3982722</td><td>326 </td></tr>
+	<tr><td>0.6841404</td><td>0.4135639</td><td>0.3743671</td><td>1241</td></tr>
+	<tr><td>0.6666667</td><td>0.3535534</td><td>0.4887412</td><td>1098</td></tr>
+	<tr><td>0.6590723</td><td>0.3515339</td><td>0.4521225</td><td>141 </td></tr>
+	<tr><td>0.6590723</td><td>0.3515339</td><td>0.4521225</td><td>2534</td></tr>
+	<tr><td>0.6590723</td><td>0.3515339</td><td>0.4521225</td><td>1831</td></tr>
+	<tr><td>0.6590723</td><td>0.3515339</td><td>0.4521225</td><td>2083</td></tr>
+	<tr><td>0.6590723</td><td>0.3515339</td><td>0.4521225</td><td>2028</td></tr>
+	<tr><td>0.6582006</td><td>0.4056478</td><td>0.3613499</td><td>1594</td></tr>
+	<tr><td>0.6514780</td><td>0.3495027</td><td>0.4261411</td><td>761 </td></tr>
+</tbody>
+</table>
+</div><img alt="../_images/Lab1_44_1.png" src="../_images/Lab1_44_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="q-11-what-is-the-average-time-spent-in-each-state">
+<h3>Q.11 What is the average time spent in each state?<a class="headerlink" href="#q-11-what-is-the-average-time-spent-in-each-state" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># BEGIN SOLUTION</span>
+<span class="nf">seqmtplot</span><span class="p">(</span><span class="n">biofam.seq</span><span class="p">)</span>
+<span class="c1"># END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Lab1_48_0.png" src="../_images/Lab1_48_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./labs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="../Lecture3.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Lecture 3</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Lab2.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lab 2</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Quan Nguyen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
