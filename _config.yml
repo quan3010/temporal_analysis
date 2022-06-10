@@ -2,7 +2,7 @@
 title: Temporal and sequential analysis - LASI 2022
 author: Quan Nguyen
 logo: img/solar_logo.png
-exclude_patterns: ["archive/*", "source/*", "release/*", "temporal/*"]
+exclude_patterns: ["archive/*", "source/*", "release/*", "temporal/*", "labs/release/*"]
 
 repository:
   url: https://github.com/quan3010/temporal_analysis

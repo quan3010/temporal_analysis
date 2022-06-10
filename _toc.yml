@@ -8,8 +8,8 @@ parts:
   - file: Lecture3.ipynb
 - caption: Labs
   chapters:
-  - file: Lab1.ipynb
-  - file: Lab2.ipynb
-  - file: Lab3.ipynb
+  - file: labs/Lab1.ipynb
+  - file: labs/Lab2.ipynb
+  - file: labs/Lab3.ipynb
 
 
