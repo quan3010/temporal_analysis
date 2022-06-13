@@ -1,0 +1,849 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 2: Cluster analysis of sequential data &#8212; Temporal and sequential analysis - LASI 2022</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Lab 3" href="Lab3.html" />
+    <link rel="prev" title="Lab 1: Exploratory analysis of sequential data in education" href="Lab1.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Temporal and sequential analysis - LASI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lectures/Lecture1.html">
+   Lecture 1: Exploratory data analysis of sequence data in education
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lectures/Lecture2.html">
+   Lecture 2: Clustering of sequential data in education
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../lectures/Lecture3.html">
+   Lecture 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Labs solutions
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lab1.html">
+   Lab 1: Exploratory analysis of sequential data in education
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Lab 2: Cluster analysis of sequential data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lab3.html">
+   Lab 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Quan Nguyen<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/labs/source/Lab2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/quan3010/temporal_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/quan3010/temporal_analysis/issues/new?title=Issue%20on%20page%20%2Flabs/source/Lab2.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/quan3010/temporal_analysis/master?urlpath=tree/labs/source/Lab2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#about-the-dataset">
+   About the dataset
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q1-create-a-normalized-dissimilarity-matrix-using-longest-common-subsequences-method">
+   Q1. Create a normalized dissimilarity matrix using Longest Common Subsequences method
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q2-plot-the-pairs-of-sequences">
+   Q2. Plot the pairs of sequences
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q3-create-a-dissimilarity-matrix-using-optimal-matching-using-transition-rates-as-substitution-cost-matrix">
+   Q3. Create a dissimilarity matrix using optimal matching using transition rates as substitution cost matrix
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q4-perform-an-agglomerative-clustering-using-ward-linkage-method">
+   Q4. Perform an agglomerative clustering using ward linkage method
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#q5-select-clusters">
+   Q5: Select clusters
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="lab-2-cluster-analysis-of-sequential-data">
+<h1>Lab 2: Cluster analysis of sequential data<a class="headerlink" href="#lab-2-cluster-analysis-of-sequential-data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="about-the-dataset">
+<h2>About the dataset<a class="headerlink" href="#about-the-dataset" title="Permalink to this headline">¶</a></h2>
+<p>In this lab, we are going to use the built-in <code class="docutils literal notranslate"><span class="pre">biofam</span></code> data set from the <code class="docutils literal notranslate"><span class="pre">TraMineR</span></code> package. See more details <a class="reference external" href="http://traminer.unige.ch/doc/biofam.html">here</a></p>
+<p>This data consists information about the Family life states from the Swiss Household Panel biographical survey. 16 year-long family life sequences built from the retrospective biographical survey carried out by the Swiss Household Panel (SHP) in 2002.</p>
+<p>A data frame with 2000 rows, 16 state variables, 1 id variable and 7 covariates and 2 weights variables.</p>
+<p>The data set contains (in columns 10 to 25) sequences of family life states from age 15 to 30 (sequence length is 16) and a series of covariates. The sequences are a sample of 2000 sequences of those created from the SHP biographical survey. It includes only individuals who were at least 30 years old at the time of the survey. The biofam data set describes family life courses of 2000 individuals born between 1909 and 1972.</p>
+<p>The states numbered from 0 to 7 are defined from the combination of five basic states, namely Living with parents (Parent), Left home (Left), Married (Marr), Having Children (Child), Divorced:</p>
+<p>0 = “Parent”<br />
+1 = “Left”<br />
+2 = “Married”<br />
+3 = “Left+Marr”<br />
+4 = “Child”<br />
+5 = “Left+Child”<br />
+6 = “Left+Marr+Child”<br />
+7 = “Divorced”</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p>Label</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>idhous</p></td>
+<td><p>ID</p></td>
+</tr>
+<tr class="row-odd"><td><p>sex</p></td>
+<td><p>sex</p></td>
+</tr>
+<tr class="row-even"><td><p>birthy</p></td>
+<td><p>birth year</p></td>
+</tr>
+<tr class="row-odd"><td><p>nat102</p></td>
+<td><p>nationality</p></td>
+</tr>
+<tr class="row-even"><td><p>plingu02</p></td>
+<td><p>interview language</p></td>
+</tr>
+<tr class="row-odd"><td><p>p02r01</p></td>
+<td><p>confession or religion</p></td>
+</tr>
+<tr class="row-even"><td><p>p02r04</p></td>
+<td><p>participation in religious services: frequency</p></td>
+</tr>
+<tr class="row-odd"><td><p>cspfaj</p></td>
+<td><p>Swiss socio-professional category: Fathers job</p></td>
+</tr>
+<tr class="row-even"><td><p>cspmoj</p></td>
+<td><p>Swiss socio-professional category: Mothers job</p></td>
+</tr>
+<tr class="row-odd"><td><p>a15</p></td>
+<td><p>family status at age 15</p></td>
+</tr>
+<tr class="row-even"><td><p>…</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>a30</p></td>
+<td><p>family status at age 30</p></td>
+</tr>
+</tbody>
+</table>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">TraMineR</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span>
+<span class="nf">data</span><span class="p">(</span><span class="n">biofam</span><span class="p">)</span>
+<span class="nf">str</span><span class="p">(</span><span class="n">biofam</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>── <span class=" -Color -Color-Bold">Attaching packages</span> ──────────────────────────────────────────────────────── tidyverse 1.3.1 ──
+
+<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">ggplot2</span> 3.3.5     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">purrr  </span> 0.3.4
+<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">tibble </span> 3.1.5     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">dplyr  </span> 1.0.7
+<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">tidyr  </span> 1.1.3     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">stringr</span> 1.4.0
+<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">readr  </span> 2.0.1     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">forcats</span> 0.5.1
+
+Warning message:
+“package ‘tibble’ was built under R version 4.1.1”
+Warning message:
+“package ‘readr’ was built under R version 4.1.1”
+── <span class=" -Color -Color-Bold">Conflicts</span> ─────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">filter()</span> masks <span class=" -Color -Color-Blue">stats</span>::filter()
+<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">lag()</span>    masks <span class=" -Color -Color-Blue">stats</span>::lag()
+
+Warning message:
+“package ‘TraMineR’ was built under R version 4.1.1”
+
+TraMineR stable version 2.2-3 (Built: 2022-01-26)
+
+Website: http://traminer.unige.ch
+
+Please type &#39;citation(&quot;TraMineR&quot;)&#39; for citation information.
+
+
+Warning message:
+“package ‘cluster’ was built under R version 4.1.1”
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;data.frame&#39;:	2000 obs. of  27 variables:
+ $ idhous  : num  66891 28621 57711 17501 147701 ...
+ $ sex     : Factor w/ 2 levels &quot;man&quot;,&quot;woman&quot;: 1 1 2 1 1 1 1 1 1 2 ...
+ $ birthyr : num  1943 1935 1946 1918 1946 ...
+ $ nat_1_02: Factor w/ 200 levels &quot;other error&quot;,..: 6 6 6 6 6 6 6 6 6 6 ...
+ $ plingu02: Factor w/ 3 levels &quot;french&quot;,&quot;german&quot;,..: 2 2 1 2 2 3 2 1 1 2 ...
+ $ p02r01  : Factor w/ 13 levels &quot;other error&quot;,..: 6 7 13 7 7 7 6 9 6 7 ...
+ $ p02r04  : Factor w/ 14 levels &quot;other error&quot;,..: 9 13 7 13 7 6 7 14 9 13 ...
+ $ cspfaj  : Factor w/ 12 levels &quot;active occupied but not classified&quot;,..: 7 7 7 5 NA 12 NA 11 7 7 ...
+ $ cspmoj  : Factor w/ 12 levels &quot;active occupied but not classified&quot;,..: 7 NA 9 NA NA NA NA NA 7 NA ...
+ $ a15     : num  0 0 0 0 0 0 0 0 0 1 ...
+ $ a16     : num  0 1 0 0 0 0 0 0 0 1 ...
+ $ a17     : num  0 1 0 0 0 0 0 0 0 1 ...
+ $ a18     : num  0 1 0 0 0 0 0 0 0 1 ...
+ $ a19     : num  0 1 0 0 0 0 0 0 0 1 ...
+ $ a20     : num  0 1 0 1 1 0 0 0 0 1 ...
+ $ a21     : num  0 1 0 1 1 0 0 1 0 1 ...
+ $ a22     : num  0 1 1 1 1 0 0 1 0 1 ...
+ $ a23     : num  0 1 1 1 1 0 0 1 0 1 ...
+ $ a24     : num  3 1 1 1 1 0 2 1 0 6 ...
+ $ a25     : num  6 1 1 1 1 0 2 1 0 6 ...
+ $ a26     : num  6 3 1 1 1 0 2 3 6 6 ...
+ $ a27     : num  6 6 3 1 1 0 2 3 6 6 ...
+ $ a28     : num  6 6 6 1 6 0 2 3 6 6 ...
+ $ a29     : num  6 6 6 1 6 0 2 6 6 6 ...
+ $ a30     : num  6 6 6 1 6 0 2 6 6 6 ...
+ $ wp00tbgp: num  1053 855 575 1527 796 ...
+ $ wp00tbgs: num  0.935 0.759 0.51 1.356 0.707 ...
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># state labels</span>
+<span class="n">bfstates</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Parent&quot;</span><span class="p">,</span> <span class="s">&quot;Left&quot;</span><span class="p">,</span> <span class="s">&quot;Married&quot;</span><span class="p">,</span> <span class="s">&quot;Left+Marr&quot;</span><span class="p">,</span> <span class="s">&quot;Child&quot;</span><span class="p">,</span> <span class="s">&quot;Left+Child&quot;</span><span class="p">,</span> <span class="s">&quot;Left+Marr+Child&quot;</span><span class="p">,</span> <span class="s">&quot;Divorced&quot;</span><span class="p">)</span>
+
+<span class="c1"># define sequence object</span>
+<span class="n">biofam.seq</span> <span class="o">&lt;-</span> <span class="nf">seqdef</span><span class="p">(</span><span class="n">biofam</span><span class="p">,</span> <span class="m">10</span><span class="o">:</span><span class="m">25</span><span class="p">,</span> <span class="n">states</span> <span class="o">=</span> <span class="n">bfstates</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">bfstates</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] state coding:
+
+       [alphabet]  [label]         [long label] 
+
+     1  0           Parent          Parent
+
+     2  1           Left            Left
+
+     3  2           Married         Married
+
+     4  3           Left+Marr       Left+Marr
+
+     5  4           Child           Child
+
+     6  5           Left+Child      Left+Child
+
+     7  6           Left+Marr+Child Left+Marr+Child
+
+     8  7           Divorced        Divorced
+
+ [&gt;] 2000 sequences in the data set
+
+ [&gt;] min/max sequence length: 16/16
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="q1-create-a-normalized-dissimilarity-matrix-using-longest-common-subsequences-method">
+<h2>Q1. Create a normalized dissimilarity matrix using Longest Common Subsequences method<a class="headerlink" href="#q1-create-a-normalized-dissimilarity-matrix-using-longest-common-subsequences-method" title="Permalink to this headline">¶</a></h2>
+<p>Store the dissimilarity matrix in <code class="docutils literal notranslate"><span class="pre">biofam.seq.LCS</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">biofam.seq.LCS</span> <span class="o">&lt;-</span> <span class="kc">NULL</span>
+
+<span class="c1"># BEGIN SOLUTION</span>
+<span class="n">biofam.seq.LCS</span> <span class="o">&lt;-</span> <span class="nf">seqdist</span><span class="p">(</span><span class="n">biofam.seq</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s">&#39;LCS&#39;</span><span class="p">,</span> <span class="n">norm</span> <span class="o">=</span> <span class="s">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">biofam.seq.LCS</span>
+
+<span class="c1"># END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 2000 sequences with 8 distinct states
+
+ [&gt;] creating a &#39;sm&#39; with a substitution cost of 2
+
+ [&gt;] creating 8x8 substitution-cost matrix using 2 as constant value
+
+ [&gt;] 537 distinct  sequences 
+
+ [&gt;] min/max sequence lengths: 16/16
+
+ [&gt;] computing distances using the LCS gmean normalized metric
+
+ [&gt;] elapsed time: 0.123 secs
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A matrix: 2000 × 2000 of type dbl</caption>
+<thead>
+	<tr><th></th><th scope=col>1167</th><th scope=col>514</th><th scope=col>1013</th><th scope=col>275</th><th scope=col>2580</th><th scope=col>773</th><th scope=col>1187</th><th scope=col>47</th><th scope=col>2091</th><th scope=col>1846</th><th scope=col>⋯</th><th scope=col>278</th><th scope=col>1980</th><th scope=col>787</th><th scope=col>1120</th><th scope=col>59</th><th scope=col>629</th><th scope=col>2297</th><th scope=col>775</th><th scope=col>2522</th><th scope=col>719</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1167</th><td>0.0000</td><td>0.6250</td><td>0.3125</td><td>0.6875</td><td>0.5000</td><td>0.4375</td><td>0.4375</td><td>0.4375</td><td>0.1250</td><td>0.6250</td><td>⋯</td><td>0.4375</td><td>0.6875</td><td>0.4375</td><td>0.3750</td><td>0.4375</td><td>0.2500</td><td>0.5625</td><td>0.4375</td><td>0.8125</td><td>0.2500</td></tr>
+	<tr><th scope=row>514</th><td>0.6250</td><td>0.0000</td><td>0.3750</td><td>0.3125</td><td>0.2500</td><td>0.9375</td><td>0.9375</td><td>0.4375</td><td>0.6875</td><td>0.1875</td><td>⋯</td><td>0.9375</td><td>0.3125</td><td>0.8125</td><td>0.8750</td><td>0.9375</td><td>0.5000</td><td>0.2500</td><td>0.9375</td><td>0.9375</td><td>0.6875</td></tr>
+	<tr><th scope=row>1013</th><td>0.3125</td><td>0.3750</td><td>0.0000</td><td>0.3750</td><td>0.1875</td><td>0.5625</td><td>0.5625</td><td>0.1250</td><td>0.3750</td><td>0.5000</td><td>⋯</td><td>0.5625</td><td>0.3750</td><td>0.4375</td><td>0.5000</td><td>0.5625</td><td>0.2500</td><td>0.3125</td><td>0.5625</td><td>0.8125</td><td>0.4375</td></tr>
+	<tr><th scope=row>275</th><td>0.6875</td><td>0.3125</td><td>0.3750</td><td>0.0000</td><td>0.1875</td><td>0.6875</td><td>0.6875</td><td>0.3750</td><td>0.6875</td><td>0.4375</td><td>⋯</td><td>0.6875</td><td>0.0000</td><td>0.5625</td><td>0.6875</td><td>0.6875</td><td>0.5000</td><td>0.5000</td><td>0.6875</td><td>0.8125</td><td>0.6875</td></tr>
+	<tr><th scope=row>2580</th><td>0.5000</td><td>0.2500</td><td>0.1875</td><td>0.1875</td><td>0.0000</td><td>0.6875</td><td>0.6875</td><td>0.2500</td><td>0.5000</td><td>0.3125</td><td>⋯</td><td>0.6875</td><td>0.1875</td><td>0.5625</td><td>0.6250</td><td>0.6875</td><td>0.3125</td><td>0.3125</td><td>0.6875</td><td>0.8125</td><td>0.5000</td></tr>
+	<tr><th scope=row>773</th><td>0.4375</td><td>0.9375</td><td>0.5625</td><td>0.6875</td><td>0.6875</td><td>0.0000</td><td>0.4375</td><td>0.6250</td><td>0.3125</td><td>1.0000</td><td>⋯</td><td>0.0000</td><td>0.6875</td><td>0.1250</td><td>0.0625</td><td>0.1875</td><td>0.6250</td><td>0.8750</td><td>0.0000</td><td>0.8125</td><td>0.6250</td></tr>
+	<tr><th scope=row>1187</th><td>0.4375</td><td>0.9375</td><td>0.5625</td><td>0.6875</td><td>0.6875</td><td>0.4375</td><td>0.0000</td><td>0.6250</td><td>0.4375</td><td>1.0000</td><td>⋯</td><td>0.4375</td><td>0.6875</td><td>0.4375</td><td>0.4375</td><td>0.2500</td><td>0.6250</td><td>0.8750</td><td>0.4375</td><td>0.3750</td><td>0.6250</td></tr>
+	<tr><th scope=row>47</th><td>0.4375</td><td>0.4375</td><td>0.1250</td><td>0.3750</td><td>0.2500</td><td>0.6250</td><td>0.6250</td><td>0.0000</td><td>0.5000</td><td>0.5625</td><td>⋯</td><td>0.6250</td><td>0.3750</td><td>0.5000</td><td>0.5625</td><td>0.6250</td><td>0.3125</td><td>0.2500</td><td>0.6250</td><td>0.8125</td><td>0.5000</td></tr>
+	<tr><th scope=row>2091</th><td>0.1250</td><td>0.6875</td><td>0.3750</td><td>0.6875</td><td>0.5000</td><td>0.3125</td><td>0.4375</td><td>0.5000</td><td>0.0000</td><td>0.6875</td><td>⋯</td><td>0.3125</td><td>0.6875</td><td>0.3125</td><td>0.2500</td><td>0.3125</td><td>0.3125</td><td>0.6250</td><td>0.3125</td><td>0.8125</td><td>0.3125</td></tr>
+	<tr><th scope=row>1846</th><td>0.6250</td><td>0.1875</td><td>0.5000</td><td>0.4375</td><td>0.3125</td><td>1.0000</td><td>1.0000</td><td>0.5625</td><td>0.6875</td><td>0.0000</td><td>⋯</td><td>1.0000</td><td>0.4375</td><td>0.8750</td><td>0.9375</td><td>1.0000</td><td>0.3750</td><td>0.3750</td><td>1.0000</td><td>1.0000</td><td>0.5625</td></tr>
+	<tr><th scope=row>1990</th><td>0.4375</td><td>0.8750</td><td>0.5000</td><td>0.6875</td><td>0.6875</td><td>0.5000</td><td>0.5000</td><td>0.4375</td><td>0.5000</td><td>1.0000</td><td>⋯</td><td>0.5000</td><td>0.6875</td><td>0.5000</td><td>0.5000</td><td>0.5000</td><td>0.6250</td><td>0.6250</td><td>0.5000</td><td>0.8125</td><td>0.6250</td></tr>
+	<tr><th scope=row>2088</th><td>0.4375</td><td>0.9375</td><td>0.5625</td><td>0.6875</td><td>0.6875</td><td>0.0000</td><td>0.4375</td><td>0.6250</td><td>0.3125</td><td>1.0000</td><td>⋯</td><td>0.0000</td><td>0.6875</td><td>0.1250</td><td>0.0625</td><td>0.1875</td><td>0.6250</td><td>0.8750</td><td>0.0000</td><td>0.8125</td><td>0.6250</td></tr>
+	<tr><th scope=row>867</th><td>0.2500</td><td>0.3750</td><td>0.1875</td><td>0.4375</td><td>0.2500</td><td>0.6875</td><td>0.6875</td><td>0.2500</td><td>0.3750</td><td>0.3750</td><td>⋯</td><td>0.6875</td><td>0.4375</td><td>0.5625</td><td>0.6250</td><td>0.6875</td><td>0.1250</td><td>0.3125</td><td>0.6875</td><td>0.8125</td><td>0.3125</td></tr>
+	<tr><th scope=row>1616</th><td>0.2500</td><td>0.6875</td><td>0.4375</td><td>0.6875</td><td>0.5000</td><td>0.6250</td><td>0.6250</td><td>0.5000</td><td>0.3125</td><td>0.5625</td><td>⋯</td><td>0.6250</td><td>0.6875</td><td>0.6250</td><td>0.5625</td><td>0.6250</td><td>0.1875</td><td>0.6250</td><td>0.6250</td><td>0.8125</td><td>0.0000</td></tr>
+	<tr><th scope=row>2136</th><td>0.4375</td><td>0.8750</td><td>0.5000</td><td>0.6875</td><td>0.6875</td><td>0.5000</td><td>0.5000</td><td>0.4375</td><td>0.5000</td><td>1.0000</td><td>⋯</td><td>0.5000</td><td>0.6875</td><td>0.5000</td><td>0.5000</td><td>0.5000</td><td>0.6250</td><td>0.6875</td><td>0.5000</td><td>0.8125</td><td>0.6250</td></tr>
+	<tr><th scope=row>2031</th><td>0.3750</td><td>0.6875</td><td>0.4375</td><td>0.6875</td><td>0.5000</td><td>0.6250</td><td>0.5000</td><td>0.5000</td><td>0.3750</td><td>0.7500</td><td>⋯</td><td>0.6250</td><td>0.6875</td><td>0.6250</td><td>0.5625</td><td>0.5000</td><td>0.3750</td><td>0.6250</td><td>0.6250</td><td>0.6875</td><td>0.3750</td></tr>
+	<tr><th scope=row>2459</th><td>0.4375</td><td>0.9375</td><td>0.5625</td><td>0.6875</td><td>0.6875</td><td>0.0000</td><td>0.4375</td><td>0.6250</td><td>0.3125</td><td>1.0000</td><td>⋯</td><td>0.0000</td><td>0.6875</td><td>0.1250</td><td>0.0625</td><td>0.1875</td><td>0.6250</td><td>0.8750</td><td>0.0000</td><td>0.8125</td><td>0.6250</td></tr>
+	<tr><th scope=row>222</th><td>0.4375</td><td>0.9375</td><td>0.5625</td><td>0.6875</td><td>0.6875</td><td>0.0000</td><td>0.4375</td><td>0.6250</td><td>0.3125</td><td>1.0000</td><td>⋯</td><td>0.0000</td><td>0.6875</td><td>0.1250</td><td>0.0625</td><td>0.1875</td><td>0.6250</td><td>0.8750</td><td>0.0000</td><td>0.8125</td><td>0.6250</td></tr>
+	<tr><th scope=row>2193</th><td>0.3750</td><td>0.8750</td><td>0.5000</td><td>0.6875</td><td>0.6875</td><td>0.1875</td><td>0.4375</td><td>0.4375</td><td>0.3125</td><td>1.0000</td><td>⋯</td><td>0.1875</td><td>0.6875</td><td>0.1875</td><td>0.1875</td><td>0.1875</td><td>0.6250</td><td>0.6875</td><td>0.1875</td><td>0.8125</td><td>0.6250</td></tr>
+	<tr><th scope=row>1571</th><td>0.3125</td><td>0.4375</td><td>0.3125</td><td>0.5625</td><td>0.3750</td><td>0.7500</td><td>0.7500</td><td>0.3750</td><td>0.4375</td><td>0.3750</td><td>⋯</td><td>0.7500</td><td>0.5625</td><td>0.6250</td><td>0.6875</td><td>0.7500</td><td>0.1250</td><td>0.3750</td><td>0.7500</td><td>0.8125</td><td>0.2500</td></tr>
+	<tr><th scope=row>2592</th><td>0.1250</td><td>0.6875</td><td>0.3750</td><td>0.6875</td><td>0.5000</td><td>0.5000</td><td>0.5000</td><td>0.5000</td><td>0.1875</td><td>0.5625</td><td>⋯</td><td>0.5000</td><td>0.6875</td><td>0.5000</td><td>0.4375</td><td>0.5000</td><td>0.1875</td><td>0.6250</td><td>0.5000</td><td>0.8125</td><td>0.1250</td></tr>
+	<tr><th scope=row>1989</th><td>0.3125</td><td>0.6250</td><td>0.5000</td><td>0.7500</td><td>0.5625</td><td>0.7500</td><td>0.7500</td><td>0.5000</td><td>0.4375</td><td>0.5625</td><td>⋯</td><td>0.7500</td><td>0.7500</td><td>0.7500</td><td>0.6875</td><td>0.7500</td><td>0.3125</td><td>0.5000</td><td>0.7500</td><td>0.8125</td><td>0.1250</td></tr>
+	<tr><th scope=row>1917</th><td>0.1250</td><td>0.6250</td><td>0.3125</td><td>0.6875</td><td>0.5000</td><td>0.5000</td><td>0.5000</td><td>0.3125</td><td>0.1875</td><td>0.6875</td><td>⋯</td><td>0.5000</td><td>0.6875</td><td>0.5000</td><td>0.4375</td><td>0.5000</td><td>0.3125</td><td>0.4375</td><td>0.5000</td><td>0.8125</td><td>0.3125</td></tr>
+	<tr><th scope=row>630</th><td>0.5625</td><td>0.5625</td><td>0.6250</td><td>0.8125</td><td>0.6250</td><td>0.9375</td><td>0.9375</td><td>0.6875</td><td>0.6250</td><td>0.4375</td><td>⋯</td><td>0.9375</td><td>0.8125</td><td>0.8125</td><td>0.8750</td><td>0.9375</td><td>0.3750</td><td>0.5625</td><td>0.9375</td><td>0.9375</td><td>0.3125</td></tr>
+	<tr><th scope=row>532</th><td>0.2500</td><td>0.6875</td><td>0.4375</td><td>0.6875</td><td>0.5000</td><td>0.6250</td><td>0.6250</td><td>0.5000</td><td>0.3125</td><td>0.5625</td><td>⋯</td><td>0.6250</td><td>0.6875</td><td>0.6250</td><td>0.5625</td><td>0.6250</td><td>0.1875</td><td>0.6250</td><td>0.6250</td><td>0.8125</td><td>0.0000</td></tr>
+	<tr><th scope=row>863</th><td>0.1875</td><td>0.6250</td><td>0.3750</td><td>0.6875</td><td>0.5000</td><td>0.6250</td><td>0.6250</td><td>0.3750</td><td>0.3125</td><td>0.5625</td><td>⋯</td><td>0.6250</td><td>0.6875</td><td>0.6250</td><td>0.5625</td><td>0.6250</td><td>0.1875</td><td>0.5000</td><td>0.6250</td><td>0.8125</td><td>0.1250</td></tr>
+	<tr><th scope=row>1102</th><td>0.5625</td><td>0.4375</td><td>0.5000</td><td>0.6875</td><td>0.5000</td><td>0.9375</td><td>0.9375</td><td>0.5625</td><td>0.6250</td><td>0.3125</td><td>⋯</td><td>0.9375</td><td>0.6875</td><td>0.8125</td><td>0.8750</td><td>0.9375</td><td>0.3125</td><td>0.4375</td><td>0.9375</td><td>0.9375</td><td>0.3125</td></tr>
+	<tr><th scope=row>1454</th><td>0.4375</td><td>0.9375</td><td>0.5625</td><td>0.6875</td><td>0.6875</td><td>0.0000</td><td>0.4375</td><td>0.6250</td><td>0.3125</td><td>1.0000</td><td>⋯</td><td>0.0000</td><td>0.6875</td><td>0.1250</td><td>0.0625</td><td>0.1875</td><td>0.6250</td><td>0.8750</td><td>0.0000</td><td>0.8125</td><td>0.6250</td></tr>
+	<tr><th scope=row>1174</th><td>0.4375</td><td>0.2500</td><td>0.1250</td><td>0.2500</td><td>0.0625</td><td>0.6875</td><td>0.6875</td><td>0.1875</td><td>0.5000</td><td>0.3750</td><td>⋯</td><td>0.6875</td><td>0.2500</td><td>0.5625</td><td>0.6250</td><td>0.6875</td><td>0.3125</td><td>0.2500</td><td>0.6875</td><td>0.8125</td><td>0.5000</td></tr>
+	<tr><th scope=row>227</th><td>0.3125</td><td>0.6875</td><td>0.5000</td><td>0.6875</td><td>0.5000</td><td>0.6875</td><td>0.6875</td><td>0.5625</td><td>0.3750</td><td>0.5625</td><td>⋯</td><td>0.6875</td><td>0.6875</td><td>0.6875</td><td>0.6250</td><td>0.6875</td><td>0.2500</td><td>0.6250</td><td>0.6875</td><td>0.8125</td><td>0.0625</td></tr>
+	<tr><th scope=row>⋮</th><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋱</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td></tr>
+	<tr><th scope=row>81</th><td>0.5625</td><td>0.3750</td><td>0.2500</td><td>0.1250</td><td>0.1875</td><td>0.5625</td><td>0.5625</td><td>0.3125</td><td>0.5625</td><td>0.4375</td><td>⋯</td><td>0.5625</td><td>0.1250</td><td>0.4375</td><td>0.5625</td><td>0.5625</td><td>0.4375</td><td>0.5000</td><td>0.5625</td><td>0.8125</td><td>0.6250</td></tr>
+	<tr><th scope=row>1805</th><td>0.1875</td><td>0.6875</td><td>0.3750</td><td>0.6875</td><td>0.5000</td><td>0.3125</td><td>0.4375</td><td>0.5000</td><td>0.0625</td><td>0.7500</td><td>⋯</td><td>0.3125</td><td>0.6875</td><td>0.3125</td><td>0.2500</td><td>0.3125</td><td>0.3750</td><td>0.6250</td><td>0.3125</td><td>0.8125</td><td>0.3750</td></tr>
+	<tr><th scope=row>789</th><td>0.9375</td><td>0.3125</td><td>0.6250</td><td>0.2500</td><td>0.4375</td><td>0.9375</td><td>0.9375</td><td>0.6250</td><td>0.9375</td><td>0.4375</td><td>⋯</td><td>0.9375</td><td>0.2500</td><td>0.8125</td><td>0.9375</td><td>0.9375</td><td>0.7500</td><td>0.5625</td><td>0.9375</td><td>0.9375</td><td>0.9375</td></tr>
+	<tr><th scope=row>2361</th><td>0.5625</td><td>0.9375</td><td>0.5625</td><td>0.6875</td><td>0.6875</td><td>0.5625</td><td>0.1250</td><td>0.6250</td><td>0.5625</td><td>1.0000</td><td>⋯</td><td>0.5625</td><td>0.6875</td><td>0.5625</td><td>0.5625</td><td>0.3750</td><td>0.6250</td><td>0.8750</td><td>0.5625</td><td>0.2500</td><td>0.6250</td></tr>
+	<tr><th scope=row>56</th><td>0.0625</td><td>0.6250</td><td>0.3125</td><td>0.6875</td><td>0.5000</td><td>0.5000</td><td>0.5000</td><td>0.3750</td><td>0.1875</td><td>0.6250</td><td>⋯</td><td>0.5000</td><td>0.6875</td><td>0.5000</td><td>0.4375</td><td>0.5000</td><td>0.2500</td><td>0.5000</td><td>0.5000</td><td>0.8125</td><td>0.2500</td></tr>
+	<tr><th scope=row>645</th><td>0.1875</td><td>0.5625</td><td>0.2500</td><td>0.5625</td><td>0.3750</td><td>0.5625</td><td>0.5625</td><td>0.3750</td><td>0.2500</td><td>0.4375</td><td>⋯</td><td>0.5625</td><td>0.5625</td><td>0.4375</td><td>0.5000</td><td>0.5625</td><td>0.0625</td><td>0.5000</td><td>0.5625</td><td>0.8125</td><td>0.1875</td></tr>
+	<tr><th scope=row>1721</th><td>0.1875</td><td>0.5625</td><td>0.1875</td><td>0.5625</td><td>0.3750</td><td>0.4375</td><td>0.4375</td><td>0.2500</td><td>0.2500</td><td>0.6875</td><td>⋯</td><td>0.4375</td><td>0.5625</td><td>0.3125</td><td>0.3750</td><td>0.4375</td><td>0.3125</td><td>0.4375</td><td>0.4375</td><td>0.8125</td><td>0.4375</td></tr>
+	<tr><th scope=row>1419</th><td>0.4375</td><td>0.9375</td><td>0.5625</td><td>0.6875</td><td>0.6875</td><td>0.1250</td><td>0.3125</td><td>0.6250</td><td>0.3125</td><td>1.0000</td><td>⋯</td><td>0.1250</td><td>0.6875</td><td>0.1250</td><td>0.1250</td><td>0.0625</td><td>0.6250</td><td>0.8750</td><td>0.1250</td><td>0.6875</td><td>0.6250</td></tr>
+	<tr><th scope=row>1207</th><td>0.6875</td><td>0.3125</td><td>0.3750</td><td>0.0000</td><td>0.1875</td><td>0.6875</td><td>0.6875</td><td>0.3750</td><td>0.6875</td><td>0.4375</td><td>⋯</td><td>0.6875</td><td>0.0000</td><td>0.5625</td><td>0.6875</td><td>0.6875</td><td>0.5000</td><td>0.5000</td><td>0.6875</td><td>0.8125</td><td>0.6875</td></tr>
+	<tr><th scope=row>259</th><td>0.4375</td><td>0.9375</td><td>0.5625</td><td>0.6875</td><td>0.6875</td><td>0.4375</td><td>0.0000</td><td>0.6250</td><td>0.4375</td><td>1.0000</td><td>⋯</td><td>0.4375</td><td>0.6875</td><td>0.4375</td><td>0.4375</td><td>0.2500</td><td>0.6250</td><td>0.8750</td><td>0.4375</td><td>0.3750</td><td>0.6250</td></tr>
+	<tr><th scope=row>2413</th><td>0.4375</td><td>0.3125</td><td>0.3125</td><td>0.5625</td><td>0.3750</td><td>0.8750</td><td>0.8750</td><td>0.2500</td><td>0.5625</td><td>0.3125</td><td>⋯</td><td>0.8750</td><td>0.5625</td><td>0.7500</td><td>0.8125</td><td>0.8750</td><td>0.3125</td><td>0.1250</td><td>0.8750</td><td>0.8750</td><td>0.5000</td></tr>
+	<tr><th scope=row>2090</th><td>0.6875</td><td>0.3125</td><td>0.3750</td><td>0.0000</td><td>0.1875</td><td>0.6875</td><td>0.6875</td><td>0.3750</td><td>0.6875</td><td>0.4375</td><td>⋯</td><td>0.6875</td><td>0.0000</td><td>0.5625</td><td>0.6875</td><td>0.6875</td><td>0.5000</td><td>0.5000</td><td>0.6875</td><td>0.8125</td><td>0.6875</td></tr>
+	<tr><th scope=row>1337</th><td>0.0625</td><td>0.6250</td><td>0.3125</td><td>0.6875</td><td>0.5000</td><td>0.4375</td><td>0.4375</td><td>0.3750</td><td>0.1250</td><td>0.6875</td><td>⋯</td><td>0.4375</td><td>0.6875</td><td>0.4375</td><td>0.3750</td><td>0.4375</td><td>0.3125</td><td>0.5000</td><td>0.4375</td><td>0.8125</td><td>0.3125</td></tr>
+	<tr><th scope=row>1826</th><td>0.2500</td><td>0.5000</td><td>0.3125</td><td>0.5625</td><td>0.3750</td><td>0.6875</td><td>0.6875</td><td>0.3125</td><td>0.3750</td><td>0.4375</td><td>⋯</td><td>0.6875</td><td>0.5625</td><td>0.5625</td><td>0.6250</td><td>0.6875</td><td>0.1250</td><td>0.3750</td><td>0.6875</td><td>0.8125</td><td>0.2500</td></tr>
+	<tr><th scope=row>2503</th><td>0.3750</td><td>0.8750</td><td>0.5000</td><td>0.6875</td><td>0.6875</td><td>0.3750</td><td>0.4375</td><td>0.4375</td><td>0.3750</td><td>1.0000</td><td>⋯</td><td>0.3750</td><td>0.6875</td><td>0.3750</td><td>0.3750</td><td>0.3750</td><td>0.6250</td><td>0.6250</td><td>0.3750</td><td>0.8125</td><td>0.6250</td></tr>
+	<tr><th scope=row>106</th><td>0.0625</td><td>0.6875</td><td>0.3750</td><td>0.6875</td><td>0.5000</td><td>0.4375</td><td>0.4375</td><td>0.5000</td><td>0.1250</td><td>0.5625</td><td>⋯</td><td>0.4375</td><td>0.6875</td><td>0.4375</td><td>0.3750</td><td>0.4375</td><td>0.1875</td><td>0.6250</td><td>0.4375</td><td>0.8125</td><td>0.1875</td></tr>
+	<tr><th scope=row>1181</th><td>0.3750</td><td>0.5000</td><td>0.1875</td><td>0.3125</td><td>0.3125</td><td>0.4375</td><td>0.4375</td><td>0.2500</td><td>0.4375</td><td>0.6250</td><td>⋯</td><td>0.4375</td><td>0.3125</td><td>0.3125</td><td>0.4375</td><td>0.4375</td><td>0.4375</td><td>0.4375</td><td>0.4375</td><td>0.8125</td><td>0.6250</td></tr>
+	<tr><th scope=row>1848</th><td>0.4375</td><td>0.8750</td><td>0.5000</td><td>0.6875</td><td>0.6875</td><td>0.5000</td><td>0.5000</td><td>0.4375</td><td>0.5000</td><td>1.0000</td><td>⋯</td><td>0.5000</td><td>0.6875</td><td>0.5000</td><td>0.5000</td><td>0.5000</td><td>0.6250</td><td>0.6250</td><td>0.5000</td><td>0.8125</td><td>0.6250</td></tr>
+	<tr><th scope=row>2203</th><td>0.6250</td><td>0.3125</td><td>0.3125</td><td>0.0625</td><td>0.1875</td><td>0.6250</td><td>0.6250</td><td>0.3125</td><td>0.6250</td><td>0.4375</td><td>⋯</td><td>0.6250</td><td>0.0625</td><td>0.5000</td><td>0.6250</td><td>0.6250</td><td>0.4375</td><td>0.5000</td><td>0.6250</td><td>0.8125</td><td>0.6250</td></tr>
+	<tr><th scope=row>1745</th><td>0.6875</td><td>0.0625</td><td>0.4375</td><td>0.2500</td><td>0.2500</td><td>0.9375</td><td>0.9375</td><td>0.5000</td><td>0.6875</td><td>0.1875</td><td>⋯</td><td>0.9375</td><td>0.2500</td><td>0.8125</td><td>0.8750</td><td>0.9375</td><td>0.5000</td><td>0.3125</td><td>0.9375</td><td>0.9375</td><td>0.6875</td></tr>
+	<tr><th scope=row>278</th><td>0.4375</td><td>0.9375</td><td>0.5625</td><td>0.6875</td><td>0.6875</td><td>0.0000</td><td>0.4375</td><td>0.6250</td><td>0.3125</td><td>1.0000</td><td>⋯</td><td>0.0000</td><td>0.6875</td><td>0.1250</td><td>0.0625</td><td>0.1875</td><td>0.6250</td><td>0.8750</td><td>0.0000</td><td>0.8125</td><td>0.6250</td></tr>
+	<tr><th scope=row>1980</th><td>0.6875</td><td>0.3125</td><td>0.3750</td><td>0.0000</td><td>0.1875</td><td>0.6875</td><td>0.6875</td><td>0.3750</td><td>0.6875</td><td>0.4375</td><td>⋯</td><td>0.6875</td><td>0.0000</td><td>0.5625</td><td>0.6875</td><td>0.6875</td><td>0.5000</td><td>0.5000</td><td>0.6875</td><td>0.8125</td><td>0.6875</td></tr>
+	<tr><th scope=row>787</th><td>0.4375</td><td>0.8125</td><td>0.4375</td><td>0.5625</td><td>0.5625</td><td>0.1250</td><td>0.4375</td><td>0.5000</td><td>0.3125</td><td>0.8750</td><td>⋯</td><td>0.1250</td><td>0.5625</td><td>0.0000</td><td>0.1250</td><td>0.1875</td><td>0.5000</td><td>0.7500</td><td>0.1250</td><td>0.8125</td><td>0.6250</td></tr>
+	<tr><th scope=row>1120</th><td>0.3750</td><td>0.8750</td><td>0.5000</td><td>0.6875</td><td>0.6250</td><td>0.0625</td><td>0.4375</td><td>0.5625</td><td>0.2500</td><td>0.9375</td><td>⋯</td><td>0.0625</td><td>0.6875</td><td>0.1250</td><td>0.0000</td><td>0.1875</td><td>0.5625</td><td>0.8125</td><td>0.0625</td><td>0.8125</td><td>0.5625</td></tr>
+	<tr><th scope=row>59</th><td>0.4375</td><td>0.9375</td><td>0.5625</td><td>0.6875</td><td>0.6875</td><td>0.1875</td><td>0.2500</td><td>0.6250</td><td>0.3125</td><td>1.0000</td><td>⋯</td><td>0.1875</td><td>0.6875</td><td>0.1875</td><td>0.1875</td><td>0.0000</td><td>0.6250</td><td>0.8750</td><td>0.1875</td><td>0.6250</td><td>0.6250</td></tr>
+	<tr><th scope=row>629</th><td>0.2500</td><td>0.5000</td><td>0.2500</td><td>0.5000</td><td>0.3125</td><td>0.6250</td><td>0.6250</td><td>0.3125</td><td>0.3125</td><td>0.3750</td><td>⋯</td><td>0.6250</td><td>0.5000</td><td>0.5000</td><td>0.5625</td><td>0.6250</td><td>0.0000</td><td>0.4375</td><td>0.6250</td><td>0.8125</td><td>0.1875</td></tr>
+	<tr><th scope=row>2297</th><td>0.5625</td><td>0.2500</td><td>0.3125</td><td>0.5000</td><td>0.3125</td><td>0.8750</td><td>0.8750</td><td>0.2500</td><td>0.6250</td><td>0.3750</td><td>⋯</td><td>0.8750</td><td>0.5000</td><td>0.7500</td><td>0.8125</td><td>0.8750</td><td>0.4375</td><td>0.0000</td><td>0.8750</td><td>0.8750</td><td>0.6250</td></tr>
+	<tr><th scope=row>775</th><td>0.4375</td><td>0.9375</td><td>0.5625</td><td>0.6875</td><td>0.6875</td><td>0.0000</td><td>0.4375</td><td>0.6250</td><td>0.3125</td><td>1.0000</td><td>⋯</td><td>0.0000</td><td>0.6875</td><td>0.1250</td><td>0.0625</td><td>0.1875</td><td>0.6250</td><td>0.8750</td><td>0.0000</td><td>0.8125</td><td>0.6250</td></tr>
+	<tr><th scope=row>2522</th><td>0.8125</td><td>0.9375</td><td>0.8125</td><td>0.8125</td><td>0.8125</td><td>0.8125</td><td>0.3750</td><td>0.8125</td><td>0.8125</td><td>1.0000</td><td>⋯</td><td>0.8125</td><td>0.8125</td><td>0.8125</td><td>0.8125</td><td>0.6250</td><td>0.8125</td><td>0.8750</td><td>0.8125</td><td>0.0000</td><td>0.8125</td></tr>
+	<tr><th scope=row>719</th><td>0.2500</td><td>0.6875</td><td>0.4375</td><td>0.6875</td><td>0.5000</td><td>0.6250</td><td>0.6250</td><td>0.5000</td><td>0.3125</td><td>0.5625</td><td>⋯</td><td>0.6250</td><td>0.6875</td><td>0.6250</td><td>0.5625</td><td>0.6250</td><td>0.1875</td><td>0.6250</td><td>0.6250</td><td>0.8125</td><td>0.0000</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+<div class="section" id="q2-plot-the-pairs-of-sequences">
+<h2>Q2. Plot the pairs of sequences<a class="headerlink" href="#q2-plot-the-pairs-of-sequences" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Plot the top 5 sequences that are the most similar to sequence 1</p></li>
+<li><p>Plot the top 5 sequences that are the least similar to sequence 1</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">most_sim</span> <span class="o">&lt;-</span> <span class="nf">head</span><span class="p">(</span><span class="nf">which</span><span class="p">(</span><span class="n">biofam.seq.LCS</span><span class="o">==</span><span class="nf">min</span><span class="p">(</span><span class="n">biofam.seq.LCS</span><span class="p">),</span> <span class="n">arr.ind</span><span class="o">=</span><span class="bp">T</span><span class="p">))</span>
+<span class="n">most_sim</span>
+<span class="n">least_sim</span> <span class="o">&lt;-</span> <span class="nf">head</span><span class="p">(</span><span class="nf">which</span><span class="p">(</span><span class="n">biofam.seq.LCS</span><span class="o">==</span><span class="nf">max</span><span class="p">(</span><span class="n">biofam.seq.LCS</span><span class="p">),</span> <span class="n">arr.ind</span><span class="o">=</span><span class="bp">T</span><span class="p">))</span>
+<span class="n">least_sim</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><table class="dataframe">
+<caption>A matrix: 6 × 2 of type int</caption>
+<thead>
+	<tr><th></th><th scope=col>row</th><th scope=col>col</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1167</th><td>  1</td><td>1</td></tr>
+	<tr><th scope=row>1746</th><td> 39</td><td>1</td></tr>
+	<tr><th scope=row>2577</th><td>284</td><td>1</td></tr>
+	<tr><th scope=row>478</th><td>767</td><td>1</td></tr>
+	<tr><th scope=row>480</th><td>805</td><td>1</td></tr>
+	<tr><th scope=row>2380</th><td>919</td><td>1</td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table class="dataframe">
+<caption>A matrix: 6 × 2 of type int</caption>
+<thead>
+	<tr><th></th><th scope=col>row</th><th scope=col>col</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>2304</th><td> 443</td><td>1</td></tr>
+	<tr><th scope=row>2395</th><td> 602</td><td>1</td></tr>
+	<tr><th scope=row>909</th><td> 872</td><td>1</td></tr>
+	<tr><th scope=row>821</th><td>1461</td><td>1</td></tr>
+	<tr><th scope=row>769</th><td>1546</td><td>1</td></tr>
+	<tr><th scope=row>1012</th><td>1723</td><td>1</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># BEGIN SOLUTION</span>
+<span class="nf">seqiplot</span><span class="p">(</span><span class="n">biofam.seq</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">most_sim</span><span class="p">[,</span><span class="m">1</span><span class="p">]),])</span>
+<span class="nf">seqiplot</span><span class="p">(</span><span class="n">biofam.seq</span><span class="p">[</span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="n">least_sim</span><span class="p">[,</span><span class="m">1</span><span class="p">]),])</span>
+
+<span class="c1"># END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Lab2_13_0.png" src="../../_images/Lab2_13_0.png" />
+<img alt="../../_images/Lab2_13_1.png" src="../../_images/Lab2_13_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="q3-create-a-dissimilarity-matrix-using-optimal-matching-using-transition-rates-as-substitution-cost-matrix">
+<h2>Q3. Create a dissimilarity matrix using optimal matching using transition rates as substitution cost matrix<a class="headerlink" href="#q3-create-a-dissimilarity-matrix-using-optimal-matching-using-transition-rates-as-substitution-cost-matrix" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">biofam.seq.subcost</span> <span class="o">&lt;-</span> <span class="kc">NULL</span>
+<span class="n">biofam.seq.OM</span> <span class="o">&lt;-</span> <span class="kc">NULL</span>
+
+<span class="c1"># BEGIN SOLUTION</span>
+<span class="n">biofam.seq.subcost</span> <span class="o">&lt;-</span> <span class="nf">seqcost</span><span class="p">(</span><span class="n">biofam.seq</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;TRATE&quot;</span><span class="p">)</span>
+<span class="n">biofam.seq.OM</span> <span class="o">&lt;-</span> <span class="nf">seqdist</span><span class="p">(</span><span class="n">biofam.seq</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s">&#39;OM&#39;</span><span class="p">,</span> <span class="n">sm</span><span class="o">=</span><span class="n">biofam.seq.subcost</span><span class="o">$</span><span class="n">sm</span><span class="p">)</span>
+<span class="n">biofam.seq.OM</span>
+
+<span class="c1"># END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] creating substitution-cost matrix using transition rates ...
+
+ [&gt;] computing transition probabilities for states Parent/Left/Married/Left+Marr/Child/Left+Child/Left+Marr+Child/Divorced ...
+
+ [&gt;] 2000 sequences with 8 distinct states
+
+ [&gt;] checking &#39;sm&#39; (size and triangle inequality)
+
+ [&gt;] 537 distinct  sequences 
+
+ [&gt;] min/max sequence lengths: 16/16
+
+ [&gt;] computing distances using the OM metric
+
+ [&gt;] elapsed time: 0.127 secs
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A matrix: 2000 × 2000 of type dbl</caption>
+<thead>
+	<tr><th></th><th scope=col>1167</th><th scope=col>514</th><th scope=col>1013</th><th scope=col>275</th><th scope=col>2580</th><th scope=col>773</th><th scope=col>1187</th><th scope=col>47</th><th scope=col>2091</th><th scope=col>1846</th><th scope=col>⋯</th><th scope=col>278</th><th scope=col>1980</th><th scope=col>787</th><th scope=col>1120</th><th scope=col>59</th><th scope=col>629</th><th scope=col>2297</th><th scope=col>775</th><th scope=col>2522</th><th scope=col>719</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1167</th><td> 0.000000</td><td>19.563325</td><td> 9.890831</td><td>21.562411</td><td>15.630326</td><td>13.901396</td><td>13.92295</td><td>13.437363</td><td> 3.957049</td><td>19.309299</td><td>⋯</td><td>13.901396</td><td>21.562411</td><td>13.878381</td><td>11.912527</td><td>13.901428</td><td> 7.636805</td><td>17.241790</td><td>13.901396</td><td>25.83089</td><td> 7.767166</td></tr>
+	<tr><th scope=row>514</th><td>19.563325</td><td> 0.000000</td><td>11.727078</td><td> 9.916578</td><td> 7.890831</td><td>29.377814</td><td>29.50852</td><td>13.328194</td><td>21.254715</td><td> 5.777920</td><td>⋯</td><td>29.377814</td><td> 9.916578</td><td>25.563325</td><td>27.388945</td><td>29.377846</td><td>15.482360</td><td> 7.695148</td><td>29.377814</td><td>29.83603</td><td>21.414446</td></tr>
+	<tr><th scope=row>1013</th><td> 9.890831</td><td>11.727078</td><td> 0.000000</td><td>11.739494</td><td> 5.807409</td><td>17.661866</td><td>17.84715</td><td> 3.800558</td><td>11.559582</td><td>15.582221</td><td>⋯</td><td>17.661866</td><td>11.739494</td><td>13.836247</td><td>15.672997</td><td>17.661899</td><td> 7.755282</td><td> 9.945416</td><td>17.661866</td><td>25.89494</td><td>13.676236</td></tr>
+	<tr><th scope=row>275</th><td>21.562411</td><td> 9.916578</td><td>11.739494</td><td> 0.000000</td><td> 5.932086</td><td>21.399572</td><td>21.78166</td><td>11.649872</td><td>21.559303</td><td>13.954724</td><td>⋯</td><td>21.399572</td><td> 0.000000</td><td>17.508741</td><td>21.431519</td><td>21.563325</td><td>15.786949</td><td>15.643672</td><td>21.399572</td><td>25.96931</td><td>21.719034</td></tr>
+	<tr><th scope=row>2580</th><td>15.630326</td><td> 7.890831</td><td> 5.807409</td><td> 5.932086</td><td> 0.000000</td><td>21.529933</td><td>21.74830</td><td> 7.579129</td><td>15.627218</td><td> 9.945416</td><td>⋯</td><td>21.529933</td><td> 5.932086</td><td>17.672494</td><td>19.541064</td><td>21.529966</td><td> 9.854863</td><td> 9.833155</td><td>21.529933</td><td>25.93595</td><td>15.786949</td></tr>
+	<tr><th scope=row>773</th><td>13.901396</td><td>29.377814</td><td>17.661866</td><td>21.399572</td><td>21.529933</td><td> 0.000000</td><td>13.89259</td><td>19.609357</td><td> 9.944347</td><td>31.430826</td><td>⋯</td><td> 0.000000</td><td>21.399572</td><td> 3.890831</td><td> 1.988869</td><td> 5.953968</td><td>19.758332</td><td>27.500692</td><td> 0.000000</td><td>25.80053</td><td>19.888693</td></tr>
+	<tr><th scope=row>1187</th><td>13.922955</td><td>29.508520</td><td>17.847146</td><td>21.781663</td><td>21.748303</td><td>13.892592</td><td> 0.00000</td><td>19.783030</td><td>13.913712</td><td>31.430901</td><td>⋯</td><td>13.892592</td><td>21.781663</td><td>13.923280</td><td>13.896816</td><td> 7.938624</td><td>19.758407</td><td>27.565217</td><td>13.892592</td><td>11.90794</td><td>19.888768</td></tr>
+	<tr><th scope=row>47</th><td>13.437363</td><td>13.328194</td><td> 3.800558</td><td>11.649872</td><td> 7.579129</td><td>19.609357</td><td>19.78303</td><td> 0.000000</td><td>15.128752</td><td>17.183336</td><td>⋯</td><td>19.609357</td><td>11.649872</td><td>15.836247</td><td>17.620488</td><td>19.630873</td><td> 9.356397</td><td> 7.945416</td><td>19.609357</td><td>25.90075</td><td>15.288483</td></tr>
+	<tr><th scope=row>2091</th><td> 3.957049</td><td>21.254715</td><td>11.559582</td><td>21.559303</td><td>15.627218</td><td> 9.944347</td><td>13.91371</td><td>15.128752</td><td> 0.000000</td><td>21.486480</td><td>⋯</td><td> 9.944347</td><td>21.559303</td><td> 9.921332</td><td> 7.955477</td><td> 9.944379</td><td> 9.813986</td><td>19.377592</td><td> 9.944347</td><td>25.82165</td><td> 9.944347</td></tr>
+	<tr><th scope=row>1846</th><td>19.309299</td><td> 5.777920</td><td>15.582221</td><td>13.954724</td><td> 9.945416</td><td>31.430826</td><td>31.43090</td><td>17.183336</td><td>21.486480</td><td> 0.000000</td><td>⋯</td><td>31.430826</td><td>13.954724</td><td>27.617910</td><td>29.441957</td><td>31.430859</td><td>11.672494</td><td>11.209083</td><td>31.430826</td><td>31.75841</td><td>17.604580</td></tr>
+	<tr><th scope=row>1990</th><td>12.771527</td><td>26.569874</td><td>15.013399</td><td>21.168867</td><td>20.820808</td><td>15.745441</td><td>15.89590</td><td>13.241680</td><td>14.907330</td><td>30.083808</td><td>⋯</td><td>15.745441</td><td>21.168867</td><td>15.642236</td><td>15.577819</td><td>15.809924</td><td>18.411314</td><td>18.874726</td><td>15.745441</td><td>25.84067</td><td>18.382202</td></tr>
+	<tr><th scope=row>2088</th><td>13.901396</td><td>29.377814</td><td>17.661866</td><td>21.399572</td><td>21.529933</td><td> 0.000000</td><td>13.89259</td><td>19.609357</td><td> 9.944347</td><td>31.430826</td><td>⋯</td><td> 0.000000</td><td>21.399572</td><td> 3.890831</td><td> 1.988869</td><td> 5.953968</td><td>19.758332</td><td>27.500692</td><td> 0.000000</td><td>25.80053</td><td>19.888693</td></tr>
+	<tr><th scope=row>867</th><td> 7.781663</td><td>11.781663</td><td> 6.000000</td><td>13.780749</td><td> 7.848663</td><td>21.683059</td><td>21.70462</td><td> 7.601116</td><td>11.738712</td><td>11.527636</td><td>⋯</td><td>21.683059</td><td>13.780749</td><td>17.890831</td><td>19.694189</td><td>21.683091</td><td> 3.745974</td><td> 9.491947</td><td>21.683059</td><td>25.89227</td><td> 9.678059</td></tr>
+	<tr><th scope=row>1616</th><td> 7.767166</td><td>21.414446</td><td>13.676236</td><td>21.719034</td><td>15.786949</td><td>19.888693</td><td>19.88877</td><td>15.288483</td><td> 9.944347</td><td>17.604580</td><td>⋯</td><td>19.888693</td><td>21.719034</td><td>19.865678</td><td>17.899824</td><td>19.888725</td><td> 5.932086</td><td>18.938618</td><td>19.888693</td><td>25.84277</td><td> 0.000000</td></tr>
+	<tr><th scope=row>2136</th><td>13.576843</td><td>27.206889</td><td>15.540463</td><td>21.585088</td><td>21.237921</td><td>15.904540</td><td>15.89987</td><td>13.878695</td><td>15.389537</td><td>30.940726</td><td>⋯</td><td>15.904540</td><td>21.585088</td><td>15.801335</td><td>15.736918</td><td>15.875946</td><td>19.268232</td><td>21.634623</td><td>15.904540</td><td>25.84465</td><td>19.349071</td></tr>
+	<tr><th scope=row>2031</th><td>11.957176</td><td>21.716753</td><td>13.785214</td><td>21.854150</td><td>15.922778</td><td>19.924789</td><td>15.94599</td><td>15.590790</td><td>11.963244</td><td>23.644186</td><td>⋯</td><td>19.924789</td><td>21.854150</td><td>19.901774</td><td>17.935920</td><td>15.988880</td><td>11.971692</td><td>19.761011</td><td>19.924789</td><td>21.87136</td><td>11.953487</td></tr>
+	<tr><th scope=row>2459</th><td>13.901396</td><td>29.377814</td><td>17.661866</td><td>21.399572</td><td>21.529933</td><td> 0.000000</td><td>13.89259</td><td>19.609357</td><td> 9.944347</td><td>31.430826</td><td>⋯</td><td> 0.000000</td><td>21.399572</td><td> 3.890831</td><td> 1.988869</td><td> 5.953968</td><td>19.758332</td><td>27.500692</td><td> 0.000000</td><td>25.80053</td><td>19.888693</td></tr>
+	<tr><th scope=row>222</th><td>13.901396</td><td>29.377814</td><td>17.661866</td><td>21.399572</td><td>21.529933</td><td> 0.000000</td><td>13.89259</td><td>19.609357</td><td> 9.944347</td><td>31.430826</td><td>⋯</td><td> 0.000000</td><td>21.399572</td><td> 3.890831</td><td> 1.988869</td><td> 5.953968</td><td>19.758332</td><td>27.500692</td><td> 0.000000</td><td>25.80053</td><td>19.888693</td></tr>
+	<tr><th scope=row>2193</th><td>11.601116</td><td>27.055272</td><td>15.328194</td><td>21.313058</td><td>20.964999</td><td> 5.904540</td><td>13.90765</td><td>13.727078</td><td> 9.379412</td><td>30.865892</td><td>⋯</td><td> 5.904540</td><td>21.313058</td><td> 5.801335</td><td> 5.736918</td><td> 5.969023</td><td>19.193398</td><td>21.640674</td><td> 5.904540</td><td>25.81558</td><td>19.323759</td></tr>
+	<tr><th scope=row>1571</th><td> 9.836247</td><td>13.836247</td><td>10.000000</td><td>17.758111</td><td>11.826025</td><td>23.715382</td><td>23.71546</td><td>11.601116</td><td>13.771035</td><td>11.675602</td><td>⋯</td><td>23.715382</td><td>17.758111</td><td>19.945416</td><td>21.726512</td><td>23.715414</td><td> 4.000000</td><td>11.292505</td><td>23.715382</td><td>25.88537</td><td> 7.668751</td></tr>
+	<tr><th scope=row>2592</th><td> 3.789427</td><td>21.350553</td><td>11.655421</td><td>21.655142</td><td>15.723056</td><td>15.910955</td><td>15.91103</td><td>15.224591</td><td> 5.966608</td><td>17.540687</td><td>⋯</td><td>15.910955</td><td>21.655142</td><td>15.887940</td><td>13.922085</td><td>15.910987</td><td> 5.868193</td><td>18.874726</td><td>15.910955</td><td>25.83432</td><td> 3.977739</td></tr>
+	<tr><th scope=row>1989</th><td> 9.968180</td><td>19.752825</td><td>15.916578</td><td>23.629412</td><td>17.697326</td><td>23.825053</td><td>23.82513</td><td>15.800558</td><td>13.880707</td><td>17.546903</td><td>⋯</td><td>23.825053</td><td>23.629412</td><td>23.802039</td><td>21.836184</td><td>23.825086</td><td> 9.810517</td><td>15.491947</td><td>23.825053</td><td>25.85281</td><td> 3.936360</td></tr>
+	<tr><th scope=row>1917</th><td> 3.768738</td><td>19.451065</td><td> 9.778571</td><td>21.472789</td><td>15.540703</td><td>15.848887</td><td>15.89193</td><td> 9.890831</td><td> 5.904540</td><td>21.081019</td><td>⋯</td><td>15.848887</td><td>21.472789</td><td>15.801335</td><td>13.860018</td><td>15.848919</td><td> 9.408525</td><td>13.473052</td><td>15.848887</td><td>25.83670</td><td> 9.379412</td></tr>
+	<tr><th scope=row>630</th><td>17.624605</td><td>17.619453</td><td>19.732643</td><td>25.796257</td><td>19.864171</td><td>29.746133</td><td>29.74621</td><td>21.333759</td><td>19.801786</td><td>13.809587</td><td>⋯</td><td>29.746133</td><td>25.796257</td><td>26.000000</td><td>27.757263</td><td>29.746165</td><td>11.977362</td><td>17.111679</td><td>29.746133</td><td>29.74627</td><td> 9.857439</td></tr>
+	<tr><th scope=row>532</th><td> 7.767166</td><td>21.414446</td><td>13.676236</td><td>21.719034</td><td>15.786949</td><td>19.888693</td><td>19.88877</td><td>15.288483</td><td> 9.944347</td><td>17.604580</td><td>⋯</td><td>19.888693</td><td>21.719034</td><td>19.865678</td><td>17.899824</td><td>19.888725</td><td> 5.932086</td><td>18.938618</td><td>19.888693</td><td>25.84277</td><td> 0.000000</td></tr>
+	<tr><th scope=row>863</th><td> 5.968180</td><td>19.643656</td><td>11.916578</td><td>21.597466</td><td>15.665380</td><td>19.847315</td><td>19.84739</td><td>11.800558</td><td> 9.902968</td><td>17.483011</td><td>⋯</td><td>19.847315</td><td>21.597466</td><td>19.824300</td><td>17.858445</td><td>19.847347</td><td> 5.810517</td><td>15.382778</td><td>19.847315</td><td>25.84436</td><td> 3.601116</td></tr>
+	<tr><th scope=row>1102</th><td>17.537698</td><td>13.664729</td><td>15.777920</td><td>21.841533</td><td>15.909447</td><td>29.659225</td><td>29.65930</td><td>17.379035</td><td>19.714879</td><td> 9.854863</td><td>⋯</td><td>29.659225</td><td>21.841533</td><td>25.890831</td><td>27.670356</td><td>29.659257</td><td> 9.945416</td><td>13.156955</td><td>29.659225</td><td>29.76851</td><td> 9.770532</td></tr>
+	<tr><th scope=row>1454</th><td>13.901396</td><td>29.377814</td><td>17.661866</td><td>21.399572</td><td>21.529933</td><td> 0.000000</td><td>13.89259</td><td>19.609357</td><td> 9.944347</td><td>31.430826</td><td>⋯</td><td> 0.000000</td><td>21.399572</td><td> 3.890831</td><td> 1.988869</td><td> 5.953968</td><td>19.758332</td><td>27.500692</td><td> 0.000000</td><td>25.80053</td><td>19.888693</td></tr>
+	<tr><th scope=row>1174</th><td>13.781663</td><td> 7.836247</td><td> 3.890831</td><td> 7.848663</td><td> 1.916578</td><td>21.552698</td><td>21.73798</td><td> 5.662551</td><td>15.450414</td><td>11.691389</td><td>⋯</td><td>21.552698</td><td> 7.848663</td><td>17.727078</td><td>19.563828</td><td>21.552730</td><td> 9.678059</td><td> 7.916578</td><td>21.552698</td><td>25.92563</td><td>15.610145</td></tr>
+	<tr><th scope=row>227</th><td> 9.756035</td><td>21.446392</td><td>15.665106</td><td>21.750980</td><td>15.818895</td><td>21.877563</td><td>21.87764</td><td>17.277352</td><td>11.933216</td><td>17.636526</td><td>⋯</td><td>21.877563</td><td>21.750980</td><td>21.854548</td><td>19.888693</td><td>21.877595</td><td> 7.920955</td><td>18.970564</td><td>21.877563</td><td>25.84699</td><td> 1.988869</td></tr>
+	<tr><th scope=row>⋮</th><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋱</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td><td>⋮</td></tr>
+	<tr><th scope=row>81</th><td>17.671580</td><td>11.945416</td><td> 7.848663</td><td> 3.890831</td><td> 5.977362</td><td>17.508741</td><td>17.890831</td><td> 9.727094</td><td>17.668472</td><td>14.000000</td><td>⋯</td><td>17.508741</td><td> 3.890831</td><td>13.617910</td><td>17.540687</td><td>17.672494</td><td>13.864171</td><td>15.749733</td><td>17.508741</td><td>25.938624</td><td>19.785126</td></tr>
+	<tr><th scope=row>1805</th><td> 5.838994</td><td>21.454157</td><td>11.578299</td><td>21.578020</td><td>15.645934</td><td> 9.954408</td><td>13.924832</td><td>15.328194</td><td> 1.881944</td><td>23.368424</td><td>⋯</td><td> 9.954408</td><td>21.578020</td><td> 9.931393</td><td> 7.965539</td><td> 9.954440</td><td>11.695930</td><td>19.577034</td><td> 9.954408</td><td>25.832768</td><td>11.826291</td></tr>
+	<tr><th scope=row>789</th><td>29.344074</td><td> 9.826025</td><td>19.521157</td><td> 7.781663</td><td>13.713748</td><td>29.181235</td><td>29.563325</td><td>19.431535</td><td>29.340966</td><td>13.864171</td><td>⋯</td><td>29.181235</td><td> 7.781663</td><td>25.290404</td><td>29.213181</td><td>29.344988</td><td>23.568611</td><td>17.521173</td><td>29.181235</td><td>29.890831</td><td>29.500697</td></tr>
+	<tr><th scope=row>2361</th><td>17.892267</td><td>29.617689</td><td>17.956315</td><td>21.890831</td><td>21.857472</td><td>17.861904</td><td> 3.969312</td><td>19.892199</td><td>17.883024</td><td>31.540070</td><td>⋯</td><td>17.861904</td><td>21.890831</td><td>17.892592</td><td>17.866128</td><td>11.907936</td><td>19.867576</td><td>27.641296</td><td>17.861904</td><td> 7.938624</td><td>19.888790</td></tr>
+	<tr><th scope=row>56</th><td> 1.968180</td><td>19.534487</td><td> 9.861993</td><td>21.533573</td><td>15.601488</td><td>15.869576</td><td>15.891135</td><td>11.691389</td><td> 5.925230</td><td>19.280461</td><td>⋯</td><td>15.869576</td><td>21.533573</td><td>15.833155</td><td>13.880707</td><td>15.869608</td><td> 7.607967</td><td>15.273610</td><td>15.869576</td><td>25.835909</td><td> 7.578854</td></tr>
+	<tr><th scope=row>645</th><td> 5.691389</td><td>17.427776</td><td> 7.732643</td><td>17.732364</td><td>11.800279</td><td>17.812917</td><td>17.812992</td><td>11.301813</td><td> 7.868570</td><td>13.617910</td><td>⋯</td><td>17.812917</td><td>17.732364</td><td>14.000000</td><td>15.824047</td><td>17.812949</td><td> 1.945416</td><td>15.183336</td><td>17.812917</td><td>25.860785</td><td> 5.943593</td></tr>
+	<tr><th scope=row>1721</th><td> 5.800558</td><td>17.363883</td><td> 5.807409</td><td>17.546903</td><td>11.614818</td><td>13.793800</td><td>13.945989</td><td> 7.636805</td><td> 7.491947</td><td>21.219025</td><td>⋯</td><td>13.793800</td><td>17.546903</td><td>10.000000</td><td>11.804930</td><td>13.793832</td><td> 9.546531</td><td>13.781663</td><td>13.793800</td><td>25.853925</td><td>13.522447</td></tr>
+	<tr><th scope=row>1419</th><td>13.901418</td><td>29.377836</td><td>17.661888</td><td>21.508741</td><td>21.529955</td><td> 3.969312</td><td> 9.923280</td><td>19.609379</td><td> 9.944368</td><td>31.430848</td><td>⋯</td><td> 3.969312</td><td>21.508741</td><td> 4.000000</td><td> 3.973536</td><td> 1.984656</td><td>19.758354</td><td>27.500713</td><td> 3.969312</td><td>21.831216</td><td>19.888715</td></tr>
+	<tr><th scope=row>1207</th><td>21.562411</td><td> 9.916578</td><td>11.739494</td><td> 0.000000</td><td> 5.932086</td><td>21.399572</td><td>21.781663</td><td>11.649872</td><td>21.559303</td><td>13.954724</td><td>⋯</td><td>21.399572</td><td> 0.000000</td><td>17.508741</td><td>21.431519</td><td>21.563325</td><td>15.786949</td><td>15.643672</td><td>21.399572</td><td>25.969312</td><td>21.719034</td></tr>
+	<tr><th scope=row>259</th><td>13.922955</td><td>29.508520</td><td>17.847146</td><td>21.781663</td><td>21.748303</td><td>13.892592</td><td> 0.000000</td><td>19.783030</td><td>13.913712</td><td>31.430901</td><td>⋯</td><td>13.892592</td><td>21.781663</td><td>13.923280</td><td>13.896816</td><td> 7.938624</td><td>19.758407</td><td>27.565217</td><td>13.892592</td><td>11.907936</td><td>19.888768</td></tr>
+	<tr><th scope=row>2413</th><td>13.663439</td><td> 9.778571</td><td>10.000000</td><td>17.681818</td><td>11.749733</td><td>27.564835</td><td>27.586393</td><td> 8.000000</td><td>17.620488</td><td> 9.524544</td><td>⋯</td><td>27.564835</td><td>17.681818</td><td>23.836247</td><td>25.575965</td><td>27.564867</td><td> 9.691389</td><td> 3.800558</td><td>27.564835</td><td>27.847719</td><td>15.160698</td></tr>
+	<tr><th scope=row>2090</th><td>21.562411</td><td> 9.916578</td><td>11.739494</td><td> 0.000000</td><td> 5.932086</td><td>21.399572</td><td>21.781663</td><td>11.649872</td><td>21.559303</td><td>13.954724</td><td>⋯</td><td>21.399572</td><td> 0.000000</td><td>17.508741</td><td>21.431519</td><td>21.563325</td><td>15.786949</td><td>15.643672</td><td>21.399572</td><td>25.969312</td><td>21.719034</td></tr>
+	<tr><th scope=row>1337</th><td> 1.800558</td><td>19.479903</td><td> 9.807409</td><td>21.501627</td><td>15.569541</td><td>13.880707</td><td>13.923749</td><td>11.636805</td><td> 3.936360</td><td>21.109857</td><td>⋯</td><td>13.880707</td><td>21.501627</td><td>13.833155</td><td>11.891838</td><td>13.880739</td><td> 9.437363</td><td>15.441232</td><td>13.880707</td><td>25.831685</td><td> 9.567724</td></tr>
+	<tr><th scope=row>1826</th><td> 7.859011</td><td>15.698240</td><td> 9.916578</td><td>17.674688</td><td>11.742602</td><td>21.749277</td><td>21.749352</td><td> 9.800558</td><td>11.804930</td><td>13.560233</td><td>⋯</td><td>21.749277</td><td>17.674688</td><td>18.000000</td><td>19.760407</td><td>21.749309</td><td> 3.916578</td><td>11.437363</td><td>21.749277</td><td>25.870821</td><td> 7.523893</td></tr>
+	<tr><th scope=row>2503</th><td>11.002789</td><td>26.627550</td><td>15.071076</td><td>21.226544</td><td>20.878485</td><td>11.809081</td><td>13.922702</td><td>13.299356</td><td>10.970970</td><td>30.300958</td><td>⋯</td><td>11.809081</td><td>21.226544</td><td>11.705875</td><td>11.641458</td><td>11.873563</td><td>18.628464</td><td>19.273610</td><td>11.809081</td><td>25.830638</td><td>18.758825</td></tr>
+	<tr><th scope=row>106</th><td> 1.800558</td><td>21.318607</td><td>11.623475</td><td>21.623196</td><td>15.691110</td><td>13.922085</td><td>13.922160</td><td>15.192644</td><td> 3.977739</td><td>17.508741</td><td>⋯</td><td>13.922085</td><td>21.623196</td><td>13.899070</td><td>11.933216</td><td>13.922117</td><td> 5.836247</td><td>19.042348</td><td>13.922085</td><td>25.830097</td><td> 5.966608</td></tr>
+	<tr><th scope=row>1181</th><td>12.000000</td><td>15.781663</td><td> 6.000000</td><td> 9.698240</td><td> 9.691389</td><td>13.640674</td><td>13.989674</td><td> 7.916578</td><td>13.600837</td><td>19.636805</td><td>⋯</td><td>13.640674</td><td> 9.698240</td><td> 9.781663</td><td>13.473052</td><td>13.771337</td><td>13.732643</td><td>14.000000</td><td>13.640674</td><td>25.897610</td><td>19.631337</td></tr>
+	<tr><th scope=row>1848</th><td>12.771527</td><td>26.569874</td><td>15.013399</td><td>21.168867</td><td>20.820808</td><td>15.745441</td><td>15.895901</td><td>13.241680</td><td>14.907330</td><td>30.083808</td><td>⋯</td><td>15.745441</td><td>21.168867</td><td>15.642236</td><td>15.577819</td><td>15.809924</td><td>18.411314</td><td>18.874726</td><td>15.745441</td><td>25.840675</td><td>18.382202</td></tr>
+	<tr><th scope=row>2203</th><td>19.616996</td><td>10.000000</td><td> 9.794079</td><td> 1.945416</td><td> 5.954724</td><td>19.454157</td><td>19.836247</td><td> 9.704456</td><td>19.613888</td><td>13.977362</td><td>⋯</td><td>19.454157</td><td> 1.945416</td><td>15.563325</td><td>19.486103</td><td>19.617910</td><td>13.841533</td><td>15.666310</td><td>19.454157</td><td>25.953968</td><td>19.773619</td></tr>
+	<tr><th scope=row>1745</th><td>21.434627</td><td> 1.916578</td><td>13.473052</td><td> 8.000000</td><td> 7.836247</td><td>29.355050</td><td>29.518846</td><td>15.244772</td><td>21.431519</td><td> 5.954724</td><td>⋯</td><td>29.355050</td><td> 8.000000</td><td>25.508741</td><td>27.366180</td><td>29.355082</td><td>15.659164</td><td> 9.611726</td><td>29.355050</td><td>29.846352</td><td>21.591249</td></tr>
+	<tr><th scope=row>278</th><td>13.901396</td><td>29.377814</td><td>17.661866</td><td>21.399572</td><td>21.529933</td><td> 0.000000</td><td>13.892592</td><td>19.609357</td><td> 9.944347</td><td>31.430826</td><td>⋯</td><td> 0.000000</td><td>21.399572</td><td> 3.890831</td><td> 1.988869</td><td> 5.953968</td><td>19.758332</td><td>27.500692</td><td> 0.000000</td><td>25.800528</td><td>19.888693</td></tr>
+	<tr><th scope=row>1980</th><td>21.562411</td><td> 9.916578</td><td>11.739494</td><td> 0.000000</td><td> 5.932086</td><td>21.399572</td><td>21.781663</td><td>11.649872</td><td>21.559303</td><td>13.954724</td><td>⋯</td><td>21.399572</td><td> 0.000000</td><td>17.508741</td><td>21.431519</td><td>21.563325</td><td>15.786949</td><td>15.643672</td><td>21.399572</td><td>25.969312</td><td>21.719034</td></tr>
+	<tr><th scope=row>787</th><td>13.878381</td><td>25.563325</td><td>13.836247</td><td>17.508741</td><td>17.672494</td><td> 3.890831</td><td>13.923280</td><td>15.836247</td><td> 9.921332</td><td>27.617910</td><td>⋯</td><td> 3.890831</td><td>17.508741</td><td> 0.000000</td><td> 3.922778</td><td> 5.984656</td><td>15.945416</td><td>23.781663</td><td> 3.890831</td><td>25.831216</td><td>19.865678</td></tr>
+	<tr><th scope=row>1120</th><td>11.912527</td><td>27.388945</td><td>15.672997</td><td>21.431519</td><td>19.541064</td><td> 1.988869</td><td>13.896816</td><td>17.620488</td><td> 7.955477</td><td>29.441957</td><td>⋯</td><td> 1.988869</td><td>21.431519</td><td> 3.922778</td><td> 0.000000</td><td> 5.958192</td><td>17.769463</td><td>25.511822</td><td> 1.988869</td><td>25.804752</td><td>17.899824</td></tr>
+	<tr><th scope=row>59</th><td>13.901428</td><td>29.377846</td><td>17.661899</td><td>21.563325</td><td>21.529966</td><td> 5.953968</td><td> 7.938624</td><td>19.630873</td><td> 9.944379</td><td>31.430859</td><td>⋯</td><td> 5.953968</td><td>21.563325</td><td> 5.984656</td><td> 5.958192</td><td> 0.000000</td><td>19.758365</td><td>27.500724</td><td> 5.953968</td><td>19.846560</td><td>19.888725</td></tr>
+	<tr><th scope=row>629</th><td> 7.636805</td><td>15.482360</td><td> 7.755282</td><td>15.786949</td><td> 9.854863</td><td>19.758332</td><td>19.758407</td><td> 9.356397</td><td> 9.813986</td><td>11.672494</td><td>⋯</td><td>19.758332</td><td>15.786949</td><td>15.945416</td><td>17.769463</td><td>19.758365</td><td> 0.000000</td><td>13.237921</td><td>19.758332</td><td>25.876128</td><td> 5.932086</td></tr>
+	<tr><th scope=row>2297</th><td>17.241790</td><td> 7.695148</td><td> 9.945416</td><td>15.643672</td><td> 9.833155</td><td>27.500692</td><td>27.565217</td><td> 7.945416</td><td>19.377592</td><td>11.209083</td><td>⋯</td><td>27.500692</td><td>15.643672</td><td>23.781663</td><td>25.511822</td><td>27.500724</td><td>13.237921</td><td> 0.000000</td><td>27.500692</td><td>27.859633</td><td>18.938618</td></tr>
+	<tr><th scope=row>775</th><td>13.901396</td><td>29.377814</td><td>17.661866</td><td>21.399572</td><td>21.529933</td><td> 0.000000</td><td>13.892592</td><td>19.609357</td><td> 9.944347</td><td>31.430826</td><td>⋯</td><td> 0.000000</td><td>21.399572</td><td> 3.890831</td><td> 1.988869</td><td> 5.953968</td><td>19.758332</td><td>27.500692</td><td> 0.000000</td><td>25.800528</td><td>19.888693</td></tr>
+	<tr><th scope=row>2522</th><td>25.830891</td><td>29.836026</td><td>25.894939</td><td>25.969312</td><td>25.935952</td><td>25.800528</td><td>11.907936</td><td>25.900751</td><td>25.821648</td><td>31.758407</td><td>⋯</td><td>25.800528</td><td>25.969312</td><td>25.831216</td><td>25.804752</td><td>19.846560</td><td>25.876128</td><td>27.859633</td><td>25.800528</td><td> 0.000000</td><td>25.842769</td></tr>
+	<tr><th scope=row>719</th><td> 7.767166</td><td>21.414446</td><td>13.676236</td><td>21.719034</td><td>15.786949</td><td>19.888693</td><td>19.888768</td><td>15.288483</td><td> 9.944347</td><td>17.604580</td><td>⋯</td><td>19.888693</td><td>21.719034</td><td>19.865678</td><td>17.899824</td><td>19.888725</td><td> 5.932086</td><td>18.938618</td><td>19.888693</td><td>25.842769</td><td> 0.000000</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+<div class="section" id="q4-perform-an-agglomerative-clustering-using-ward-linkage-method">
+<h2>Q4. Perform an agglomerative clustering using ward linkage method<a class="headerlink" href="#q4-perform-an-agglomerative-clustering-using-ward-linkage-method" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>You should use the dissimilarity matrix with optimal matching generated in Q3</p></li>
+<li><p>Plot the dendogram</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">clusterward</span> <span class="o">&lt;-</span> <span class="kc">NULL</span>
+
+<span class="c1"># BEGIN SOLUTION</span>
+
+<span class="n">clusterward</span> <span class="o">&lt;-</span> <span class="nf">agnes</span><span class="p">(</span><span class="n">biofam.seq.OM</span><span class="p">,</span> <span class="n">diss</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;ward&quot;</span><span class="p">)</span>
+
+<span class="c1"># Run this to generate the dendogram</span>
+<span class="nf">plot</span><span class="p">(</span><span class="n">clusterward</span><span class="p">,</span> <span class="n">which.plot</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
+
+<span class="c1"># END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/Lab2_21_0.png" src="../../_images/Lab2_21_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="q5-select-clusters">
+<h2>Q5: Select clusters<a class="headerlink" href="#q5-select-clusters" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Cut the dendogram tree as appropriate using the <code class="docutils literal notranslate"><span class="pre">cutree()</span></code> function</p></li>
+<li><p>List the number of observations in each cluster</p></li>
+<li><p>Plot the sequence frequency by cluster membership (hint: <code class="docutils literal notranslate"><span class="pre">seqfplot()</span></code>)</p></li>
+<li><p>Plot the state distribution by cluster membership (hint: <code class="docutils literal notranslate"><span class="pre">seqdplot()</span></code>)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># BEGIN SOLUTION</span>
+
+<span class="c1"># cut the dendogram tree to generate two clusters</span>
+<span class="n">cluster5</span> <span class="o">&lt;-</span> <span class="nf">cutree</span><span class="p">(</span><span class="n">clusterward</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="m">5</span><span class="p">)</span>
+
+<span class="c1"># check the number of observations in each cluster</span>
+<span class="nf">table</span><span class="p">(</span><span class="n">cluster5</span><span class="p">)</span>
+
+<span class="c1"># plot sequence frequency by cluster membership</span>
+<span class="nf">seqfplot</span><span class="p">(</span><span class="n">biofam.seq</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="n">cluster5</span><span class="p">,</span> <span class="n">pbarw</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+
+<span class="c1"># plot state distribution by cluster membership</span>
+<span class="nf">seqdplot</span><span class="p">(</span><span class="n">biofam.seq</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="n">cluster5</span><span class="p">)</span>
+
+<span class="c1"># END SOLUTION</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cluster5
+  1   2   3   4   5 
+392 770 442 168 228 
+</pre></div>
+</div>
+<img alt="../../_images/Lab2_25_1.png" src="../../_images/Lab2_25_1.png" />
+<img alt="../../_images/Lab2_25_2.png" src="../../_images/Lab2_25_2.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./labs/source"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Lab1.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Lab 1: Exploratory analysis of sequential data in education</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Lab3.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lab 3</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Quan Nguyen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

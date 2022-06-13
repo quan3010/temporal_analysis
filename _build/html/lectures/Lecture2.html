@@ -1,0 +1,1227 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lecture 2: Clustering of sequential data in education &#8212; Temporal and sequential analysis - LASI 2022</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lecture 3" href="Lecture3.html" />
+    <link rel="prev" title="Lecture 1: Exploratory data analysis of sequence data in education" href="Lecture1.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Temporal and sequential analysis - LASI 2022</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Lectures
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lecture1.html">
+   Lecture 1: Exploratory data analysis of sequence data in education
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Lecture 2: Clustering of sequential data in education
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Lecture3.html">
+   Lecture 3
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Labs solutions
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../labs/source/Lab1.html">
+   Lab 1: Exploratory analysis of sequential data in education
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../labs/source/Lab2.html">
+   Lab 2: Cluster analysis of sequential data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../labs/source/Lab3.html">
+   Lab 3
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Quan Nguyen<br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/lectures/Lecture2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/quan3010/temporal_analysis"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/quan3010/temporal_analysis/issues/new?title=Issue%20on%20page%20%2Flectures/Lecture2.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/quan3010/temporal_analysis/master?urlpath=tree/lectures/Lecture2.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#similarities-and-distances-between-sequences">
+   1. Similarities and distances between sequences
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#common-attributes">
+     Common attributes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#longest-common-prefix-lcp-distances">
+       Longest Common Prefix (LCP) distances
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#longest-common-suffix-rlcp">
+       Longest common suffix (“RLCP”)
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#longest-common-subsequence-lcs-distances">
+       Longest Common Subsequence (LCS) distances
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#dealing-with-missing-values">
+       Dealing with missing values
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#edit-distance">
+     Edit distance
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#optimal-matching-om-distances">
+       Optimal matching (OM) distances
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#agglomerative-clustering-of-sequences">
+   2. Agglomerative clustering of sequences
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <p><img alt="" src="../_images/solar_logo.png" /></p>
+<div class="tex2jax_ignore mathjax_ignore section" id="lecture-2-clustering-of-sequential-data-in-education">
+<h1>Lecture 2: Clustering of sequential data in education<a class="headerlink" href="#lecture-2-clustering-of-sequential-data-in-education" title="Permalink to this headline">¶</a></h1>
+<p>Quan Nguyen, Department of Statistics, University of British Columbia</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">TraMineR</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>── <span class=" -Color -Color-Bold">Attaching packages</span> ───────────────────────────────────────────────────────── tidyverse 1.3.1 ──
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">ggplot2</span> 3.3.5     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">purrr  </span> 0.3.4
+<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">tibble </span> 3.1.5     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">dplyr  </span> 1.0.7
+<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">tidyr  </span> 1.1.3     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">stringr</span> 1.4.0
+<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">readr  </span> 2.0.1     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">forcats</span> 0.5.1
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
+“package ‘tibble’ was built under R version 4.1.1”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
+“package ‘readr’ was built under R version 4.1.1”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>── <span class=" -Color -Color-Bold">Conflicts</span> ──────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">filter()</span> masks <span class=" -Color -Color-Blue">stats</span>::filter()
+<span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">lag()</span>    masks <span class=" -Color -Color-Blue">stats</span>::lag()
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
+“package ‘TraMineR’ was built under R version 4.1.1”
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TraMineR stable version 2.2-3 (Built: 2022-01-26)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Website: http://traminer.unige.ch
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please type &#39;citation(&quot;TraMineR&quot;)&#39; for citation information.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
+“package ‘cluster’ was built under R version 4.1.1”
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="similarities-and-distances-between-sequences">
+<h2>1. Similarities and distances between sequences<a class="headerlink" href="#similarities-and-distances-between-sequences" title="Permalink to this headline">¶</a></h2>
+<p>Similarity between sequences can be measured via</p>
+<ul class="simple">
+<li><p><strong>Common attributes</strong>: The more common attributes, the more similar</p></li>
+<li><p><strong>Edit distance</strong>: The lower the edit cost, the more similar</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">data</span><span class="p">(</span><span class="n">famform</span><span class="p">)</span>
+<span class="n">famform.seq</span> <span class="o">&lt;-</span> <span class="nf">seqdef</span><span class="p">(</span><span class="n">famform</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">famform.seq</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] found missing values (&#39;NA&#39;) in sequence data
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] preparing 5 sequences
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] coding void elements with &#39;%&#39; and missing values with &#39;*&#39;
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 5 distinct states appear in the data: 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     1 = M
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     2 = MC
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     3 = S
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     4 = SC
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     5 = U
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] state coding:
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       [alphabet]  [label]  [long label] 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     1  M           M        M
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     2  MC          MC       MC
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     3  S           S        S
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     4  SC          SC       SC
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     5  U           U        U
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 5 sequences in the data set
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] min/max sequence length: 2/5
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Sequence   
+[1] S-U        
+[2] S-U-M      
+[3] S-U-M-MC   
+[4] S-U-M-MC-SC
+[5] U-M-MC     
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="common-attributes">
+<h3>Common attributes<a class="headerlink" href="#common-attributes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="longest-common-prefix-lcp-distances">
+<h4>Longest Common Prefix (LCP) distances<a class="headerlink" href="#longest-common-prefix-lcp-distances" title="Permalink to this headline">¶</a></h4>
+<p>[1] S-U<br />
+[2] S-U-M</p>
+<p>Longest Common Prefix = [S-U]</p>
+<p>Similarity = 2<br />
+Dismilarity = 1</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">seqdist</span><span class="p">(</span><span class="n">famform.seq</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s">&#39;LCP&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 5 sequences with 5 distinct states
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 5 distinct  sequences 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] min/max sequence lengths: 2/5
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] computing distances using the LCP metric
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] elapsed time: 0.005 secs
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A matrix: 5 × 5 of type dbl</caption>
+<thead>
+	<tr><th></th><th scope=col>[1]</th><th scope=col>[2]</th><th scope=col>[3]</th><th scope=col>[4]</th><th scope=col>[5]</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>[1]</th><td>0</td><td>1</td><td>2</td><td>3</td><td>5</td></tr>
+	<tr><th scope=row>[2]</th><td>1</td><td>0</td><td>1</td><td>2</td><td>6</td></tr>
+	<tr><th scope=row>[3]</th><td>2</td><td>1</td><td>0</td><td>1</td><td>7</td></tr>
+	<tr><th scope=row>[4]</th><td>3</td><td>2</td><td>1</td><td>0</td><td>8</td></tr>
+	<tr><th scope=row>[5]</th><td>5</td><td>6</td><td>7</td><td>8</td><td>0</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>We can also produce a normalized version of LCP that is insensitive to the length of the sequences</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="n">famform.seq</span><span class="p">)</span>
+<span class="nf">seqdist</span><span class="p">(</span><span class="n">famform.seq</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s">&#39;LCP&#39;</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="s">&quot;auto&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Sequence   
+[1] S-U        
+[2] S-U-M      
+[3] S-U-M-MC   
+[4] S-U-M-MC-SC
+[5] U-M-MC     
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 5 sequences with 5 distinct states
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 5 distinct  sequences 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] min/max sequence lengths: 2/5
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] computing distances using the LCP gmean normalized metric
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] elapsed time: 0.003 secs
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A matrix: 5 × 5 of type dbl</caption>
+<thead>
+	<tr><th></th><th scope=col>[1]</th><th scope=col>[2]</th><th scope=col>[3]</th><th scope=col>[4]</th><th scope=col>[5]</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>[1]</th><td>0.0000000</td><td>0.1835034</td><td>0.2928932</td><td>0.3675445</td><td>1</td></tr>
+	<tr><th scope=row>[2]</th><td>0.1835034</td><td>0.0000000</td><td>0.1339746</td><td>0.2254033</td><td>1</td></tr>
+	<tr><th scope=row>[3]</th><td>0.2928932</td><td>0.1339746</td><td>0.0000000</td><td>0.1055728</td><td>1</td></tr>
+	<tr><th scope=row>[4]</th><td>0.3675445</td><td>0.2254033</td><td>0.1055728</td><td>0.0000000</td><td>1</td></tr>
+	<tr><th scope=row>[5]</th><td>1.0000000</td><td>1.0000000</td><td>1.0000000</td><td>1.0000000</td><td>0</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+<div class="section" id="longest-common-suffix-rlcp">
+<h4>Longest common suffix (“RLCP”)<a class="headerlink" href="#longest-common-suffix-rlcp" title="Permalink to this headline">¶</a></h4>
+<p>[3] S-U-M-MC<br />
+[5] U-M-MC</p>
+<p>Longest Common Suffix = [U-M-MC]</p>
+<p>Similarity = 3<br />
+Dismilarity = 1</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="n">famform.seq</span><span class="p">)</span>
+<span class="nf">seqdist</span><span class="p">(</span><span class="n">famform.seq</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s">&#39;RLCP&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Sequence   
+[1] S-U        
+[2] S-U-M      
+[3] S-U-M-MC   
+[4] S-U-M-MC-SC
+[5] U-M-MC     
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 5 sequences with 5 distinct states
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 5 distinct  sequences 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] min/max sequence lengths: 2/5
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] computing distances using the RLCP metric
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] elapsed time: 0.004 secs
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A matrix: 5 × 5 of type dbl</caption>
+<thead>
+	<tr><th></th><th scope=col>[1]</th><th scope=col>[2]</th><th scope=col>[3]</th><th scope=col>[4]</th><th scope=col>[5]</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>[1]</th><td>0</td><td>5</td><td>6</td><td>7</td><td>5</td></tr>
+	<tr><th scope=row>[2]</th><td>5</td><td>0</td><td>7</td><td>8</td><td>6</td></tr>
+	<tr><th scope=row>[3]</th><td>6</td><td>7</td><td>0</td><td>9</td><td>1</td></tr>
+	<tr><th scope=row>[4]</th><td>7</td><td>8</td><td>9</td><td>0</td><td>8</td></tr>
+	<tr><th scope=row>[5]</th><td>5</td><td>6</td><td>1</td><td>8</td><td>0</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+<div class="section" id="longest-common-subsequence-lcs-distances">
+<h4>Longest Common Subsequence (LCS) distances<a class="headerlink" href="#longest-common-subsequence-lcs-distances" title="Permalink to this headline">¶</a></h4>
+<p>Let’s take a look at this example:</p>
+<p>[4] S-U-M-MC-SC<br />
+[5] U-M-MC</p>
+<p>Longest Common Subsequence = [U-M-MC]</p>
+<p>Similarity = 3<br />
+Dismilarity = 2</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="n">famform.seq</span><span class="p">)</span>
+<span class="nf">seqdist</span><span class="p">(</span><span class="n">famform.seq</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s">&#39;LCS&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Sequence   
+[1] S-U        
+[2] S-U-M      
+[3] S-U-M-MC   
+[4] S-U-M-MC-SC
+[5] U-M-MC     
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 5 sequences with 5 distinct states
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] creating a &#39;sm&#39; with a substitution cost of 2
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] creating 5x5 substitution-cost matrix using 2 as constant value
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 5 distinct  sequences 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] min/max sequence lengths: 2/5
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] computing distances using the LCS metric
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] elapsed time: 0.006 secs
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A matrix: 5 × 5 of type dbl</caption>
+<thead>
+	<tr><th></th><th scope=col>[1]</th><th scope=col>[2]</th><th scope=col>[3]</th><th scope=col>[4]</th><th scope=col>[5]</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>[1]</th><td>0</td><td>1</td><td>2</td><td>3</td><td>3</td></tr>
+	<tr><th scope=row>[2]</th><td>1</td><td>0</td><td>1</td><td>2</td><td>2</td></tr>
+	<tr><th scope=row>[3]</th><td>2</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+	<tr><th scope=row>[4]</th><td>3</td><td>2</td><td>1</td><td>0</td><td>2</td></tr>
+	<tr><th scope=row>[5]</th><td>3</td><td>2</td><td>1</td><td>2</td><td>0</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># Normalized version</span>
+
+<span class="nf">seqdist</span><span class="p">(</span><span class="n">famform.seq</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s">&#39;LCS&#39;</span><span class="p">,</span> <span class="n">norm</span> <span class="o">=</span> <span class="s">&#39;auto&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 5 sequences with 5 distinct states
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] creating a &#39;sm&#39; with a substitution cost of 2
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] creating 5x5 substitution-cost matrix using 2 as constant value
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 5 distinct  sequences 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] min/max sequence lengths: 2/5
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] computing distances using the LCS gmean normalized metric
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] elapsed time: 0.006 secs
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A matrix: 5 × 5 of type dbl</caption>
+<thead>
+	<tr><th></th><th scope=col>[1]</th><th scope=col>[2]</th><th scope=col>[3]</th><th scope=col>[4]</th><th scope=col>[5]</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>[1]</th><td>0.0000000</td><td>0.1835034</td><td>0.2928932</td><td>0.3675445</td><td>0.5917517</td></tr>
+	<tr><th scope=row>[2]</th><td>0.1835034</td><td>0.0000000</td><td>0.1339746</td><td>0.2254033</td><td>0.3333333</td></tr>
+	<tr><th scope=row>[3]</th><td>0.2928932</td><td>0.1339746</td><td>0.0000000</td><td>0.1055728</td><td>0.1339746</td></tr>
+	<tr><th scope=row>[4]</th><td>0.3675445</td><td>0.2254033</td><td>0.1055728</td><td>0.0000000</td><td>0.2254033</td></tr>
+	<tr><th scope=row>[5]</th><td>0.5917517</td><td>0.3333333</td><td>0.1339746</td><td>0.2254033</td><td>0.0000000</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+<div class="section" id="dealing-with-missing-values">
+<h4>Dealing with missing values<a class="headerlink" href="#dealing-with-missing-values" title="Permalink to this headline">¶</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="s">&quot;c&quot;</span><span class="p">,</span><span class="s">&quot;d&quot;</span><span class="p">,</span><span class="kc">NA</span><span class="p">,</span><span class="kc">NA</span><span class="p">)</span>
+<span class="n">s2</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="kc">NA</span><span class="p">,</span><span class="s">&quot;c&quot;</span><span class="p">,</span><span class="s">&quot;d&quot;</span><span class="p">,</span><span class="kc">NA</span><span class="p">)</span>
+<span class="n">s3</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="kc">NA</span><span class="p">,</span><span class="s">&quot;c&quot;</span><span class="p">,</span><span class="s">&quot;d&quot;</span><span class="p">,</span><span class="s">&quot;a&quot;</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">data.frame</span><span class="p">(</span><span class="nf">rbind</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">,</span><span class="n">s3</span><span class="p">))</span>
+<span class="nf">colnames</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1990</span><span class="o">:</span><span class="m">1995</span><span class="p">)</span>
+<span class="n">df.seq</span> <span class="o">&lt;-</span> <span class="nf">seqdef</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">df.seq</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] found missing values (&#39;NA&#39;) in sequence data
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] preparing 3 sequences
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] coding void elements with &#39;%&#39; and missing values with &#39;*&#39;
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 4 distinct states appear in the data: 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     1 = a
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     2 = b
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     3 = c
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     4 = d
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] state coding:
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       [alphabet]  [label]  [long label] 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     1  a           a        a
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     2  b           b        b
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     3  c           c        c
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     4  d           d        d
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 3 sequences in the data set
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] min/max sequence length: 4/6
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   Sequence   
+s1 a-b-c-d    
+s2 a-b-*-c-d  
+s3 a-b-*-c-d-a
+</pre></div>
+</div>
+</div>
+</div>
+<p>To compute LCS distances between sequences containing gaps, one can use the with.miss=TRUE option. In that case, missing states are considered as an additional valid state.</p>
+<p>Let’s look at s1 and s2</p>
+<p>LCS = a-b or c-d</p>
+<p>Similarity = 2<br />
+Dismilarity = 1</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">seqdist</span><span class="p">(</span><span class="n">df.seq</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s">&#39;LCS&#39;</span><span class="p">,</span> <span class="n">with.miss</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] including missing values as an additional state
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 3 sequences with 5 distinct states
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] creating a &#39;sm&#39; with a substitution cost of 2
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] creating 5x5 substitution-cost matrix using 2 as constant value
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 3 distinct  sequences 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] min/max sequence lengths: 4/6
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] computing distances using the LCS metric
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] elapsed time: 0.005 secs
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A matrix: 3 × 3 of type dbl</caption>
+<thead>
+	<tr><th></th><th scope=col>s1</th><th scope=col>s2</th><th scope=col>s3</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>s1</th><td>0</td><td>1</td><td>2</td></tr>
+	<tr><th scope=row>s2</th><td>1</td><td>0</td><td>1</td></tr>
+	<tr><th scope=row>s3</th><td>2</td><td>1</td><td>0</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+</div>
+</div>
+<div class="section" id="edit-distance">
+<h3>Edit distance<a class="headerlink" href="#edit-distance" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="optimal-matching-om-distances">
+<h4>Optimal matching (OM) distances<a class="headerlink" href="#optimal-matching-om-distances" title="Permalink to this headline">¶</a></h4>
+<p>Optimal matching generates edit distances that are the minimal cost, in terms of <code class="docutils literal notranslate"><span class="pre">insertions</span></code>, <code class="docutils literal notranslate"><span class="pre">deletions</span></code> and <code class="docutils literal notranslate"><span class="pre">substitutions</span></code>, for transforming one sequence into another.</p>
+<p>How do we transform the following sequence 1 to sequence 2</p>
+<p>s1 = {N,A,T,I,O,N}<br />
+s2 = {F,A,S,H,I,O,N}</p>
+<p>Strategy 1:</p>
+<ul class="simple">
+<li><p>Substitute N with F (NATION -&gt; FATION)</p></li>
+<li><p>Insert S (FATION -&gt; FASTION)</p></li>
+<li><p>Substitute T with H (FASTION -&gt; FASHION)</p></li>
+</ul>
+<p>Strategy 2:</p>
+<ul class="simple">
+<li><p>Delete N (NATION -&gt; ATION)</p></li>
+<li><p>Insert F (ATION -&gt; FATION)</p></li>
+<li><p>Delete T (FATION -&gt; FAION)</p></li>
+<li><p>Insert S (FAION -&gt; FASION)</p></li>
+<li><p>Insert H (FASION -&gt; FASHION)</p></li>
+</ul>
+<p>Assuming there’s a cost for each action (i.e., substitution, insertion/deletion). What would be the optimal strategy that minizes the total cost? –&gt; Optimal Matching algorithm</p>
+<p><strong>The insertion/deletion cost</strong></p>
+<ul class="simple">
+<li><p>A constant value specified by user (default = 1)</p></li>
+</ul>
+<p><strong>The substitution-cost matrix</strong></p>
+<ul class="simple">
+<li><p>A constant value (default)</p></li>
+<li><p>Based on transition rates between different states</p></li>
+</ul>
+<p>Let’s have a look at our famform data. We generate a <strong>substitution cost matrix with constant value of 2</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="n">famform.seq</span><span class="p">)</span>
+<span class="n">sub_cost</span> <span class="o">&lt;-</span> <span class="nf">seqcost</span><span class="p">(</span><span class="n">famform.seq</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;CONSTANT&quot;</span><span class="p">,</span> <span class="n">cval</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+<span class="n">sub_cost</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Sequence   
+[1] S-U        
+[2] S-U-M      
+[3] S-U-M-MC   
+[4] S-U-M-MC-SC
+[5] U-M-MC     
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] creating 5x5 substitution-cost matrix using 2 as constant value
+</pre></div>
+</div>
+<div class="output text_html"><dl>
+	<dt>$indel</dt>
+		<dd>1</dd>
+	<dt>$sm</dt>
+		<dd><table class="dataframe">
+<caption>A matrix: 5 × 5 of type dbl</caption>
+<thead>
+	<tr><th></th><th scope=col>M</th><th scope=col>MC</th><th scope=col>S</th><th scope=col>SC</th><th scope=col>U</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>M</th><td>0</td><td>2</td><td>2</td><td>2</td><td>2</td></tr>
+	<tr><th scope=row>MC</th><td>2</td><td>0</td><td>2</td><td>2</td><td>2</td></tr>
+	<tr><th scope=row>S</th><td>2</td><td>2</td><td>0</td><td>2</td><td>2</td></tr>
+	<tr><th scope=row>SC</th><td>2</td><td>2</td><td>2</td><td>0</td><td>2</td></tr>
+	<tr><th scope=row>U</th><td>2</td><td>2</td><td>2</td><td>2</td><td>0</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div></div>
+</div>
+<p>We compute the distances using the matrix and the <strong>default indel cost of 1</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">famform.seq_OM</span> <span class="o">&lt;-</span> <span class="nf">seqdist</span><span class="p">(</span><span class="n">famform.seq</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;OM&quot;</span><span class="p">,</span> <span class="n">sm</span> <span class="o">=</span> <span class="n">sub_cost</span><span class="o">$</span><span class="n">sm</span><span class="p">)</span>
+<span class="n">famform.seq_OM</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 5 sequences with 5 distinct states
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] checking &#39;sm&#39; (size and triangle inequality)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 5 distinct  sequences 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] min/max sequence lengths: 2/5
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] computing distances using the OM metric
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] elapsed time: 0.004 secs
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A matrix: 5 × 5 of type dbl</caption>
+<thead>
+	<tr><th></th><th scope=col>[1]</th><th scope=col>[2]</th><th scope=col>[3]</th><th scope=col>[4]</th><th scope=col>[5]</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>[1]</th><td>0</td><td>1</td><td>2</td><td>3</td><td>3</td></tr>
+	<tr><th scope=row>[2]</th><td>1</td><td>0</td><td>1</td><td>2</td><td>2</td></tr>
+	<tr><th scope=row>[3]</th><td>2</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+	<tr><th scope=row>[4]</th><td>3</td><td>2</td><td>1</td><td>0</td><td>2</td></tr>
+	<tr><th scope=row>[5]</th><td>3</td><td>2</td><td>1</td><td>2</td><td>0</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>Minimal cost to transform <code class="docutils literal notranslate"><span class="pre">[1]</span> <span class="pre">S-U</span></code> to <code class="docutils literal notranslate"><span class="pre">[5]</span> <span class="pre">U-M-MC</span></code></p>
+<ul class="simple">
+<li><p>Delete S (cost 1)</p></li>
+<li><p>Insert M (cost 1)</p></li>
+<li><p>Insert MC (cost 1)</p></li>
+</ul>
+<p>Total cost = 3</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">famform.seq_OM</span><span class="p">[</span><span class="m">1</span><span class="p">,</span><span class="m">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">3</div></div>
+</div>
+<p>Substitution cost matrix based on transition rates between different states using <code class="docutils literal notranslate"><span class="pre">method</span> <span class="pre">=</span> <span class="pre">&quot;TRATE&quot;</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">print</span><span class="p">(</span><span class="n">famform.seq</span><span class="p">)</span>
+<span class="n">sub_cost_TRATE</span> <span class="o">&lt;-</span> <span class="nf">seqcost</span><span class="p">(</span><span class="n">famform.seq</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;TRATE&quot;</span><span class="p">,</span> <span class="n">cval</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+<span class="n">sub_cost_TRATE</span>
+<span class="nf">seqdist</span><span class="p">(</span><span class="n">famform.seq</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;OM&quot;</span><span class="p">,</span> <span class="n">sm</span> <span class="o">=</span> <span class="n">sub_cost_TRATE</span><span class="o">$</span><span class="n">sm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Sequence   
+[1] S-U        
+[2] S-U-M      
+[3] S-U-M-MC   
+[4] S-U-M-MC-SC
+[5] U-M-MC     
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] creating substitution-cost matrix using transition rates ...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] computing transition probabilities for states M/MC/S/SC/U ...
+</pre></div>
+</div>
+<div class="output text_html"><dl>
+	<dt>$indel</dt>
+		<dd>1</dd>
+	<dt>$sm</dt>
+		<dd><table class="dataframe">
+<caption>A matrix: 5 × 5 of type dbl</caption>
+<thead>
+	<tr><th></th><th scope=col>M</th><th scope=col>MC</th><th scope=col>S</th><th scope=col>SC</th><th scope=col>U</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>M</th><td>0</td><td>1</td><td>2</td><td>2</td><td>1</td></tr>
+	<tr><th scope=row>MC</th><td>1</td><td>0</td><td>2</td><td>1</td><td>2</td></tr>
+	<tr><th scope=row>S</th><td>2</td><td>2</td><td>0</td><td>2</td><td>1</td></tr>
+	<tr><th scope=row>SC</th><td>2</td><td>1</td><td>2</td><td>0</td><td>2</td></tr>
+	<tr><th scope=row>U</th><td>1</td><td>2</td><td>1</td><td>2</td><td>0</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div><div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 5 sequences with 5 distinct states
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] checking &#39;sm&#39; (size and triangle inequality)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 5 distinct  sequences 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] min/max sequence lengths: 2/5
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] computing distances using the OM metric
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] elapsed time: 0.004 secs
+</pre></div>
+</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A matrix: 5 × 5 of type dbl</caption>
+<thead>
+	<tr><th></th><th scope=col>[1]</th><th scope=col>[2]</th><th scope=col>[3]</th><th scope=col>[4]</th><th scope=col>[5]</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>[1]</th><td>0</td><td>1</td><td>2</td><td>3</td><td>3</td></tr>
+	<tr><th scope=row>[2]</th><td>1</td><td>0</td><td>1</td><td>2</td><td>2</td></tr>
+	<tr><th scope=row>[3]</th><td>2</td><td>1</td><td>0</td><td>1</td><td>1</td></tr>
+	<tr><th scope=row>[4]</th><td>3</td><td>2</td><td>1</td><td>0</td><td>2</td></tr>
+	<tr><th scope=row>[5]</th><td>3</td><td>2</td><td>1</td><td>2</td><td>0</td></tr>
+</tbody>
+</table>
+</div></div>
+</div>
+<p>Check the documentation for other methods of generating substitution costs <code class="docutils literal notranslate"><span class="pre">?seqcost</span></code></p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="o">?</span><span class="n">seqcost</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="agglomerative-clustering-of-sequences">
+<h2>2. Agglomerative clustering of sequences<a class="headerlink" href="#agglomerative-clustering-of-sequences" title="Permalink to this headline">¶</a></h2>
+<p>Some background on hierarchical clustering:</p>
+<p>Broadly speaking, there are two types:</p>
+<ul class="simple">
+<li><p><strong>Agglomerative clustering</strong>: Commonly referred to as AGNES (AGglomerative NESting)</p>
+<ul>
+<li><p>Bottom-up approach</p></li>
+<li><p>The two data points that are the most similar are combined into a new bigger cluster (nodes). This procedure is iterated until all points are a member of just one single big cluster (root)</p></li>
+</ul>
+</li>
+<li><p><strong>Divisive hierarchical clustering</strong>: Commonly referred to as DIANA (DIvise ANAlysis)</p>
+<ul>
+<li><p>Top-down approach</p></li>
+<li><p>Start with one single big cluster (root), at each iteration, we split the cluster into two least similar clusters, and repeat until each cluster contains a single data point</p></li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="https://miro.medium.com/max/1254/0*E-qictlO_9isi0Dl.png" /></p>
+<p>Source of figure: <a class="reference external" href="https://towardsdatascience.com/machine-learning-algorithms-part-12-hierarchical-agglomerative-clustering-example-in-python-1e18e0075019">https://towardsdatascience.com/machine-learning-algorithms-part-12-hierarchical-agglomerative-clustering-example-in-python-1e18e0075019</a></p>
+<p>In this lecture, we will focus on the agglomerative clustering. We are going to use the <code class="docutils literal notranslate"><span class="pre">agnes()</span></code> function from the <code class="docutils literal notranslate"><span class="pre">cluster</span></code> package in R. Essentially, we are going to feed a dissimilarity matrix and specify the method to measure the distance (or similarity) between two clusters of observations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">clusterward</span> <span class="o">&lt;-</span> <span class="nf">agnes</span><span class="p">(</span><span class="n">famform.seq_OM</span><span class="p">,</span> <span class="n">diss</span> <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;ward&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">clusterward</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Lecture2_33_0.png" src="../_images/Lecture2_33_0.png" />
+<img alt="../_images/Lecture2_33_1.png" src="../_images/Lecture2_33_1.png" />
+</div>
+</div>
+<p><strong>How do we measure the dissimilarity between two clusters of observations?</strong></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Linkage methods</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Single linkage</p></td>
+<td><p>The distance between one cluster and another cluster is taken to be equal to the shortest distance from any data point of one cluster to any data point in another (nearest neighbour)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Average linkage</p></td>
+<td><p>The distance between two clusters is the average of the dissimilarities between the points in one cluster and the points in the other cluster</p></td>
+</tr>
+<tr class="row-even"><td><p>Complete linkage</p></td>
+<td><p>The distance between one cluster and another cluster is taken to be equal to the longest distance from any data point of one cluster to any data point in another (futherest neighbour)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ward</p></td>
+<td><p>Minimizes the total within-cluster variance. At each step the pair of clusters with the smallest between-cluster distance are merged</p></td>
+</tr>
+</tbody>
+</table>
+<p>Match each of the following figure to an appropriate linkage method</p>
+<p>Figure A –&gt; ?
+Figure B –&gt; ?
+Figure C –&gt; ?</p>
+<p><img alt="" src="https://www.researchgate.net/profile/Yu-Qian-18/publication/350350844/figure/fig2/AS:1012170494074883&#64;1618331659642/The-distance-between-two-clusters-defined-in-single-linkage-SL-A-complete-linkage.png" /></p>
+<p>Source: <a class="reference external" href="https://www.researchgate.net/figure/The-distance-between-two-clusters-defined-in-single-linkage-SL-A-complete-linkage_fig2_350350844">https://www.researchgate.net/figure/The-distance-between-two-clusters-defined-in-single-linkage-SL-A-complete-linkage_fig2_350350844</a></p>
+<p><strong>How do you pick the number of clusters?</strong></p>
+<p>We usually look at the largest difference of heights</p>
+<p><img alt="" src="https://statsandr.com/blog/clustering-analysis-k-means-and-hierarchical-clustering-by-hand-and-in-r_files/optimal%20number%20of%20clusters%20hierarchical%20clustering.png" /></p>
+<p>Source: <a class="reference external" href="https://statsandr.com/blog/clustering-analysis-k-means-and-hierarchical-clustering-by-hand-and-in-r/">https://statsandr.com/blog/clustering-analysis-k-means-and-hierarchical-clustering-by-hand-and-in-r/</a></p>
+<p>Check out this amazing cheatsheet too: <a class="reference external" href="https://statsandr.com/blog/files/Hierarchical-clustering-cheatsheet.pdf">https://statsandr.com/blog/files/Hierarchical-clustering-cheatsheet.pdf</a></p>
+<p><strong>Where would you draw the line to determine optimal k clusters for each of the dendogram below?</strong>
+<img alt="" src="../_images/dendograms.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">plot</span><span class="p">(</span><span class="n">clusterward</span><span class="p">,</span> <span class="n">which.plot</span><span class="o">=</span><span class="m">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/Lecture2_38_0.png" src="../_images/Lecture2_38_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># cut the dendogram tree to generate two clusters</span>
+<span class="n">cluster2</span> <span class="o">&lt;-</span> <span class="nf">cutree</span><span class="p">(</span><span class="n">clusterward</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="m">2</span><span class="p">)</span>
+
+<span class="c1"># create label for clusters</span>
+<span class="nf">factor</span><span class="p">(</span><span class="n">cluster2</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Type 1&quot;</span><span class="p">,</span> <span class="s">&quot;Type 2&quot;</span><span class="p">))</span>
+
+<span class="c1"># check the number of observations in each cluster</span>
+<span class="nf">table</span><span class="p">(</span><span class="n">cluster2</span><span class="p">)</span>
+
+<span class="c1"># plot sequence frequency by cluster membership</span>
+<span class="nf">seqfplot</span><span class="p">(</span><span class="n">famform.seq</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="n">cluster2</span><span class="p">,</span> <span class="n">pbarw</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>Type 1</li><li>Type 1</li><li>Type 2</li><li>Type 2</li><li>Type 2</li></ol>
+
+<details>
+	<summary style=display:list-item;cursor:pointer>
+		<strong>Levels</strong>:
+	</summary>
+	<style>
+	.list-inline {list-style: none; margin:0; padding: 0}
+	.list-inline>li {display: inline-block}
+	.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+	</style>
+	<ol class=list-inline><li>'Type 1'</li><li>'Type 2'</li></ol>
+</details></div><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>cluster2
+1 2 
+2 3 
+</pre></div>
+</div>
+<img alt="../_images/Lecture2_39_2.png" src="../_images/Lecture2_39_2.png" />
+</div>
+</div>
+<p>Check the documentation for more details of hierarchical clustering <code class="docutils literal notranslate"><span class="pre">?agnes</span></code></p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="o">?</span><span class="n">agnes</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "r"
+        },
+        kernelOptions: {
+            kernelName: "ir",
+            path: "./lectures"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'ir'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="Lecture1.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Lecture 1: Exploratory data analysis of sequence data in education</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="Lecture3.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lecture 3</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Quan Nguyen<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

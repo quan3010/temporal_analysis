@@ -1,4 +1,4 @@
-![](img/solar_logo.png)
+![](lectures/img/solar_logo.png)
 
 # Workshop 5: Temporal and sequential analysis  
 
@@ -7,7 +7,7 @@ Department of Statistics, University of British Columbia
 
 - [GitHub Repository](https://github.com/quan3010/temporal_analysis)
 - [Course Jupyter Book](https://quan3010.github.io/temporal_analysis/README.html)
-- [Zoom link](https://google.com)
+- [Zoom link](https://us02web.zoom.us/j/81911496716?pwd=dk92cHhrdm1DUk9lWldKY05kSCs3Zz09)
 
 **About the workshop**:
 
@@ -19,48 +19,35 @@ Data in learning analytics research (e.g. SIS, clickstream, log-files) are often
 This workshop is designed for anyone interested in temporal/sequential analysis. No experience in temporal and sequential analysis is required. To get the best learning experience, participants should familiarize themselves with basic statistics and machine learning concepts (e.g. regression, variance, autocorrelation, classification, cross-validation, overfitting).  
 
 
-## Environment set up 
-The workshop will use R and draw on packages such as `tramineR`, `fpp3`, and `keras`. 
-
-You can install all the dependencies you need for the workshop using [renv](https://rstudio.github.io/renv/articles/renv.html):
-Using renv, you can create and manage the R library environment for your project, save the state of these libraries to a lockfile, and later restore libraries as required. Together, these tools can help make projects more isolated, portable, and reproducible.
-
-**Step 1: Clone the github repo and open the Rproject**
-
-In the Rstudio console, type
-
-* Open Terminal.
-* Change the current working directory to the location where you want the cloned directory.
-* Type in the terminal: 
-```sh
-git clone https://github.com/quan3010/temporal_analysis
-```
-* Navigate to the repo, in the `temporal` folder, open the `temporal.Rproj` to set up the Rproject for this workshop
-
-**Step 2: Load all dependencies & required packages**
-
-In the Rstudio console, type
-```sh
-renv::restore()
-```
-
-**Step 3: Deactivate the virtual environment when you are finished**
-
-In the Rstudio console, type
-```sh
-renv::deactivate()
-```
-
-## About instructor
-I am a Teaching Fellow at the UBC Master of Data Science where I develop and teach data science courses. Prior to UBC, I was a Postdoctoral Research Fellow in Learning Analytics at the School of Information, University of Michigan. My research focuses on analysing digital traces in educational settings to detect temporal discrepancies between course design and student engagement, and the subsequent effects on academic performance. My second research strand is to model peer interactions and peer influence on academic choices and performance. My work employed a wide range of statistical and computational techniques, such as multilevel modeling, network analysis, time-series/temporal analysis, and machine learning. My work has received multiple best paper awards at established conferences (e.g. LAK18 and HCI International 17). 
-
 ## Agenda
 
-| Day | Lecture                           | Lab | Readings |
+| Day | Lecture                           | Lab | Resources |
 |-----|-----------------------------------|-----|----------|
-| 1   | Sequential analysis with tramineR |     |          |
-| 2   | Time-series forecasting           |     |          |
-| 3   | Time-series classification        |     |          |
+| 1   | Exploratory sequence analysis with TraMineR |   "labs/release/Lab1.Rmd"  |  [Chap 1-8](http://mephisto.unige.ch/pub/TraMineR/doc/TraMineR-Users-Guide.pdf)        |
+| 2   | Sequence clustering using TraMineR           | "labs/release/Lab2.Rmd"    | [Chap 9](http://mephisto.unige.ch/pub/TraMineR/doc/TraMineR-Users-Guide.pdf)         |
+| 3   | Time-series classification        |   3  |          |
+
+## Zoom etiquette
+
+To make the workshop as engaged as possible, I would encourage you to:
+- Turn on your camera during the workshop
+- Raise your hand if you have questions throughout the workshop
+- Feel free to share your thoughts, reactions, questions in the zoom chat. Use emojis! 😀
+- Please participate in breakout rooms activities
+
+
+## Environment set up 
+The workshop will use R and draw on packages such as `TraMineR`, `cluster`, and `tidyverse`. 
+
+You can install all the dependencies you need for the workshop in Rstudio using: 
+
+```sh
+install.packages(c("TraMineR","cluster","tidyverse"))
+```
+
+
+## About the instructor
+I am a Teaching Fellow at the UBC Master of Data Science where I develop and teach data science courses. Prior to UBC, I was a Postdoctoral Research Fellow in Learning Analytics at the School of Information, University of Michigan. My research focuses on analysing digital traces in educational settings to detect temporal discrepancies between course design and student engagement, and the subsequent effects on academic performance. My second research strand is to model peer interactions and peer influence on academic choices and performance. My work employed a wide range of statistical and computational techniques, such as multilevel modeling, network analysis, time-series/temporal analysis, and machine learning. My work has received multiple best paper awards at established conferences (e.g. LAK18 and HCI International 17). 
 
 
 ## Reference Material

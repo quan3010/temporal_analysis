@@ -1,0 +1,116 @@
+---
+title: An R Markdown document converted from "lab2/student/Lab2.ipynb"
+output: html_document
+---
+
+# Lab 2: Cluster analysis of sequential data
+
+## About the dataset
+
+In this lab, we are going to use the built-in `biofam` data set from the `TraMineR` package. See more details [here](http://traminer.unige.ch/doc/biofam.html)
+
+This data consists information about the Family life states from the Swiss Household Panel biographical survey. 16 year-long family life sequences built from the retrospective biographical survey carried out by the Swiss Household Panel (SHP) in 2002.
+
+A data frame with 2000 rows, 16 state variables, 1 id variable and 7 covariates and 2 weights variables.
+
+The data set contains (in columns 10 to 25) sequences of family life states from age 15 to 30 (sequence length is 16) and a series of covariates. The sequences are a sample of 2000 sequences of those created from the SHP biographical survey. It includes only individuals who were at least 30 years old at the time of the survey. The biofam data set describes family life courses of 2000 individuals born between 1909 and 1972.
+
+The states numbered from 0 to 7 are defined from the combination of five basic states, namely Living with parents (Parent), Left home (Left), Married (Marr), Having Children (Child), Divorced:
+
+0 = "Parent"  
+1 = "Left"  
+2 = "Married"  
+3 = "Left+Marr"  
+4 = "Child"  
+5 = "Left+Child"  
+6 = "Left+Marr+Child"  
+7 = "Divorced"  
+
+| Variable | Label                                          |
+|----------|------------------------------------------------|
+| idhous   | ID                                             |
+| sex      | sex                                            |
+| birthy   | birth year                                     |
+| nat102   | nationality                                    |
+| plingu02 | interview language                             |
+| p02r01   | confession or religion                         |
+| p02r04   | participation in religious services: frequency |
+| cspfaj   | Swiss socio-professional category: Fathers job |
+| cspmoj   | Swiss socio-professional category: Mothers job |
+| a15      | family status at age 15                        |
+| ...      |                                                |
+| a30      | family status at age 30                        |
+
+```{r}
+library(tidyverse)
+library(TraMineR)
+library(cluster)
+data(biofam)
+str(biofam)
+```
+
+```{r}
+# state labels
+bfstates <- c("Parent", "Left", "Married", "Left+Marr", "Child", "Left+Child", "Left+Marr+Child", "Divorced")
+
+# define sequence object
+biofam.seq <- seqdef(biofam, 10:25, states = bfstates, labels = bfstates)
+```
+
+## Q1. Create a normalized dissimilarity matrix using Longest Common Subsequences method
+
+Store the dissimilarity matrix in `biofam.seq.LCS`
+
+```{r}
+biofam.seq.LCS <- NULL
+
+...
+```
+
+## Q2. Plot the pairs of sequences
+
+- Plot the top 5 sequences that are the most similar to sequence 1
+- Plot the top 5 sequences that are the least similar to sequence 1
+
+```{r}
+most_sim <- head(which(biofam.seq.LCS==min(biofam.seq.LCS), arr.ind=T))
+most_sim
+least_sim <- head(which(biofam.seq.LCS==max(biofam.seq.LCS), arr.ind=T))
+least_sim
+```
+
+```{r}
+...
+```
+
+## Q3. Create a dissimilarity matrix using optimal matching using transition rates as substitution cost matrix
+
+```{r}
+biofam.seq.subcost <- NULL
+biofam.seq.OM <- NULL
+
+...
+```
+
+## Q4. Perform an agglomerative clustering using ward linkage method
+
+- You should use the dissimilarity matrix with optimal matching generated in Q3
+- Plot the dendogram
+
+```{r}
+clusterward <- NULL
+
+...
+```
+
+## Q5: Select clusters
+
+- Cut the dendogram tree as appropriate using the `cutree()` function
+- List the number of observations in each cluster
+- Plot the sequence frequency by cluster membership (hint: `seqfplot()`)
+- Plot the state distribution by cluster membership (hint: `seqdplot()`)
+
+```{r}
+...
+```
+

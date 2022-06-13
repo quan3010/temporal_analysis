@@ -3,13 +3,13 @@ root: README.md
 parts:
 - caption: Lectures
   chapters:
-  - file: Lecture1.ipynb
-  - file: Lecture2.ipynb
-  - file: Lecture3.ipynb
-- caption: Labs
+  - file: lectures/Lecture1.ipynb
+  - file: lectures/Lecture2.ipynb
+  - file: lectures/Lecture3.ipynb
+- caption: Labs solutions
   chapters:
-  - file: labs/Lab1.ipynb
-  - file: labs/Lab2.ipynb
-  - file: labs/Lab3.ipynb
+  - file: labs/source/Lab1.ipynb
+  - file: labs/source/Lab2.ipynb
+  - file: labs/source/Lab3.ipynb
 
 

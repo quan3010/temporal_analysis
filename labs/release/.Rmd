@@ -1,0 +1,137 @@
+---
+title: An R Markdown document converted from "lab1/student/Lab1.ipynb"
+output: html_document
+---
+
+# Lab 1: Exploratory analysis of sequential data in education
+
+Quan Nguyen, Department of Statistics, University of British Columbia
+
+## About the dataset
+
+In this lab, we are going to use the built-in `biofam` data set from the `TraMineR` package. See more details [here](http://traminer.unige.ch/doc/biofam.html)
+
+This data consists information about the Family life states from the Swiss Household Panel biographical survey. 16 year-long family life sequences built from the retrospective biographical survey carried out by the Swiss Household Panel (SHP) in 2002.
+
+A data frame with 2000 rows, 16 state variables, 1 id variable and 7 covariates and 2 weights variables.
+
+The data set contains (in columns 10 to 25) sequences of family life states from age 15 to 30 (sequence length is 16) and a series of covariates. The sequences are a sample of 2000 sequences of those created from the SHP biographical survey. It includes only individuals who were at least 30 years old at the time of the survey. The biofam data set describes family life courses of 2000 individuals born between 1909 and 1972.
+
+The states numbered from 0 to 7 are defined from the combination of five basic states, namely Living with parents (Parent), Left home (Left), Married (Marr), Having Children (Child), Divorced:
+
+0 = "Parent"  
+1 = "Left"  
+2 = "Married"  
+3 = "Left+Marr"  
+4 = "Child"  
+5 = "Left+Child"  
+6 = "Left+Marr+Child"  
+7 = "Divorced"  
+
+| Variable | Label                                          |
+|----------|------------------------------------------------|
+| idhous   | ID                                             |
+| sex      | sex                                            |
+| birthy   | birth year                                     |
+| nat102   | nationality                                    |
+| plingu02 | interview language                             |
+| p02r01   | confession or religion                         |
+| p02r04   | participation in religious services: frequency |
+| cspfaj   | Swiss socio-professional category: Fathers job |
+| cspmoj   | Swiss socio-professional category: Mothers job |
+| a15      | family status at age 15                        |
+| ...      |                                                |
+| a30      | family status at age 30                        |
+
+```{r}
+library(tidyverse)
+library(TraMineR)
+data(biofam)
+str(biofam)
+```
+
+## Part 1: Data manipulation
+
+### Q1: Import the following dataset and create a sequence object using the `seqdef()` function in the `TraMineR` package.
+
+Hint: You can use the option `states` in `seqdef()` to assign the short state labels for each state
+
+```{r}
+# state labels
+bfstates <- c("Parent", "Left", "Married", "Left+Marr", "Child", "Left+Child", "Left+Marr+Child", "Divorced")
+
+...
+```
+
+### Q2: Convert the sequence object from 'STS' to 'SPS' format using the `seqformat()` function
+
+```{r}
+...
+```
+
+## Part 2: Exploratory data analysis
+
+### Q3 Plot the first 15 sequences
+
+```{r}
+# Hint: seqiplot()
+
+...
+```
+
+### Q4 Plot the state distribution
+
+```{r}
+# Hint: seqdplot()
+
+...
+```
+
+### Q5 Plot the top 10 most frequent sequences
+
+```{r}
+# Hint: seqfplot()
+
+...
+```
+
+### Q6 What are the distinct states sequence (DSS) in the sequence objects?
+
+```{r}
+# Hint: seqdss()
+
+...
+```
+
+### Q7 How many sequences are there in the data?
+
+```{r}
+seq_num <- ...
+```
+
+### Q8 What is the min/max/median length of the sequences 
+
+```{r}
+# YOUR CODE HERE
+```
+
+### Q9 Which state is the most likely to follow 'Left' (hint: transition rates)
+
+```{r}
+# Hint: seqtrate()
+
+...
+```
+
+### Q10 What are the top 10 most diverse sequences (hint: entropy, turbulence)
+
+```{r}
+...
+```
+
+### Q.11 What is the average time spent in each state?
+
+```{r}
+...
+```
+
