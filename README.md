@@ -8,6 +8,7 @@ Department of Statistics, University of British Columbia
 - [GitHub Repository](https://github.com/quan3010/temporal_analysis)
 - [Course Jupyter Book](https://quan3010.github.io/temporal_analysis/README.html)
 - [Zoom link](https://us02web.zoom.us/j/81911496716?pwd=dk92cHhrdm1DUk9lWldKY05kSCs3Zz09)
+- Dataset can be downloaded here: https://drive.google.com/file/d/1QzQ6P0ewgx_hgHC-qJ3nCBRAr1139w6N/view?usp=sharing
 
 **About the workshop**:
 
