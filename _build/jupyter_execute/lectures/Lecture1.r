@@ -27,6 +27,7 @@ actcal.tse <- seqformat(actcal, 13:24, from = "STS", to = "TSE", tevent=tstate)
 head(actcal.tse)
 
 actcal.spell <- seqformat(actcal, 13:24, from = "STS", to = "SPELL")
+head(actcal.seq)
 head(actcal.spell)
 
 head(actcal)
@@ -37,6 +38,7 @@ actcal.seq <- seqdef(actcal, var = c("jan00", "feb00", "mar00",
 
 
 lasi21_logdata <- read_csv("~/Downloads/lasi21_logdata.csv")
+head(lasi21_logdata)
 
 # Fixing some typos
 lasi21_logdata$site_type <- ifelse(grepl("ssignment", lasi21_logdata$instancename), "assignment",lasi21_logdata$site_type )
@@ -74,7 +76,7 @@ lasi21_logdata2 <- lasi21_logdata2 %>%
 
 # create time unit as 1 minute (60s)
 lasi21_logdata2$time_unit <- round(lasi21_logdata2$spent_time_m_cum,digits=0)
-head(lasi21_logdata2)
+head(lasi21_logdata2,10)
 
 log_spell <- lasi21_logdata2 %>% 
             group_by(session_num) %>% 
@@ -110,13 +112,15 @@ seqdef(df,left="DEL", gaps="DEL")
 
 seqiplot(log_sts.seq[,1:100], main = "Index plot (first 20 sequences)", idxs = 1:20)
 
-seqdplot(log_sts.seq[,1:100], main = "State distribution plot")
+seqdplot(log_sts.seq[,1:300], main = "State distribution plot")
 
 print(seqstatd(log_sts.seq[,1:5]))
 
 seqfplot(log_sts.seq[,1:100], main = "Sequence frequency plot", pbarw = TRUE, idxs = 1:10)
 
 print(seqtab(log_sts.seq[,1:100]))
+
+# ?seqtrate
 
 seqtrate(log_sts.seq[,1:100])
 
@@ -143,5 +147,7 @@ seqfplot(log_sts.seq[,1:100], group = ient.group, pbarw = TRUE)
 
 seqiplot(log_sts.seq[31:401,1:100])
 cbind(seqST(log_sts.seq[31:41,1:100]),seqient(log_sts.seq[31:41,1:100]))
+
+# ?seqindic
 
 seqindic(log_sts.seq[31:41,1:100], indic=c("lgth","trans","entr","turbn","cplx"))

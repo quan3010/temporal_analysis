@@ -111,18 +111,18 @@
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  Labs
+  Labs solutions
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../labs/source/Lab1.html">
-   Lab 1: Clustering of sequential data in education
+   Lab 1: Exploratory analysis of sequential data in education
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../labs/source/Lab2.html">
-   Lab 2
+   Lab 2: Cluster analysis of sequential data
   </a>
  </li>
  <li class="toctree-l1">
@@ -465,12 +465,15 @@
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
 “package ‘TraMineR’ was built under R version 4.1.1”
-
-TraMineR stable version 2.2-3 (Built: 2022-01-26)
-
-Website: http://traminer.unige.ch
-
-Please type &#39;citation(&quot;TraMineR&quot;)&#39; for citation information.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TraMineR stable version 2.2-3 (Built: 2022-01-26)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Website: http://traminer.unige.ch
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please type &#39;citation(&quot;TraMineR&quot;)&#39; for citation information.
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1] ‘2.2.3’
@@ -478,16 +481,22 @@ Please type &#39;citation(&quot;TraMineR&quot;)&#39; for citation information.
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
 “package ‘readr’ was built under R version 4.1.1”
-── <span class=" -Color -Color-Bold">Attaching packages</span> ──────────────────────────────────────────────────────── tidyverse 1.3.1 ──
-
-<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">ggplot2</span> 3.3.5     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">dplyr  </span> 1.0.7
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>── <span class=" -Color -Color-Bold">Attaching packages</span> ───────────────────────────────────────────────────────── tidyverse 1.3.1 ──
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">ggplot2</span> 3.3.5     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">dplyr  </span> 1.0.7
 <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">tibble </span> 3.1.5     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">stringr</span> 1.4.0
 <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">tidyr  </span> 1.1.3     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">forcats</span> 0.5.1
 <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">purrr  </span> 0.3.4     
-
-Warning message:
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
 “package ‘tibble’ was built under R version 4.1.1”
-── <span class=" -Color -Color-Bold">Conflicts</span> ─────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>── <span class=" -Color -Color-Bold">Conflicts</span> ──────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 <span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">filter()</span> masks <span class=" -Color -Color-Blue">stats</span>::filter()
 <span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">lag()</span>    masks <span class=" -Color -Color-Blue">stats</span>::lag()
 </pre></div>
@@ -520,33 +529,45 @@ Warning message:
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 4 distinct states appear in the data: 
-
-     1 = Discuss
-
-     2 = Practice
-
-     3 = Read
-
-     4 = Watch
-
- [&gt;] state coding:
-
-       [alphabet]  [label]  [long label] 
-
-     1  Discuss     Discuss  Discuss
-
-     2  Practice    Practice Practice
-
-     3  Read        Read     Read
-
-     4  Watch       Watch    Watch
-
- [&gt;] 2000 sequences in the data set
-
- [&gt;] min/max sequence length: 12/12
 </pre></div>
 </div>
-<img alt="../_images/Lecture1_8_1.png" src="../_images/Lecture1_8_1.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     1 = Discuss
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     2 = Practice
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     3 = Read
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     4 = Watch
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] state coding:
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       [alphabet]  [label]  [long label] 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     1  Discuss     Discuss  Discuss
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     2  Practice    Practice Practice
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     3  Read        Read     Read
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     4  Watch       Watch    Watch
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 2000 sequences in the data set
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] min/max sequence length: 12/12
+</pre></div>
+</div>
+<img alt="../_images/Lecture1_8_13.png" src="../_images/Lecture1_8_13.png" />
 </div>
 </div>
 <p>The <strong>alphabet</strong> is the number of unique states (or events) in the data. In the example above, we have four unique states (i.e., Read, Discuss, Practice, Watch) so the <strong>alphabet</strong> = 4</p>
@@ -624,8 +645,9 @@ Warning message:
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] converting STS sequences to 2000 SPS sequences
-
- [&gt;] compressing SPS sequences
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] compressing SPS sequences
 </pre></div>
 </div>
 <div class="output text_html"><table class="dataframe">
@@ -661,10 +683,12 @@ Warning message:
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [!!] &#39;id&#39; set to NULL as it is not specified (backward compatibility with TraMineR 1.8)
-
- [!!] replacing original IDs in the output by the sequence indexes
-
- [&gt;] converting STS sequences to 2579 TSE sequences
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [!!] replacing original IDs in the output by the sequence indexes
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] converting STS sequences to 2579 TSE sequences
 </pre></div>
 </div>
 <div class="output text_html"><table class="dataframe">
@@ -695,6 +719,7 @@ Warning message:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">actcal.spell</span> <span class="o">&lt;-</span> <span class="nf">seqformat</span><span class="p">(</span><span class="n">actcal</span><span class="p">,</span> <span class="m">13</span><span class="o">:</span><span class="m">24</span><span class="p">,</span> <span class="n">from</span> <span class="o">=</span> <span class="s">&quot;STS&quot;</span><span class="p">,</span> <span class="n">to</span> <span class="o">=</span> <span class="s">&quot;SPELL&quot;</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">actcal.seq</span><span class="p">)</span>
 <span class="nf">head</span><span class="p">(</span><span class="n">actcal.spell</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -704,6 +729,21 @@ Warning message:
 </pre></div>
 </div>
 <div class="output text_html"><table class="dataframe">
+<caption>A stslist: 6 × 12</caption>
+<thead>
+	<tr><th></th><th scope=col>jan00</th><th scope=col>feb00</th><th scope=col>mar00</th><th scope=col>apr00</th><th scope=col>may00</th><th scope=col>jun00</th><th scope=col>jul00</th><th scope=col>aug00</th><th scope=col>sep00</th><th scope=col>oct00</th><th scope=col>nov00</th><th scope=col>dec00</th></tr>
+	<tr><th></th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>Watch   </td><td>Watch   </td><td>Watch   </td><td>Watch   </td><td>Watch  </td><td>Watch  </td><td>Watch  </td><td>Watch  </td><td>Watch  </td><td>Watch</td><td>Watch</td><td>Watch   </td></tr>
+	<tr><th scope=row>2</th><td>Practice</td><td>Practice</td><td>Practice</td><td>Practice</td><td>Read   </td><td>Read   </td><td>Read   </td><td>Read   </td><td>Read   </td><td>Read </td><td>Read </td><td>Practice</td></tr>
+	<tr><th scope=row>3</th><td>Watch   </td><td>Watch   </td><td>Watch   </td><td>Watch   </td><td>Watch  </td><td>Watch  </td><td>Watch  </td><td>Watch  </td><td>Watch  </td><td>Watch</td><td>Watch</td><td>Watch   </td></tr>
+	<tr><th scope=row>4</th><td>Discuss </td><td>Discuss </td><td>Discuss </td><td>Discuss </td><td>Discuss</td><td>Discuss</td><td>Discuss</td><td>Discuss</td><td>Discuss</td><td>Watch</td><td>Watch</td><td>Watch   </td></tr>
+	<tr><th scope=row>5</th><td>Read    </td><td>Read    </td><td>Read    </td><td>Read    </td><td>Read   </td><td>Read   </td><td>Read   </td><td>Read   </td><td>Read   </td><td>Read </td><td>Read </td><td>Read    </td></tr>
+	<tr><th scope=row>6</th><td>Practice</td><td>Watch   </td><td>Watch   </td><td>Watch   </td><td>Watch  </td><td>Watch  </td><td>Watch  </td><td>Watch  </td><td>Watch  </td><td>Watch</td><td>Watch</td><td>Watch   </td></tr>
+</tbody>
+</table>
+</div><div class="output text_html"><table class="dataframe">
 <caption>A data.frame: 6 × 4</caption>
 <thead>
 	<tr><th></th><th scope=col>id</th><th scope=col>begin</th><th scope=col>end</th><th scope=col>states</th></tr>
@@ -776,30 +816,42 @@ Warning message:
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 4 distinct states appear in the data: 
-
-     1 = Discuss
-
-     2 = Practice
-
-     3 = Read
-
-     4 = Watch
-
- [&gt;] state coding:
-
-       [alphabet]  [label]  [long label] 
-
-     1  Discuss     Discuss  Discuss
-
-     2  Practice    Practice Practice
-
-     3  Read        Read     Read
-
-     4  Watch       Watch    Watch
-
- [&gt;] 2000 sequences in the data set
-
- [&gt;] min/max sequence length: 12/12
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     1 = Discuss
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     2 = Practice
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     3 = Read
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     4 = Watch
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] state coding:
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       [alphabet]  [label]  [long label] 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     1  Discuss     Discuss  Discuss
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     2  Practice    Practice Practice
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     3  Read        Read     Read
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     4  Watch       Watch    Watch
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 2000 sequences in the data set
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] min/max sequence length: 12/12
 </pre></div>
 </div>
 </div>
@@ -821,24 +873,41 @@ Warning message:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">lasi21_logdata</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="s">&quot;~/Downloads/lasi21_logdata.csv&quot;</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">lasi21_logdata</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold">Rows: </span><span class=" -Color -Color-Blue">852458</span> <span class=" -Color -Color-Bold">Columns: </span><span class=" -Color -Color-Blue">9</span>
-
-<span class=" -Color -Color-Cyan">──</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">────────────────────────────────────────────────────────────────────────────</span>
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">──</span> <span class=" -Color -Color-Bold">Column specification</span> <span class=" -Color -Color-Cyan">──────────────────────────────────────────────────────────────────────────</span>
 <span class=" -Color -Color-Bold">Delimiter:</span> &quot;,&quot;
 <span class=" -Color -Color-Red">chr</span>  (3): site_type, action, instancename
 <span class=" -Color -Color-Green">dbl</span>  (5): id, sas_id_site, spent_time, avg score, PassFlag
 <span class=" -Color -Color-Blue">dttm</span> (1): date_time
-
-
-<span class=" -Color -Color-Cyan">ℹ</span> Use <span class=" -Color -Color-Black -Color-Black-BGWhite">`spec()`</span> to retrieve the full column specification for this data.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Cyan">ℹ</span> Use <span class=" -Color -Color-Black -Color-Black-BGWhite">`spec()`</span> to retrieve the full column specification for this data.
 <span class=" -Color -Color-Cyan">ℹ</span> Specify the column types or set <span class=" -Color -Color-Black -Color-Black-BGWhite">`show_col_types = FALSE`</span> to quiet this message.
 </pre></div>
 </div>
-</div>
+<div class="output text_html"><table class="dataframe">
+<caption>A tibble: 6 × 9</caption>
+<thead>
+	<tr><th scope=col>id</th><th scope=col>sas_id_site</th><th scope=col>site_type</th><th scope=col>date_time</th><th scope=col>spent_time</th><th scope=col>action</th><th scope=col>instancename</th><th scope=col>avg score</th><th scope=col>PassFlag</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dttm&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>1</td><td>872750</td><td>content</td><td>2017-01-22 02:16:00</td><td> 1000</td><td>apiset              </td><td>Block 2 Part 2</td><td>26</td><td>0</td></tr>
+	<tr><td>1</td><td>872771</td><td>content</td><td>2017-02-15 14:47:00</td><td>12000</td><td>view                </td><td>Block 3 Part 7</td><td>26</td><td>0</td></tr>
+	<tr><td>1</td><td>872750</td><td>content</td><td>2017-01-22 01:58:00</td><td> 1000</td><td>apiset              </td><td>Block 2 Part 2</td><td>26</td><td>0</td></tr>
+	<tr><td>1</td><td>872750</td><td>content</td><td>2017-01-22 02:16:00</td><td> 1000</td><td>apiset              </td><td>Block 2 Part 2</td><td>26</td><td>0</td></tr>
+	<tr><td>1</td><td>872890</td><td>studio </td><td>2016-12-01 20:23:00</td><td>58000</td><td>view work stream (1)</td><td>studio        </td><td>26</td><td>0</td></tr>
+	<tr><td>1</td><td>872859</td><td>forumng</td><td>2017-03-14 14:59:00</td><td> 2000</td><td>view discussion     </td><td>forumng       </td><td>26</td><td>0</td></tr>
+</tbody>
+</table>
+</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -916,24 +985,28 @@ Warning message:
 
 <span class="c1"># create time unit as 1 minute (60s)</span>
 <span class="n">lasi21_logdata2</span><span class="o">$</span><span class="n">time_unit</span> <span class="o">&lt;-</span> <span class="nf">round</span><span class="p">(</span><span class="n">lasi21_logdata2</span><span class="o">$</span><span class="n">spent_time_m_cum</span><span class="p">,</span><span class="n">digits</span><span class="o">=</span><span class="m">0</span><span class="p">)</span>
-<span class="nf">head</span><span class="p">(</span><span class="n">lasi21_logdata2</span><span class="p">)</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">lasi21_logdata2</span><span class="p">,</span><span class="m">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><table class="dataframe">
-<caption>A grouped_df: 6 × 9</caption>
+<caption>A grouped_df: 10 × 9</caption>
 <thead>
 	<tr><th scope=col>id</th><th scope=col>date_time</th><th scope=col>spent_time</th><th scope=col>site_type</th><th scope=col>spent_time_m</th><th scope=col>session_flag</th><th scope=col>session_num</th><th scope=col>spent_time_m_cum</th><th scope=col>time_unit</th></tr>
 	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dttm&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
 </thead>
 <tbody>
-	<tr><td>1</td><td>2016-09-06 18:19:00</td><td>217000</td><td>content</td><td>3.6</td><td>0</td><td>1</td><td> 3.6</td><td> 4</td></tr>
-	<tr><td>1</td><td>2016-09-06 18:22:00</td><td>397000</td><td>content</td><td>6.6</td><td>0</td><td>1</td><td>10.2</td><td>10</td></tr>
-	<tr><td>1</td><td>2016-09-06 18:29:00</td><td>337000</td><td>content</td><td>5.6</td><td>0</td><td>1</td><td>15.8</td><td>16</td></tr>
-	<tr><td>1</td><td>2016-09-06 18:34:00</td><td>182000</td><td>content</td><td>3.0</td><td>0</td><td>1</td><td>18.8</td><td>19</td></tr>
-	<tr><td>1</td><td>2016-09-06 18:38:00</td><td>178000</td><td>content</td><td>3.0</td><td>0</td><td>1</td><td>21.8</td><td>22</td></tr>
-	<tr><td>1</td><td>2016-09-07 13:43:00</td><td>323000</td><td>content</td><td>5.4</td><td>0</td><td>3</td><td> 5.4</td><td> 5</td></tr>
+	<tr><td>1</td><td>2016-09-06 18:19:00</td><td> 217000</td><td>content</td><td> 3.6</td><td>0</td><td>1</td><td> 3.6</td><td> 4</td></tr>
+	<tr><td>1</td><td>2016-09-06 18:22:00</td><td> 397000</td><td>content</td><td> 6.6</td><td>0</td><td>1</td><td>10.2</td><td>10</td></tr>
+	<tr><td>1</td><td>2016-09-06 18:29:00</td><td> 337000</td><td>content</td><td> 5.6</td><td>0</td><td>1</td><td>15.8</td><td>16</td></tr>
+	<tr><td>1</td><td>2016-09-06 18:34:00</td><td> 182000</td><td>content</td><td> 3.0</td><td>0</td><td>1</td><td>18.8</td><td>19</td></tr>
+	<tr><td>1</td><td>2016-09-06 18:38:00</td><td> 178000</td><td>content</td><td> 3.0</td><td>0</td><td>1</td><td>21.8</td><td>22</td></tr>
+	<tr><td>1</td><td>2016-09-07 13:43:00</td><td> 323000</td><td>content</td><td> 5.4</td><td>0</td><td>3</td><td> 5.4</td><td> 5</td></tr>
+	<tr><td>1</td><td>2016-09-07 13:48:00</td><td>1298000</td><td>content</td><td>21.6</td><td>0</td><td>3</td><td>27.0</td><td>27</td></tr>
+	<tr><td>1</td><td>2016-09-07 14:10:00</td><td>1576000</td><td>content</td><td>26.3</td><td>0</td><td>3</td><td>53.3</td><td>53</td></tr>
+	<tr><td>1</td><td>2016-09-07 18:16:00</td><td> 522000</td><td>content</td><td> 8.7</td><td>0</td><td>4</td><td> 8.7</td><td> 9</td></tr>
+	<tr><td>1</td><td>2016-09-07 18:24:00</td><td>  91000</td><td>content</td><td> 1.5</td><td>0</td><td>4</td><td>10.2</td><td>10</td></tr>
 </tbody>
 </table>
 </div></div>
@@ -1009,72 +1082,105 @@ Warning message:
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] time axis: 1 -&gt; 429
-
- [&gt;] converting SPELL data into 21418 STS sequences (internal format)
-
- [&gt;] found missing values (&#39;NA&#39;) in sequence data
-
- [&gt;] preparing 21418 sequences
-
- [&gt;] coding void elements with &#39;%&#39; and missing values with &#39;*&#39;
-
- [&gt;] 12 distinct states appear in the data: 
-
-     1 = assignment
-
-     2 = collaborate
-
-     3 = content
-
-     4 = forumng
-
-     5 = glossary
-
-     6 = homepage
-
-     7 = questionnaire
-
-     8 = resource
-
-     9 = studio
-
-     10 = subpage
-
-     11 = url
-
-     12 = wiki
-
- [&gt;] state coding:
-
-       [alphabet]    [label]       [long label] 
-
-     1  assignment    assignment    assignment
-
-     2  collaborate   collaborate   collaborate
-
-     3  content       content       content
-
-     4  forumng       forumng       forumng
-
-     5  glossary      glossary      glossary
-
-     6  homepage      homepage      homepage
-
-     7  questionnaire questionnaire questionnaire
-
-     8  resource      resource      resource
-
-     9  studio        studio        studio
-
-     10  subpage       subpage       subpage
-
-     11  url           url           url
-
-     12  wiki          wiki          wiki
-
- [&gt;] 21418 sequences in the data set
-
- [&gt;] min/max sequence length: 2/429
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] converting SPELL data into 21418 STS sequences (internal format)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] found missing values (&#39;NA&#39;) in sequence data
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] preparing 21418 sequences
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] coding void elements with &#39;%&#39; and missing values with &#39;*&#39;
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 12 distinct states appear in the data: 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     1 = assignment
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     2 = collaborate
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     3 = content
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     4 = forumng
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     5 = glossary
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     6 = homepage
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     7 = questionnaire
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     8 = resource
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     9 = studio
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     10 = subpage
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     11 = url
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     12 = wiki
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] state coding:
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       [alphabet]    [label]       [long label] 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     1  assignment    assignment    assignment
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     2  collaborate   collaborate   collaborate
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     3  content       content       content
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     4  forumng       forumng       forumng
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     5  glossary      glossary      glossary
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     6  homepage      homepage      homepage
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     7  questionnaire questionnaire questionnaire
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     8  resource      resource      resource
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     9  studio        studio        studio
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     10  subpage       subpage       subpage
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     11  url           url           url
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     12  wiki          wiki          wiki
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 21418 sequences in the data set
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] min/max sequence length: 2/429
 </pre></div>
 </div>
 </div>
@@ -1199,36 +1305,51 @@ The default values of the <code class="docutils literal notranslate"><span class
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] found missing values (&#39;NA&#39;) in sequence data
-
- [&gt;] preparing 3 sequences
-
- [&gt;] coding void elements with &#39;%&#39; and missing values with &#39;*&#39;
-
- [&gt;] 4 distinct states appear in the data: 
-
-     1 = a
-
-     2 = b
-
-     3 = c
-
-     4 = d
-
- [&gt;] state coding:
-
-       [alphabet]  [label]  [long label] 
-
-     1  a           a        a
-
-     2  b           b        b
-
-     3  c           c        c
-
-     4  d           d        d
-
- [&gt;] 3 sequences in the data set
-
- [&gt;] min/max sequence length: 4/6
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] preparing 3 sequences
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] coding void elements with &#39;%&#39; and missing values with &#39;*&#39;
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 4 distinct states appear in the data: 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     1 = a
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     2 = b
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     3 = c
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     4 = d
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] state coding:
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       [alphabet]  [label]  [long label] 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     1  a           a        a
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     2  b           b        b
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     3  c           c        c
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     4  d           d        d
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 3 sequences in the data set
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] min/max sequence length: 4/6
 </pre></div>
 </div>
 <div class="output text_html"><table class="dataframe">
@@ -1255,36 +1376,51 @@ The default values of the <code class="docutils literal notranslate"><span class
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] found missing values (&#39;NA&#39;) in sequence data
-
- [&gt;] preparing 3 sequences
-
- [&gt;] coding void elements with &#39;%&#39; and missing values with &#39;*&#39;
-
- [&gt;] 4 distinct states appear in the data: 
-
-     1 = a
-
-     2 = b
-
-     3 = c
-
-     4 = d
-
- [&gt;] state coding:
-
-       [alphabet]  [label]  [long label] 
-
-     1  a           a        a
-
-     2  b           b        b
-
-     3  c           c        c
-
-     4  d           d        d
-
- [&gt;] 3 sequences in the data set
-
- [&gt;] min/max sequence length: 4/5
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] preparing 3 sequences
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] coding void elements with &#39;%&#39; and missing values with &#39;*&#39;
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 4 distinct states appear in the data: 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     1 = a
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     2 = b
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     3 = c
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     4 = d
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] state coding:
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       [alphabet]  [label]  [long label] 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     1  a           a        a
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     2  b           b        b
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     3  c           c        c
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     4  d           d        d
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 3 sequences in the data set
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] min/max sequence length: 4/5
 </pre></div>
 </div>
 <div class="output text_html"><table class="dataframe">
@@ -1310,36 +1446,51 @@ The default values of the <code class="docutils literal notranslate"><span class
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] found missing values (&#39;NA&#39;) in sequence data
-
- [&gt;] preparing 3 sequences
-
- [&gt;] coding void elements with &#39;%&#39; and missing values with &#39;*&#39;
-
- [&gt;] 4 distinct states appear in the data: 
-
-     1 = a
-
-     2 = b
-
-     3 = c
-
-     4 = d
-
- [&gt;] state coding:
-
-       [alphabet]  [label]  [long label] 
-
-     1  a           a        a
-
-     2  b           b        b
-
-     3  c           c        c
-
-     4  d           d        d
-
- [&gt;] 3 sequences in the data set
-
- [&gt;] min/max sequence length: 4/4
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] preparing 3 sequences
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] coding void elements with &#39;%&#39; and missing values with &#39;*&#39;
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 4 distinct states appear in the data: 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     1 = a
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     2 = b
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     3 = c
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     4 = d
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] state coding:
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       [alphabet]  [label]  [long label] 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     1  a           a        a
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     2  b           b        b
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     3  c           c        c
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     4  d           d        d
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 3 sequences in the data set
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] min/max sequence length: 4/4
 </pre></div>
 </div>
 <div class="output text_html"><table class="dataframe">
@@ -1388,7 +1539,7 @@ Index plot (first 20 sequences)</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">seqdplot</span><span class="p">(</span><span class="n">log_sts.seq</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">],</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;State distribution plot&quot;</span><span class="p">)</span>
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">seqdplot</span><span class="p">(</span><span class="n">log_sts.seq</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">300</span><span class="p">],</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;State distribution plot&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1477,6 +1628,13 @@ content/5   177    0.83
 <p>The <code class="docutils literal notranslate"><span class="pre">seqtrate()</span></code> function computes the transition rates between states or events. The outcome is a matrix where each rows gives a transition distribution from associated originating state (or event) in t to the states in t + 1 (the figures sum to one in each row).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># ?seqtrate</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">seqtrate</span><span class="p">(</span><span class="n">log_sts.seq</span><span class="p">[,</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -1521,7 +1679,7 @@ content/5   177    0.83
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [!!] In IRkernel::main() : title is deprecated, use main instead.
 </pre></div>
 </div>
-<img alt="../_images/Lecture1_65_1.png" src="../_images/Lecture1_65_1.png" />
+<img alt="../_images/Lecture1_66_1.png" src="../_images/Lecture1_66_1.png" />
 </div>
 </div>
 </div>
@@ -1537,7 +1695,7 @@ content/5   177    0.83
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Lecture1_67_0.png" src="../_images/Lecture1_67_0.png" />
+<img alt="../_images/Lecture1_68_0.png" src="../_images/Lecture1_68_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1604,7 +1762,7 @@ content/5   177    0.83
 	<tr><th scope=row>61</th><td>0.0000000</td></tr>
 </tbody>
 </table>
-</div><img alt="../_images/Lecture1_71_1.png" src="../_images/Lecture1_71_1.png" />
+</div><img alt="../_images/Lecture1_72_1.png" src="../_images/Lecture1_72_1.png" />
 </div>
 </div>
 <p>Let’s plot a histogram of entropy for the whole dataset</p>
@@ -1615,7 +1773,7 @@ content/5   177    0.83
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Lecture1_73_0.png" src="../_images/Lecture1_73_0.png" />
+<img alt="../_images/Lecture1_74_0.png" src="../_images/Lecture1_74_0.png" />
 </div>
 </div>
 <p>Let us have a look at the sequences near the minimum, median and maximum entropy. For that, we draw sets of sequences having an entropy lower or equal to the 55th percentile, an entropy 50-90th percentile, and an entropy greater than the 90th percentile.</p>
@@ -1659,7 +1817,7 @@ content/5   177    0.83
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/Lecture1_77_0.png" src="../_images/Lecture1_77_0.png" />
+<img alt="../_images/Lecture1_78_0.png" src="../_images/Lecture1_78_0.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1695,7 +1853,7 @@ content/5   177    0.83
 	<tr><th scope=row>61</th><td>1.000000</td><td>0.0000000</td></tr>
 </tbody>
 </table>
-</div><img alt="../_images/Lecture1_79_1.png" src="../_images/Lecture1_79_1.png" />
+</div><img alt="../_images/Lecture1_80_1.png" src="../_images/Lecture1_80_1.png" />
 </div>
 </div>
 <p>Finally, we can use a single function <code class="docutils literal notranslate"><span class="pre">seqindic</span></code> to produce multiple descriptive statistics of the sequences. Here’s a few examples</p>
@@ -1706,6 +1864,13 @@ content/5   177    0.83
 <li><p>“cplx” (complexity index)</p></li>
 <li><p>“turb” (turbulence)</p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="c1"># ?seqindic</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="nf">seqindic</span><span class="p">(</span><span class="n">log_sts.seq</span><span class="p">[</span><span class="m">31</span><span class="o">:</span><span class="m">41</span><span class="p">,</span><span class="m">1</span><span class="o">:</span><span class="m">100</span><span class="p">],</span> <span class="n">indic</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;lgth&quot;</span><span class="p">,</span><span class="s">&quot;trans&quot;</span><span class="p">,</span><span class="s">&quot;entr&quot;</span><span class="p">,</span><span class="s">&quot;turbn&quot;</span><span class="p">,</span><span class="s">&quot;cplx&quot;</span><span class="p">))</span>
