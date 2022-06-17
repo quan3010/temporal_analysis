@@ -32,6 +32,8 @@ print(df.seq)
 
 seqdist(df.seq, method='LCS', with.miss=TRUE)
 
+# ?seqdist
+
 print(famform.seq)
 sub_cost <- seqcost(famform.seq, method = "CONSTANT", cval = 2)
 sub_cost
@@ -48,8 +50,11 @@ seqdist(famform.seq, method = "OM", sm = sub_cost_TRATE$sm)
 
 ?seqcost
 
+# ?seqdist
+
 clusterward <- agnes(famform.seq_OM, diss = TRUE, method = "ward")
 
+famform.seq
 plot(clusterward)
 
 plot(clusterward, which.plot=2)
@@ -66,4 +71,4 @@ table(cluster2)
 # plot sequence frequency by cluster membership
 seqfplot(famform.seq, group = cluster2, pbarw = T)
 
-?agnes
+# ?agnes

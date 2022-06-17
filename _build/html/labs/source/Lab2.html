@@ -103,7 +103,7 @@
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="../../lectures/Lecture3.html">
-   Lecture 3
+   Lecture 3: Association rules and frequent sequence mining
   </a>
  </li>
 </ul>
@@ -346,32 +346,42 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>── <span class=" -Color -Color-Bold">Attaching packages</span> ──────────────────────────────────────────────────────── tidyverse 1.3.1 ──
-
-<span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">ggplot2</span> 3.3.5     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">purrr  </span> 0.3.4
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>── <span class=" -Color -Color-Bold">Attaching packages</span> ──────────────────────────────────────────────────────────────────────────── tidyverse 1.3.1 ──
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">ggplot2</span> 3.3.5     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">purrr  </span> 0.3.4
 <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">tibble </span> 3.1.5     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">dplyr  </span> 1.0.7
 <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">tidyr  </span> 1.1.3     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">stringr</span> 1.4.0
 <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">readr  </span> 2.0.1     <span class=" -Color -Color-Green">✔</span> <span class=" -Color -Color-Blue">forcats</span> 0.5.1
-
-Warning message:
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
 “package ‘tibble’ was built under R version 4.1.1”
-Warning message:
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
 “package ‘readr’ was built under R version 4.1.1”
-── <span class=" -Color -Color-Bold">Conflicts</span> ─────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>── <span class=" -Color -Color-Bold">Conflicts</span> ─────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
 <span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">filter()</span> masks <span class=" -Color -Color-Blue">stats</span>::filter()
 <span class=" -Color -Color-Red">✖</span> <span class=" -Color -Color-Blue">dplyr</span>::<span class=" -Color -Color-Green">lag()</span>    masks <span class=" -Color -Color-Blue">stats</span>::lag()
-
-Warning message:
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
 “package ‘TraMineR’ was built under R version 4.1.1”
-
-TraMineR stable version 2.2-3 (Built: 2022-01-26)
-
-Website: http://traminer.unige.ch
-
-Please type &#39;citation(&quot;TraMineR&quot;)&#39; for citation information.
-
-
-Warning message:
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TraMineR stable version 2.2-3 (Built: 2022-01-26)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Website: http://traminer.unige.ch
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Please type &#39;citation(&quot;TraMineR&quot;)&#39; for citation information.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Warning message:
 “package ‘cluster’ was built under R version 4.1.1”
 </pre></div>
 </div>
@@ -419,28 +429,39 @@ Warning message:
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] state coding:
-
-       [alphabet]  [label]         [long label] 
-
-     1  0           Parent          Parent
-
-     2  1           Left            Left
-
-     3  2           Married         Married
-
-     4  3           Left+Marr       Left+Marr
-
-     5  4           Child           Child
-
-     6  5           Left+Child      Left+Child
-
-     7  6           Left+Marr+Child Left+Marr+Child
-
-     8  7           Divorced        Divorced
-
- [&gt;] 2000 sequences in the data set
-
- [&gt;] min/max sequence length: 16/16
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>       [alphabet]  [label]         [long label] 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     1  0           Parent          Parent
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     2  1           Left            Left
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     3  2           Married         Married
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     4  3           Left+Marr       Left+Marr
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     5  4           Child           Child
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     6  5           Left+Child      Left+Child
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     7  6           Left+Marr+Child Left+Marr+Child
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     8  7           Divorced        Divorced
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 2000 sequences in the data set
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] min/max sequence length: 16/16
 </pre></div>
 </div>
 </div>
@@ -463,18 +484,24 @@ Warning message:
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 2000 sequences with 8 distinct states
-
- [&gt;] creating a &#39;sm&#39; with a substitution cost of 2
-
- [&gt;] creating 8x8 substitution-cost matrix using 2 as constant value
-
- [&gt;] 537 distinct  sequences 
-
- [&gt;] min/max sequence lengths: 16/16
-
- [&gt;] computing distances using the LCS gmean normalized metric
-
- [&gt;] elapsed time: 0.123 secs
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] creating a &#39;sm&#39; with a substitution cost of 2
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] creating 8x8 substitution-cost matrix using 2 as constant value
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 537 distinct  sequences 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] min/max sequence lengths: 16/16
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] computing distances using the LCS gmean normalized metric
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] elapsed time: 0.211 secs
 </pre></div>
 </div>
 <div class="output text_html"><table class="dataframe">
@@ -629,20 +656,27 @@ Warning message:
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] creating substitution-cost matrix using transition rates ...
-
- [&gt;] computing transition probabilities for states Parent/Left/Married/Left+Marr/Child/Left+Child/Left+Marr+Child/Divorced ...
-
- [&gt;] 2000 sequences with 8 distinct states
-
- [&gt;] checking &#39;sm&#39; (size and triangle inequality)
-
- [&gt;] 537 distinct  sequences 
-
- [&gt;] min/max sequence lengths: 16/16
-
- [&gt;] computing distances using the OM metric
-
- [&gt;] elapsed time: 0.127 secs
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] computing transition probabilities for states Parent/Left/Married/Left+Marr/Child/Left+Child/Left+Marr+Child/Divorced ...
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 2000 sequences with 8 distinct states
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] checking &#39;sm&#39; (size and triangle inequality)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] 537 distinct  sequences 
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] min/max sequence lengths: 16/16
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] computing distances using the OM metric
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [&gt;] elapsed time: 0.117 secs
 </pre></div>
 </div>
 <div class="output text_html"><table class="dataframe">
@@ -716,6 +750,13 @@ Warning message:
 </table>
 </div></div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="o">?</span><span class="n">seqdist</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="q4-perform-an-agglomerative-clustering-using-ward-linkage-method">
 <h2>Q4. Perform an agglomerative clustering using ward linkage method<a class="headerlink" href="#q4-perform-an-agglomerative-clustering-using-ward-linkage-method" title="Permalink to this headline">¶</a></h2>
@@ -739,7 +780,7 @@ Warning message:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/Lab2_21_0.png" src="../../_images/Lab2_21_0.png" />
+<img alt="../../_images/Lab2_22_0.png" src="../../_images/Lab2_22_0.png" />
 </div>
 </div>
 </div>
@@ -768,6 +809,10 @@ Warning message:
 <span class="nf">seqdplot</span><span class="p">(</span><span class="n">biofam.seq</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="n">cluster5</span><span class="p">)</span>
 
 <span class="c1"># END SOLUTION</span>
+
+
+<span class="n">s1</span> <span class="o">=</span> <span class="nf">Read </span><span class="p">(</span><span class="m">2</span><span class="p">)</span> <span class="o">-</span> <span class="nf">Write </span><span class="p">(</span><span class="m">2</span><span class="p">)</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="nf">Read</span><span class="p">(</span><span class="m">5</span><span class="p">)</span> <span class="o">-</span> <span class="nf">Write </span><span class="p">(</span><span class="m">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -777,9 +822,261 @@ Warning message:
 392 770 442 168 228 
 </pre></div>
 </div>
-<img alt="../../_images/Lab2_25_1.png" src="../../_images/Lab2_25_1.png" />
-<img alt="../../_images/Lab2_25_2.png" src="../../_images/Lab2_25_2.png" />
+<img alt="../../_images/Lab2_26_1.png" src="../../_images/Lab2_26_1.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="ow">in</span> <span class="n">Read</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span> <span class="n">could</span> <span class="ow">not</span> <span class="n">find</span> <span class="n">function</span> <span class="s2">&quot;Read&quot;</span>
+<span class="ne">Traceback</span>:
+</pre></div>
 </div>
+<img alt="../../_images/Lab2_26_3.png" src="../../_images/Lab2_26_3.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="o">?</span><span class="nf">seqcost</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<table width="100%" summary="page for seqcost {TraMineR}"><tr><td>seqcost {TraMineR}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>Generate substitution and indel costs</h2>
+
+<h3>Description</h3>
+
+<p>The function <code>seqcost</code> proposes different ways to generate substitution costs
+(supposed to represent state dissimilarities) and possibly indel costs. Proposed methods are:
+<code>"CONSTANT"</code> (same cost for all substitutions), <code>"TRATE"</code> (derived from the observed transition rates), <code>"FUTURE"</code> (Chi-squared distance between conditional state distributions <code>lag</code> positions ahead), <code>"FEATURES"</code> (Gower distance between state features), <code>"INDELS"</code>, <code>"INDELSLOG"</code> (based on estimated indel costs).
+The substitution-cost matrix is intended to serve as <code>sm</code> argument in the <code>seqdist</code> function that computes distances between sequences. <code>seqsubm</code> is an alias that returns only the substitution cost matrix, i.e., no indel.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+seqcost(seqdata, method, cval = NULL, with.missing = FALSE, miss.cost = NULL,
+  time.varying = FALSE, weighted = TRUE, transition = "both", lag = 1,
+  miss.cost.fixed = NULL, state.features = NULL, feature.weights = NULL,
+  feature.type = list(), proximities = FALSE)
+
+seqsubm(...)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>seqdata</code></td>
+<td>
+<p>A sequence object as returned by the seqdef function.</p>
+</td></tr>
+<tr valign="top"><td><code>method</code></td>
+<td>
+<p>String. How to generate the costs. One of <code>"CONSTANT"</code> (same cost for all substitutions), <code>"TRATE"</code> (derived from the observed transition rates), <code>"FUTURE"</code> (Chi-squared distance between conditional state distributions <code>lag</code> positions ahead), <code>"FEATURES"</code> (Gower distance between state features), <code>"INDELS"</code>, <code>"INDELSLOG"</code> (based on estimated indel costs).</p>
+</td></tr>
+<tr valign="top"><td><code>cval</code></td>
+<td>
+<p>Scalar. For method <code>"CONSTANT"</code>, the single substitution cost. <br />
+For method <code>"TRATE"</code>, a base value from which transition probabilities are subtracted.<br />
+If <code>NULL</code>, <code>cval=2</code> is used, unless <code>transition</code>
+is <code>"both"</code> and <code>time.varying</code> is <code>TRUE</code>, in which case <code>cval=4</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>with.missing</code></td>
+<td>
+<p>Logical. Should an additional entry be added in the matrix for the missing states?
+If <code>TRUE</code>, the &lsquo;missing&rsquo; state is also added to the alphabet. Set as <code>TRUE</code> if you want to use the costs for distances between sequences containing non deleted (non void) missing values. Forced as <code>FALSE</code> when there are no non-void missing values in <code>seqdata</code>. See <cite>Gabadinho et al. (2010)</cite> for more details on the options for handling missing values when creating the state sequence object with <code>seqdef</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>miss.cost</code></td>
+<td>
+<p>Scalar or vector. Cost for substituting the missing state. Default is <code>cval</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>miss.cost.fixed</code></td>
+<td>
+<p>Logical. Should the substitution cost for missing be set as the <code>miss.cost</code> value. When <code>NULL</code> (default) it will be set as <code>FALSE</code> when <code>method = "INDELS"</code> or <code>"INDELSLOG"</code>, and <code>TRUE</code> otherwise.</p>
+</td></tr>
+<tr valign="top"><td><code>time.varying</code></td>
+<td>
+<p>Logical. If <code>TRUE</code> return an <code>array</code> with a distinct matrix for each time unit. Time is the third dimension (subscript) of the returned array. Time varying works only with <code>method='CONSTANT'</code>, <code>'TRATE'</code>, <code>'INDELS'</code>, and <code>'INDELSLOG'</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>weighted</code></td>
+<td>
+<p>Logical. Should weights in <code>seqdata</code> be used when applicable?</p>
+</td></tr>
+<tr valign="top"><td><code>transition</code></td>
+<td>
+<p>String. Only used if <code>method="TRATE"</code> and <code>time.varying=TRUE</code>. On which transition are rates based? Should be one of <code>"previous"</code> (from previous state), <code>"next"</code> (to next state) or <code>"both"</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>lag</code></td>
+<td>
+<p>Integer. For methods <code>TRATE</code> and <code>FUTURE</code> only. Time ahead to which transition rates are computed
+(default is <code>lag=1</code>).</p>
+</td></tr>
+<tr valign="top"><td><code>state.features</code></td>
+<td>
+<p>Data frame with features values for each state.</p>
+</td></tr>
+<tr valign="top"><td><code>feature.weights</code></td>
+<td>
+<p>Vector of feature weights with length equal to the number of columns of <code>state.features</code>.</p>
+</td></tr>
+<tr valign="top"><td><code>feature.type</code></td>
+<td>
+<p>List of feature types. See <code>daisy</code> for details.</p>
+</td></tr>
+<tr valign="top"><td><code>proximities</code></td>
+<td>
+<p>Logical: should state proximities be returned instead of substitution costs?</p>
+</td></tr>
+<tr valign="top"><td><code>...</code></td>
+<td>
+<p>Arguments passed to <code>seqcost</code></p>
+</td></tr>
+</table>
+
+
+<h3>Details</h3>
+
+<p>The substitution-cost matrix has dimension <i>ns*ns</i>, where
+<i>ns</i> is the number of states in the alphabet of the
+sequence object. The element <i>(i,j)</i> of the matrix is the cost of
+substituting state <i>i</i> with state <i>j</i>. It represents the dissimilarity between the states <i>i</i> and <i>j</i>. The indel cost of the cost of inserting or deleting a state.
+</p>
+<p>With method <code>CONSTANT</code>, the substitution costs are all set equal to the <code>cval</code> value, the default value being 2.
+</p>
+<p>With method <code>TRATE</code>
+(transition rates), the transition probabilities between all pairs of
+states is first computed (using the seqtrate function). Then, the
+substitution cost between states <i>i</i> and <i>j</i> is obtained with
+the formula
+</p>
+<p style="text-align: center;"><i>SC(i,j) = cval - P(i|j) -P(j|i)</i></p>
+
+<p>where <i>P(i|j)</i> is the probability of transition from state <i>j</i> to
+<i>i</i> <code>lag</code> positions ahead. Default <code>cval</code> value is 2. When <code>time.varying=TRUE</code> and <code>transition="both"</code>, the substitution cost at position <i>t</i> is set as
+</p>
+<p style="text-align: center;"><i>SC(i,j,t) = cval - P(i|j,t-1) -P(j|i,t-1) - P(i|j,t) - P(j|i,t)</i></p>
+
+<p>where <i>P(i|j,t-1)</i> is the probability to transit from state <i>j</i> at <i>t-1</i> to <i>i</i> at t. Here, the default <code>cval</code> value is 4.
+</p>
+<p>With method <code>FUTURE</code>, the cost between <i>i</i> and <i>j</i> is the Chi-squared distance between the vector (<i>d(alphabet | i)</i>) of probabilities of transition from states <i>i</i> and
+<i>j</i> to all the states in the alphabet <code>lag</code> positions ahead:
+</p>
+<p style="text-align: center;"><i>SC(i,j) = ChiDist(d(alphabet | i), d(alphabet | j))</i></p>
+
+<p>With method <code>FEATURES</code>, each state is characterized by the variables <code>state.features</code>, and the cost between <i>i</i> and <i>j</i> is computed as the Gower distance between their vectors of <code>state.features</code> values.
+</p>
+<p>With methods <code>INDELS</code> and <code>INDELSLOG</code>, values of indels are first derived from the state relative frequencies <i>f_i</i>. For <code>INDELS</code>, <i>indel_i = 1/f_i</i> is used, and for <code>INDELSLOG</code>, <i>indel_i = log[2/(1 + f_i)]</i>.
+Substitution costs are then set as <i>SC(i,j) = indel_i + indel_j</i>.
+</p>
+<p>For all methods but <code>INDELS</code> and <code>INDELSLOG</code>, the indel is set as <i>max(sm)/2</i> when <code>time.varying=FALSE</code> and as <i>1</i> otherwise.
+</p>
+
+
+<h3>Value</h3>
+
+<p>For <code>seqcost</code>, a list of two elements, <code>indel</code> and <code>sm</code> or <code>prox</code>:
+</p>
+<table summary="R valueblock">
+<tr valign="top"><td><code>indel</code></td>
+<td>
+
+<p>The indel cost. Either a scalar or a vector of size <i>ns</i>. When <code>time.varying=TRUE</code> and <code>method</code> is one of <code>"INDELS"</code> or <code>"INDELSLOG"</code>, a matrix with indels per time point in columns.
+</p>
+</td></tr>
+<tr valign="top"><td><code>sm</code></td>
+<td>
+
+<p>The substitution-cost matrix (or array) when <code>proximities = FALSE</code> (default).
+</p>
+</td></tr>
+<tr valign="top"><td><code>prox</code></td>
+<td>
+
+<p>The state proximity matrix when <code>proximities = TRUE</code>.
+</p>
+</td></tr>
+</table>
+<p><code>sm</code> and <code>prox</code> are, when <code>time.varying = FALSE</code>, a matrix of size <i>ns * ns</i>, where <i>ns</i>
+is the number of states in the alphabet of the sequence object. When <code>time.varying = TRUE</code>, they are a three dimensional array of size <i>ns * ns * L</i>, where <i>L</i> is the maximum sequence length.
+</p>
+<p>For <code>seqsubm</code>, only one element, the matrix (or array) <code>sm</code>.
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>Gilbert Ritschard and Matthias Studer (and Alexis Gabadinho for first version of <code>seqsubm</code>)</p>
+
+
+<h3>References</h3>
+
+<p>Gabadinho, A., G. Ritschard, N. S. Müller and M. Studer (2011). Analyzing and Visualizing State Sequences in R with TraMineR. <em>Journal of Statistical Software</em> <b>40</b>(4), 1-37.
+</p>
+<p>Gabadinho, A., G. Ritschard, M. Studer and N. S. Müller (2010). Mining Sequence Data in
+<code>R</code> with the <code>TraMineR</code> package: A user's guide. Department of Econometrics and
+Laboratory of Demography, University of Geneva.
+</p>
+<p>Studer, M. &amp; Ritschard, G. (2016), &quot;What matters in differences between life trajectories: A comparative review of sequence dissimilarity measures&quot;, <em>Journal of the Royal Statistical Society, Series A</em>. <b>179</b>(2), 481-511. doi: <a href="https://doi.org/10.1111/rssa.12125">10.1111/rssa.12125</a>
+</p>
+<p>Studer, M. and G. Ritschard (2014). &quot;A Comparative Review of Sequence Dissimilarity Measures&quot;. <em>LIVES Working Papers</em>, <b>33</b>. NCCR LIVES, Switzerland, 2014. doi: <a href="https://doi.org/10.12682/lives.2296-1658.2014.33">10.12682/lives.2296-1658.2014.33</a>
+</p>
+
+
+<h3>See Also</h3>
+
+<p><code>seqtrate</code>, <code>seqdef</code>, <code>seqdist</code>.
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Defining a sequence object with columns 10 to 25
+## of a subset of the 'biofam' example data set.
+data(biofam)
+biofam.seq &lt;- seqdef(biofam[501:600,10:25])
+
+## Indel and substitution costs based on log of inverse state frequencies
+lifcost &lt;- seqcost(biofam.seq, method="INDELSLOG")
+## Here lifcost$indel is a vector
+biofam.om &lt;- seqdist(biofam.seq, method="OM", indel=lifcost$indel, sm=lifcost$sm)
+
+## Optimal matching using transition rates based substitution-cost matrix
+## and the associated indel cost
+## Here trcost$indel is a scalar
+trcost &lt;- seqcost(biofam.seq, method="TRATE")
+biofam.om &lt;- seqdist(biofam.seq, method="OM", indel=trcost$indel, sm=trcost$sm)
+
+## Using costs based on FUTURE with a forward lag of 4
+fucost &lt;- seqcost(biofam.seq, method="FUTURE", lag=4)
+biofam.om &lt;- seqdist(biofam.seq, method="OM", indel=fucost$indel, sm=fucost$sm)
+
+## Optimal matching using a unique substitution cost of 2
+## and an insertion/deletion cost of 3
+ccost &lt;- seqsubm(biofam.seq, method="CONSTANT", cval=2)
+biofam.om.c2 &lt;- seqdist(biofam.seq, method="OM",indel=3, sm=ccost)
+
+## Displaying the distance matrix for the first 10 sequences
+biofam.om.c2[1:10,1:10]
+
+## =================================
+## Example with weights and missings
+## =================================
+data(ex1)
+ex1.seq &lt;- seqdef(ex1[,1:13], weights=ex1$weights)
+
+## Unweighted
+subm &lt;- seqcost(ex1.seq, method="INDELSLOG", with.missing=TRUE, weighted=FALSE)
+ex1.om &lt;- seqdist(ex1.seq, method="OM", indel=subm$indel, sm=subm$sm, with.missing=TRUE)
+
+## Weighted
+subm.w &lt;- seqcost(ex1.seq, method="INDELSLOG", with.missing=TRUE, weighted=TRUE)
+ex1.omw &lt;- seqdist(ex1.seq, method="OM", indel=subm.w$indel, sm=subm.w$sm, with.missing=TRUE)
+
+ex1.om == ex1.omw
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>TraMineR</em> version 2.2-3 ]</div></div></div>
 </div>
 </div>
 </div>

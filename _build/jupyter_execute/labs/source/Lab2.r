@@ -50,7 +50,9 @@ biofam.seq.OM <- seqdist(biofam.seq, method='OM', sm=biofam.seq.subcost$sm)
 biofam.seq.OM
 
 # END SOLUTION
-# END SOLUTION# BEGIN SOLUTION
+# END SOLUTION
+?seqdist
+# BEGIN SOLUTION
 clusterward <- NULL
 
 # BEGIN SOLUTION
@@ -77,4 +79,10 @@ seqfplot(biofam.seq, group = cluster5, pbarw = T)
 seqdplot(biofam.seq, group = cluster5)
 
 # END SOLUTION
+
+
+s1 = Read (2) - Write (2)
+s2 = Read(5) - Write (5)
+
+?seqcost()
 # END SOLUTION# END QUESTION
