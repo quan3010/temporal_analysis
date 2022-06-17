@@ -26,7 +26,7 @@ This workshop is designed for anyone interested in temporal/sequential analysis.
 |-----|-----------------------------------|-----|----------|
 | 1   | Exploratory sequence analysis with TraMineR |   "labs/release/Lab1.Rmd"  |  [Chap 1-8](http://mephisto.unige.ch/pub/TraMineR/doc/TraMineR-Users-Guide.pdf)        |
 | 2   | Sequence clustering using TraMineR           | "labs/release/Lab2.Rmd"    | [Chap 9](http://mephisto.unige.ch/pub/TraMineR/doc/TraMineR-Users-Guide.pdf)         |
-| 3   | Association rules and frequent sequence mining  |   TBD  |          | [Introduction to arules](https://www.cs.upc.edu/~belanche/Docencia/mineria/Practiques/R/arules.pdf), [SPADE algorithm](https://en.wikibooks.org/wiki/Data_Mining_Algorithms_In_R/Sequence_Mining/SPADE)
+| 3   | Association rules and frequent sequence mining  |   TBD  |  [Introduction to arules](https://www.cs.upc.edu/~belanche/Docencia/mineria/Practiques/R/arules.pdf), [SPADE algorithm](https://en.wikibooks.org/wiki/Data_Mining_Algorithms_In_R/Sequence_Mining/SPADE)        | 
 
 ## Zoom etiquette
 
