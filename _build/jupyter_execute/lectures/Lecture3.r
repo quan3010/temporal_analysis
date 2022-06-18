@@ -210,8 +210,8 @@ dt <- dt %>% select(sequenceID,eventID,size,item)
 head(dt)
 
 library(arulesSequences)
-write.table(dt, "mytxtout.txt", sep=";", row.names = FALSE, col.names = FALSE, quote = FALSE)
-trans_matrix <- read_baskets("mytxtout.txt", sep = ";", info = c("sequenceID","eventID", "size"))
+write.table(dt, "course_term.csv", sep=";", row.names = FALSE, col.names = FALSE, quote = FALSE)
+trans_matrix <- read_baskets("course_term.csv", sep = ";", info = c("sequenceID","eventID", "size"))
 summary(trans_matrix)
 
 # Get frequent sequences and corresponding support values

@@ -1,0 +1,511 @@
+---
+title: An R Markdown document converted from "lectures/Lecture1.ipynb"
+output: html_document
+---
+
+![](img/solar_logo.png)
+# Lecture 1: Exploratory data analysis of sequence data in education
+
+Quan Nguyen, Department of Statistics, University of British Columbia
+
+## Learning objectives:
+
+By the end of this lecture, workshop participants should be able to:
+
+- Understand the type of questions that are relevant to clustering of sequential data
+- Understand different types of sequence data format and convert between formats
+- Create a sequence object from an existing dataset using the `TraMineR` package
+- Manipulate sequence object to deal with missing values and misaligned sequences
+- Visualize and compute descriptive statitsics to explore sequential data
+
+## 1. Why do we want to perform cluster analysis on sequential data in education?
+
+### What types of temporal/sequential data exist in education?
+
+| Data source   | Time granularity             | Questions                                                                             |
+|---------------|------------------------------|---------------------------------------------------------------------------------------|
+| SIS records   | Semester/Year                | What are the common study paths taken by students based on their course enrolment?    |
+| LMS log files | Seconds/Daily/Semester       | What are the common learning patterns of students during a course?                    |
+| Eye-tracking  | Miliseconds/Seconds/Minutes  | What are the common thought process when students engage in an exercise?              |
+| Videos        | Frames/Seconds/Minutes       | What are the common interaction patterns of students during collaborative activities? |                                                                                       |
+|               |                              |                                                                                       |
+|               |                              |                                                                                       |
+
+### What type of research questions that are temporal/sequential specific?
+
+- Exploratory: What are the common patterns exist in the data? 
+- Predictive: Can we classifiy an existing sequence? Can we predict the next activity/outcome given a sequence?
+- Causal: Does X cause Y?
+
+### Introduction to the TramineR package
+
+TraMineR is a R-package for mining, describing and visualizing sequences of states or events, and more generally discrete sequence data
+- [Reference manual here](https://cran.r-project.org/web/packages/TraMineR/TraMineR.pdf)
+- [Tutorial here](http://mephisto.unige.ch/pub/TraMineR/doc/TraMineR-Users-Guide.pdf)
+- [Example here](http://traminer.unige.ch/preview-main.shtml)
+
+Some common usage of TramineR includes:
+- Visualize sequences
+- Explore sequences with descriptive statistics (e.g., frequencies, transitional probabilities, entropy)
+- Cluster analysis of sequences (e.g., Optimal matching/Edit distances)
+- Run discrepancy analyses to study how sequences are related to covariates
+
+Installation in R: 
+
+```sh
+install.packages("TraMineR", dependencies=TRUE)
+```
+
+
+```{r}
+# install.packages("TraMineR")
+options(repr.plot.width=15, repr.plot.height=8)
+library("TraMineR")
+packageVersion("TraMineR")
+library(readr)
+library(tidyverse)
+```
+
+### Some terminologies
+
+#### States vs events
+
+- States: Read, write, discuss, review  
+- Events: Read -> Write, Write -> Discuss (each change of state is an event)
+
+As see in the example below, the sequences 7,8,9,10 no event occurred during the observation period since the respondent stays in the same state during the whole sequence
+
+In sequence 2, two events occurred: `Practice -> Read`, and `Read -> Practice`
+
+```{r}
+data(actcal)
+actcal <- data.frame(lapply(actcal, function(x) { gsub("^A\\b", "Read", x)}))
+actcal <- data.frame(lapply(actcal, function(x) { gsub("^B\\b", "Watch", x)}))
+actcal <- data.frame(lapply(actcal, function(x) { gsub("^C\\b", "Discuss", x)}))
+actcal <- data.frame(lapply(actcal, function(x) { gsub("^D\\b", "Practice", x)}))
+actcal.seq <- seqdef(actcal, var = 13:24)
+# actcal.seq
+seqiplot(actcal.seq, main = "Index plot (first 10 sequences)",with.legend = TRUE)
+```
+
+The **alphabet** is the number of unique states (or events) in the data. In the example above, we have four unique states (i.e., Read, Discuss, Practice, Watch) so the **alphabet** = 4
+
+
+```{r}
+alphabet(actcal.seq)
+```
+
+**Time reference: Internal and external clocks**
+
+- Internal: Year 1, Year 2, Year 3 or Semester 1, Semester 2, Semester 3
+- External: June 17th, 2022, or 14:30:00 PST
+
+## 2. Data manipulation with sequences
+
+### Data format
+
+#### The ‘states-sequence’ (STS) format
+- Each row is an individual
+- In this format, the successive states (statuses) of an individual are given in consecutive columns. Each column is supposed to correspond to a predetermined time unit
+
+```{r}
+head(actcal.seq)
+```
+
+#### The ‘state-permanence-sequence’ (SPS) format
+- Each row is an individual
+- Each successive distinct state in the sequence is given together with its duration
+
+```{r}
+# print(head(actcal.seq), format='SPS')
+actcal.sps <- seqformat(actcal, 13:24, from = "STS", to = "SPS", compress = TRUE)
+head(actcal.sps)
+```
+
+#### The vertical ‘time-stamped-event’ (TSE) format
+- Each row is an **event**
+- Each record of the TSE representation usually contains a case identifier, a time stamp and codes identifying the event occurring
+
+```{r}
+tstate <- seqetm(actcal.seq, method='state')
+actcal.tse <- seqformat(actcal, 13:24, from = "STS", to = "TSE", tevent=tstate)
+head(actcal.tse)
+```
+
+### The spell (SPELL) format
+- Each row is a **state**
+- Each record of SPELL contains an ID, start time, end time, and the state
+
+```{r}
+actcal.spell <- seqformat(actcal, 13:24, from = "STS", to = "SPELL")
+head(actcal.seq)
+head(actcal.spell)
+```
+
+### Converting between format
+
+```sh
+seqformat(data, var = ..., from = "...", to = ",,,", compress = FALSE/TRUE)
+```
+
+Examples: 
+- `seqformat(actcal, 13:24, from = "STS", to = "SPELL")`
+- `seqformat(actcal, 13:24, from = "STS", to = "SPS", compress = TRUE)`
+
+### Create a sequence object from data
+
+We can use the `seqdef` function to create a sequence object from an existing dataframe.
+
+In the dataset `actcal` below, it consists of:
+- The sequence data were collected on a monthly basis on each participant in columns: "jan00", "feb00", "mar00", "apr00", "may00", "jun00", "jul00", "aug00", "sep00", "oct00", "nov00", "dec00"
+- The covariates such as age, education, region, etc...
+
+```{r}
+head(actcal)
+```
+
+To create the sequence, we can use the `seqdef()` function. 
+
+We can see that there were 2000 sequences, with the length of 12, and consists of 4 states
+
+```{r}
+actcal.seq <- seqdef(actcal, var = c("jan00", "feb00", "mar00",
+         "apr00", "may00", "jun00", "jul00", "aug00", "sep00", "oct00",
+         "nov00", "dec00"))
+```
+
+But this is a relatively clean data set, because it has defined a time unit (monthly). There were also no missing value or no misalignment in the timing of data collection (everyone started and ended at the same time).
+
+**Import a log file**
+
+Let's try to process a more messy example of a log file `lasi21_logdata.csv`. The dataset consists of 852,458 records and 9 columns
+* `id` refers to anonymized student ID
+* `sas_id_site` refers to the id of the site that students visited
+* `site_type` refers to the type of content (e.g., resource, homepage, forumng, ...)
+* `date_time` referes to the timestamp
+* `spent_time` refers to the estimated dwell time in miliseconds
+* `action` refers to the type of action took place (e.g., view, download, etc..)
+* `instancename` refers to the type of content (e.g., chapter 1, chapter 2, assignment 1, etc..)
+* `avg score` refers to the final score
+* `PassFlag` refers to a binary class of whether students passed or failed the course
+
+```{r}
+
+lasi21_logdata <- read_csv("~/Downloads/lasi21_logdata.csv")
+head(lasi21_logdata)
+```
+
+```{r}
+# Fixing some typos
+lasi21_logdata$site_type <- ifelse(grepl("ssignment", lasi21_logdata$instancename), "assignment",lasi21_logdata$site_type )
+lasi21_logdata$site_type <- ifelse(grepl("exam", lasi21_logdata$instancename), "assignment",lasi21_logdata$site_type )
+
+# Convert dataframe to data.table for faster processing
+lasi21_logdata <- lasi21_logdata %>% select(id,date_time,spent_time,site_type)
+
+head(lasi21_logdata)
+```
+
+Now we need to make some decisions:
+
+* What is a sequence in our data? (i.e., what each row will represent)
+    - Each sequence could be a student
+    - Each sequence could be a learning session (defined as consecutive learning activities of at least 60s with no more than 30 minutes break between activities)
+    
+* What is the time unit in our data?
+    - Every minute?
+    - Every 5 mins?
+    - Every hour?
+
+```{r}
+# convert ms to minutes
+lasi21_logdata$spent_time_m <- round(lasi21_logdata$spent_time/60000, digits=1)
+
+# create a flag for session break (aka where time spent > 30 minutes)
+lasi21_logdata$session_flag <- 0
+lasi21_logdata$session_flag <- ifelse(lasi21_logdata$spent_time_m>30, 1, lasi21_logdata$session_flag)
+
+# filter out all spent_time < 90s
+lasi21_logdata2 <- lasi21_logdata %>%  filter(spent_time>=90000)
+
+
+# create session number 
+lasi21_logdata2 <- lasi21_logdata2 %>% 
+                        arrange(id,date_time,spent_time) %>% 
+                        mutate(session_num = cumsum(session_flag))
+
+# remove session break
+lasi21_logdata2 <- lasi21_logdata2 %>%  filter(session_flag==0)
+
+# for each learning session, calculate the cummulative time spent
+lasi21_logdata2 <- lasi21_logdata2 %>% 
+                        arrange(id,date_time,spent_time) %>% 
+                        group_by(session_num) %>% 
+                        mutate(spent_time_m_cum = cumsum(spent_time_m))
+
+# create time unit as 1 minute (60s)
+lasi21_logdata2$time_unit <- round(lasi21_logdata2$spent_time_m_cum,digits=0)
+head(lasi21_logdata2,10)
+```
+
+**Prepare data in SPELL format**
+
+Since the log data can capture the start time and end time of each visit, it makes it suitable to prepare the data in a SPELL format. 
+
+To recall, the structure of a SPELL data format should look like this
+
+| Position | Varible    | Option name |
+|----------|------------|-------------|
+| 1        | ID         | id          |
+| 2        | Start time | begin       |
+| 3        | End time   | end         |
+| 4        | Status     | status      |
+
+```{r}
+log_spell <- lasi21_logdata2 %>% 
+            group_by(session_num) %>% 
+            mutate(start = lag(time_unit), start=replace_na(start,1), end=time_unit) %>% 
+            select(session_num,start,end,site_type)
+log_spell %>% filter(session_num==22)
+```
+
+**Create sequence data from SPELL format**
+
+We can use the `seqdef()` function to convert the SPELL data into STS format, which will be used for subsequent analyses.
+
+Note:
+- For some reasons, `seqdef()` does not play well with tibble format or any other formats than data.frame, so make sure to convert your data using the `as.data.frame()` function
+
+```{r}
+log_spell <- as.data.frame(log_spell)
+log_sts.seq <- seqdef(log_spell, var = c(id="session_num", begin="start", end="end", status="site_type"), 
+                   informat = "SPELL",  process = FALSE)
+```
+
+What can we observe from the output above?
+
+- There were 21,418 sequences in the data set
+- min/max sequence length: 2/429
+- 12 distinct states
+- coding void elements with '%' and missing values with '*'
+
+```{r}
+head(log_sts.seq)
+```
+
+We can also print out some sequences using the SPS format for easy observations
+
+```{r}
+print(log_sts.seq[31:41,], format="SPS")
+```
+
+Let's plot these example sequences using the `seqiplot()` function
+
+```{r}
+seqiplot(log_sts.seq[31:41,1:100], with.legend = T, main = "Index plot (10 first sequences)")
+```
+
+As a final note, there is not a single approach to pre-process your data. In practice, there are a few 'nobs' that you could adjust when pre-processing your data:
+- What is the time granularity of your sequence (e.g., every second, every minute, every 5 mins)
+- What is a sequence in your study? (e.g., each person is a sequence, or each learing session - however you define a learning session)
+- What is a status? (e.g., read, write, discuss, practice)
+
+### Truncations, gaps and missing values
+
+- Sequences defined as the list of successive states without duration information are typically of varying length.
+- In event sequences, the number of events experienced by each individual differs from one individual to the other.
+- The length of the follow up is not the same for all individuals or sequences may be right or left censored.
+- Sequences may not be left aligned depending on the time axis on which they are defined.
+- Data may not be available for all measuring points yielding internal gaps in the sequences.
+
+Let's simulate an example of data when sequences are not aligned. In this example, three sequences (s1,s2,s3) have different start and end date. Participant b also have a gap in 1993. If the respondents entered the study at different points in time and we represent the data on a calendar time axis, the data could look like this
+
+```{r}
+s1 <- c("a","b","c","d",NA,NA)
+s2 <- c(NA,"a","b",NA,"c","d")
+s3 <- c(NA,NA, "a","b","c","d")
+
+df <- data.frame(rbind(s1,s2,s3))
+colnames(df) <- c(1990:1995)
+df
+```
+
+Let's create a sequence object from `df`.
+The default values of the `seqdef()` function are `left=NA`, `gaps=NA` and `right="DEL"`. We will see what these options mean in a moment
+
+```{r}
+seqdef(df)
+```
+
+In this case it may be more appropriate to represent the data on a process time axis where all sequences would be left aligned, meaning that their common origin is not a specific year but the beginning of the observed 4 year duration.
+
+The left part of sequences s2 and s3 which do not begin in the first column of the matrix, has been considered as part of them. To remedy to this problem, we could use the left="DEL" option. 
+
+```{r}
+seqdef(df,left="DEL")
+```
+
+Now that all the 3 sequences have been left aligned. But sequence s2 has a gap in the data. Each missing value is left as an explicit missing element. We could also delete the missing values encountered in the center part of the sequence by setting `gaps="DEL"`
+
+```{r}
+seqdef(df,left="DEL", gaps="DEL")
+```
+
+## 3. Exploratory analysis of sequences
+
+### Sequence index plot
+
+We can easily plot the top 20 sequences using the `seqiplot()` function. 
+Index plot (first 20 sequences)
+```sh
+seqiplot(data, main = "Index plot (first 20 sequences)", idxs = 1:20)
+```
+
+```{r}
+# Plot data during the first 100 minutes only
+
+seqiplot(log_sts.seq[,1:100], main = "Index plot (first 20 sequences)", idxs = 1:20)
+```
+
+### State distribution plot
+
+The `seqdplot()` function plots a graphic showing the state distribution at each time point 
+
+```sh
+seqdplot(data, main = "State distribution plot")
+```
+
+```{r}
+seqdplot(log_sts.seq[,1:300], main = "State distribution plot")
+```
+
+Beside plotting the distribution of the states at each time point, you may want to get the figures of the distribution. The `seqstatd()` function returns the table of the state distributions together with the number of valid states and an entropy measure for each time unit. We will explain what entropy means later.
+
+Here's I am going to return a table of state distributions of 5 time units as an example
+
+```{r}
+print(seqstatd(log_sts.seq[,1:5]))
+```
+
+### Sequence frequency plot
+
+The `seqfplot()` function plots the most frequent sequences. By default, the 10 most frequent sequences are plotted. You can adjust this with the `idxs` option. The sequences are ordered by decreasing frequency from bottom up and the bar widths are set proportional to the sequence frequency (`pbarw = TRUE`)
+
+```sh
+seqfplot(data, main = "Sequence frequency plot", idxs = 1:10)
+```
+
+```{r}
+seqfplot(log_sts.seq[,1:100], main = "Sequence frequency plot", pbarw = TRUE, idxs = 1:10)
+```
+
+You can also return the frequency table using `seqtab()` function
+
+```{r}
+print(seqtab(log_sts.seq[,1:100]))
+```
+
+### Transition rates
+
+The `seqtrate()` function computes the transition rates between states or events. The outcome is a matrix where each rows gives a transition distribution from associated originating state (or event) in t to the states in t + 1 (the figures sum to one in each row).
+
+```{r}
+# ?seqtrate
+```
+
+```{r}
+seqtrate(log_sts.seq[,1:100])
+```
+
+### Average time spent in each state
+
+The `seqmtplot()` function to visualize the mean time spent in each state. You can also create multiple plots by group using the `group` option.
+
+```{r}
+seqmtplot(log_sts.seq[,1:100], group = NULL, title = "Mean time")
+```
+
+### Descriptive statisitics of sequences
+
+- Sequence length using the `seqlength()` function
+
+```{r}
+hist(seqlength(log_sts.seq), main = 'Histogram of sequence length', xlab="Sequence length in minutes")
+```
+
+- Distinct states sequence (DSS) using the `seqdss()` function
+
+```{r}
+print(seqdss(log_sts.seq[31:41,1:100]))
+```
+
+- Shanon's entropy is calculated as:
+
+$$h = -\sum^s_i{\pi_i log{\pi_i}}$$
+
+* where s is the size of the alphabet 
+* $\pi_i$ the proportion of occurrences of the ith state in the considered sequence
+
+The entropy can be interpreted as the ‘uncertainty’ of predicting the states in a given sequence. If all states in the sequence are the same, the entropy is equal to 0. It is maximum when the cases are equally distributed between the states
+
+The `seqient()` function returns by default a normalized Shanon's entropy
+
+```{r}
+seqiplot(log_sts.seq[31:41,1:100])
+seqient(log_sts.seq[31:41,1:100], norm = TRUE)
+```
+
+Let's plot a histogram of entropy for the whole dataset
+
+```{r}
+hist(seqient(log_sts.seq), main = 'Histogram of sequence entropy', xlab="Normalized Shannon's entropy")
+```
+
+Let us have a look at the sequences near the minimum, median and maximum entropy. For that, we draw sets of sequences having an entropy lower or equal to the 55th percentile, an entropy 50-90th percentile, and an entropy greater than the 90th percentile.
+
+```{r}
+ient.quant <- quantile(seqient(log_sts.seq[,1:100]), c(0, 0.55, 0.9, 1))
+ient.quant
+```
+
+```{r}
+ient.group <- cut(seqient(log_sts.seq[,1:100]), ient.quant, labels = c("55th or lower", "55th-90th", "above 90th"), include.lowest = T)
+ient.group <- factor(ient.group, levels = c("55th or lower", "55th-90th", "above 90th"))
+table(ient.group)
+```
+
+```{r}
+options(repr.plot.width=15, repr.plot.height=8)
+seqfplot(log_sts.seq[,1:100], group = ient.group, pbarw = TRUE)
+```
+
+- Turbulence
+
+The Turbulence depends on the length of the sequence. The Turbulence is based on the number $\phi$(x) of distinct subsequences that can be extracted from the distinct state sequence and the variance of the consecutive times ti spent in the distinct states.
+
+$$some math$$
+
+
+```{r}
+seqiplot(log_sts.seq[31:401,1:100])
+cbind(seqST(log_sts.seq[31:41,1:100]),seqient(log_sts.seq[31:41,1:100]))
+```
+
+Finally, we can use a single function `seqindic` to produce multiple descriptive statistics of the sequences. Here's a few examples
+
+- "lgth" (sequence length)
+- "trans" (number of state changes)
+- "entr" (longitudinal normalized entropy)
+- "cplx" (complexity index)
+- "turb" (turbulence)
+
+```{r}
+# ?seqindic
+```
+
+```{r}
+seqindic(log_sts.seq[31:41,1:100], indic=c("lgth","trans","entr","turbn","cplx"))
+```
+
+![](img/science.png)
+

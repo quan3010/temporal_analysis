@@ -1,0 +1,281 @@
+---
+title: An R Markdown document converted from "lectures/Lecture2.ipynb"
+output: html_document
+---
+
+![](img/solar_logo.png)
+# Lecture 2: Clustering of sequential data in education
+
+Quan Nguyen, Department of Statistics, University of British Columbia
+
+```{r}
+library(tidyverse)
+library(TraMineR)
+library(cluster)
+```
+
+## 1. Similarities and distances between sequences
+
+Similarity between sequences can be measured via
+
+- **Common attributes**: The more common attributes, the more similar 
+- **Edit distance**: The lower the edit cost, the more similar
+
+```{r}
+data(famform)
+famform.seq <- seqdef(famform)
+print(famform.seq)
+```
+
+### Common attributes
+#### Longest Common Prefix (LCP) distances
+
+[1] S-U        
+[2] S-U-M 
+
+Longest Common Prefix = [S-U]
+
+Similarity = 2  
+Dismilarity = 1
+
+```{r}
+seqdist(famform.seq, method='LCP')
+```
+
+We can also produce a normalized version of LCP that is insensitive to the length of the sequences
+
+```{r}
+print(famform.seq)
+seqdist(famform.seq, method='LCP', norm="auto")
+```
+
+#### Longest common suffix ("RLCP")
+     
+[3] S-U-M-MC    
+[5] U-M-MC 
+
+Longest Common Suffix = [U-M-MC]
+
+Similarity = 3  
+Dismilarity = 1
+
+```{r}
+print(famform.seq)
+seqdist(famform.seq, method='RLCP')
+```
+
+#### Longest Common Subsequence (LCS) distances
+
+Let's take a look at this example:
+
+[4] S-U-M-MC-SC  
+[5] U-M-MC 
+
+Longest Common Subsequence = [U-M-MC]
+
+Similarity = 3  
+Dismilarity = 2
+
+```{r}
+print(famform.seq)
+seqdist(famform.seq, method='LCS')
+```
+
+```{r}
+# Normalized version
+
+seqdist(famform.seq, method='LCS', norm = 'auto')
+```
+
+#### Dealing with missing values
+
+```{r}
+s1 <- c("a","b","c","d",NA,NA)
+s2 <- c("a","b",NA,"c","d",NA)
+s3 <- c("a","b",NA,"c","d","a")
+
+df <- data.frame(rbind(s1,s2,s3))
+colnames(df) <- c(1990:1995)
+df.seq <- seqdef(df)
+print(df.seq)
+```
+
+To compute LCS distances between sequences containing gaps, one can use the with.miss=TRUE option. In that case, missing states are considered as an additional valid state.
+
+Let's look at s1 and s2
+
+LCS = a-b or c-d 
+
+Similarity = 2  
+Dismilarity = 1
+
+```{r}
+seqdist(df.seq, method='LCS', with.miss=TRUE)
+```
+
+```{r}
+# ?seqdist
+```
+
+### Edit distance
+
+#### Optimal matching (OM) distances
+
+Optimal matching generates edit distances that are the minimal cost, in terms of `insertions`, `deletions` and `substitutions`, for transforming one sequence into another.
+
+How do we transform the following sequence 1 to sequence 2
+
+s1 = {N,A,T,I,O,N}  
+s2 = {F,A,S,H,I,O,N}
+
+Strategy 1:
+- Substitute N with F (NATION -> FATION)
+- Insert S (FATION -> FASTION)
+- Substitute T with H (FASTION -> FASHION)
+
+Strategy 2:
+- Delete N (NATION -> ATION)
+- Insert F (ATION -> FATION)
+- Delete T (FATION -> FAION)
+- Insert S (FAION -> FASION)
+- Insert H (FASION -> FASHION)
+
+Assuming there's a cost for each action (i.e., substitution, insertion/deletion). What would be the optimal strategy that minizes the total cost? --> Optimal Matching algorithm
+
+**The insertion/deletion cost**
+- A constant value specified by user (default = 1)
+
+**The substitution-cost matrix**
+- A constant value (default)
+- Based on transition rates between different states
+
+Let's have a look at our famform data. We generate a **substitution cost matrix with constant value of 2**
+
+```{r}
+print(famform.seq)
+sub_cost <- seqcost(famform.seq, method = "CONSTANT", cval = 2)
+sub_cost
+```
+
+We compute the distances using the matrix and the **default indel cost of 1**
+
+```{r}
+famform.seq_OM <- seqdist(famform.seq, method = "OM", sm = sub_cost$sm)
+famform.seq_OM
+```
+
+Minimal cost to transform `[1] S-U` to `[5] U-M-MC`
+
+- Delete S (cost 1)
+- Insert M (cost 1)
+- Insert MC (cost 1)
+
+Total cost = 3
+
+```{r}
+famform.seq_OM[1,5]
+```
+
+Substitution cost matrix based on transition rates between different states using `method = "TRATE"`
+
+```{r}
+print(famform.seq)
+sub_cost_TRATE <- seqcost(famform.seq, method = "TRATE", cval = 2)
+sub_cost_TRATE
+seqdist(famform.seq, method = "OM", sm = sub_cost_TRATE$sm)
+```
+
+Check the documentation for other methods of generating substitution costs `?seqcost`
+
+```{r}
+?seqcost
+```
+
+```{r}
+# ?seqdist
+```
+
+## 2. Agglomerative clustering of sequences
+
+Some background on hierarchical clustering:
+
+Broadly speaking, there are two types:
+- **Agglomerative clustering**: Commonly referred to as AGNES (AGglomerative NESting) 
+    - Bottom-up approach
+    - The two data points that are the most similar are combined into a new bigger cluster (nodes). This procedure is iterated until all points are a member of just one single big cluster (root)
+
+- **Divisive hierarchical clustering**: Commonly referred to as DIANA (DIvise ANAlysis)
+    - Top-down approach
+    - Start with one single big cluster (root), at each iteration, we split the cluster into two least similar clusters, and repeat until each cluster contains a single data point
+    
+![](https://miro.medium.com/max/1254/0*E-qictlO_9isi0Dl.png)
+
+Source of figure: https://towardsdatascience.com/machine-learning-algorithms-part-12-hierarchical-agglomerative-clustering-example-in-python-1e18e0075019
+
+In this lecture, we will focus on the agglomerative clustering. We are going to use the `agnes()` function from the `cluster` package in R. Essentially, we are going to feed a dissimilarity matrix and specify the method to measure the distance (or similarity) between two clusters of observations.
+
+```{r}
+clusterward <- agnes(famform.seq_OM, diss = TRUE, method = "ward")
+```
+
+```{r}
+famform.seq
+plot(clusterward)
+```
+
+**How do we measure the dissimilarity between two clusters of observations?**
+
+| Linkage methods  | Description                                                                                                                                                                             |
+|------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Single linkage   | The distance between one cluster and another cluster is taken to be equal to the shortest distance from any data point of one cluster to any data point in another (nearest neighbour)  |
+| Average linkage  | The distance between two clusters is the average of the dissimilarities between the points in one cluster and the points in the other cluster                                           |
+| Complete linkage | The distance between one cluster and another cluster is taken to be equal to the longest distance from any data point of one cluster to any data point in another (futherest neighbour) |
+| Ward             | Minimizes the total within-cluster variance. At each step the pair of clusters with the smallest between-cluster distance are merged                                                    |
+
+Match each of the following figure to an appropriate linkage method
+
+Figure A --> ?
+Figure B --> ?
+Figure C --> ?
+
+![](https://www.researchgate.net/profile/Yu-Qian-18/publication/350350844/figure/fig2/AS:1012170494074883@1618331659642/The-distance-between-two-clusters-defined-in-single-linkage-SL-A-complete-linkage.png)
+
+Source: https://www.researchgate.net/figure/The-distance-between-two-clusters-defined-in-single-linkage-SL-A-complete-linkage_fig2_350350844
+
+**How do you pick the number of clusters?**
+
+We usually look at the largest difference of heights
+
+![](https://statsandr.com/blog/clustering-analysis-k-means-and-hierarchical-clustering-by-hand-and-in-r_files/optimal%20number%20of%20clusters%20hierarchical%20clustering.png)
+
+Source: https://statsandr.com/blog/clustering-analysis-k-means-and-hierarchical-clustering-by-hand-and-in-r/
+
+Check out this amazing cheatsheet too: https://statsandr.com/blog/files/Hierarchical-clustering-cheatsheet.pdf
+
+**Where would you draw the line to determine optimal k clusters for each of the dendogram below?**
+![](img/dendograms.png)
+
+```{r}
+plot(clusterward, which.plot=2)
+```
+
+```{r}
+# cut the dendogram tree to generate two clusters
+cluster2 <- cutree(clusterward, k = 2)
+
+# create label for clusters
+factor(cluster2, labels = c("Type 1", "Type 2"))
+
+# check the number of observations in each cluster
+table(cluster2)
+
+# plot sequence frequency by cluster membership
+seqfplot(famform.seq, group = cluster2, pbarw = T)
+```
+
+Check the documentation for more details of hierarchical clustering `?agnes`
+
+```{r}
+# ?agnes
+```
+
