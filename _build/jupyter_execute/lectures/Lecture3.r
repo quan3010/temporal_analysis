@@ -39,20 +39,24 @@ inspect(association.rules[1:10])
 # Finding Rules related to given items
 
 # Find what students enrolled before choosing 'ECON'
-item.association.rules <- apriori(df_obj, parameter = list(supp=0.02, conf=0.6),appearance = list(default="lhs",rhs="ECON"))
+item.association.rules <- apriori(df_obj, parameter = list(supp=0.02, conf=0.6),
+                                  appearance = list(default="lhs",rhs="ECON"))
 
 inspect(head(item.association.rules))
 
 # Find what students enrolled after choosing 'MATH' and 'PHY'
-item2.association.rules <- apriori(df_obj, parameter = list(supp=0.02, conf=0.6),appearance = list(default="rhs",lhs=c("MATH","PHY")))
+item2.association.rules <- apriori(df_obj, parameter = list(supp=0.02, conf=0.6),
+                                   appearance = list(default="rhs",lhs=c("MATH","PHY")))
 
 inspect(head(item2.association.rules))
 
-plot(association.rules, engine = "plotly")
+plot(association.rules)
+# plot(association.rules, engine = "plotly")
 
-plot(association.rules,method="two-key plot", engine = "plotly")
+plot(association.rules,method="two-key plot")
 
-plot(association.rules, method = "graph",  engine = "htmlwidget")
+plot(association.rules, method = "graph")
+# plot(association.rules, method = "graph",  engine = "htmlwidget")
 
 # Parallel plot
 plot(association.rules, method="paracoord")
